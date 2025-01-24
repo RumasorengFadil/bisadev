@@ -37,7 +37,7 @@ export default function VideoPlayer({ src, poster, className="w-2/4" }:{src:stri
                 muted={true}
             />
 
-            {/* <div className="controls">
+            <div className="controls">
                 <button onClick={togglePlayPause}>
                     {isPlaying ? "Pause" : "Play"}
                 </button>
@@ -52,7 +52,7 @@ export default function VideoPlayer({ src, poster, className="w-2/4" }:{src:stri
                         onChange={handleVolumeChange}
                     />
                 </label>
-            </div> */}
+            </div>
         </div>
     );
 }

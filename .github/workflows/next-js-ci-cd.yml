@@ -1,1 +1,44 @@
+name: CI/CD for Next.js with rsync
 
+on:
+  push:
+    branches:
+      - main # Jalankan workflow hanya jika ada perubahan di branch 'main'
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout kode dari repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Step 2: Setup Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18' # Gunakan versi Node.js yang sesuai dengan proyek Anda
+
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # Step 4: Build aplikasi Next.js
+      - name: Build Next.js
+        run: npm run build
+
+      # Step 5: Sinkronisasi ke server menggunakan rsync
+      - name: Deploy to Server
+        env:
+          SERVER_IP: ${{ secrets.SERVER_IP }}  # User server Anda
+          SERVER_USER: ${{ secrets.SERVER_USER }}  # Host/IP server
+          SERVER_PATH: ${{ secrets.SERVER_PATH }}  # Path tujuan di server
+        run: |
+          # Pastikan rsync sudah terinstall
+          sudo apt-get install -y rsync
+          
+          # Jalankan rsync untuk mengupload file ke server
+          rsync -avz --delete --exclude=".git" \
+            ./out/ \
+            $SERVER_USER@$SERVER_IP:$SERVER_PATH

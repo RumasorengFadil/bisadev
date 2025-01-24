@@ -16,7 +16,7 @@ const PrimaryButton: React.FC<PrimaryButtonProps> = ({
   ...props
 }) => {
   return (
-    <Button disabled={disabled} className={"bg-primary border " + className}>{children}</Button>
+    <Button contentRef={contentRef} {...props} disabled={disabled} className={"bg-primary border " + className}>{children}</Button>
   );
 };
 

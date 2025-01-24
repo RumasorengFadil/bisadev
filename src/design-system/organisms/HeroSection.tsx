@@ -21,7 +21,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onContactClick }) => {
       <Navbar />
 
       <SectionTitle className="text-yellowpale" size="lg">
-        Prepare experience for <br /> your future with{" "}
+        Prepare experience for <br /> your future with Fadil {" "}
         <span className="font-bold">Bbyts</span>
       </SectionTitle>
 

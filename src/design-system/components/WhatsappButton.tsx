@@ -1,4 +1,3 @@
-import { MouseEventHandler } from "react";
 import PrimaryButton from "./Button";
 import { FaWhatsappSquare } from "react-icons/fa";
 

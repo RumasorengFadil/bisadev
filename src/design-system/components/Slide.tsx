@@ -1,18 +1,19 @@
 "use client"
-import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
+import { useEffect, useState } from "react";
 
 export const Slides = ({ slides, interval = 3000, object }: { slides: Array<string>, interval?: number, object?: string }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
-    const touchStart = useRef(0);
-    const touchEnd = useRef(0);
-    const [isHolding, setIsHolding] = useState(false);
+    // const touchStart = useRef(0);
+    // const touchEnd = useRef(0);
+    // const [isHolding, setIsHolding] = useState(false);
 
     // Function to go to the previous slide
-    const goToPrevious = () => {
-        setCurrentIndex((prevIndex) =>
-            prevIndex === 0 ? slides.length - 1 : prevIndex - 1
-        );
-    };
+    // const goToPrevious = () => {
+    //     setCurrentIndex((prevIndex) =>
+    //         prevIndex === 0 ? slides.length - 1 : prevIndex - 1
+    //     );
+    // };
 
     // Function to go to the next slide
     const goToNext = () => {
@@ -22,43 +23,41 @@ export const Slides = ({ slides, interval = 3000, object }: { slides: Array<stri
     };
 
     // Function to go to a specific slide
-    const goToSlide = (index: number) => {
-        setCurrentIndex(index);
-    };
+    // const goToSlide = (index: number) => {
+    //     setCurrentIndex(index);
+    // };
 
-    const handleTouchStart = (e: any) => {
-        touchStart.current = e.touches[0].clientX;
-    };
+    // const handleTouchStart = (e: any) => {
+    //     touchStart.current = e.touches[0].clientX;
+    // };
 
-    const handleTouchMove = (e: any) => {
-        touchEnd.current = e.touches[0].clientX;
-    };
+    // const handleTouchMove = (e: any) => {
+    //     touchEnd.current = e.touches[0].clientX;
+    // };
 
-    const handleTouchEnd = () => {
-        if (touchStart.current - touchEnd.current > 50) {
-            goToNext(); // Geser ke kanan
-        }
-        if (touchStart.current - touchEnd.current < -50) {
-            goToPrevious(); // Geser ke kiri
-        }
-    };
+    // const handleTouchEnd = () => {
+    //     if (touchStart.current - touchEnd.current > 50) {
+    //         goToNext(); // Geser ke kanan
+    //     }
+    //     if (touchStart.current - touchEnd.current < -50) {
+    //         goToPrevious(); // Geser ke kiri
+    //     }
+    // };
 
     // Aktifkan hold
-    const handleMouseDown = () => {
-        setIsHolding(true); 
-      };
-    
+    // const handleMouseDown = () => {
+    //     setIsHolding(true); 
+    //   };
+
     // Matikan hold
-    const handleMouseUp = () => {
-        setIsHolding(false); 
-    };
+    // const handleMouseUp = () => {
+    //     setIsHolding(false); 
+    // };
 
     // Autoplay logic
     useEffect(() => {
         const timer = setInterval(() => {
-            if (!isHolding) {
-                goToNext(); // Move to the next slide every X seconds
-            }
+            goToNext(); // Move to the next slide every X seconds
         }, interval);
 
         // Clear the interval when component unmounts or when a manual navigation happens
@@ -75,8 +74,8 @@ export const Slides = ({ slides, interval = 3000, object }: { slides: Array<stri
             className="flex w-full h-full transition-transform ease-linear duration-1000"
             onClick={goToNext}
         >
-            {slides.map((slide,i) =>
-                <img
+            {slides.map((slide, i) =>
+                <Image
                     key={i}
                     className={"w-full h-auto flex-shrink-0 " + object}
                     src={slide}

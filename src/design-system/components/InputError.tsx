@@ -2,7 +2,6 @@ export default function InputError(
     { 
         message, 
         className = '', 
-        ...props 
     }:{
         message:string,
         className?:string

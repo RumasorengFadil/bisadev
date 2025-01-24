@@ -1,8 +1,8 @@
 import Link from "next/link";
 
-export default function NavLink({ active = false, className = '', children, ...props }: NavLinkProps) {
+export default function NavLink({ className = '', children, ...props }: NavLinkProps) {
     return (
-        <Link {...props} >
+        <Link className={className} {...props} >
             {children}
         </Link>
     );
@@ -10,7 +10,6 @@ export default function NavLink({ active = false, className = '', children, ...p
 
 interface NavLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
     className?: string;
-    active?: boolean;
     children: React.ReactNode;
     href: string
 }
