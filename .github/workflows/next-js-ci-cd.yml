@@ -39,7 +39,10 @@ jobs:
           sudo apt-get install -y rsync
 
           # Jalankan rsync untuk mengupload file ke server
-          rsync -avz --delete -e "ssh -p 6510" ./out/ $SERVER_USER@$SERVER_IP:$SERVER_PATH
+          rsync -avz --delete --exclude=".git" \
+          -e "ssh -p 6510" \
+            ./out/ \
+            $SERVER_USER@$SERVER_IP:$SERVER_PATH
 
 
 
