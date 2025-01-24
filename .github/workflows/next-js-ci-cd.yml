@@ -43,3 +43,7 @@ jobs:
           -e "ssh -p 6510" \
             ./out/ \
             $SERVER_USER@$SERVER_IP:$SERVER_PATH
+
+
+
+#dds
