@@ -12,7 +12,7 @@ jobs:
     steps:
       # Step 1: Checkout kode dari repository
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
 
       # Step 2: Setup Node.js
       - name: Setup Node.js
