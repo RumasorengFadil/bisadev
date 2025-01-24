@@ -45,5 +45,3 @@ jobs:
             $SERVER_USER@$SERVER_IP:$SERVER_PATH
 
 
-
-#dds
