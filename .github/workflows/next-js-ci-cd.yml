@@ -43,13 +43,6 @@ jobs:
           SERVER_USER: ${{ secrets.SERVER_USER }} # Host/IP server
           SERVER_PATH: ${{ secrets.SERVER_PATH }} # Path tujuan di server
         run: |
-          # Pastikan rsync sudah terinstall
-          sudo apt-get install -y rsync
-          mkdir -p ~/.ssh
-          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa  # Ubah izin file ke 600
-          ssh-keyscan -H $SERVER_IP >> ~/.ssh/known_hosts
-
           # Jalankan rsync untuk mengupload file ke server
           rsync -avz --delete --exclude=".git" \
           -e "ssh -i id_rsa -p 6510 -o StrictHostKeyChecking=no" \
