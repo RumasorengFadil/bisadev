@@ -40,7 +40,7 @@ jobs:
 
           # Jalankan rsync untuk mengupload file ke server
           rsync -avz --delete --exclude=".git" \
-          -e "ssh -p 6510 -o StrictHostKeyChecking=no" \
+          -e "ssh -p 6510 id_rsa -o StrictHostKeyChecking=no" \
             ./out/ \
             $SERVER_USER@$SERVER_IP:$SERVER_PATH
 
