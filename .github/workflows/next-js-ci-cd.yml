@@ -27,16 +27,8 @@ jobs:
       # Step 4: Build aplikasi Next.js
       - name: Build Next.js
         run: npm run build
-      
-      # Step 5: Set up SSH
-      - name: Set up SSH
-        run: |
-          mkdir -p ~/.ssh
-          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H $SERVER_IP >> ~/.ssh/known_hosts
 
-      # Step 6: Sinkronisasi ke server menggunakan rsync
+      # Step 5: Sinkronisasi ke server menggunakan rsync
       - name: Deploy to Server
         env:
           SERVER_IP: ${{ secrets.SERVER_IP }} # User server Anda
@@ -48,11 +40,9 @@ jobs:
 
           # Jalankan rsync untuk mengupload file ke server
           rsync -avz --delete --exclude=".git" \
-          -e "ssh -p 6510 " \
+          -e "ssh -p 6510" \
             ./out/ \
             $SERVER_USER@$SERVER_IP:$SERVER_PATH
-      
 
 
 
-#dds
