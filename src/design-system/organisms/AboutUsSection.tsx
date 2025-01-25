@@ -15,7 +15,7 @@ const AboutUsSection: React.FC = () => {
                 alt="Team Image"
                 unoptimized
             />
-            <p className="max-w-[600px]">
+            <p className="max-w-[600px] text-black">
                 Bbyts adalah perusahaan yang menyediakan layanan profesional di bidang pembuatan website, jasa desain, dan pengembangan portofolio berbasis website. Kami berkomitmen untuk menghadirkan solusi digital kreatif dan inovatif yang mendukung kesuksesan bisnis Anda.
             </p>
         </div>

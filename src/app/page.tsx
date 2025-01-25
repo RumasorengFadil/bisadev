@@ -18,6 +18,8 @@ export default function Home() {
       <ServicesSection />
 
       <WhyBbytsSection />
+
+      <div className="text-white bg-white">.</div>
     </>
   )
   return (

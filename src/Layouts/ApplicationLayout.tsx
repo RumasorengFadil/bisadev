@@ -27,7 +27,7 @@ const ApplicationLayout: React.FC<ApplicationLayoutProps> = memo(function Applic
         )}
 
         {content && (
-          <div className={`flex flex-col flex-1 h-full space-y-8 ${contentClassName}`}>
+          <div className={`flex flex-col flex-1 h-full bg-white space-y-8 ${contentClassName}`}>
             {content}
           </div>
         )}
