@@ -26,6 +26,8 @@ jobs:
 
       # Step 4: Build aplikasi Next.js
       - name: Build Next.js
+        env:
+          NEXT_PUBLIC_ENV: ci
         run: npm run build
         
       # Step 4: Setup SSH Key
