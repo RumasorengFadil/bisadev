@@ -3,7 +3,7 @@ import { SectionTitle } from "../components/SectionTitle";
 
 const WhyBbytsSection = () => {
     return (
-      <div className="flex flex-col space-y-4 px-10">
+      <div className="flex flex-col space-y-4 px-10 bg-white">
         <SectionTitle>
           Kenapa Harus <span className="font-bold">Bbyts</span>
         </SectionTitle>
@@ -26,7 +26,7 @@ const WhyBbytsSection = () => {
               Solusi Digital Untuk Bisnis dan <br /> Masa Depan Kamu
             </SectionTitle>
   
-            <p className="text-justify">
+            <p className="text-justify text-black">
               Kami percaya bahwa setiap bisnis dan insan memiliki karakter unik, sehingga kami menawarkan solusi yang disesuaikan dengan kebutuhan Anda untuk memastikan hasil yang optimal.
             </p>
           </div>
