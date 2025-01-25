@@ -1,7 +1,7 @@
 
 export const SectionTitle = ({ title, className, children, weight = "bold" }: { title?: string, className?: string, children?: React.ReactNode, weight?: string, align?: string, size?: string }) => {
     return (
-        <h1 className={`text-center font-${weight} text-2xl ${className}`}>
+        <h1 className={`text-center font-${weight} text-2xl text-black ${className} `}>
             {children ?
                 children :
                 title

@@ -22,42 +22,39 @@ export default function Home() {
 
       <div className="flex flex-col space-y-14 px-20 bg-yellowpale py-10 rounded-[150px]">
         <SectionTitle title="Jasa & Produk Kami" />
-
         <div className="flex flex-col sm:flex-row gap-10">
           <Card className="flex-1 sm:w-0 bg-white justify-center">
             <IconFigure>
               <div className="bg-yellowpale p-3 rounded-full shadow-md">
-                <BsPersonVcard className="opacity-60" size={24} />
+                <BsPersonVcard className="opacity-60 text-black" size={24} />
               </div>
-              <p className="opacity-60 text-center">BLIO</p>
+              <p className="opacity-60 text-center text-black">BLIO</p>
             </IconFigure>
           </Card>
           <Card className="flex-1 sm:w-0 bg-white justify-center">
             <IconFigure>
               <div className="bg-yellowpale p-3 rounded-full shadow-md">
-                <TbCashRegister className="opacity-60" size={24} />
+                <TbCashRegister className="opacity-60 text-black" size={24} />
               </div>
-              <p className="opacity-60 text-center">BPOS</p>
+              <p className="opacity-60 text-center text-black">BPOS</p>
             </IconFigure>
           </Card>
           <Card className="flex-1 sm:w-0 bg-white justify-center">
             <IconFigure>
               <div className="bg-yellowpale p-3 rounded-full shadow-md">
-                <FaLaptopCode className="opacity-60" size={24} />
+                <FaLaptopCode className="opacity-60 text-black" size={24} />
               </div>
-              <p className="opacity-60 text-center">Perancangan Website</p>
+              <p className="opacity-60 text-center text-black">Perancangan Website</p>
             </IconFigure>
           </Card>
           <Card className="flex-1 sm:w-0 bg-white justify-center">
             <IconFigure>
               <div className="bg-yellowpale p-3 rounded-full shadow-md">
-                <MdOutlineDesignServices className="opacity-60" size={24} />
+                <MdOutlineDesignServices className="opacity-60 text-black" size={24} />
               </div>
-              <p className="opacity-60 text-center">Desain UI/UX</p>
+              <p className="opacity-60 text-center text-black">Desain UI/UX</p>
             </IconFigure>
           </Card>
-
-
         </div>
       </div>
     </>
