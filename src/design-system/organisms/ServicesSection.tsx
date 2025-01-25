@@ -11,7 +11,7 @@ import { IconFigure } from "../components/IconFigure";
 const ServicesSection = () => {
     return (
         <div className="flex flex-col space-y-14 px-20 bg-yellowpale py-10 rounded-[150px]">
-            <SectionTitle title="Jasa & Produk Kami" />
+            <SectionTitle weight="bold" title="Jasa & Produk Kami" />
             <div className="flex flex-col sm:flex-row gap-10">
                 <Card className="flex-1 sm:w-0 bg-white justify-center">
                     <IconFigure>
