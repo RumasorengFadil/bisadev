@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { SectionTitle } from "../components/SectionTitle";
 
-const AboutUs: React.FC = () => {
+const AboutUsSection: React.FC = () => {
     return <>
         <SectionTitle weight="bold" title="Tentang Kami" />
         <div className="flex justify-center flex-col px-10 space-x-10 text-justify sm:flex-row">
@@ -22,4 +22,4 @@ const AboutUs: React.FC = () => {
     </>
 };
 
-export default AboutUs;
+export default AboutUsSection;
