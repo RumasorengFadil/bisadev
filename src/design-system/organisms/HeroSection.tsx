@@ -21,13 +21,13 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onContactClick }) => {
       <Navbar />
 
       <SectionTitle className="text-yellowpale" size="lg">
-        Prepare experience for <br /> your future with sdsdsds {" "}
+        Prepare experience for <br /> your future with {" "}
         <span className="font-bold">Bbyts</span>
       </SectionTitle>
 
       <div className="flex justify-center">
         <PrimaryButton className="rounded-b-2xl rounded-t" onClick={onContactClick}>
-          Contact Us
+          Hubungi Kami
         </PrimaryButton>
       </div>
 
