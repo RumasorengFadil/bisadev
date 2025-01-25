@@ -1,16 +1,12 @@
 import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {
-  output: "export",
+const nextConfig: NextConfig = {};
 
-  // Optional: Change links `/me` -> `/me/` and emit `/me.html` -> `/me/index.html`
-  // trailingSlash: true,
+const isCI = process.env.NEXT_PUBLIC_ENV === "ci";
 
-  // Optional: Prevent automatic `/me` -> `/me/`, instead preserve `href`
-  // skipTrailingSlashRedirect: true,
-
-  // Optional: Change the output directory `out` -> `dist`
-  // distDir: 'dist',
-};
+// Tambahkan konfigurasi khusus untuk CI/CD
+if (isCI) {
+  nextConfig.output = "export"; // Untuk static export
+}
 
 export default nextConfig;

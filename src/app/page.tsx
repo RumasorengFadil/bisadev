@@ -2,6 +2,7 @@ import { SectionTitle } from "@/design-system/components/SectionTitle";
 import HeroSection from "@/design-system/organisms/HeroSection";
 import ApplicationLayout from "@/Layouts/ApplicationLayout";
 import Image from "next/image";
+import firstTeam from '../../public/images/common/team-1.png';
 
 export default function Home() {
   const header = <>
@@ -17,7 +18,8 @@ export default function Home() {
         width={200}
         height={200}
         className="w-full sm:max-w-80"
-        src="/images/common/team-1.png" alt="" />
+        src={firstTeam} alt="" 
+        />
       <p className="max-w-[600px]">Bbyts adalah perusahaan yang menyediakan layanan profesional di bidang pembuatan website, jasa desain, dan pengembangan portofolio berbasis website. Kami berkomitmen untuk menghadirkan solusi digital kreatif dan inovatif yang mendukung kesuksesan bisnis Anda.</p>
     </div>
 
