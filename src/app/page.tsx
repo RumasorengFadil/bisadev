@@ -18,8 +18,9 @@ export default function Home() {
         width={200}
         height={200}
         className="w-full sm:max-w-80"
-        src={firstTeam} alt="" 
-        />
+        src={firstTeam} alt=""
+        unoptimized
+      />
       <p className="max-w-[600px]">Bbyts adalah perusahaan yang menyediakan layanan profesional di bidang pembuatan website, jasa desain, dan pengembangan portofolio berbasis website. Kami berkomitmen untuk menghadirkan solusi digital kreatif dan inovatif yang mendukung kesuksesan bisnis Anda.</p>
     </div>
 
