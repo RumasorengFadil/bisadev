@@ -12,7 +12,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onContactClick }) => {
     <div
       className="bg-black space-y-14 rounded-b-[100px]"
       style={{
-        backgroundImage: "url(/images/common/futuristic-tunnel.png)",
+        backgroundImage: "url(/images/common/futuristic-tunnel.webp)",
         backgroundPosition: "center",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",

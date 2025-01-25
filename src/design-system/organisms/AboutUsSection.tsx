@@ -11,12 +11,12 @@ const AboutUsSection: React.FC = () => {
                 width={200}
                 height={200}
                 className="w-full sm:max-w-80"
-                src="/images/common/team-1.png"
-                alt="Team Image"
+                src="/images/common/team-1.webp"
+                alt="Jasa pembuatan website murah"
                 unoptimized
             />
             <p className="max-w-[600px] text-black">
-                Bbyts adalah perusahaan yang menyediakan layanan profesional di bidang pembuatan website, jasa desain, dan pengembangan portofolio berbasis website. Kami berkomitmen untuk menghadirkan solusi digital kreatif dan inovatif yang mendukung kesuksesan bisnis Anda.
+                Bbyts adalah perusahaan yang menyediakan layanan profesional di bidang pembuatan website, jasa desain, layanan pengembangan portofolio berbasis website, dan layanan point of sale untuk membantu UMKM naik level. Kami berkomitmen untuk menghadirkan solusi digital kreatif dan inovatif yang mendukung kesuksesan bisnis Anda.
             </p>
         </div>
     </>

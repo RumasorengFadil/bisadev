@@ -15,8 +15,8 @@ const WhyBbytsSection = () => {
               width={1200}
               height={1200}
               className="max-w-full"
-              src="/images/common/career-orientation.png"
-              alt="Team Image"
+              src="/images/common/career-orientation.webp"
+              alt="Jasa desain UI/UX murah"
               unoptimized
             />
           </div>
