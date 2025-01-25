@@ -19,7 +19,7 @@ const ApplicationLayout: React.FC<ApplicationLayoutProps> = memo(function Applic
 }) {
   return (
     <>
-      <div className="w-full h-screen font-inter space-y-12 bg-white flex flex-col dark:bg-gray-900">
+      <div className="w-full h-screen font-inter space-y-12 bg-white flex flex-col">
         {header && (
           <div className={`flex flex-col lg:space-y-5 ${headerClassName}`}>
             {header}
