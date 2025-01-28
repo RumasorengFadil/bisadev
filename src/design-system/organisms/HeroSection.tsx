@@ -26,7 +26,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onContactClick }) => {
       </SectionTitle>
 
       <div className="flex justify-center">
-        <PrimaryButton className="rounded-b-2xl rounded-t hover:bg-white" onClick={onContactClick}>
+        <PrimaryButton className="rounded-b-2xl rounded-t hover:text-white" onClick={onContactClick}>
           Hubungi Kami
         </PrimaryButton>
       </div>
