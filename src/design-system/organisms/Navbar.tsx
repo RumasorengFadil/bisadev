@@ -24,7 +24,7 @@ export const Navbar = ({ }) => {
                 />
             </div>
 
-            <div className={`flex flex-col  text-yellowpale space-y-4 sm:space-y-0 sm:space-x-10 sm:flex-row ${toggleNavbar ? "" : "hidden"} sm:flex`}>
+            <div className={`flex flex-col text-white space-y-4 sm:space-y-0 sm:space-x-10 sm:flex-row ${toggleNavbar ? "" : "hidden"} sm:flex`}>
                 <Dropdown
                     className="sm:absolute sm:bg-gray-950 sm:translate-y-full sm:bottom-0"
                     trigger={<DropdownButton label="Produk Kami" />}

@@ -20,7 +20,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onContactClick }) => {
     >
       <Navbar />
 
-      <SectionTitle className="text-yellowpale" size="lg">
+      <SectionTitle className="text-white" size="lg">
         Prepare experience for <br /> your future with {" "}
         <span className="font-bold">Bbyts</span>
       </SectionTitle>
