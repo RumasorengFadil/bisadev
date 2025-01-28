@@ -27,7 +27,7 @@ export const Navbar = ({ }) => {
             <div className={`flex flex-col text-white space-y-4 sm:space-y-0 sm:space-x-10 sm:flex-row ${toggleNavbar ? "" : "hidden"} sm:flex`}>
                 <Dropdown
                     className="sm:absolute sm:bg-gray-950 sm:translate-y-full sm:bottom-0"
-                    trigger={<DropdownButton label="Jasa Kami" />}
+                    trigger={<DropdownButton label="Produk Kami" />}
                     whenOpen="sm:opacity-100 sm:visible translate-y-0 sm:translate-y-full"
                     whenClose="hidden sm:invisible sm:flex sm:opacity-0 sm:translate-y-3/4"
                 >
@@ -36,7 +36,7 @@ export const Navbar = ({ }) => {
 
                 <Dropdown
                     className="sm:absolute sm:bg-gray-950 sm:translate-y-full sm:bottom-0"
-                    trigger={<DropdownButton label="Layanan Kami" />}
+                    trigger={<DropdownButton label="Jasa Kami" />}
                     whenOpen="sm:opacity-100 sm:visible translate-y-0 sm:translate-y-full"
                     whenClose="hidden sm:invisible sm:flex sm:opacity-0 sm:translate-y-3/4"
                 >
