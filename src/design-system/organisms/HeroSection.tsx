@@ -10,7 +10,7 @@ interface HeroSectionProps {
 const HeroSection: React.FC<HeroSectionProps> = ({ onContactClick }) => {
   return (
     <div
-      className="bg-black space-y-14 rounded-b-[100px]"
+      className="bg-black space-y-10 rounded-b-[100px]"
       style={{
         backgroundImage: "url(/images/common/futuristic-tunnel.webp)",
         backgroundPosition: "center",

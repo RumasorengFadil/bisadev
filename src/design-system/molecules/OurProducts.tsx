@@ -11,9 +11,9 @@ export const OurProducts = ({ className }: { className?: string }) => {
         <Link href={""}>
             <DropdownItem className={`cursor-pointer ${className}`} label="Desain UI/UX" />
         </Link>
-        <Link href={""}>
+        {/* <Link href={""}>
             <DropdownItem className={`cursor-pointer ${className}`} label="Desain Properti" />
-        </Link>
+        </Link> */}
     </>
 
 }
