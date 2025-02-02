@@ -4,6 +4,10 @@ import ServicesSection from "@/design-system/organisms/ServicesSection";
 import AboutUsSection from "@/design-system/organisms/AboutUsSection";
 import WhyBbytsSection from "@/design-system/organisms/WhyBbytsSection";
 import { Metadata } from "next";
+import { ContactUs } from "@/design-system/organisms/ContactUs";
+import { FooterProducts } from "@/design-system/organisms/FooterProducts";
+import { FooterService } from "@/design-system/organisms/FooterService";
+import { FooterFindUs } from "@/design-system/organisms/FooterFindUs";
 
 export const metadata: Metadata = {
   title: "Jasa Pembuatan Website dan Solusi Digital - Bbyts",
@@ -28,7 +32,19 @@ export default function Home() {
       <div className="text-white bg-white">.</div>
     </>
   )
+
+  const footer = (
+    <>
+      <ContactUs />
+
+      <FooterProducts />
+
+      <FooterService />
+
+      <FooterFindUs />
+    </>
+  )
   return (
-    <ApplicationLayout header={header} content={content} />
+    <ApplicationLayout header={header} content={content} footer={{content:footer, copyright:""}} />
   );
 }
