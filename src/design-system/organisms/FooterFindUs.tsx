@@ -3,9 +3,8 @@ import { SectionTitle } from "../components/SectionTitle"
 import { FiPhone } from "react-icons/fi"
 import { IconLink } from "../components/IconLink"
 
-interface FindUsProps {}
 
-export const FooterFindUs: React.FC<FindUsProps> = () => {
+export const FooterFindUs: React.FC = ({}) => {
     return (
         <section id="find-us" className="w-full space-y-4">
             <SectionTitle align="left" size="base" weight="semibold" className="text-base" title="Hubungi Kami" />

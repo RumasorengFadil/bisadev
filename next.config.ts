@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  eactStrictMode: true,
+  reactStrictMode : true,
 };
 
 const isCI = process.env.NEXT_PUBLIC_ENV === "ci";
