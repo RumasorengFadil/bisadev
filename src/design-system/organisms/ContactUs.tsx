@@ -3,6 +3,7 @@ import ApplicationLogo from "../components/ApplicationLogo";
 import { SectionTitle } from "../components/SectionTitle";
 import { ExternalLink } from "../components/ExternalLink";
 import PrimaryButton from "../molecules/PrimaryButton";
+import Button from "../components/Button";
 
 export const ContactUs: React.FC = () => {
     return (
@@ -13,9 +14,9 @@ export const ContactUs: React.FC = () => {
 
             <p>Aplikasi Kasir Online . Marketplace portofolio . Pembuatan Website . Desain UI/UX</p>
             <ExternalLink href="https://wa.me/625244682780?text=">
-                <PrimaryButton className="bg-orange-500 text-white rounded-b-2xl rounded-t" >
+                <Button className="bg-orange-500 text-white rounded-b-2xl rounded-t" >
                     Hubungi Kami
-                </PrimaryButton>
+                </Button>
             </ExternalLink>
         </section>
     );
