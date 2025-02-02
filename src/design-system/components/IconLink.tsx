@@ -12,6 +12,7 @@ export const IconLink = ({ src, className, children, alt = "icon", href, height=
                     className={"w-6 " + className}
                     src={src}
                     alt={alt}
+                    unoptimized
                 />}
         </Link>
     )
