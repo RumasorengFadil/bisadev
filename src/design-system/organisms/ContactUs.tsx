@@ -2,7 +2,6 @@ import React from "react";
 import ApplicationLogo from "../components/ApplicationLogo";
 import { SectionTitle } from "../components/SectionTitle";
 import { ExternalLink } from "../components/ExternalLink";
-import PrimaryButton from "../molecules/PrimaryButton";
 import Button from "../components/Button";
 
 export const ContactUs: React.FC = () => {
