@@ -7,8 +7,8 @@ import Button from "../components/Button";
 export const ContactUs: React.FC = () => {
     return (
         <section className="flex flex-col w-full space-y-4">
-            <ApplicationLogo className="w-40 fill-current" />
-
+            {/* <ApplicationLogo className="w-40 fill-current" /> */}
+            <span className="text-2xl text-black font-semibold">Bbyts</span>
             <SectionTitle align="left" size="base" weight="semibold" className="text-base" title="Do You Need Help ?" />
 
             <p>Aplikasi Kasir Online . Marketplace portofolio . Pembuatan Website . Desain UI/UX</p>
