@@ -2,6 +2,7 @@ import React from "react";
 import { Navbar } from "./Navbar";
 import { SectionTitle } from "../components/SectionTitle";
 import PrimaryButton from "../molecules/PrimaryButton";
+import { ExternalLink } from "../components/ExternalLink";
 
 interface HeroSectionProps {
   onContactClick?: () => void; // Opsional handler untuk tombol "Contact Us"
@@ -26,9 +27,11 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onContactClick }) => {
       </SectionTitle>
 
       <div className="flex justify-center">
-        <PrimaryButton className="rounded-b-2xl rounded-t hover:text-white" onClick={onContactClick}>
-          Hubungi Kami
-        </PrimaryButton>
+        <ExternalLink href="https://wa.me/625244682780?text=">
+          <PrimaryButton className="rounded-b-2xl rounded-t hover:text-white" onClick={onContactClick}>
+            Hubungi Kami
+          </PrimaryButton>
+        </ExternalLink>
       </div>
 
       <div></div>
