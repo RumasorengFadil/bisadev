@@ -1,6 +1,5 @@
 "use client"
 import Link from "next/link"
-import ApplicationLogo from "../components/ApplicationLogo"
 import { NavbarToggleIcon } from "../components/NavbarToggleIcon"
 import { Dropdown } from "../components/Dropdown"
 import { DropdownButton } from "../components/DropdownButton"
