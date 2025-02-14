@@ -15,7 +15,8 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
         yellowpale:"#F7E8BB",
-        primary: "#C6A543"
+        primary: "#C6A543",
+        secondary: "#C17100"
       },
       fontFamily:{
         inter: ['var(--font-inter)', ...defaultTheme.fontFamily.sans],

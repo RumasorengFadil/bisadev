@@ -8,14 +8,14 @@ import { useState } from "react"
 import { OurProducts } from "../molecules/OurProducts"
 
 
-export const Navbar = ({ }) => {
+export const Navbar = ({ subtitle = "" }:{subtitle?:string}) => {
     const [toggleNavbar, setToggleNavbar] = useState(false);
 
     return (
         <div className={`flex items-start space-y-4 flex-col space-x-5 py-5 flex-1 px-10 justify-between sm:space-y-0 sm:flex-row sm:items-center`}>
             <div className="flex w-full items-center justify-between sm:w-max">
                 <Link href="">
-                    <span className="text-2xl text-white font-semibold">Bbyts</span>
+                    <span className="text-2xl text-white font-semibold">Bbyts {subtitle}</span>
                     {/* <ApplicationLogo className="cursor-pointer w-60" /> */}
                 </Link>
                 <NavbarToggleIcon
@@ -43,6 +43,7 @@ export const Navbar = ({ }) => {
                     <OurProducts className="px-2 rounded sm:py-2 sm:hover:bg-gray-700" />
                 </Dropdown>
 
+                <Link className=" sm:py-4" href="/blog">Blog</Link>
                 <Link className=" sm:py-4" href="#who-we-are">Tentang Kami</Link>
             </div>
         </div>

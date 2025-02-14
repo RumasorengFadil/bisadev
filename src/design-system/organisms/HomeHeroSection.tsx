@@ -8,7 +8,7 @@ interface HeroSectionProps {
   onContactClick?: () => void; // Opsional handler untuk tombol "Contact Us"
 }
 
-const HeroSection: React.FC<HeroSectionProps> = ({ onContactClick }) => {
+const HomeHeroSection: React.FC<HeroSectionProps> = ({ onContactClick }) => {
   return (
     <div
       className="bg-black space-y-10 rounded-b-[100px]"
@@ -39,4 +39,4 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onContactClick }) => {
   );
 };
 
-export default HeroSection;
+export default HomeHeroSection;
