@@ -1,7 +1,6 @@
 import ApplicationLayout from "@/Layouts/ApplicationLayout";
 import { Metadata } from "next";
 import BlogHeroSection from "@/design-system/organisms/BlogHeroSection";
-import { SectionTitle } from "@/design-system/components/SectionTitle";
 import { ContactUs } from "@/design-system/organisms/ContactUs";
 import { FooterProducts } from "@/design-system/organisms/FooterProducts";
 import { FooterService } from "@/design-system/organisms/FooterService";
