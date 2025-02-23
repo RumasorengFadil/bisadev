@@ -9,7 +9,7 @@ import { OurProducts } from "../molecules/OurProducts"
 import ApplicationLogo from "../components/ApplicationLogo"
 
 
-export const Navbar = ({ subtitle = "" }:{subtitle?:string}) => {
+export const Navbar = ({}) => {
     const [toggleNavbar, setToggleNavbar] = useState(false);
 
     return (
