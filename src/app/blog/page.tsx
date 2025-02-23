@@ -7,7 +7,7 @@ import { FooterService } from "@/design-system/organisms/FooterService";
 import { FooterFindUs } from "@/design-system/organisms/FooterFindUs";
 import RecentArticles from "@/design-system/organisms/RecentArticles";
 import MostPopularArticles from "@/design-system/organisms/MostPopularArticles";
-import RecommendedArticles from "@/design-system/organisms/recommendedArticles";
+import RecommendedArticles from "@/design-system/organisms/RecommendedArticles";
 
 export const metadata: Metadata = {
     title: "Bbyts Blog | Tips, Tutorial, & Tren Digital untuk Bisnis Anda",
