@@ -32,7 +32,7 @@ export const FooterFindUs: React.FC = ({}) => {
             <div>
                 <SectionTitle align="left" size="base" weight="semibold" className="text-base" title="Follow Us" />
                 <div className="flex space-x-4 py-2">
-                    <IconLink href="" src="/images/app/medsos/instagram.png"  alt="instagram" />
+                    <IconLink href="https://www.instagram.com/b.byts" src="/images/app/medsos/instagram.png"  alt="instagram" />
                     <IconLink href="https://www.facebook.com/profile.php?id=61572221173111" src="/images/app/medsos/facebook.png" alt="facebook" />
                     <IconLink href="" src="/images/app/medsos/x.png" alt="x" />
                     <IconLink href="" src="/images/app/medsos/linkedin.png" alt="linkedin" />
