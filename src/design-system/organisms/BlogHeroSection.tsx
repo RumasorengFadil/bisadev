@@ -19,7 +19,7 @@ const BlogHeroSection: React.FC<HeroSectionProps> = ({ onContactClick }) => {
                 backgroundRepeat: "no-repeat",
             }}
         >
-            <Navbar subtitle="Blog" />
+            <Navbar />
 
             <SectionTitle className="text-white" size="lg">
                 Insight Bisnis & Teknologi dari {" "}
