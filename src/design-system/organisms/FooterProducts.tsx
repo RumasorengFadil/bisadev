@@ -4,8 +4,8 @@ import Link from "next/link";
 
 export const FooterProducts: React.FC = () => {
   return (
-    <div className="flex flex-col w-full space-y-4">
-      <SectionTitle align="left" size="base" weight="semibold" title="Produk Kami" className="text-base" />
+    <div className="flex flex-col w-full space-y-4 text-white">
+      <SectionTitle align="left" size="base" weight="semibold" title="Produk Kami" className="text-base text-white" />
 
       <ul className="flex flex-col space-y-2">
         <Link href={""} >

@@ -10,12 +10,12 @@ import { IconFigure } from "../components/IconFigure";
 
 const ServicesSection = () => {
     return (
-        <div className="flex flex-col space-y-14 px-20 bg-yellowpale py-10 rounded-[150px]">
+        <div className="flex flex-col space-y-14 px-20 bg-primary py-10 rounded-[150px]">
             <SectionTitle weight="bold" title="Jasa & Produk Kami" />
             <div className="flex flex-col sm:flex-row gap-10">
                 <Card className="flex-1 sm:w-0 bg-white justify-center">
                     <IconFigure>
-                        <div className="bg-yellowpale p-3 rounded-full shadow-md">
+                        <div className="bg-primary p-3 rounded-full shadow-md">
                             <BsPersonVcard className="opacity-60 text-black" size={24} />
                         </div>
                         <p className="opacity-60 text-center text-black">BLIO</p>
@@ -23,7 +23,7 @@ const ServicesSection = () => {
                 </Card>
                 <Card className="flex-1 sm:w-0 bg-white justify-center">
                     <IconFigure>
-                        <div className="bg-yellowpale p-3 rounded-full shadow-md">
+                        <div className="bg-primary p-3 rounded-full shadow-md">
                             <TbCashRegister className="opacity-60 text-black" size={24} />
                         </div>
                         <p className="opacity-60 text-center text-black">BPOS</p>
@@ -31,7 +31,7 @@ const ServicesSection = () => {
                 </Card>
                 <Card className="flex-1 sm:w-0 bg-white justify-center">
                     <IconFigure>
-                        <div className="bg-yellowpale p-3 rounded-full shadow-md">
+                        <div className="bg-primary p-3 rounded-full shadow-md">
                             <FaLaptopCode className="opacity-60 text-black" size={24} />
                         </div>
                         <p className="opacity-60 text-center text-black">Perancangan Website</p>
@@ -39,7 +39,7 @@ const ServicesSection = () => {
                 </Card>
                 <Card className="flex-1 sm:w-0 bg-white justify-center">
                     <IconFigure>
-                        <div className="bg-yellowpale p-3 rounded-full shadow-md">
+                        <div className="bg-primary p-3 rounded-full shadow-md">
                             <MdOutlineDesignServices className="opacity-60 text-black" size={24} />
                         </div>
                         <p className="opacity-60 text-center text-black">Desain UI/UX</p>

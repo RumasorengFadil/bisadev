@@ -2,6 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   reactStrictMode : true,
+  trailingSlash: true,
 };
 
 const isCI = process.env.NEXT_PUBLIC_ENV === "ci";
