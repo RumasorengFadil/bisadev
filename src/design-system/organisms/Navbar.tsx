@@ -15,7 +15,7 @@ export const Navbar = ({}) => {
     return (
         <div className={`flex items-start space-y-4 flex-col space-x-5 py-5 flex-1 px-10 justify-between sm:space-y-0 sm:flex-row sm:items-center`}>
             <div className="flex w-full items-center justify-between sm:w-max">
-                <Link href="">
+                <Link href="/">
                     {/* <span className="text-2xl text-white font-semibold">Bbyts {subtitle}</span> */}
                     <ApplicationLogo className="cursor-pointer w-24" />
                 </Link>

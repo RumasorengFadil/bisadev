@@ -8,7 +8,7 @@ export const ContactUs: React.FC = () => {
     return (
         <section className="flex flex-col w-full space-y-4 text-white">
             {/* <ApplicationLogo className="w-40 fill-current" /> */}
-            <ApplicationLogo className="cursor-pointer w-24" />
+            <ApplicationLogo className="w-24" />
             <SectionTitle align="left" size="base" weight="semibold" className="text-base text-white" title="Do You Need Help ?" />
 
             <p>Aplikasi Kasir Online . Marketplace portofolio . Pembuatan Website . Desain UI/UX</p>
