@@ -5,7 +5,9 @@ import { ContactUs } from "@/design-system/organisms/ContactUs";
 import { FooterProducts } from "@/design-system/organisms/FooterProducts";
 import { FooterService } from "@/design-system/organisms/FooterService";
 import { FooterFindUs } from "@/design-system/organisms/FooterFindUs";
-import ArticleHeader from "@/design-system/organisms/ArticleHeader";
+import RecentArticles from "@/design-system/organisms/RecentArticles";
+import MostPopularArticles from "@/design-system/organisms/MostPopularArticles";
+import RecommendedArticles from "@/design-system/organisms/recommendedArticles";
 
 export const metadata: Metadata = {
     title: "Bbyts Blog | Tips, Tutorial, & Tren Digital untuk Bisnis Anda",
@@ -43,7 +45,11 @@ export default function Home() {
 
     const content = (
         <>
-            <ArticleHeader />
+            <RecentArticles />
+
+            <RecommendedArticles />
+
+            <MostPopularArticles />
         </>
     )
 
