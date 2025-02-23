@@ -23,6 +23,7 @@ const RecentArticles: React.FC<RecentArticlesProps> = ({  }) => {
                 <div className="flex space-y-1 w-full flex-col shadow-md rounded-md">
                     <div className="relative w-full h-[200px] sm:h-[200px]">
                         <Image
+                            unoptimized
                             src="/images/common/atoms.jpg"
                             alt="Contoh Gambar"
                             fill
@@ -44,6 +45,7 @@ const RecentArticles: React.FC<RecentArticlesProps> = ({  }) => {
                 <div className="flex space-y-1 w-full flex-col shadow-md rounded-md">
                     <div className="relative w-full h-[200px] sm:h-[200px]">
                         <Image
+                            unoptimized
                             src="/images/common/atoms.jpg"
                             alt="Contoh Gambar"
                             fill
@@ -65,6 +67,7 @@ const RecentArticles: React.FC<RecentArticlesProps> = ({  }) => {
                 <div className="flex space-y-1 w-full flex-col shadow-md rounded-md">
                     <div className="relative w-full h-[200px] sm:h-[200px]">
                         <Image
+                            unoptimized
                             src="/images/common/atoms.jpg"
                             alt="Contoh Gambar"
                             fill
@@ -86,6 +89,7 @@ const RecentArticles: React.FC<RecentArticlesProps> = ({  }) => {
                 <div className="flex space-y-1 w-full flex-col shadow-md rounded-md">
                     <div className="relative w-full h-[200px] sm:h-[200px]">
                         <Image
+                            unoptimized
                             src="/images/common/atoms.jpg"
                             alt="Contoh Gambar"
                             fill

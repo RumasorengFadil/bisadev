@@ -22,6 +22,7 @@ const RecommendedArticles: React.FC<RecommendedArticles> = ({  }) => {
                 <div className="flex space-y-1 w-full flex-col shadow-md rounded-md">
                     <div className="relative w-full h-[200px] sm:h-[200px]">
                         <Image
+                            unoptimized
                             src="/images/common/atoms.jpg"
                             alt="Contoh Gambar"
                             fill
@@ -43,6 +44,7 @@ const RecommendedArticles: React.FC<RecommendedArticles> = ({  }) => {
                 <div className="flex space-y-1 w-full flex-col shadow-md rounded-md">
                     <div className="relative w-full h-[200px] sm:h-[200px]">
                         <Image
+                            unoptimized
                             src="/images/common/atoms.jpg"
                             alt="Contoh Gambar"
                             fill
@@ -64,6 +66,7 @@ const RecommendedArticles: React.FC<RecommendedArticles> = ({  }) => {
                 <div className="flex space-y-1 w-full flex-col shadow-md rounded-md">
                     <div className="relative w-full h-[200px] sm:h-[200px]">
                         <Image
+                            unoptimized
                             src="/images/common/atoms.jpg"
                             alt="Contoh Gambar"
                             fill
@@ -85,6 +88,7 @@ const RecommendedArticles: React.FC<RecommendedArticles> = ({  }) => {
                 <div className="flex space-y-1 w-full flex-col shadow-md rounded-md">
                     <div className="relative w-full h-[200px] sm:h-[200px]">
                         <Image
+                            unoptimized
                             src="/images/common/atoms.jpg"
                             alt="Contoh Gambar"
                             fill
