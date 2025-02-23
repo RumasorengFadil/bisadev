@@ -13,7 +13,7 @@ interface RecentArticlesProps {
     articles?: Article[];
 }
 
-const RecentArticles: React.FC<RecentArticlesProps> = ({ articles }) => {
+const RecentArticles: React.FC<RecentArticlesProps> = ({  }) => {
     return (
         <div className="flex flex-col space-y-8">
             <ArticleHeader label="Artikel Terbaru" title="Temukan Wawasan Terbaru Seputar Bisnis & Teknologi" caption="Jelajahi kumpulan artikel terbaru dari bbyts, mulai dari inovasi

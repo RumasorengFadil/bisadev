@@ -13,7 +13,7 @@ interface MostPopularArticles {
     articles?: Article[];
 }
 
-const MostPopularArticles: React.FC<MostPopularArticles> = ({ articles }) => {
+const MostPopularArticles: React.FC<MostPopularArticles> = ({  }) => {
     return (
         <div className="flex flex-col space-y-8">
             <ArticleHeader label="Artikel Terpopuler" title="Untuk Kamu" />

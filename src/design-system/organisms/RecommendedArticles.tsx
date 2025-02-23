@@ -13,7 +13,7 @@ interface RecommendedArticles {
     articles?: Article[];
 }
 
-const RecommendedArticles: React.FC<RecommendedArticles> = ({ articles }) => {
+const RecommendedArticles: React.FC<RecommendedArticles> = ({  }) => {
     return (
         <div className="flex flex-col space-y-8">
             <ArticleHeader label="Rekomendasi Artikel" title="Untuk Kamu" caption="Dapatkan insight terbaik untuk mengembangkan bisnis dan meningkatkan efisiensi dengan solusi teknologi yang tepat. 🚀" />
