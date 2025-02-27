@@ -10,19 +10,19 @@ export const FooterFindUs: React.FC = ({}) => {
             <SectionTitle align="left" size="base" weight="semibold" className="text-base text-white" title="Hubungi Kami" />
             <div>
                 <div className="flex py-2 items-center space-x-2">
-                    <div className="bg-orange-500 w-max p-1 rounded-full">
+                    <div className="bg-primary w-max p-1 rounded-full">
                         <MdOutlineEmail
                             size={20}
-                            className="text-white"
+                            className="text-black"
                         />
                     </div>
                     <p>abhiparayamahardika@gmail.com</p>
                 </div>
                 <div className="flex py-2 items-center space-x-2">
-                    <div className="bg-orange-500 w-max p-1 rounded-full">
+                    <div className="bg-primary w-max p-1 rounded-full">
                         <FiPhone
                             size={20}
-                            className="text-white"
+                            className="text-black"
                         />
                     </div>
                     <p>+625244682780</p>

@@ -13,7 +13,7 @@ export const ContactUs: React.FC = () => {
 
             <p>Aplikasi Kasir Online . Marketplace portofolio . Pembuatan Website . Desain UI/UX</p>
             <ExternalLink href="https://wa.me/625244682780?text=">
-                <Button className="bg-orange-500 text-white rounded-b-2xl rounded-t" >
+                <Button className="bg-primary text-black rounded-b-2xl rounded-t" >
                     Hubungi Kami
                 </Button>
             </ExternalLink>

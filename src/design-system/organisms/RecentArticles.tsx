@@ -1,5 +1,6 @@
 import Image from "next/image";
 import ArticleHeader from "../molecules/ArticleHeader";
+import Link from "next/link";
 
 interface Article {
     image: string;
@@ -20,7 +21,7 @@ const RecentArticles: React.FC<RecentArticlesProps> = ({  }) => {
                 teknologi, strategi bisnis digital, hingga tren UI/UX." />
 
             <div className="grid grid-cols-1 gap-7 sm:grid-cols-2 md:grid-cols-3 px-10">
-                <div className="flex space-y-1 w-full flex-col shadow-md rounded-md">
+                <Link href="/blog/Atomic-Design" className="flex space-y-1 w-full flex-col shadow-md rounded-md cursor-pointer">
                     <div className="relative w-full h-[200px] sm:h-[200px]">
                         <Image
                             unoptimized
@@ -41,8 +42,8 @@ const RecentArticles: React.FC<RecentArticlesProps> = ({  }) => {
                             <p>12 Maret 2024</p>
                         </div>
                     </div>
-                </div>
-                <div className="flex space-y-1 w-full flex-col shadow-md rounded-md">
+                </Link>
+                <Link href="/blog/Atomic-Design" className="flex space-y-1 w-full flex-col shadow-md rounded-md cursor-pointer">
                     <div className="relative w-full h-[200px] sm:h-[200px]">
                         <Image
                             unoptimized
@@ -55,7 +56,7 @@ const RecentArticles: React.FC<RecentArticlesProps> = ({  }) => {
                         />
                     </div>
                     <div className="flex p-1 flex-col space-y-2">
-                        <p className="text-secondary font-medium text-xs">Artikel</p>
+                        <p className="text-secondary font-medium text-xs">Artikel Terbaru</p>
                         <h1 className="font-semibold">Atomic Desain Untuk Menjadikan Codinganmu Lebih</h1>
 
                         <div className="flex justify-between text-xs">
@@ -63,8 +64,8 @@ const RecentArticles: React.FC<RecentArticlesProps> = ({  }) => {
                             <p>12 Maret 2024</p>
                         </div>
                     </div>
-                </div>
-                <div className="flex space-y-1 w-full flex-col shadow-md rounded-md">
+                </Link>
+                <Link href="/blog/Atomic-Design" className="flex space-y-1 w-full flex-col shadow-md rounded-md cursor-pointer">
                     <div className="relative w-full h-[200px] sm:h-[200px]">
                         <Image
                             unoptimized
@@ -77,7 +78,7 @@ const RecentArticles: React.FC<RecentArticlesProps> = ({  }) => {
                         />
                     </div>
                     <div className="flex p-1 flex-col space-y-2">
-                        <p className="text-secondary font-medium text-xs">Artikel</p>
+                        <p className="text-secondary font-medium text-xs">Artikel Terbaru</p>
                         <h1 className="font-semibold">Atomic Desain Untuk Menjadikan Codinganmu Lebih</h1>
 
                         <div className="flex justify-between text-xs">
@@ -85,8 +86,8 @@ const RecentArticles: React.FC<RecentArticlesProps> = ({  }) => {
                             <p>12 Maret 2024</p>
                         </div>
                     </div>
-                </div>
-                <div className="flex space-y-1 w-full flex-col shadow-md rounded-md">
+                </Link>
+                <Link href="/blog/Atomic-Design" className="flex space-y-1 w-full flex-col shadow-md rounded-md cursor-pointer">
                     <div className="relative w-full h-[200px] sm:h-[200px]">
                         <Image
                             unoptimized
@@ -99,7 +100,7 @@ const RecentArticles: React.FC<RecentArticlesProps> = ({  }) => {
                         />
                     </div>
                     <div className="flex p-1 flex-col space-y-2">
-                        <p className="text-secondary font-medium text-xs">Artikel</p>
+                        <p className="text-secondary font-medium text-xs">Artikel Terbaru</p>
                         <h1 className="font-semibold">Atomic Desain Untuk Menjadikan Codinganmu Lebih</h1>
 
                         <div className="flex justify-between text-xs">
@@ -107,7 +108,8 @@ const RecentArticles: React.FC<RecentArticlesProps> = ({  }) => {
                             <p>12 Maret 2024</p>
                         </div>
                     </div>
-                </div>
+                </Link>
+
             </div>
 
         </div>
