@@ -1,40 +1,30 @@
-import ApplicationLogoBlack from "@/design-system/components/ApplicationLogoBlack";
-import SearchBar from "@/design-system/molecules/SearchBar";
+import BlogHeader from "@/design-system/organisms/BlogHeader";
 import { ContactUs } from "@/design-system/organisms/ContactUs";
 import { FooterFindUs } from "@/design-system/organisms/FooterFindUs";
 import { FooterProducts } from "@/design-system/organisms/FooterProducts";
 import { FooterService } from "@/design-system/organisms/FooterService";
 import ApplicationLayout from "@/Layouts/ApplicationLayout";
-import Link from "next/link";
 
 export default function BlogPost({ params }) {
   const { slug } = params;
 
   const header = (
     <>
-      <div className="flex justify-between items-center py-5 bg-gradient-to-t from-primary to-[#FFFAEA]">
-        <Link className="px-4" href="/">
-          <ApplicationLogoBlack className="cursor-pointer w-24" />
-        </Link>
-        <div className="flex flex-col space-y-3 items-end">
-          <SearchBar />
-          <div className="px-4">
-            <div className="flex items-center space-x-8">
-              <Link href="">Terbaru</Link>
-              <Link href="">HTML</Link>
-              <Link href="">Database</Link>
-              <Link href="">Java</Link>
-              <Link href="">Photoshop</Link>
-              <Link href="">Python</Link>
-              <Link href="">UI/UX</Link>
-            </div>
-          </div>
-        </div>
-      </div>
+      <BlogHeader />
     </>
   );
 
-  const content = <></>;
+  const content = <>
+    <div className="flex flex-col px-10 space-y-1">
+      <h1 className="text-xl font-semibold">Atomic Design, Jadikan Codinganmu Lebih Terstruktur Dengan Atomic Desain </h1>
+      <p>
+        <span>Bbyts</span> {" - "}
+        <span>22 Februari 2025</span>{", "}
+        <span>12:00 WIB</span>
+      </p>
+      <p>Oleh Ramadhan</p>
+    </div>
+  </>;
 
   const footer = (
     <>
