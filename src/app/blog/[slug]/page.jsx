@@ -9,7 +9,14 @@ import RecommendedArticles from "@/design-system/organisms/RecommendedArticles";
 import ApplicationLayout from "@/Layouts/ApplicationLayout";
 import Image from "next/image";
 
-export default function BlogPost() {
+export async function generateStaticParams() {
+  return [
+    { slug: "atomic-design" },
+  ];
+}
+
+export default function BlogPost({ params }) {
+  const { slug } = params;
   const header = (
     <>
       <BlogHeader />

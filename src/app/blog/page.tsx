@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     },
 };
 
-export default function Blog() {
+export default function Blog({params}:{params:any}) {
     const header = (
         <>
             <BlogHeroSection />
@@ -62,6 +62,7 @@ export default function Blog() {
             <FooterService />
 
             <FooterFindUs />
+            {console.log(params.slug)}
         </>
     )
     return (
