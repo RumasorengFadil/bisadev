@@ -62,7 +62,6 @@ export default function Blog() {
             <FooterService />
 
             <FooterFindUs />
-            {console.log(params.slug)}
         </>
     )
     return (
