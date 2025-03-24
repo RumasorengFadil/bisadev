@@ -9,9 +9,7 @@ import RecommendedArticles from "@/design-system/organisms/RecommendedArticles";
 import ApplicationLayout from "@/Layouts/ApplicationLayout";
 import Image from "next/image";
 
-export default function BlogPost({ params }) {
-  const { slug } = params;
-  console.log(slug);
+export default function BlogPost() {
   const header = (
     <>
       <BlogHeader />
