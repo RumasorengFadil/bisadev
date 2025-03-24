@@ -13,7 +13,7 @@ import Image from "next/image";
 
 export default function BlogPost({ params }) {
   const { slug } = params;
-  
+  console.log(slug);
   const header = (
     <>
       <BlogHeader />
