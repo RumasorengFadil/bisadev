@@ -2,13 +2,7 @@ import LoginForm from "@/design-system/organisms/LoginForm";
 import LoginHeader from "@/design-system/organisms/LoginHeader";
 import ApplicationLayout from "@/Layouts/ApplicationLayout";
 
-interface BlogPostProps {
-    params: {
-        slug: string;
-    };
-}
-
-const BlogPost: React.FC<BlogPostProps> = () => {
+const BlogPost = () => {
     const header = (
         <>
             <LoginHeader title="Password" />
