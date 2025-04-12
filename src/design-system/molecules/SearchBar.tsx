@@ -3,7 +3,6 @@ import TextInput from "../components/TextInput";
 
 export default function SearchBar({
     onChange,
-    size = "md",
 }: {
     size?: string,
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
