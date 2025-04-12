@@ -5,7 +5,7 @@ import ApplicationLayout from "@/Layouts/ApplicationLayout";
 const BlogPost = () => {
     const header = (
         <>
-            <LoginHeader title="Password" />
+            <LoginHeader title="Login" />
         </>
     )
     const content = (

@@ -32,9 +32,9 @@ export default function SearchBar({
                     size={16}
                 />
                 <TextInput
-                    className={`pl-10 text-xs ${sizes?.width} ${sizes?.padding}  placeholder-gray-400`}
+                    className={`pl-10 text-xs w-40 md:w-60 py-2  placeholder-gray-400`}
                     type="text"
-                    placeholder="Cari"
+                    placeholder="Cari Artikel"
                     onChange={onChange}
                 />
             </div>

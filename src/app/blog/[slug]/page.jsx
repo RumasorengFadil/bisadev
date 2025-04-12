@@ -10,9 +10,7 @@ import ApplicationLayout from "@/Layouts/ApplicationLayout";
 import Image from "next/image";
 
 export async function generateStaticParams() {
-  return [
-    { slug: "Atomic-Design" },
-  ];
+  return [{ slug: "Atomic-Design" }];
 }
 
 export default function BlogPost({ params }) {
@@ -34,17 +32,16 @@ export default function BlogPost({ params }) {
       />
 
       <div className="flex flex-col space-y-4 px-10">
-        <div className="relative w-[600px] h-[300px] mx-auto rounded">
-          <Image
-            unoptimized
-            src="/images/common/atoms.jpg"
-            alt="Contoh Gambar"
-            fill
-            objectFit="cover"
-            priority
-            className="rounded-t-md h-full w-full"
-          />
-        </div>
+        <Image
+          width={0}
+          height={0}
+          unoptimized
+          src="/images/common/atoms.jpg"
+          alt="Contoh Gambar"
+          objectFit="cover"
+          priority
+          className="rounded-md w-full mx-auto max-w-[600px] max-h-[300px]"
+        />
 
         <p className="text-justify">
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente
@@ -98,7 +95,7 @@ export default function BlogPost({ params }) {
 
       <RecommendedArticles />
 
-     <NewsletterSubscription />
+      <NewsletterSubscription />
     </>
   );
 

@@ -14,10 +14,10 @@ const BlogHeader: React.FC = () => {
             {/* Search Bar dan Kategori */}
             <div className="flex flex-col space-y-3 items-end">
                 <div className="flex items-center">
-                <p>Cari artikel disini</p>
-                <SearchBar onChange={() => { }} />
+                    <p className="hidden md:inline-block">Cari artikel disini</p>
+                    <SearchBar onChange={() => { }} />
                 </div>
-                <div className="px-4">
+                <div className="px-4 hidden md:block">
                     <ul className="flex items-center space-x-8">
                         <Link href="">Terbaru</Link>
                         <Link href="">HTML</Link>
