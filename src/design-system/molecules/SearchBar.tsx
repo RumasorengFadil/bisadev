@@ -9,20 +9,20 @@ export default function SearchBar({
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }) {
 
-    const sizes = {
-        "sm": {
-            width: "w-40",
-            padding: "py-1"
-        },
-        'md': {
-            width: "w-60",
-            padding: "py-2"
-        },
-        'lg': {
-            width: "w-80",
-            padding: "py-3"
-        },
-    }[size];
+    // const sizes = {
+    //     "sm": {
+    //         width: "w-40",
+    //         padding: "py-1"
+    //     },
+    //     'md': {
+    //         width: "w-60",
+    //         padding: "py-2"
+    //     },
+    //     'lg': {
+    //         width: "w-80",
+    //         padding: "py-3"
+    //     },
+    // }[size];
     
     return (
         <div className={"flex px-4 justify-between items-center"}>
