@@ -11,12 +11,13 @@ interface HeroSectionProps {
 const HomeHeroSection: React.FC<HeroSectionProps> = ({ onContactClick }) => {
   return (
     <div
-      className="bg-black space-y-10 rounded-b-[100px]"
+      className="bg-black space-y-10"
       style={{
         backgroundImage: "url(/images/common/futuristic-tunnel.webp)",
         backgroundPosition: "center",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
+        clipPath: "ellipse(90% 100% at 50% 0%)"
       }}
     >
       <Navbar />

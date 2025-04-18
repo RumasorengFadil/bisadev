@@ -5,12 +5,12 @@ export const NavbarToggleIcon = ({ onClick = () => { }, toggle }: { onClick?: Mo
     return (
         toggle
             ? <IoClose
-                className={`cursor-pointer sm:hidden`}
+                className={`cursor-pointer text-white sm:hidden`}
                 size={24}
                 onClick={onClick}
             />
             : <IoMenu
-                className={`cursor-pointer sm:hidden`}
+                className={`cursor-pointer text-white sm:hidden`}
                 size={24}
                 onClick={onClick}
             />
