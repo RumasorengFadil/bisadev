@@ -22,6 +22,15 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Bbyts",
   description: "Solusi digital untuk bisnis Anda",
+  // icons: {
+  //   icon: './favicon.png', // atau '/favicon.png'
+  //   shortcut: './favicon.png',
+  //   apple: './favicon.png',
+  //   other: {
+  //     rel: 'apple-touch-icon-precomposed',
+  //     url: '/apple-touch-icon-precomposed.png',
+  //   }
+  // }
 };
 
 export default function RootLayout({

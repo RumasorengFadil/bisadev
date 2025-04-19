@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     description: "Dapatkan layanan pembuatan website profesional, desain UI/UX, dan solusi digital terbaik untuk bisnis Anda hanya di Bbyts!",
     images: "https://bbyts.com/images/hero-banner.jpg",
     site: "@bbyts",
-  },
+  }
 };
 
 export default function Home() {
@@ -64,6 +64,6 @@ export default function Home() {
     </>
   )
   return (
-    <ApplicationLayout header={header} content={content} footer={{content:footer, copyright:""}} />
+    <ApplicationLayout header={header} content={content} footer={{ content: footer, copyright: "" }} />
   );
 }
