@@ -16,7 +16,7 @@ const PrimaryButton: React.FC<PrimaryButtonProps> = ({
   ...props
 }) => {
   return (
-    <Button contentRef={contentRef} {...props} disabled={disabled} className={"bg-primary border " + className}>{children}</Button>
+    <Button contentRef={contentRef} {...props} disabled={disabled} className={"bg-primary hover:bg-primaryDark  border transition duration-300 transform hover:scale-105 " + className}>{children}</Button>
   );
 };
 

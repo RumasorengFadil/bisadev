@@ -29,7 +29,7 @@ const HomeHeroSection: React.FC<HeroSectionProps> = ({ onContactClick }) => {
 
       <div className="flex justify-center">
         <ExternalLink href="https://wa.me/625244682780?text=">
-          <PrimaryButton className="rounded-b-2xl rounded-t hover:text-white" onClick={onContactClick}>
+          <PrimaryButton className="rounded-b-2xl rounded-t" onClick={onContactClick}>
             Hubungi Kami
           </PrimaryButton>
         </ExternalLink>

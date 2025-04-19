@@ -14,8 +14,8 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        yellowpale:"#F7E8BB",
         primary: "#F7E8BB",
+        primaryDark: "#F0DEA6",
         secondary: "#C17100",
         tertiary : "#393939"
       },

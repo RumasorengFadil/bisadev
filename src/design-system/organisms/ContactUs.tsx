@@ -1,8 +1,8 @@
 import React from "react";
 import { SectionTitle } from "../components/SectionTitle";
 import { ExternalLink } from "../components/ExternalLink";
-import Button from "../components/Button";
 import ApplicationLogo from "../components/ApplicationLogo";
+import PrimaryButton from "../molecules/PrimaryButton";
 
 export const ContactUs: React.FC = () => {
     return (
@@ -13,9 +13,9 @@ export const ContactUs: React.FC = () => {
 
             <p>Aplikasi Kasir Online . Marketplace portofolio . Pembuatan Website . Desain UI/UX</p>
             <ExternalLink href="https://wa.me/625244682780?text=">
-                <Button className="bg-primary text-black rounded-b-2xl rounded-t" >
+                <PrimaryButton className="bg-primary text-black rounded-b-2xl rounded-t" >
                     Hubungi Kami
-                </Button>
+                </PrimaryButton>
             </ExternalLink>
         </section>
     );
