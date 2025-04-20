@@ -1,5 +1,3 @@
-// Components/ServicesSection.tsx
-
 import { BsPersonVcard } from "react-icons/bs";
 import { TbCashRegister } from "react-icons/tb";
 import { FaLaptopCode } from "react-icons/fa";
@@ -7,7 +5,6 @@ import { MdOutlineDesignServices } from "react-icons/md";
 import { SectionTitle } from "../components/SectionTitle";
 import Card from "../components/Card";
 import { IconFigure } from "../components/IconFigure";
-import Link from "next/link";
 
 const ServicesSection = () => {
     return (
