@@ -115,7 +115,7 @@ export const Slides = ({ slides, interval = 3000 }: SlidesProps) => {
                             <p className="text-justify">{slide.description}</p>
                         </div>
 
-                        <div className="flex justify-between items-center px-4">
+                        <div className="flex flex-col space-y-4 justify-between items-center px-4 md:flex-row md:space-y-0">
                             <div></div>
                             <div className="flex flex-col text-center">
                                 <p>Harga Mulai Dari</p>

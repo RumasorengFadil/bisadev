@@ -9,7 +9,7 @@ import { Slides } from "../components/Slide";
 
 const ServicesSection = () => {
     return (
-        <div className="flex flex-col space-y-14 px-20 bg-primary py-10 pb-20"
+        <div className="flex flex-col space-y-14 px-20 bg-primary py-10 "
             style={{ clipPath: "ellipse(95% 50% at 50% 50%)" }}>
             <SectionTitle weight="bold" title="Jasa & Produk Kami" />
             <div className="flex flex-col sm:flex-row gap-10">
