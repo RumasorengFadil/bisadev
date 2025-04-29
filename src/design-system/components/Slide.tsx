@@ -1,191 +1,141 @@
-// "use client"
-// import Image from "next/image";
-// import { useEffect, useState } from "react";
+"use client";
 
-// export const Slides = ({ slides, interval = 3000, object }: { slides: Array<string>, interval?: number, object?: string }) => {
-//     const [currentIndex, setCurrentIndex] = useState(0);
-//     // const touchStart = useRef(0);
-//     // const touchEnd = useRef(0);
-//     // const [isHolding, setIsHolding] = useState(false);
+import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import PrimaryButton from "../molecules/PrimaryButton";
 
-//     // Function to go to the previous slide
-//     // const goToPrevious = () => {
-//     //     setCurrentIndex((prevIndex) =>
-//     //         prevIndex === 0 ? slides.length - 1 : prevIndex - 1
-//     //     );
-//     // };
+interface Slide {
+    title: string;
+    image: string;
+    description: string;
+    price: string;
+}
 
-//     // Function to go to the next slide
-//     const goToNext = () => {
-//         setCurrentIndex((prevIndex) =>
-//             prevIndex === slides.length - 1 ? 0 : prevIndex + 1
-//         );
-//     };
+interface SlidesProps {
+    slides: Slide[];
+    interval?: number;
+    object?: string;
+}
 
-//     // Function to go to a specific slide
-//     // const goToSlide = (index: number) => {
-//     //     setCurrentIndex(index);
-//     // };
+export const Slides = ({ slides, interval = 3000 }: SlidesProps) => {
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const touchStart = useRef(0);
+    const touchEnd = useRef(0);
+    const [isHolding, setIsHolding] = useState(false);
 
-//     // const handleTouchStart = (e: any) => {
-//     //     touchStart.current = e.touches[0].clientX;
-//     // };
+    const goToPrevious = () => {
+        setCurrentIndex((prevIndex) =>
+            prevIndex === 0 ? slides.length - 1 : prevIndex - 1
+        );
+    };
 
-//     // const handleTouchMove = (e: any) => {
-//     //     touchEnd.current = e.touches[0].clientX;
-//     // };
+    const goToNext = () => {
+        setCurrentIndex((prevIndex) =>
+            prevIndex === slides.length - 1 ? 0 : prevIndex + 1
+        );
+    };
 
-//     // const handleTouchEnd = () => {
-//     //     if (touchStart.current - touchEnd.current > 50) {
-//     //         goToNext(); // Geser ke kanan
-//     //     }
-//     //     if (touchStart.current - touchEnd.current < -50) {
-//     //         goToPrevious(); // Geser ke kiri
-//     //     }
-//     // };
+    const goToSlide = (index: number) => {
+        setCurrentIndex(index);
+    };
 
-//     // Aktifkan hold
-//     // const handleMouseDown = () => {
-//     //     setIsHolding(true); 
-//     //   };
+    const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+        touchStart.current = e.touches[0].clientX;
+    };
 
-//     // Matikan hold
-//     // const handleMouseUp = () => {
-//     //     setIsHolding(false); 
-//     // };
+    const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+        touchEnd.current = e.touches[0].clientX;
+    };
 
-//     // Autoplay logic
-//     useEffect(() => {
-//         const timer = setInterval(() => {
-//             goToNext(); // Move to the next slide every X seconds
-//         }, interval);
+    const handleTouchEnd = () => {
+        if (touchStart.current - touchEnd.current > 50) {
+            goToNext();
+        }
+        if (touchStart.current - touchEnd.current < -50) {
+            goToPrevious();
+        }
+    };
 
-//         // Clear the interval when component unmounts or when a manual navigation happens
-//         return () => {
-//             clearInterval(timer);
-//         };
-//     }, [currentIndex, interval]);
+    const handleMouseDown = () => {
+        setIsHolding(true);
+    };
 
-//     return (
-//         <div
-//             style={{
-//                 transform: `translate(-${(currentIndex) * 100}%)`,
-//             }}
-//             className="flex w-full h-full transition-transform ease-linear duration-1000"
-//             onClick={goToNext}
-//         >
-//             {slides.map((slide, i) =>
-//                 <Image
-//                     key={i}
-//                     className={"w-full h-auto flex-shrink-0 " + object}
-//                     src={slide}
-//                     alt=""
-//                     draggable="false"
-//                 />
-//             )}
-//         </div>
-//     )
-// }
+    const handleMouseUp = () => {
+        setIsHolding(false);
+    };
 
+    useEffect(() => {
+        const timer = setInterval(() => {
+            if (!isHolding) {
+                goToNext();
+            }
+        }, interval);
 
-// // import React, { useRef, useState } from 'react';
+        return () => {
+            clearInterval(timer);
+        };
+    }, [currentIndex, interval, isHolding]);
 
-// // const CustomSlider = () => {
-// //   const sliderRef = useRef(null);
-// //   const [currentIndex, setCurrentIndex] = useState(0);
-// //   const [isDragging, setIsDragging] = useState(false);
-// //   const startPosition = useRef(0);
-// //   const currentTranslate = useRef(0);
-// //   const prevTranslate = useRef(0);
+    return (
+        <div
+            className="flex flex-col space-y-4"
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+            onMouseDown={handleMouseDown}
+            onMouseUp={handleMouseUp}
+        >
+            <div
+                className="flex transition-transform ease-linear duration-1000"
+                style={{
+                    transform: `translateX(-${currentIndex * 100}%)`,
+                }}
+            >
+                {slides.map((slide, i) => (
+                    <div
+                        key={i}
+                        className="bg-white py-4 rounded-lg space-y-4 min-w-full"
+                    >
+                        <h1 className="text-center text-primaryDark px-4">
+                            {slide.title}
+                        </h1>
+                        <div className="flex px-4 flex-col md:flex-row space-y-4 md:space-x-4">
+                            <div className="relative mx-auto w-full max-w-52 h-[200px] sm:h-[200px]">
+                                <Image
+                                    unoptimized
+                                    src={slide.image}
+                                    alt={slide.title}
+                                    fill
+                                    style={{ objectFit: "cover" }}
+                                    priority
+                                    className="rounded-t-md h-full w-full"
+                                />
+                            </div>
+                            <p className="text-justify">{slide.description}</p>
+                        </div>
 
-// //   const slides = [
-// //     { id: 1, title: 'Slide 1', image: '/images/slide1.jpg' },
-// //     { id: 2, title: 'Slide 2', image: '/images/slide2.jpg' },
-// //     { id: 3, title: 'Slide 3', image: '/images/slide3.jpg' },
-// //   ];
+                        <div className="flex justify-between items-center px-4">
+                            <div></div>
+                            <div className="flex flex-col text-center">
+                                <p>Harga Mulai Dari</p>
+                                <p className="text-primaryDark">{slide.price}</p>
+                            </div>
 
-// //   const handleMouseDown = (e) => {
-// //     setIsDragging(true);
-// //     startPosition.current = e.clientX;
-// //     sliderRef.current.style.transition = 'none';
-// //   };
-
-// //   const handleMouseMove = (e) => {
-// //     if (!isDragging) return;
-
-// //     const currentPosition = e.clientX;
-// //     const distance = currentPosition - startPosition.current;
-// //     currentTranslate.current = prevTranslate.current + distance;
-
-// //     sliderRef.current.style.transform = `translateX(${currentTranslate.current}px)`;
-// //   };
-
-// //   const handleMouseUp = () => {
-// //     setIsDragging(false);
-// //     const movedBy = currentTranslate.current - prevTranslate.current;
-
-// //     if (movedBy < -100 && currentIndex < slides.length - 1) {
-// //       setCurrentIndex((prev) => prev + 1);
-// //     } else if (movedBy > 100 && currentIndex > 0) {
-// //       setCurrentIndex((prev) => prev - 1);
-// //     }
-
-// //     sliderRef.current.style.transition = 'transform 0.5s ease-in-out';
-// //     prevTranslate.current = -currentIndex * sliderRef.current.offsetWidth;
-// //     sliderRef.current.style.transform = `translateX(${prevTranslate.current}px)`;
-// //   };
-
-// //   const handleMouseLeave = () => {
-// //     if (isDragging) handleMouseUp();
-// //   };
-
-// //   return (
-// //     <div
-// //       className="relative w-full overflow-hidden"
-// //       onMouseDown={handleMouseDown}
-// //       onMouseMove={handleMouseMove}
-// //       onMouseUp={handleMouseUp}
-// //       onMouseLeave={handleMouseLeave}
-// //     >
-// //       <div
-// //         ref={sliderRef}
-// //         className="flex transition-transform duration-500"
-// //         style={{
-// //           transform: `translateX(-${currentIndex * 100}%)`,
-// //         }}
-// //       >
-// //         {slides.map((slide) => (
-// //           <div
-// //             key={slide.id}
-// //             className="w-full flex-shrink-0"
-// //             style={{ minWidth: '100%' }}
-// //           >
-// //             <img
-// //               src={slide.image}
-// //               alt={slide.title}
-// //               className="w-full h-64 object-cover"
-// //             />
-// //             <div className="text-center p-4 bg-gray-800 text-white">
-// //               {slide.title}
-// //             </div>
-// //           </div>
-// //         ))}
-// //       </div>
-// //       {/* Tombol Navigasi */}
-// //       <button
-// //         onClick={() => setCurrentIndex((prev) => (prev > 0 ? prev - 1 : slides.length - 1))}
-// //         className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full"
-// //       >
-// //         &#8592;
-// //       </button>
-// //       <button
-// //         onClick={() => setCurrentIndex((prev) => (prev < slides.length - 1 ? prev + 1 : 0))}
-// //         className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full"
-// //       >
-// //         &#8594;
-// //       </button>
-// //     </div>
-// //   );
-// // };
-
-// // export default CustomSlider;
+                            <Link href="">
+                                <PrimaryButton>Lihat Paket</PrimaryButton>
+                            </Link>
+                        </div>
+                    </div>
+                ))}
+            </div>
+            <div className="flex justify-center">
+                <div className="flex space-x-2 p-1 rounded-lg bg-white">
+                    {slides.map((_, i) =>
+                        <div onClick={() => goToSlide(i)} key={i} className={`w-2 h-2 rounded-full transition-all duration-1000 cursor-pointer ${i === currentIndex ? "bg-primaryDark" : "border border-primaryDark"}`}></div>
+                    )}
+                </div>
+            </div>
+        </div>
+    );
+};

@@ -15,8 +15,8 @@ const LoginForm: React.FC = () => {
     // }).then(response => {
     //   console.log(response.data);
     // });
-    // const { data } = await axios.get("http://127.0.0.1:8000/api/user");
-    // console.log(data)
+    const { data } = await axios.get("http://127.0.0.1:8000/api/user");
+    console.log(data)
   }
   return (
     <div className="flex flex-col space-y-4 items-center">

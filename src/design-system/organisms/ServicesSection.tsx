@@ -5,10 +5,11 @@ import { MdOutlineDesignServices } from "react-icons/md";
 import { SectionTitle } from "../components/SectionTitle";
 import Card from "../components/Card";
 import { IconFigure } from "../components/IconFigure";
+import { Slides } from "../components/Slide";
 
 const ServicesSection = () => {
     return (
-        <div className="flex flex-col space-y-14 px-20 bg-primary py-10"
+        <div className="flex flex-col space-y-14 px-20 bg-primary py-10 pb-20"
             style={{ clipPath: "ellipse(95% 50% at 50% 50%)" }}>
             <SectionTitle weight="bold" title="Jasa & Produk Kami" />
             <div className="flex flex-col sm:flex-row gap-10">
@@ -45,37 +46,31 @@ const ServicesSection = () => {
                     </IconFigure>
                 </Card>
             </div>
-
-            {/* <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 py-16 px-4">
-                <div className="max-w-4xl mx-auto text-center">
-                    <h1 className="text-6xl md:text-7xl font-bold text-indigo-900 mb-6">
-                        BLIO
-                    </h1>
-
-                    <p className="text-xl md:text-2xl text-gray-700 mb-8">
-                        TAMPILKAN KARYA ANDA DALAM SATU HALAMAN PERSONAL
-                    </p>
-
-                    <div className="bg-white rounded-xl shadow-lg p-8 mb-10 max-w-3xl mx-auto">
-                        <p className="text-lg md:text-xl text-gray-800 mb-6">
-                            <span className="font-bold text-indigo-600">Bilo</span> adalah layanan jasa pembuatan website portofolio profesional yang dirancang untuk menampilkan karya dan pencapaian anda secara elegan dan menarik. Desain responsif, cepat, dan dioptimalkan agar nama kamu mudah ditemukan di Google.
-                        </p>
-
-                        <div className="mt-8">
-                            <p className="text-gray-600 mb-2">Harga Mulai Dari</p>
-                            <p className="text-3xl font-bold text-indigo-700 mb-6">
-                                Rp. xxx.xxx
-                            </p>
-
-                            <Link href="/paket" passHref>
-                                <button className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105">
-                                    Lihat Paket
-                                </button>
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-            </section> */}
+            <div className="flex flex-col space-y-4 overflow-hidden">
+                <Slides
+                    slides={[
+                        {
+                            title: "TAMPILKAN KARYA ANDA DALAM SATU HALAMAN PERSONAL",
+                            image: "/images/common/slider-image-1.png",
+                            price: "Rp. 20.000",
+                            description: "Blio adalah layanan jasa pembuatan website portofolio profesional yang dirancang untuk menampilkan karya dan pencapaian anda secara elegan dan menarik. Desain responsif, cepat, dan dioptimalkan agar nama kamu mudah ditemukan di Google."
+                        },
+                        {
+                            title: "SISTEM KASIR DIGITAL & SIAP MENDUKUNG BISNIS ANDA",
+                            image: "/images/common/slider-image-2.png",
+                            price: "Rp. 8.000.000",
+                            description: "BPOS adalah solusi sistem kasir digital berbasis website & mobile yang cocok digunakan untuk usaha anda, terutama bagi pelaku UMKM. Dengan BPOS, anda dapat mengelola transaksi harian dengan mudah dan membuat laporan bisnis secara otomatis yang dapat diakses kapan saja secara online."
+                        },
+                        {
+                            title: "BANGUN IDENTITAS BISNIS ANDA SECARA PROFESIONAL",
+                            image: "/images/common/slider-image-3.png",
+                            price: "Rp. 5.000.000",
+                            description: "Kami menghadirkan solusi pengembangan website yang modern dan sesuai dengan kebutuhan bisnis Anda. Mulai dari website profil perusahaan, toko online, hingga sistem custom berbasis web, kami siap membantu Anda memiliki website yang tidak hanya menarik secara visual, tetapi juga optimal dari segi fungsi dan performa."
+                        },
+                    ]}
+                    interval={5000}
+                />
+            </div>
         </div>
     );
 };

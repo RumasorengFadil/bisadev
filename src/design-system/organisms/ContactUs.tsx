@@ -12,7 +12,7 @@ export const ContactUs: React.FC = () => {
             <SectionTitle align="left" size="base" weight="semibold" className="text-base text-white" title="Do You Need Help ?" />
 
             <p>Aplikasi Kasir Online . Marketplace portofolio . Pembuatan Website . Desain UI/UX</p>
-            <ExternalLink href="https://wa.me/625244682780?text=">
+            <ExternalLink href="https://wa.me/6285244682780?text=">
                 <PrimaryButton className="bg-primary text-black rounded-b-2xl rounded-t" >
                     Hubungi Kami
                 </PrimaryButton>
