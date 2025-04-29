@@ -122,7 +122,7 @@ export const Slides = ({ slides, interval = 3000 }: SlidesProps) => {
                                 <p className="text-primaryDark">{slide.price}</p>
                             </div>
 
-                            <Link href="">
+                            <Link href="/maintenance">
                                 <PrimaryButton>Lihat Paket</PrimaryButton>
                             </Link>
                         </div>

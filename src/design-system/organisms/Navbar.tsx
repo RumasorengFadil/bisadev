@@ -44,7 +44,7 @@ export const Navbar = ({}) => {
                     <OurProducts className="px-2 rounded sm:py-2 sm:hover:bg-gray-700" />
                 </Dropdown>
 
-                <Link className=" sm:py-4" href="/blog">Blog</Link>
+                <Link className=" sm:py-4" href="/maintenance">Blog</Link>
                 <Link className=" sm:py-4" href="#who-we-are">Tentang Kami</Link>
             </div>
         </div>

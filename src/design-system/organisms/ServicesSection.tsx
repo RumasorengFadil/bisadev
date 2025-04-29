@@ -52,7 +52,7 @@ const ServicesSection = () => {
                         {
                             title: "TAMPILKAN KARYA ANDA DALAM SATU HALAMAN PERSONAL",
                             image: "/images/common/slider-image-1.png",
-                            price: "Rp. 20.000",
+                            price: "Rp. 2.000.000",
                             description: "Blio adalah layanan jasa pembuatan website portofolio profesional yang dirancang untuk menampilkan karya dan pencapaian anda secara elegan dan menarik. Desain responsif, cepat, dan dioptimalkan agar nama kamu mudah ditemukan di Google."
                         },
                         {

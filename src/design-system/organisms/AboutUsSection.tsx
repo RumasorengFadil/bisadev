@@ -4,7 +4,7 @@ import { SectionTitle } from "../components/SectionTitle";
 
 const AboutUsSection: React.FC = () => {
     return <>
-        <div>
+        <div id="who-we-are">
             <SectionTitle weight="bold" title="Tentang Kami" />
             <div className="flex justify-center flex-col px-10 space-x-10 text-justify sm:flex-row bg-white">
                 <Image
