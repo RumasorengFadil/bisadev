@@ -5,7 +5,7 @@ import { DropdownItem } from "../components/DropdownItem";
 
 export const OurProducts = ({ className }: { className?: string }) => {
     return <>
-        <Link href={""}>
+        <Link href="#our-service">
             <DropdownItem className={`cursor-pointer ${className}`} label="Perancangan Website Murah" />
         </Link>
         <Link href={""}>
