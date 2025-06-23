@@ -25,14 +25,13 @@ export function useForm<T extends Record<string, any>>(initialValues: T) {
         url: string,
         options?: {
             onSuccess?: (res: any) => void;
-            onError?: (errors: Errors<T>) => void;
+            onError?: (errors: any) => void;
         }
     ) => {
         setLoading(true);
         setErrors({});
 
         try {
-            await axios.get('http://127.0.0.1:8000/sanctum/csrf-cookie');
             const response = await axios({
                 method,
                 url,
@@ -43,15 +42,13 @@ export function useForm<T extends Record<string, any>>(initialValues: T) {
                     'Content-Type': 'application/json'
                 }
             });
-
             options?.onSuccess?.(response.data);
         } catch (error: any) {
-            console.log(error);
             if (error.response?.data?.errors) {
                 setErrors(error.response.data.errors);
-                options?.onError?.(error.response.data.errors);
+                options?.onError?.(Object.values(error.response.data.errors as Record<string, string[]>).map((value) => value[0]).filter(Boolean));
             } else {
-                console.error("Unexpected error:", error);
+                console.error("Unexpected error:", errors);
             }
         } finally {
             setLoading(false);

@@ -3,10 +3,10 @@ import FormField from "@/design-system/molecules/FormField";
 import FormAction from "@/design-system/molecules/FormAction";
 import { useState } from "react";
 import { useForm } from "@/hooks/useForm";
+import toastUtils from "@/utils/toastUtils";
+import { toast } from "react-toastify";
 
 const LoginForm: React.FC = () => {
-  const [email, setEmail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
 
   const {submit, setData, loading, data, errors} = useForm({
     email:"",
@@ -19,7 +19,7 @@ const LoginForm: React.FC = () => {
         console.log(res, "berhasil");
       },
       onError(errors) {
-        console.log(errors);
+        toastUtils.showError(errors);
       },
     })
   }
@@ -33,6 +33,7 @@ const LoginForm: React.FC = () => {
         placeholder="Masukan email"
         className="px-4 w-96"
         value={data.email}
+        error={errors.email}
         onChange={(e)=> setData("email", e.target.value)}
       />
       <FormField
@@ -42,6 +43,7 @@ const LoginForm: React.FC = () => {
         placeholder="Masukan password"
         className="px-4 w-96"
         value={data.password}
+        error={errors.password}
         onChange={(e)=> setData("password",e.target.value)}
       />
       <FormAction onClick={submitForm} className="bg-primary border-primary">Masuk</FormAction>

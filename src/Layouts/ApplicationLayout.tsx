@@ -1,4 +1,5 @@
 import React, { memo, ReactNode } from "react";
+import { ToastContainer } from "react-toastify";
 
 interface FooterProps {
   content: ReactNode;
@@ -24,6 +25,8 @@ const ApplicationLayout: React.FC<ApplicationLayoutProps> = memo(function Applic
 }) {
   return (
     <>
+      <ToastContainer />
+
       <div className="w-full max-h-screen font-inter space-y-12 bg-white flex flex-col">
         {header && (
           <div className={`flex  flex-col lg:space-y-5 ${headerClassName}`}>
