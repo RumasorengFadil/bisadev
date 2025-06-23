@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import PrimaryButton from "../molecules/PrimaryButton";
@@ -15,10 +15,10 @@ interface Slide {
 interface SlidesProps {
     slides: Slide[];
     interval?: number;
-    object?: string;
+    children?: React.ReactNode;
 }
 
-export const Slides = ({ slides, interval = 3000 }: SlidesProps) => {
+export const Slides = ({ slides, interval = 3000, children }: SlidesProps) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const touchStart = useRef(0);
     const touchEnd = useRef(0);
