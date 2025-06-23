@@ -1,31 +1,40 @@
 "use client"
 import FormField from "@/design-system/molecules/FormField";
 import FormAction from "@/design-system/molecules/FormAction";
-import axios from "axios";
+import api from "@/utils/api";
+import { useState } from "react";
+import { useForm } from "@/hooks/useForm";
 
 const LoginForm: React.FC = () => {
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
 
-  const login = async () => {
-    axios.defaults.withCredentials = true;
-    await axios.get('http://127.0.0.1:8000/sanctum/csrf-cookie');
-    // Contoh login
-    // await axios.post('http://127.0.0.1:8000/api/login', {
-    //   email: 'limitvariabel@gmail.com',
-    //   password: 'fadil321'
-    // }).then(response => {
-    //   console.log(response.data);
-    // });
-    const { data } = await axios.get("http://127.0.0.1:8000/api/user");
-    console.log(data)
+  const {submit, setData, loading, data, errors} = useForm({
+    email:"",
+    password:"",
+  })
+
+  const submitForm = () => {
+    submit("post", "http://127.0.0.1:8000/api/login", {
+      onSuccess(res) {
+        console.log(res, "berhasil");
+      },
+      onError(errors) {
+        console.log(errors);
+      },
+    })
   }
+
   return (
     <div className="flex flex-col space-y-4 items-center">
       <FormField
-        name="username"
-        label="Username"
+        name="email"
+        label="Email"
         type="text"
-        placeholder="Masukan username"
+        placeholder="Masukan email"
         className="px-4 w-96"
+        value={data.email}
+        onChange={(e)=> setData("email", e.target.value)}
       />
       <FormField
         name="password"
@@ -33,8 +42,10 @@ const LoginForm: React.FC = () => {
         type="password"
         placeholder="Masukan password"
         className="px-4 w-96"
+        value={data.password}
+        onChange={(e)=> setData("password",e.target.value)}
       />
-      <FormAction onClick={login} className="bg-primary border-primary">Masuk</FormAction>
+      <FormAction onClick={submitForm} className="bg-primary border-primary">Masuk</FormAction>
       <span className="text-xs underline cursor-pointer">Lupa Password</span>
     </div>
   );
