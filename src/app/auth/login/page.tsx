@@ -1,23 +1,22 @@
 // import LoginForm from "@/design-system/organisms/LoginForm";
-// import LoginHeader from "@/design-system/organisms/LoginHeader";
-// import ApplicationLayout from "@/Layouts/ApplicationLayout";
+import LoginHeader from "@/design-system/organisms/LoginHeader";
+import ApplicationLayout from "@/Layouts/ApplicationLayout";
 
 
-// const Login = async () => {
-//     const header = (
-//         <>
-//             <LoginHeader title="Login" />
-//         </>
-//     )
-//     const content = (
-//         <>  
-//             <LoginForm />
-//         </>
-//     );
+const Login = async () => {
+    const header = (
+        <>
+            <LoginHeader title="Login" />
+        </>
+    )
+    const content = (
+        <>  
+        </>
+    );
 
-//     return (
-//         <ApplicationLayout header={header} content={content} />
-//     );
-// };
+    return (
+        <ApplicationLayout header={header} content={content} />
+    );
+};
 
-// export default Login;
+export default Login;
