@@ -2,9 +2,9 @@ import User from '@/typdata/User';
 import api from '@/utils/api';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-export const userAuth = ({ protect = false }: { protect: Boolean }) => {
+export const useAuth = ({ protect = false }: { protect: boolean }) => {
     const [user, setUser] = useState<User | null>(null);
-    const [loading, setLoading] = useState<Boolean | null>(true);
+    const [loading, setLoading] = useState<boolean | null>(true);
     const [error, setError] = useState<string | null>("");
     const router = useRouter();
     
@@ -24,8 +24,8 @@ export const userAuth = ({ protect = false }: { protect: Boolean }) => {
             }).finally(() => {
                 setLoading(false);
             });
-    }, []);
+    }, [protect, router]);
     return { user, loading, error }
 };
 
-export default userAuth;
+export default useAuth;

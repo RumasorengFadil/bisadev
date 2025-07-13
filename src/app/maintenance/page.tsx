@@ -3,9 +3,6 @@
 import { useEffect, useState } from "react";
 
 const MaintenancePage = () => {
-  // Ganti waktu ini sesuai waktu selesai maintenance
-  const targetDate = new Date("2025-05-01T00:00:00");
-
   const [timeLeft, setTimeLeft] = useState<{
     days: number;
     hours: number;
@@ -19,6 +16,9 @@ const MaintenancePage = () => {
   });
 
   useEffect(() => {
+    // Ganti waktu ini sesuai waktu selesai maintenance
+    const targetDate = new Date("2025-05-01T00:00:00");
+
     const interval = setInterval(() => {
       const now = new Date().getTime();
       const distance = targetDate.getTime() - now;

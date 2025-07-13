@@ -2,9 +2,9 @@ import User from '@/typdata/User';
 import api from '@/utils/api';
 import { useEffect, useState } from 'react';
 
-export const  userService = () => {
+export const  useUserService = () => {
     const [user, setUser] = useState<User | null>(null);
-    const [loading, setLoading] = useState<Boolean | null>(true);
+    const [loading, setLoading] = useState<boolean | null>(true);
     const [error, setError] = useState<string | null>("");
 
     useEffect(() => {
@@ -21,4 +21,4 @@ export const  userService = () => {
     return {user, loading, error}
 };
 
-export default userService;
+export default useUserService;
