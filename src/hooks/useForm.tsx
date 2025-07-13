@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import api from "@/utils/api";
 
 type Errors<T> = Partial<Record<keyof T, string>>;
 
@@ -30,18 +31,13 @@ export function useForm<T extends Record<string, any>>(initialValues: T) {
     ) => {
         setLoading(true);
         setErrors({});
-
         try {
-            const response = await axios({
+            await api.get("/sanctum/csrf-cookie");
+            const response = await api({
                 method,
                 url,
                 data,
-                withCredentials: true, // opsional, jika pakai Sanctum
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                }
-            });
+            })
             options?.onSuccess?.(response.data);
         } catch (error: any) {
             if (error.response?.data?.errors) {

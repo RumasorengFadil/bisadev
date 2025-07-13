@@ -1,40 +1,46 @@
 "use client"
 import FormField from "@/design-system/molecules/FormField";
-import FormAction from "@/design-system/molecules/FormAction";
-import { useState } from "react";
 import { useForm } from "@/hooks/useForm";
 import toastUtils from "@/utils/toastUtils";
-import { toast } from "react-toastify";
+import withLoading from "../components/WithLoading";
+import SpinnerWithLabel from "../molecules/SpinnerWithLabel";
+import PrimaryButton from "../molecules/PrimaryButton";
+import { useRouter } from 'next/navigation';
 
-const LoginForm: React.FC = () => {
-
-  const {submit, setData, loading, data, errors} = useForm({
-    email:"",
-    password:"",
+const LoginForm = () => {
+  const { submit, setData, loading, data, errors, reset } = useForm({
+    email: "",
+    password: "",
   })
-
-  const submitForm = () => {
-    submit("post", "http://127.0.0.1:8000/api/login", {
+  const router = useRouter();
+  
+  const submitForm = (e:React.FormEvent) => {
+    e.preventDefault();
+    submit("post", "http://localhost:8000/api/login", {
       onSuccess(res) {
-        console.log(res, "berhasil");
+        reset();
+        router.push("/dashboard");
       },
       onError(errors) {
         toastUtils.showError(errors);
       },
     })
   }
+  const ButtonWithLoading = withLoading({
+    SpinnerWithLabel,
+  })(PrimaryButton);
 
   return (
-    <div className="flex flex-col space-y-4 items-center">
+    <form onSubmit={submitForm} className="flex flex-col space-y-4 items-center">
       <FormField
         name="email"
         label="Email"
-        type="text"
+        type="email"
         placeholder="Masukan email"
         className="px-4 w-96"
         value={data.email}
         error={errors.email}
-        onChange={(e)=> setData("email", e.target.value)}
+        onChange={(e) => setData("email", e.target.value)}
       />
       <FormField
         name="password"
@@ -44,11 +50,17 @@ const LoginForm: React.FC = () => {
         className="px-4 w-96"
         value={data.password}
         error={errors.password}
-        onChange={(e)=> setData("password",e.target.value)}
+        onChange={(e) => setData("password", e.target.value)}
       />
-      <FormAction onClick={submitForm} className="bg-primary border-primary">Masuk</FormAction>
+      <ButtonWithLoading
+        isLoading={loading}
+        className="bg-primary flex justify-center"
+        disabled={loading}
+      >
+        Masuk
+      </ButtonWithLoading>
       <span className="text-xs underline cursor-pointer">Lupa Password</span>
-    </div>
+    </form>
   );
 };
 

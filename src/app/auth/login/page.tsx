@@ -2,14 +2,15 @@ import LoginForm from "@/design-system/organisms/LoginForm";
 import LoginHeader from "@/design-system/organisms/LoginHeader";
 import ApplicationLayout from "@/Layouts/ApplicationLayout";
 
-const BlogPost = () => {
+
+const Login = async () => {
     const header = (
         <>
             <LoginHeader title="Login" />
         </>
     )
     const content = (
-        <>
+        <>  
             <LoginForm />
         </>
     );
@@ -19,4 +20,4 @@ const BlogPost = () => {
     );
 };
 
-export default BlogPost;
+export default Login;
