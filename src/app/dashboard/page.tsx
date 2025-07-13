@@ -1,3 +1,4 @@
+"use client"
 import LoginHeader from "@/design-system/organisms/LoginHeader";
 import ApplicationLayout from "@/Layouts/ApplicationLayout";
 import userAuth from "@/hooks/useAuth";
