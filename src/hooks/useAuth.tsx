@@ -9,9 +9,10 @@ export const useAuth = ({ protect = false }: { protect: boolean }) => {
     const router = useRouter();
     
     useEffect(() => {
-        api.get("/api/me")
+        api.get("/api/user")
             .then((res) => {
-                setUser(res.data.auth_user);
+                console.log(res);
+                setUser(res.data);
             })
             .catch((err) => {
                 if (protect) {
