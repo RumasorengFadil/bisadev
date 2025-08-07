@@ -15,14 +15,16 @@ const LoginForm = () => {
     email: "",
     password: "",
   })
+  const {setAccessToken} = useAuthStore();
   const router = useRouter();
   
   const submitForm = async (e:React.FormEvent) => {
     e.preventDefault();
     const res:Token = await api.post("/login", {email:data.email, password:data.password});
 
-    const {setToken} = useAuthStore();
-    setToken(res.access_token);
+    setAccessToken(res.access_token);
+
+    console.log(res);
   }
   const ButtonWithLoading = withLoading({
     SpinnerWithLabel,

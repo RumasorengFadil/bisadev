@@ -1,3 +1,4 @@
+import { fetchWithAuth } from '@/utils/fetchWithAuth';
 import { cookies } from 'next/headers';
 
 export default async function DashboardPage() {
@@ -6,14 +7,15 @@ export default async function DashboardPage() {
 
   if (!token) return null;
 
-    const res = await fetch('http://localhost:8000/api/me', {
-        method:"GET",
-        headers: {
-             'Authorization': `Bearer ${token}`,
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
-        },
-    });
+    const res = await fetchWithAuth("api/me");
+    // await fetch('http://localhost:8000/api/me', {
+    //     method:"GET",
+    //     headers: {
+    //          'Authorization': `Bearer ${token}`,
+    //         'Content-Type': 'application/json',
+    //         'Accept': 'application/json',
+    //     },
+    // });
     // if (!res.ok) {
     //     // Redirect manual jika unauthorized
     //     return <p>Redirecting...</p>;

@@ -1,11 +1,11 @@
 import { create } from 'zustand';
 
 type AuthState = {
-  token: string | null;
-  setToken: (token: string) => void;
+  accessToken: string | null;
+  setAccessToken: (accessToken: string | null) => void;
 };
 
 export const useAuthStore = create<AuthState>((set) => ({
-  token: null,
-  setToken: (token:string) => set({ token }),
+  accessToken: null,
+  setAccessToken: (accessToken:string | null) => set({ accessToken }),
 }));
