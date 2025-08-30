@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Route } from "next";
 import Link from "next/link";
 
 interface ButtonLinkProps {
@@ -9,7 +10,7 @@ interface ButtonLinkProps {
 
 const ButtonLink = ({ href, title, icon: Icon }: ButtonLinkProps) => {
   return (
-    <Link href={href} className="flex justify-end px-4 lg:px-6">
+    <Link href={href as Route} className="flex justify-end px-4 lg:px-6">
       <Button className="flex items-center gap-2">
         <Icon size={16} />
         {title}
