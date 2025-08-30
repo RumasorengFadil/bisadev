@@ -1,48 +1,44 @@
-"use client";
+// "use client";
 
-import { useAuthStore } from "@/store/useAuthStore";
+// import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
+// import { useAuthStore } from "@/store/useAuthStore";
+// import refreshAccessToken from "@/utils/refreshAccessToken";
 
-export async function fetchWithAuthClient(input: RequestInfo, init?: RequestInit) {
-  const { accessToken, setAccessToken } = useAuthStore.getState();
+// export async function fetchWithAuthClient<T = any>(
+//   input: string,
+//   config?: AxiosRequestConfig
+// ): Promise<AxiosResponse<T>> {
+//   const { accessToken, setAccessToken } = useAuthStore.getState();
 
-  let authInit: RequestInit = {
-    ...init,
-    headers: {
-      ...(init?.headers || {}),
-      Authorization: `Bearer ${accessToken}`,
-    },
-    credentials: "include",
-  };
+//   let authConfig: AxiosRequestConfig = {
+//     ...config,
+//     headers: {
+//       ...(config?.headers || {}),
+//       Authorization: `Bearer ${accessToken}`,
+//     },
+//     withCredentials: true,
+//   };
 
-  let res = await fetch(input, authInit);
+//   try {
+//     return await axios(`${process.env.NEXT_PUBLIC_API_URL}/${input}`, authConfig);
+//   } catch (err: any) {
+//     // Jika token expired
+//     if (err.response?.status === 401 || !accessToken) {
+//       const data = await refreshAccessToken();
+//       if (data.refreshed) {
+//         setAccessToken(data.newAccessToken);
 
-  // Coba refresh jika expired
-  if (res.status === 401) {
-    const refreshed = await tryRefreshAccessToken(setAccessToken);
-    if (refreshed) {
-      const newAccessToken = useAuthStore.getState().accessToken;
-      authInit.headers = {
-        ...(authInit.headers || {}),
-        Authorization: `Bearer ${newAccessToken}`,
-      };
-      res = await fetch(input, authInit);
-    } else {
-      throw new Error("Unauthorized");
-    }
-  }
+//         authConfig.headers = {
+//           ...(authConfig.headers || {}),
+//           Authorization: `Bearer ${data.newAccessToken}`,
+//         };
 
-  return res;
-}
-
-async function tryRefreshAccessToken(setAccessToken: (token: string) => void) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/refresh`, {
-    method: "POST",
-    credentials: "include",
-  });
-
-  if (!res.ok) return false;
-
-  const data = await res.json();
-  setAccessToken(data.access_token);
-  return true;
-}
+//         return await axios(`${process.env.NEXT_PUBLIC_API_URL}/${input}`, authConfig);
+//       } else {
+//         console.error("Unauthorized");
+//         throw err;
+//       }
+//     }
+//     throw err;
+//   }
+// }

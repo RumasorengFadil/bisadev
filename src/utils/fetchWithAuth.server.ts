@@ -1,51 +1,54 @@
-// lib/fetchWithAuthServer.ts
-import { cookies } from "next/headers";
+// // src/utils/fetchWithSSRAuth.ts
+// import { cookies } from "next/headers";
+// import { redirect } from "next/navigation";
+// import refreshAccessToken from "@/utils/refreshAccessToken";
+// import axios, { AxiosRequestConfig } from "axios";
 
-export async function fetchWithAuthServer(input: RequestInfo, init?: RequestInit): Promise<Response> {
-  const cookieStore = cookies();
-  let accessToken = (await cookieStore).get("access_token")?.value;
+// export async function fetchWithAuthServer(
+//   input?: string,
+//   config?: AxiosRequestConfig
+// ) {
+//   const cookieStore = cookies();
+//   const refreshToken = (await cookieStore).get("refresh_token")?.value;
+//   const accessToken = (await cookieStore).get("access_token")?.value;
 
-  // Siapkan request awal
-  let authInit: RequestInit = {
-    ...init,
-    headers: {
-      ...(init?.headers || {}),
-      Authorization: `Bearer ${accessToken}`,
-    },
-    credentials: "include", // penting agar refresh_token dikirim
-    cache: "no-store", // jangan pakai cache untuk request auth
-  };
+//   if (!refreshToken) {
+//     redirect("/auth/login");
+//   }
 
-  let res = await fetch(input, authInit);
+//   // Buat instance axios supaya lebih mudah diatur
+//   const axiosInstance = axios.create({
+//     baseURL: process.env.NEXT_PUBLIC_API_URL,
+//     headers: {
+//       Authorization: `Bearer ${accessToken}`,
+//       Accept: "application/json",
+//       "Content-Type": "application/json",
+//     },
+//     ...config,
+//   });
 
-  // Kalau expired
-  if (res.status === 401) {
-    // Coba refresh token
-    const refreshRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/refresh`, {
-      method: "POST",
-      credentials: "include",
-      headers: {
-        cookie: cookieStore.toString(), // kirim cookies dari server
-      },
-      cache: "no-store",
-    });
+//   try {
+//     // Coba request pertama
+//     const res = await axiosInstance(input || "");
+//     return res;
+//   } catch (err: any) {
+//     // Kalau Unauthorized (401), coba refresh token
+//     if (err.response?.status === 401 && refreshToken) {
+//       const resRefresh = await refreshAccessToken(false, {
+//         headers: {
+//           Cookie: `refresh_token=${refreshToken}`,
+//         },
+//       });
 
-    if (!refreshRes.ok) {
-      // Gagal refresh
-      return res;
-    }
+//       if (resRefresh.refreshed) {
+//         // Update Authorization header
+//         axiosInstance.defaults.headers.Authorization = `Bearer ${resRefresh.newAccessToken}`;
 
-    const data = await refreshRes.json();
-    accessToken = data.access_token;
+//         // Retry request
+//         return await axiosInstance(input || "");
+//       }
+//     }
 
-    // Coba ulang request asli dengan token baru
-    authInit.headers = {
-      ...(authInit.headers || {}),
-      Authorization: `Bearer ${accessToken}`,
-    };
-
-    res = await fetch(input, authInit);
-  }
-
-  return res;
-}
+//     throw err;
+//   }
+// }

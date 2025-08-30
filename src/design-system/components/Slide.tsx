@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import PrimaryButton from "../molecules/PrimaryButton";
@@ -24,17 +24,17 @@ export const Slides = ({ slides, interval = 3000 }: SlidesProps) => {
     const touchEnd = useRef(0);
     const [isHolding, setIsHolding] = useState(false);
 
-    const goToPrevious = () => {
+    const goToPrevious = useCallback(() => {
         setCurrentIndex((prevIndex) =>
             prevIndex === 0 ? slides.length - 1 : prevIndex - 1
         );
-    };
+    }, [slides.length]);
 
-    const goToNext = () => {
+    const goToNext = useCallback(() => {
         setCurrentIndex((prevIndex) =>
             prevIndex === slides.length - 1 ? 0 : prevIndex + 1
         );
-    };
+    }, [slides.length]);
 
     const goToSlide = (index: number) => {
         setCurrentIndex(index);
@@ -57,13 +57,8 @@ export const Slides = ({ slides, interval = 3000 }: SlidesProps) => {
         }
     };
 
-    const handleMouseDown = () => {
-        setIsHolding(true);
-    };
-
-    const handleMouseUp = () => {
-        setIsHolding(false);
-    };
+    const handleMouseDown = () => setIsHolding(true);
+    const handleMouseUp = () => setIsHolding(false);
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -72,11 +67,8 @@ export const Slides = ({ slides, interval = 3000 }: SlidesProps) => {
             }
         }, interval);
 
-        return () => {
-            clearInterval(timer);
-        };
-    }, [currentIndex, interval, isHolding, goToNext]);
-
+        return () => clearInterval(timer);
+    }, [interval, isHolding, goToNext]);
     return (
         <div
             className="flex flex-col space-y-4"

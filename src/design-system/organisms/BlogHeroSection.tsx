@@ -1,8 +1,8 @@
 import React from "react";
-import { Navbar } from "./Navbar";
 import { SectionTitle } from "../components/SectionTitle";
 import PrimaryButton from "../molecules/PrimaryButton";
 import Link from "next/link";
+import Navbar from "./Navbar";
 
 interface HeroSectionProps {
     onContactClick?: () => void; // Opsional handler untuk tombol "Contact Us"

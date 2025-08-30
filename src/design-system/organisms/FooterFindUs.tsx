@@ -1,6 +1,6 @@
 import { MdOutlineEmail } from "react-icons/md"
-import { SectionTitle } from "../components/SectionTitle"
 import { FiPhone } from "react-icons/fi"
+import { SectionTitle } from "../components/SectionTitle"
 import { IconLink } from "../components/IconLink"
 
 

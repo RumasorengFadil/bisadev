@@ -1,9 +1,10 @@
+import Link from 'next/link';
 import React from 'react';
 
-export function ExternalLink({ href, children }:{href:string, children:React.ReactNode}) {
+export function ExternalLink({ href, children, className }:{href:string, children:React.ReactNode, className?:string}) {
     return (
-        <a href={href} target="_blank" rel="noopener noreferrer">
+        <Link href={href} className={className} target="_blank" rel="noopener noreferrer">
             {children}
-        </a>
+        </Link>
     );
 }

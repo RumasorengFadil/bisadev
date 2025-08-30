@@ -1,7 +1,7 @@
-import User from '@/typdata/User';
 import api from '@/utils/api';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { User } from '@/typdata/user';
 export const useAuth = ({ protect = false }: { protect: boolean }) => {
     const [user, setUser] = useState<User | null>(null);
     const [loading, setLoading] = useState<boolean | null>(true);

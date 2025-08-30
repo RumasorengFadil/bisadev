@@ -22,7 +22,8 @@ api.interceptors.response.use(
         originalRequest.headers['Authorization'] = `Bearer ${newToken}`;
 
         return api(originalRequest);
-      } catch (refreshError) {
+      } catch (err) {
+        console.error(err);
         // gagal refresh, redirect ke login
         window.location.href = '/login';
       }

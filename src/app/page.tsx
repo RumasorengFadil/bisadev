@@ -1,13 +1,5 @@
-import ApplicationLayout from "@/Layouts/ApplicationLayout";
-import ServicesSection from "@/design-system/organisms/ServicesSection";
-import AboutUsSection from "@/design-system/organisms/AboutUsSection";
-import WhyBbytsSection from "@/design-system/organisms/WhyBbytsSection";
 import { Metadata } from "next";
-import { ContactUs } from "@/design-system/organisms/ContactUs";
-import { FooterProducts } from "@/design-system/organisms/FooterProducts";
-import { FooterService } from "@/design-system/organisms/FooterService";
-import { FooterFindUs } from "@/design-system/organisms/FooterFindUs";
-import HomeHeroSection from "@/design-system/organisms/HomeHeroSection";
+import PageClient from "./PageClient";
 
 export const metadata: Metadata = {
   title: "Jasa Pembuatan Website & Solusi Digital Terbaik | Bbyts",
@@ -35,35 +27,9 @@ export const metadata: Metadata = {
   }
 };
 
-export default function Home() {
-  const header = (
-    <>
-      <HomeHeroSection />
-    </>
-  )
-
-  const content = (
-    <>
-      <AboutUsSection />
-
-      <ServicesSection />
-
-      <WhyBbytsSection />
-    </>
-  )
-
-  const footer = (
-    <>
-      <ContactUs />
-
-      <FooterProducts />
-
-      <FooterService />
-
-      <FooterFindUs />
-    </>
-  )
-  return (
-    <ApplicationLayout header={header} content={content} footer={{ content: footer, copyright: "" }} />
-  );
+export default async function Home() {
+    return (
+        <PageClient />
+    )
 }
+

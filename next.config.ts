@@ -1,8 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  reactStrictMode : true,
+  reactStrictMode: true,
   trailingSlash: true,
+  images: {
+    domains: ["img.icons8.com", "localhost"], // daftar domain eksternal
+  },
 };
 
 const isCI = process.env.NEXT_PUBLIC_ENV === "ci";

@@ -2,7 +2,7 @@ import React, { ComponentType, ReactNode } from "react";
 
 // Tipe untuk komponen pembungkus dan spinner
 interface WithLoadingOptions {
-  SpinnerWithLabel?: ComponentType;
+  Spinner?: ComponentType;
   Overlay?: ComponentType;
   LoadingWrapper?: ComponentType<{ children: ReactNode }>;
 }
@@ -14,7 +14,7 @@ interface WithLoadingProps {
 
 // Fungsi HOC
 const withLoading = ({
-  SpinnerWithLabel,
+  Spinner,
   Overlay,
   LoadingWrapper = ({ children }: { children: ReactNode }) => <div>{children}</div>,
 }: WithLoadingOptions) =>
@@ -27,7 +27,7 @@ const withLoading = ({
           <LoadingWrapper>
             <div className="relative flex items-center justify-center w-full h-full">
               {Overlay && <Overlay />}
-              {SpinnerWithLabel && <SpinnerWithLabel />}
+              {Spinner && <Spinner />}
             </div>
           </LoadingWrapper>
         );

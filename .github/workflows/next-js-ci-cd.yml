@@ -1,55 +1,55 @@
-name: CI/CD for Next.js with rsync
+# name: CI/CD for Next.js with rsync
 
-on:
-  push:
-    branches:
-      - main # Jalankan workflow hanya jika ada perubahan di branch 'main'
+# on:
+#   push:
+#     branches:
+#       - main # Jalankan workflow hanya jika ada perubahan di branch 'main'
 
-jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
+# jobs:
+#   build-and-deploy:
+#     runs-on: ubuntu-latest
 
-    steps:
-      # Step 1: Checkout kode dari repository
-      - name: Checkout repository
-        uses: actions/checkout@v2
+#     steps:
+#       # Step 1: Checkout kode dari repository
+#       - name: Checkout repository
+#         uses: actions/checkout@v2
 
-      # Step 2: Setup Node.js
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: "18" # Gunakan versi Node.js yang sesuai dengan proyek Anda
+#       # Step 2: Setup Node.js
+#       - name: Setup Node.js
+#         uses: actions/setup-node@v3
+#         with:
+#           node-version: "18" # Gunakan versi Node.js yang sesuai dengan proyek Anda
 
-      # Step 3: Install dependencies
-      - name: Install dependencies
-        run: npm install
+#       # Step 3: Install dependencies
+#       - name: Install dependencies
+#         run: npm install
 
-      # Step 4: Build aplikasi Next.js
-      - name: Build Next.js
-        env:
-          NEXT_PUBLIC_ENV: ci
-        run: npm run build
+#       # Step 4: Build aplikasi Next.js
+#       - name: Build Next.js
+#         env:
+#           NEXT_PUBLIC_ENV: ci
+#         run: npm run build
         
-      # Step 4: Setup SSH Key
-      - name: Setup SSH Key
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-        run: |
-          echo "${SSH_PRIVATE_KEY}" > id_rsa
-          chmod 600 id_rsa
+#       # Step 4: Setup SSH Key
+#       - name: Setup SSH Key
+#         env:
+#           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+#         run: |
+#           echo "${SSH_PRIVATE_KEY}" > id_rsa
+#           chmod 600 id_rsa
     
-      # Step 5: Sinkronisasi ke server menggunakan rsync
-      - name: Deploy to Server
-        env:
-          SERVER_IP: ${{ secrets.SERVER_IP }} # User server Anda
-          SERVER_USER: ${{ secrets.SERVER_USER }} # Host/IP server
-          SERVER_PATH: ${{ secrets.SERVER_PATH }} # Path tujuan di server
-        run: |
-          # Jalankan rsync untuk mengupload file ke server
-          rsync -avz --delete --exclude=".git" \
-          -e "ssh -i id_rsa -p 6510 -o StrictHostKeyChecking=no" \
-            ./out/ \
-            $SERVER_USER@$SERVER_IP:$SERVER_PATH
+#       # Step 5: Sinkronisasi ke server menggunakan rsync
+#       - name: Deploy to Server
+#         env:
+#           SERVER_IP: ${{ secrets.SERVER_IP }} # User server Anda
+#           SERVER_USER: ${{ secrets.SERVER_USER }} # Host/IP server
+#           SERVER_PATH: ${{ secrets.SERVER_PATH }} # Path tujuan di server
+#         run: |
+#           # Jalankan rsync untuk mengupload file ke server
+#           rsync -avz --delete --exclude=".git" \
+#           -e "ssh -i id_rsa -p 6510 -o StrictHostKeyChecking=no" \
+#             ./out/ \
+#             $SERVER_USER@$SERVER_IP:$SERVER_PATH
 
 
 

@@ -1,42 +1,60 @@
 import React from "react";
-import { Navbar } from "./Navbar";
-import { SectionTitle } from "../components/SectionTitle";
-import PrimaryButton from "../molecules/PrimaryButton";
+import { Button } from "@/components/ui/button";
+import { Parallax, ParallaxProvider } from "react-scroll-parallax";
 import { ExternalLink } from "../components/ExternalLink";
+import Navbar from "./Navbar";
+import Image from "next/image";
 
 interface HeroSectionProps {
-  onContactClick?: () => void; // Opsional handler untuk tombol "Contact Us"
+  onContactClick?: () => void;
 }
 
 const HomeHeroSection: React.FC<HeroSectionProps> = ({ onContactClick }) => {
   return (
-    <div
-      className="bg-black space-y-10"
+    <section
+      className="relative overflow-hidden bg-black text-white  min-h-[50vh] lg:min-h-[90vh]"
       style={{
-        backgroundImage: "url(/images/common/futuristic-tunnel.webp)",
-        backgroundPosition: "center",
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
         clipPath: "ellipse(90% 100% at 50% 0%)"
       }}
     >
-      <Navbar />
-
-      <SectionTitle className="text-white" size="lg">
-        Prepare experience for <br /> your future with {" "}
-        <span className="font-bold">Bbyts</span>
-      </SectionTitle>
-
-      <div className="flex justify-center">
-        <ExternalLink href="https://wa.me/6285244682780?text=">
-          <PrimaryButton className="rounded-b-2xl rounded-t" onClick={onContactClick}>
-            Hubungi Kami
-          </PrimaryButton>
-        </ExternalLink>
+      {/* Parallax Background */}
+      <div className="absolute inset-0 -z-10 h-full w-full" style={{
+        clipPath: "ellipse(90% 100% at 50% 0%)"
+      }}>
+        <ParallaxProvider>
+          <Parallax speed={-20}>
+            <div className="w-full h-full object-cover min-h-[50vh] lg:min-h-[90vh]">
+              <Image
+                src="/images/common/futuristic-tunnel.webp"
+                alt="Parallax Background"
+                className="object-cover"
+                priority
+                fill
+              />
+            </div>
+          </Parallax>
+        </ParallaxProvider>
       </div>
 
-      <div></div>
-    </div>
+      {/* Navbar tetap di atas */}
+      <div className="absolute top-0 left-0 w-full z-20">
+        <Navbar />
+      </div>
+
+      {/* Konten Tengah */}
+      <div className="flex flex-col justify-center items-center text-center min-h-[50vh] lg:min-h-[90vh] space-y-10 px-4 z-10 relative">
+        <h1 className="text-3xl md:text-4xl font-semibold">
+          Prepare experience for <br />
+          your future with <span className="font-bold text-primary">Bbyts</span>
+        </h1>
+
+        <ExternalLink href="https://wa.me/6285244682780?text=">
+          <Button className="rounded-b-2xl rounded-t transition-all duration-300 hover:scale-105 hover:shadow-lg" onClick={onContactClick}>
+            Contact Us
+          </Button>
+        </ExternalLink>
+      </div>
+    </section>
   );
 };
 

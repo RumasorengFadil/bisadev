@@ -1,9 +1,10 @@
+import axiosClient from "@/utils/axiosClient";
+import { AxiosError, AxiosRequestConfig, AxiosResponse } from "axios";
 import { useState } from "react";
-import api from "@/utils/api";
 
 type Errors<T> = Partial<Record<keyof T, string>>;
 
-export function useForm<T extends Record<string, any>>(initialValues: T) {
+export function useForm<T extends Record<string, unknown>>(initialValues: T) {
     const [data, setData] = useState<T>(initialValues);
     const [errors, setErrors] = useState<Errors<T>>({});
     const [loading, setLoading] = useState(false);
@@ -15,40 +16,50 @@ export function useForm<T extends Record<string, any>>(initialValues: T) {
         }));
     };
 
-    const reset = () => {
+    const reset = (...fields: (keyof T)[]) => {
+        fields.forEach(key => {
+            setData((prev) => ({
+                ...prev,
+                [key]: initialValues[key]
+            }));
+        });
+
+        if (fields.length) return;
+
         setData(initialValues);
-        setErrors({});
     };
 
     const submit = async (
         method: "post" | "put" | "patch" | "delete" | "get",
-        url: string,
+        apiEndPoint: string,
         options?: {
-            onSuccess?: (res: any) => void;
-            onError?: (errors: any) => void;
-        }
+            onSuccess?: (res: AxiosResponse) => void;
+            onError?: (errors: unknown) => void;
+        },
+        config?: AxiosRequestConfig,
+        overrideData?: T,
     ) => {
         setLoading(true);
         setErrors({});
         try {
-            await api.get("/sanctum/csrf-cookie");
-            const response = await api({
-                method,
-                url,
-                data,
-            })
-            options?.onSuccess?.(response.data);
-        } catch (error: any) {
-            console.log(error);
-            if (error.response?.data?.errors) {
-                setErrors(error.response.data.errors);
-                options?.onError?.(Object.values(error.response.data.errors as Record<string, string[]>).map((value) => value[0]).filter(Boolean));
-            } else {
-                console.error("Unexpected error:", errors);
+            const payload = overrideData ?? data;
+
+            const res: AxiosResponse = await axiosClient[method](apiEndPoint, payload, { ...(config) })
+
+            if (options?.onSuccess) {
+                options?.onSuccess(res);
             }
-        } finally {
-            setLoading(false);
+        } catch (error: unknown) {
+            const errorRes = ((error as AxiosError).response as AxiosResponse);
+            if (errorRes?.data?.errors) {
+
+                setErrors(errorRes.data.errors);
+                if (options?.onError) {
+                    options?.onError(errors);
+                }
+            }
         }
+        setLoading(false);
     };
 
     return {
