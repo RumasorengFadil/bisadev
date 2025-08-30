@@ -13,6 +13,7 @@ import { format } from "date-fns"
 import DOMPurify from "dompurify"
 import Image from "next/image"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Route } from "next"
 
 export default function PageClient({ }) {
     const { id } = useParams();
@@ -99,7 +100,7 @@ export default function PageClient({ }) {
                     {blog?.tags.map((tag) => (
                         <Link
                             key={tag.tag.name}
-                            href={`/tags/${tag.tag.name}`}
+                            href={`/tags/${tag.tag.name}` as Route}
                             className="no-underline">
                             <Badge key={tag.tag.name} variant="secondary">
                                 #{tag.tag.name}

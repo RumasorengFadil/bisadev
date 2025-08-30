@@ -6,6 +6,7 @@ import { useState } from "react"
 import { useRouter } from "next/navigation"
 import { useForm } from "@/hooks/useForm"
 import { SubscribeForm } from "@/typdata/subscribeForm"
+import { Route } from "next"
 
 export default function PageClient({ data }: { data: BlogExploreData }) {
     const [blogs, setBlogs] = useState<BlogExploreData>(data);
@@ -23,7 +24,7 @@ export default function PageClient({ data }: { data: BlogExploreData }) {
 
         const params = url.searchParams.toString();
 
-        router.push(`${url.pathname}${params ? `?${params}` : ""}`, { scroll: false });
+        router.push(`${url.pathname}${params ? `?${params}` : ""}` as Route, { scroll: false });
 
         submit('get', `api/explore${params ? `?${params}` : ""}`, {
             onSuccess: (res => {
@@ -40,7 +41,7 @@ export default function PageClient({ data }: { data: BlogExploreData }) {
 
         const params = url.searchParams.toString();
 
-        router.push(`${url.pathname}?${params}`, { scroll: false });
+        router.push(`${url.pathname}?${params}` as Route, { scroll: false });
 
         submit('get', `api/explore${params ? `?${params}` : ""}`, {
             onSuccess: (res => {
@@ -57,7 +58,7 @@ export default function PageClient({ data }: { data: BlogExploreData }) {
 
         const params = url.searchParams.toString();
 
-        router.push(`${url.pathname}?${params}`, { scroll: false });
+        router.push(`${url.pathname}?${params}` as Route, { scroll: false });
 
         submit('get', `api/explore${params ? `?${params}` : ""}`, {
             onSuccess: (res => {
@@ -72,7 +73,7 @@ export default function PageClient({ data }: { data: BlogExploreData }) {
 
         const params = url.searchParams.toString();
 
-        router.push(`${url.pathname.replace("/api","")}?${params}`, { scroll: false });
+        router.push(`${url.pathname.replace("/api","")}?${params}` as Route, { scroll: false });
 
         submit('get', nextPageUrl, {
             onSuccess: (res => {
