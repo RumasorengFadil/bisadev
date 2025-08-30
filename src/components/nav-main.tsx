@@ -8,6 +8,7 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
 import Link from "next/link"
+import { Route } from "next"
 
 export function NavMain({
   items,
@@ -45,7 +46,7 @@ export function NavMain({
         <SidebarMenu>
           {items.map((item, i) => (
             <div key={i}>
-              {item.show ? <Link href={item.url}>
+              {item.show ? <Link href={item.url as Route}>
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton isActive={item.isActive} tooltip={item.title}>
                     {item.icon && <item.icon />}
