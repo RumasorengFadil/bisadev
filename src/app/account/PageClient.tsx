@@ -17,6 +17,7 @@ export default function PageClient({ }) {
     const [profileForm, setProfileForm] = useState<Profile | Record<string, unknown>>({});
     const [passwordForm, setPasswordForm] = useState<Password | Record<string, unknown>>({});
 
+    console.log(auth);
     useEffect(() => {
         setProfileForm({
             name: auth?.user?.name || "",

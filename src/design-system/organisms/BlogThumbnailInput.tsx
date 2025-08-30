@@ -15,7 +15,7 @@ export function CoverImageUpload({
 }) {
   const [preview, setPreview] = useState<string | null>(initialValue || null)
   // const [file, setFile] = useState<File | null>(null)
-
+  console.log(initialValue);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = e.target.files?.[0]
     if (selectedFile) {

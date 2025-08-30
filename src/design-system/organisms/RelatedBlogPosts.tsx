@@ -5,7 +5,7 @@ import Link from "next/link"
 
 export default function RelatedBlogPosts({ blogs }: { blogs: Blog[] }) {
     if (blogs.length === 0) return null
-
+    console.log(blogs);
     return (
         <div className="mt-12 space-y-4">
             <h3 className="text-lg font-semibold">🧠 Artikel Terkait</h3>
@@ -13,7 +13,7 @@ export default function RelatedBlogPosts({ blogs }: { blogs: Blog[] }) {
                 {blogs.map((blog: Blog) => (
                     <Card key={blog.id} className="flex overflow-hidden">
                         {blog.thumbnail && (
-                            <div className="w-28 h-28 object-cover rounded-l-md">
+                            <div className="relative w-28 h-28 object-cover rounded-l-md">
                                 <Image
                                     src={`${process.env.NEXT_PUBLIC_API_URL}${blog.thumbnail}`}
                                     alt={blog.title}
