@@ -8,12 +8,9 @@ export const FooterService: React.FC = () => {
       <SectionTitle align="left" size="base" weight="semibold" title="Jasa Kami" className="text-base text-white" />
 
       <ul className="flex flex-col space-y-2">
-        <Link href={""} >
+        <Link href={"#services"} >
 
           <li>Perancangan Website</li>
-        </Link>
-        <Link href="">
-          <li>Desain UI/UX</li>
         </Link>
       </ul>
     </div>
