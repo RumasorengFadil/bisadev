@@ -14,12 +14,12 @@ import axiosClient from "@/utils/axiosClient"
 import { PageViewStats } from "@/typdata/pageViewStats"
 import { CountryUser } from "@/typdata/countryUser"
 import { VisitorDeviceChartData } from "@/typdata/visitorDeviceChartData "
-import { useAuth } from "../Provider/AuthProvider"
+import { useAuthStore } from "@/store/useAuthStore"
 
 export default function PageClient({ }) {
     const [internalAnalytics, setInternalAnalytics] = useState<InternalAnalytics | null>(null);
     const [blogs, setInternalBlogs] = useState<Blog[] | null>(null);
-    const { auth } = useAuth();
+    const { auth } = useAuthStore();
 
     const [gaStats, setGaStats] = useState<{
         activeUsersStats: PageViewStats,

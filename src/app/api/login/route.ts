@@ -39,7 +39,7 @@ export async function POST(req: Request) {
   } catch (e: unknown) {
     const error = e as AxiosError;
 
-    console.error("ERROR:", error.response);
+    console.error("ERROR:", error);
 
     return NextResponse.json(
       {
