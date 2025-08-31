@@ -1,6 +1,7 @@
 // components/CtaSection.tsx
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
+import Link from "next/link"
 
 export function CtaSection() {
   return (
@@ -27,16 +28,18 @@ export function CtaSection() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-            <Button size="lg" className="text-black transition-all duration-300 hover:scale-105 hover:shadow-lg">
-              Konsultasi Sekarang
-            </Button>
-            <Button
+            <Link href="https://wa.me/6285178137881?text=" >
+              <Button size="lg" className="text-black transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                Konsultasi Sekarang
+              </Button>
+            </Link>
+            {/* <Button
               size="lg"
               variant="outline"
               className="border-white text-foreground hover:text-blue-600 transition-all duration-300 hover:scale-105 hover:shadow-lg"
             >
               Hubungi Kami
-            </Button>
+            </Button> */}
           </div>
         </div>
       </div>
