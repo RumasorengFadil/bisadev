@@ -14,10 +14,13 @@ import axiosClient from "@/utils/axiosClient"
 import { PageViewStats } from "@/typdata/pageViewStats"
 import { CountryUser } from "@/typdata/countryUser"
 import { VisitorDeviceChartData } from "@/typdata/visitorDeviceChartData "
+import { useAuth } from "../Provider/AuthProvider"
 
 export default function PageClient({ }) {
     const [internalAnalytics, setInternalAnalytics] = useState<InternalAnalytics | null>(null);
     const [blogs, setInternalBlogs] = useState<Blog[] | null>(null);
+    const { auth } = useAuth();
+
     const [gaStats, setGaStats] = useState<{
         activeUsersStats: PageViewStats,
         pageViewStats: PageViewStats,
@@ -52,15 +55,18 @@ export default function PageClient({ }) {
         }
         {!blogs ? (<div>Loading...</div>) :
             <>
-                <div className="px-4 lg:px-6">
-                    <ChartAreaInteractive chartData={(gaStats?.visitorDeviceChartData)} />
-                </div>
+                {auth?.user?.role === "admin" && <>
+                    <div className="px-4 lg:px-6">
+                        <ChartAreaInteractive chartData={(gaStats?.visitorDeviceChartData)} />
+                    </div>
 
-                <GeneralViewStatsCard title="Active Users" stats={gaStats?.activeUsersStats} />
+                    <GeneralViewStatsCard title="Active Users" stats={gaStats?.activeUsersStats} />
 
-                <GeneralViewStatsCard title="Page Views" stats={gaStats?.pageViewStats} />
+                    <GeneralViewStatsCard title="Page Views" stats={gaStats?.pageViewStats} />
 
-                <ActiveUsersByCountry data={gaStats?.countryActiveUsers} />
+                    <ActiveUsersByCountry data={gaStats?.countryActiveUsers} />
+                </>}
+
             </>
         }
     </>
