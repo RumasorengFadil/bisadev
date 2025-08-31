@@ -5,10 +5,6 @@ import { Card, CardContent } from "@/components/ui/card"
 
 const testimonials = [
   {
-    name: "Rizky, Pemilik Toko XYZ",
-    quote: "bbyts membantu kami membangun sistem POS custom yang sangat cocok dengan alur bisnis kami. Prosesnya cepat, komunikatif, dan hasilnya memuaskan.",
-  },
-  {
     name: "Nadia, Freelancer Desain",
     quote: "Dengan Blio, saya bisa tampil lebih profesional di mata calon klien. Platform-nya simple, fleksibel, dan support-nya ramah.",
   },
