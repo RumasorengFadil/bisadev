@@ -48,7 +48,7 @@ const HomeHeroSection: React.FC<HeroSectionProps> = ({ onContactClick }) => {
           your future with <span className="font-bold text-primary">Bbyts</span>
         </h1>
 
-        <ExternalLink href="https://wa.me/6285244682780?text=">
+        <ExternalLink href="https://wa.me/6285178137881?text=">
           <Button className="rounded-b-2xl rounded-t transition-all duration-300 hover:scale-105 hover:shadow-lg" onClick={onContactClick}>
             Contact Us
           </Button>

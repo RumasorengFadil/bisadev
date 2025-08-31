@@ -25,7 +25,7 @@ export const FooterFindUs: React.FC = ({}) => {
                             className="text-black"
                         />
                     </div>
-                    <p>+625244682780</p>
+                    <p>+6285178137881</p>
                 </div>
             </div>
 

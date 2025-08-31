@@ -109,7 +109,7 @@ export function ServicesSection() {
 
                                 <div className="pt-6">
                                     {/* <Button className="w-full transition-all duration-300 hover:scale-105 hover:shadow-lg">Lihat Detail</Button> */}
-                                    <ExternalLink href="https://wa.me/6285244682780?text=" className="block mt-2 text-sm text-blue-600 hover:underline">
+                                    <ExternalLink href="https://wa.me/6285178137881?text=" className="block mt-2 text-sm text-blue-600 hover:underline">
                                         Konsultasi Gratis
                                     </ExternalLink>
                                 </div>
