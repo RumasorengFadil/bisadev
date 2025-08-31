@@ -42,7 +42,7 @@ export default function BlogCard({ post }: { post: Blog }) {
 
           {/* Excerpt */}
           <p className="text-sm text-gray-700 line-clamp-2 mb-2">
-            {post.excerpt ? post.excerpt : "kfjjkldjafjdh afjafdhfajh afjdfjadjfkdak adfjadsfdakf adfhadjfdahfkjhad dafjdflkjfa ajfhadjfhadfjk adjdahfjdafkadsfha jafhjdafkd"}
+            {post.excerpt}
           </p>
 
           {/* Tags */}
