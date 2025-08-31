@@ -14,7 +14,7 @@ const nextConfig: NextConfig = {
         hostname:
           process.env.NEXT_PUBLIC_ENV === "local"
             ? "localhost"
-            : process.env.NEXT_PUBLIC_API_URL || "api.bbyts.com",
+            : "api.bbyts.com",
       },
     ],
   },
