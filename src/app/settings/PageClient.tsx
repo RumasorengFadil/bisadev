@@ -41,7 +41,7 @@ export default function PageClient({ }) {
 
             console.log(res);
         });
-    }, [form]);
+    }, []);
 
 
     const { handleFileChange } = useImagePreview();
