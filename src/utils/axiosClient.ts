@@ -12,6 +12,7 @@ const axiosClient = axios.create({
     "Content-Type": "application/json",
   },
   timeout: 15000, // 10 detik
+  withCredentials:true,
 });
 
 // Interceptor request (misalnya untuk token)

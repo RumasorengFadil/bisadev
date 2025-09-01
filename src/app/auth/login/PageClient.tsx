@@ -9,7 +9,7 @@ import { useRouter } from "nextjs-toploader/app"
 import { useAuthStore } from "@/store/useAuthStore"
 
 export default function PageClient({ }) {
-      const { setAuth } = useAuthStore();
+    const { setAuth } = useAuthStore();
 
     const router = useRouter();
     const { data, setData, submit, loading, reset } = useForm<Credentials>({
@@ -20,15 +20,15 @@ export default function PageClient({ }) {
 
     const onSubmit: FormEventHandler = (e) => {
         e.preventDefault();
-        submit("post", "/api/login", {
+        submit("post", "api/login", {
             onSuccess: (res) => {
                 router.replace("/dashboard");
-                setAuth(res.data);
+                setAuth(res.data.data);
             },
             onError: () => {
                 reset("password");
             }
-        }, { baseURL: process.env.NEXT_PUBLIC_BASE_URL });
+        }, { withCredentials: true });
     };
 
     return <>
