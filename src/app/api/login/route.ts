@@ -22,7 +22,8 @@ export async function POST(req: Request) {
     nextRes.cookies.set("refresh_token", data.refresh_token, {
       httpOnly: true,
       secure: process.env.NEXT_PUBLIC_ENV === "production",
-      sameSite: "strict",
+      sameSite: "none",
+      domain:".bbyts.com",
       path: "/",
       maxAge: 24 * 60 * 60 * Number(process.env.REFRESH_TOKEN_EXPRIRES_IN),
     });
@@ -30,7 +31,8 @@ export async function POST(req: Request) {
     nextRes.cookies.set("verified_at", data.user.email_verified_at, {
       httpOnly: true,
       secure: process.env.NEXT_PUBLIC_ENV === "production",
-      sameSite: "strict",
+      sameSite: "none",
+      domain:".bbyts.com",
       path: "/",
       maxAge: 24 * 60 * 60 * Number(process.env.REFRESH_TOKEN_EXPRIRES_IN),
     });
