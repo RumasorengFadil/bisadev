@@ -84,4 +84,6 @@ export function useSilentRefresh() {
     return () =>
       document.removeEventListener("visibilitychange", handleVisibilityChange);
   }, [auth?.access_token, refreshToken]);
+
+  return {refreshToken}
 }

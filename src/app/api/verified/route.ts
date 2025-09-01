@@ -1,25 +1,22 @@
 import axios, { AxiosError } from "axios";
 import { NextResponse } from "next/server";
 
-export async function POST(req: Request) {
+export async function GET(req: Request) {
   try {
-    const body = await req.json();
+    const accessToken = req.headers.get("authorization");
 
-    const res = await axios.post(
-      `${process.env.NEXT_PUBLIC_API_URL}/api/register`,
-      body,
+    const res = await axios.get(
+      `${process.env.NEXT_PUBLIC_API_URL}/api/verified`,
       {
         headers: {
-          "Content-Type": "application/json",
+          Authorization: `Bearer ${accessToken}`,
         },
       }
     );
+    
+    const nextRes = NextResponse.json({ verified: res.data.data.verified });
 
-    const data = res.data.data;
-
-    const nextRes = NextResponse.json({ ...data, refresh_token: null });
-
-    nextRes.cookies.set("refresh_token", data.refresh_token, {
+    nextRes.cookies.set("verified_at", res.data.data.verified, {
       httpOnly: true,
       secure: process.env.NEXT_PUBLIC_ENV === "production",
       sameSite: "strict",
@@ -38,7 +35,7 @@ export async function POST(req: Request) {
         ...(typeof error.response?.data === "object" &&
         error.response?.data !== null
           ? error.response.data
-          : { message: "Failed to register!" }),
+          : { message: "Failed to verified account!" }),
       },
       { status: error.status }
     );
