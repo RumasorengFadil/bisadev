@@ -16,9 +16,9 @@ export default function PageClient({ }) {
 
     useEffect(() => {
         if (!auth?.access_token) return;
-        submit("get", `${process.env.NEXT_PUBLIC_BASE_URL}/api/verified`, {
+        submit("get", "/api/verified", {
             onSuccess: (res) => {
-                if (res.data.verified) {
+                if (res.data.data.verified) {
                     router.replace("/dashboard");
                 }
             }
@@ -26,6 +26,7 @@ export default function PageClient({ }) {
             headers: {
                 Authorization: `Bearer ${auth?.access_token}`
             },
+            withCredentials:true
         });
     }, [auth?.access_token]);
 
