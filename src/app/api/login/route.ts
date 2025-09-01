@@ -19,23 +19,23 @@ export async function POST(req: Request) {
 
     const nextRes = NextResponse.json({ ...data, refresh_token: null });
 
-    nextRes.cookies.set("refresh_token", data.refresh_token, {
-      httpOnly: true,
-      secure: process.env.NEXT_PUBLIC_ENV === "production",
-      sameSite: "none",
-      domain:".bbyts.com",
-      path: "/",
-      maxAge: 24 * 60 * 60 * Number(process.env.REFRESH_TOKEN_EXPRIRES_IN),
-    });
+    // nextRes.cookies.set("refresh_token", data.refresh_token, {
+    //   httpOnly: true,
+    //   secure: process.env.NEXT_PUBLIC_ENV === "production",
+    //   sameSite: "none",
+    //   domain:".bbyts.com",
+    //   path: "/",
+    //   maxAge: 24 * 60 * 60 * Number(process.env.NEXT_PUBLIC_REFRESH_TOKEN_EXPRIRES_IN),
+    // });
 
-    nextRes.cookies.set("verified_at", data.user.email_verified_at, {
-      httpOnly: true,
-      secure: process.env.NEXT_PUBLIC_ENV === "production",
-      sameSite: "none",
-      domain:".bbyts.com",
-      path: "/",
-      maxAge: 24 * 60 * 60 * Number(process.env.REFRESH_TOKEN_EXPRIRES_IN),
-    });
+    // nextRes.cookies.set("verified_at", data.user.email_verified_at, {
+    //   httpOnly: true,
+    //   secure: process.env.NEXT_PUBLIC_ENV === "production",
+    //   sameSite: "none",
+    //   domain:".bbyts.com",
+    //   path: "/",
+    //   maxAge: 24 * 60 * 60 * Number(process.env.NEXT_PUBLIC_REFRESH_TOKEN_EXPRIRES_IN),
+    // });
 
     return nextRes;
   } catch (e: unknown) {
