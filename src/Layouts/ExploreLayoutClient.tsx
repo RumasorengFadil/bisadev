@@ -5,7 +5,7 @@ import Link from "next/link";
 import { ReactNode } from "react";
 
 export default function ExploreLayoutClient({ children }: { children: ReactNode }) {
-    const {auth} = useAuthStore();
+    const { auth } = useAuthStore();
     return (
         <div className="min-h-screen bg-white text-gray-900 font-sans antialiased">
             <header className="border-b">
@@ -18,7 +18,10 @@ export default function ExploreLayoutClient({ children }: { children: ReactNode 
                         <Link href="/" className="hover:underline">Home</Link>
                         <Link href="/explore" className="hover:underline">Explore</Link>
 
-                        {!auth?.user && <Link href="/auth/login" className="hover:underline">Login</Link>}
+                        {auth?.user ?
+                            <Link href="/dashboard" className="hover:underline">Dashboard</Link> :
+                            <Link href="/auth/login" className="hover:underline">Login</Link>
+                        }
                         {/* <Link href="/about" className="hover:underline">Tentang</Link> */}
                         {/* <Link href="/contact" className="hover:underline">Kontak</Link> */}
                     </nav>
