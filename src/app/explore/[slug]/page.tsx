@@ -21,7 +21,6 @@ export async function generateMetadata({
     const blog: Blog = (await getBlog(slug)).data.blog;
 
     return {
-        metadataBase: new URL(`${process.env.NEXT_PUBLIC_BASE_URL}`),
         title: blog.title,
         description: blog.excerpt,
         keyword: blog.tags.map(tag => tag.tag.name),
