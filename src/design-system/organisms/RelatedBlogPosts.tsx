@@ -5,7 +5,6 @@ import Link from "next/link"
 
 export default function RelatedBlogPosts({ blogs }: { blogs: Blog[] }) {
     if (blogs.length === 0) return null
-    console.log(blogs);
     return (
         <div className="mt-12 space-y-4">
             <h3 className="text-lg font-semibold">🧠 Artikel Terkait</h3>
