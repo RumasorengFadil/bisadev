@@ -25,14 +25,14 @@ export default function PageClient({ }) {
         e.preventDefault();
         submit("post", "api/register", {
             onSuccess: (res) => {
-                setAuth(res.data);
+                setAuth(res.data.data);
                 router.replace("/dashboard");
                 reset();
             },
             onError: () => {
                 reset("password", "confirmPassword");
             }
-        }, { baseURL: process.env.NEXT_PUBLIC_BASE_URL });
+        }, { withCredentials: true });
     };
 
     return <>
