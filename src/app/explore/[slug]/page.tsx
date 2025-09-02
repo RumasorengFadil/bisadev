@@ -31,7 +31,7 @@ export async function generateMetadata({
             url: `/explore/${slug}`,
             images: [
                 {
-                    url:  `${process.env.NEXT_PUBLIC_API_URL}${blog.thumbnail}`,
+                    url: `${process.env.NEXT_PUBLIC_API_URL}${blog.thumbnail}`,
                     width: 1200,
                     height: 630,
                     alt: blog.title,
