@@ -12,7 +12,7 @@ const axiosClient = axios.create({
     "Content-Type": "application/json",
   },
   timeout: 15000, // 10 detik
-  withCredentials:true,
+  withCredentials: true,
 });
 
 // Interceptor request (misalnya untuk token)
@@ -31,7 +31,7 @@ axiosClient.interceptors.request.use(async (config) => {
 axiosClient.interceptors.response.use(
   (response: AxiosResponse) => {
     useTopLoader().done();
-    
+
     if (response.data.message) {
       showToasts([response.data.message], { type: "success" });
     }
@@ -47,7 +47,7 @@ axiosClient.interceptors.response.use(
 
       try {
         const res = await axios.post(
-          `${process.env.NEXT_PUBLIC_BASE_URL}/api/refresh`,
+          `${process.env.NEXT_PUBLIC_API_URL}/api/refresh`,
           null,
           {
             withCredentials: true,
@@ -61,7 +61,6 @@ axiosClient.interceptors.response.use(
         return axiosClient(originalRequest);
       } catch (err: unknown) {
         console.log(err);
-        redirect("/auth/login");
       }
     }
 
