@@ -10,7 +10,6 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { useParams } from "next/navigation"
 import { format } from "date-fns"
-import DOMPurify from "dompurify"
 import Image from "next/image"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Route } from "next"
@@ -85,10 +84,7 @@ export default function PageClient({ }) {
                 <CardContent className="p-0">
                     <div
                         dangerouslySetInnerHTML={{
-                            __html:
-                                typeof window === "undefined" || !DOMPurify
-                                    ? ""
-                                    : DOMPurify.sanitize(blog?.content ?? ""),
+                            __html: blog?.content as string
                         }}
                     />
                 </CardContent>
