@@ -4,7 +4,6 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Blog } from "@/typdata/blog"
 import { format } from "date-fns"
 import { MessageCircle } from "lucide-react"
-import DOMPurify from "dompurify"
 import RelatedBlogPosts from "@/design-system/organisms/RelatedBlogPosts"
 import BlogNavigation from "@/design-system/organisms/BlogNavigation"
 import CommentsSection from "@/design-system/organisms/CommentsSection"
@@ -23,7 +22,7 @@ export default function PageClient({ blog, prevBlog, nextBlog, relatedBlogs }: {
         content: "",
         blogId: ""
     })
-
+    
     useEffect(() => {
         setData("blogId", blogData.id);
     }, []);
@@ -75,7 +74,7 @@ export default function PageClient({ blog, prevBlog, nextBlog, relatedBlogs }: {
                 <CardContent className="p-0">
                     <div
                         dangerouslySetInnerHTML={{
-                            __html: DOMPurify.sanitize(blogData.content),
+                            __html: blogData.content,
                         }}
                     />
                 </CardContent>
