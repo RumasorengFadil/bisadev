@@ -3,7 +3,7 @@ import PageClient from "./PageClient";
 import { Metadata } from "next";
 import axiosServer from "@/utils/axiosServer";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 60;
 
 export const metadata: Metadata = {
     title: "Explore Blogs | bbyts",
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
         siteName: "bbyts",
         images: [
             {
-                url: "https://bbyts.com/public/app/og-image.png",
+                url: "https://bbyts.com/images/app/og-image.png",
                 width: 1200,
                 height: 630,
                 alt: "Explore Blogs",
