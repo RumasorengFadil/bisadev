@@ -45,7 +45,7 @@ axiosServer.interceptors.response.use(
         originalRequest.headers = originalRequest.headers || {};
         (
           originalRequest.headers as AxiosRequestHeaders
-        ).Authorization = `Bearer ${res.data.access_token}`;
+        ).Authorization = `Bearer ${res.data?.data.access_token}`;
 
         //Retry the request
         return axiosServer(originalRequest);
