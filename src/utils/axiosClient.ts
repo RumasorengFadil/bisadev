@@ -1,7 +1,6 @@
 "use client";
 import axios, { AxiosError, AxiosRequestHeaders, AxiosResponse } from "axios";
 import { showToasts } from "./showToasts";
-import { redirect } from "next/navigation";
 import { useTopLoader } from "nextjs-toploader";
 import { useAuthStore } from "@/store/useAuthStore";
 import { CustomAxiosRequestConfig } from "@/typdata/customAxiosRequestConfig";
