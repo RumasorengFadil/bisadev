@@ -16,14 +16,14 @@ export function useSilentRefresh() {
     try {
       const res = await axios.post(`/api/refresh`, null, {
         withCredentials: true,
-        baseURL: process.env.NEXT_PUBLIC_BASE_URL,
+        baseURL: process.env.NEXT_PUBLIC_API_URL,
       });
 
-      if (!res.data) throw new Error("Refresh failed");
+      if (!res.data?.data) throw new Error("Refresh failed");
 
       setAuth({
         ...auth,
-        ...res.data,
+        ...res.data.data,
       });
 
       console.log("🔄 Access token refreshed");
@@ -66,10 +66,7 @@ export function useSilentRefresh() {
   // Additional effect: if the tab is reopened and the token is about to expire → refresh immediately
   useEffect(() => {
     const handleVisibilityChange = () => {
-      if (
-        document.visibilityState === "visible" &&
-        auth?.access_token
-      ) {
+      if (document.visibilityState === "visible" && auth?.access_token) {
         const expireAt = getTokenExpireTime(auth.access_token);
         const now = Date.now();
 
@@ -85,5 +82,5 @@ export function useSilentRefresh() {
       document.removeEventListener("visibilitychange", handleVisibilityChange);
   }, [auth?.access_token, refreshToken]);
 
-  return {refreshToken}
+  return { refreshToken };
 }
