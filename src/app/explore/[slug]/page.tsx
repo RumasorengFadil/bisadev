@@ -5,7 +5,7 @@ import PageClient from "./PageClient";
 
 async function getBlog(slug: string) {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/explore/${slug}`, {
-        next: { revalidate: 60 }, // ISR, cache selama 60 detik
+        cache: "no-store", // ISR, cache selama 60 detik
     });
     return res.json();
 }
@@ -20,7 +20,7 @@ export async function generateMetadata({
     const blog: Blog = (await getBlog(slug)).data.blog;
 
     return {
-        metadataBase: new URL(`${process.env.NEXT_PUBLIC_API_URL}`),
+        metadataBase: new URL(`${process.env.NEXT_PUBLIC_BASE_URL}`),
         title: blog.title,
         description: blog.excerpt,
         keyword: blog.tags.map(tag => tag.tag.name),
@@ -30,7 +30,7 @@ export async function generateMetadata({
             url: `/explore/${slug}`,
             images: [
                 {
-                    url: blog.thumbnail,
+                    url: `${process.env.NEXT_PUBLIC_API_URL}${blog.thumbnail}`,
                     width: 1200,
                     height: 630,
                     alt: blog.title,
