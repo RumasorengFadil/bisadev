@@ -1,5 +1,5 @@
 import axiosClient from "@/utils/axiosClient";
-import { useRouter } from "next/navigation";
+import { useRouter } from "nextjs-toploader/app";
 
 /**
  * Custom hook untuk menangani proses logout user.
