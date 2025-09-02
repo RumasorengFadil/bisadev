@@ -3,6 +3,7 @@ import PageClient from "./PageClient";
 import { Metadata } from "next";
 import axiosServer from "@/utils/axiosServer";
 
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
     title: "Explore Blogs | bbyts",
