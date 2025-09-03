@@ -31,20 +31,20 @@ export default function PageClient({ }) {
 
     useEffect(() => {
         if(!auth?.access_token) return;
-        
+
         axios.get("api/dashboard/analytics/internal", {headers:{Authorization:`Bearer ${auth?.access_token}`}}).then(res => {
             setInternalAnalytics(res.data.internal_analytics);
         });
-        axiosClient("api/dashboard/blogs").then(res => {
-            setInternalBlogs(res.data.blogs);
-        });
+        // axiosClient("api/dashboard/blogs").then(res => {
+        //     setInternalBlogs(res.data.blogs);
+        // });
     }, []);
 
     useEffect(() => {
         if (auth?.user?.role === "admin") {
-            axiosClient("api/dashboard/analytics/google").then(res => {
-                setGaStats(res.data.google_analytics);
-            });
+            // axiosClient("api/dashboard/analytics/google").then(res => {
+            //     setGaStats(res.data.google_analytics);
+            // });
         }
     }, [auth?.user])
 
