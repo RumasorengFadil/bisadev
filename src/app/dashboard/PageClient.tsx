@@ -18,10 +18,10 @@ import axios from "axios"
 
 export default function PageClient({ }) {
     const [internalAnalytics, setInternalAnalytics] = useState<InternalAnalytics | null>(null);
-    const [blogs, setInternalBlogs] = useState<Blog[] | null>(null);
+    const [blogs] = useState<Blog[] | null>(null);
     const { auth } = useAuthStore();
 
-    const [gaStats, setGaStats] = useState<{
+    const [gaStats] = useState<{
         activeUsersStats: PageViewStats,
         pageViewStats: PageViewStats,
         countryActiveUsers: CountryUser[],
