@@ -10,18 +10,18 @@ import ActiveUsersByCountry from "@/design-system/organisms/ActiveUsersByCountry
 import { Blog } from "@/typdata/blog"
 import { InternalAnalytics } from "@/typdata/internalAnalytics"
 import { useEffect, useState } from "react"
+import axiosClient from "@/utils/axiosClient"
 import { PageViewStats } from "@/typdata/pageViewStats"
 import { CountryUser } from "@/typdata/countryUser"
 import { VisitorDeviceChartData } from "@/typdata/visitorDeviceChartData "
 import { useAuthStore } from "@/store/useAuthStore"
-import axios from "axios"
 
 export default function PageClient({ }) {
     const [internalAnalytics, setInternalAnalytics] = useState<InternalAnalytics | null>(null);
-    const [blogs] = useState<Blog[] | null>(null);
+    const [blogs, setInternalBlogs] = useState<Blog[] | null>(null);
     const { auth } = useAuthStore();
 
-    const [gaStats] = useState<{
+    const [gaStats, setGaStats] = useState<{
         activeUsersStats: PageViewStats,
         pageViewStats: PageViewStats,
         countryActiveUsers: CountryUser[],
@@ -29,21 +29,19 @@ export default function PageClient({ }) {
     } | null>(null);
 
     useEffect(() => {
-        if(!auth?.access_token) return;
-
-        axios.get("api/dashboard/analytics/internal", {baseURL:process.env.NEXT_PUBLIC_API_URL,headers:{Authorization:`Bearer ${auth?.access_token}`,}}).then(res => {
+        axiosClient("api/dashboard/analytics/internal").then(res => {
             setInternalAnalytics(res.data.internal_analytics);
         });
-        // axiosClient("api/dashboard/blogs").then(res => {
-        //     setInternalBlogs(res.data.blogs);
-        // });
-    }, [!auth?.access_token]);
+        axiosClient("api/dashboard/blogs").then(res => {
+            setInternalBlogs(res.data.blogs);
+        });
+    }, []);
 
     useEffect(() => {
         if (auth?.user?.role === "admin") {
-            // axiosClient("api/dashboard/analytics/google").then(res => {
-            //     setGaStats(res.data.google_analytics);
-            // });
+            axiosClient("api/dashboard/analytics/google").then(res => {
+                setGaStats(res.data.google_analytics);
+            });
         }
     }, [auth?.user])
 
