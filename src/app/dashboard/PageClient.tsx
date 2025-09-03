@@ -15,6 +15,7 @@ import { PageViewStats } from "@/typdata/pageViewStats"
 import { CountryUser } from "@/typdata/countryUser"
 import { VisitorDeviceChartData } from "@/typdata/visitorDeviceChartData "
 import { useAuthStore } from "@/store/useAuthStore"
+import axios from "axios"
 
 export default function PageClient({ }) {
     const [internalAnalytics, setInternalAnalytics] = useState<InternalAnalytics | null>(null);
@@ -29,7 +30,9 @@ export default function PageClient({ }) {
     } | null>(null);
 
     useEffect(() => {
-        axiosClient("api/dashboard/analytics/internal").then(res => {
+        if(!auth?.access_token) return;
+        
+        axios.get("api/dashboard/analytics/internal", {headers:{Authorization:`Bearer ${auth?.access_token}`}}).then(res => {
             setInternalAnalytics(res.data.internal_analytics);
         });
         axiosClient("api/dashboard/blogs").then(res => {
