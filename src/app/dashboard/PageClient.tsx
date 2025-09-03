@@ -35,9 +35,11 @@ export default function PageClient({ }) {
         axiosClient("api/dashboard/blogs").then(res => {
             setInternalBlogs(res.data.blogs);
         });
-        axiosClient("api/dashboard/analytics/google").then(res => {
-            setGaStats(res.data.google_analytics);
-        });
+        if (auth?.user?.role === "admin") {
+            axiosClient("api/dashboard/analytics/google").then(res => {
+                setGaStats(res.data.google_analytics);
+            });
+        }
     }, [])
 
     return <>
@@ -53,22 +55,21 @@ export default function PageClient({ }) {
         {!blogs ? (<div>Loading...</div>) :
             <LatestArticlesTable blogs={blogs} />
         }
-        {!blogs ? (<div>Loading...</div>) :
+        {auth?.user?.role === "admin" ? !gaStats ? (<div>Loading...</div>) :
             <>
-                {auth?.user?.role === "admin" && <>
-                    <div className="px-4 lg:px-6">
-                        <ChartAreaInteractive chartData={(gaStats?.visitorDeviceChartData)} />
-                    </div>
+                <div className="px-4 lg:px-6">
+                    <ChartAreaInteractive chartData={(gaStats?.visitorDeviceChartData)} />
+                </div>
 
-                    <GeneralViewStatsCard title="Active Users" stats={gaStats?.activeUsersStats} />
+                <GeneralViewStatsCard title="Active Users" stats={gaStats?.activeUsersStats} />
 
-                    <GeneralViewStatsCard title="Page Views" stats={gaStats?.pageViewStats} />
+                <GeneralViewStatsCard title="Page Views" stats={gaStats?.pageViewStats} />
 
-                    <ActiveUsersByCountry data={gaStats?.countryActiveUsers} />
-                </>}
+                <ActiveUsersByCountry data={gaStats?.countryActiveUsers} />
 
-            </>
+            </> : ""
         }
+
     </>
 }
 
