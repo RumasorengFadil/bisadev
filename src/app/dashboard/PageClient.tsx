@@ -37,7 +37,7 @@ export default function PageClient({ }) {
         // axiosClient("api/dashboard/blogs").then(res => {
         //     setInternalBlogs(res.data.blogs);
         // });
-    }, []);
+    }, [!auth?.access_token]);
 
     useEffect(() => {
         if (auth?.user?.role === "admin") {
