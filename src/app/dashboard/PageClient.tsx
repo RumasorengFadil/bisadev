@@ -39,7 +39,6 @@ export default function PageClient({ }) {
 
     useEffect(() => {
         if (auth?.user?.role === "admin") {
-            console.log("hai");
             axiosClient("api/dashboard/analytics/google").then(res => {
                 setGaStats(res.data.google_analytics);
             });
