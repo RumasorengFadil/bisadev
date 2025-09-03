@@ -35,12 +35,16 @@ export default function PageClient({ }) {
         axiosClient("api/dashboard/blogs").then(res => {
             setInternalBlogs(res.data.blogs);
         });
+    }, []);
+
+    useEffect(() => {
         if (auth?.user?.role === "admin") {
+            console.log("hai");
             axiosClient("api/dashboard/analytics/google").then(res => {
                 setGaStats(res.data.google_analytics);
             });
         }
-    }, [])
+    }, [auth?.user])
 
     return <>
         {/* Header */}
