@@ -10,7 +10,6 @@ import ActiveUsersByCountry from "@/design-system/organisms/ActiveUsersByCountry
 import { Blog } from "@/typdata/blog"
 import { InternalAnalytics } from "@/typdata/internalAnalytics"
 import { useEffect, useState } from "react"
-import axiosClient from "@/utils/axiosClient"
 import { PageViewStats } from "@/typdata/pageViewStats"
 import { CountryUser } from "@/typdata/countryUser"
 import { VisitorDeviceChartData } from "@/typdata/visitorDeviceChartData "
