@@ -31,7 +31,7 @@ export default function PageClient({ }) {
     useEffect(() => {
         if(!auth?.access_token) return;
 
-        axios.get("api/dashboard/analytics/internal", {headers:{Authorization:`Bearer ${auth?.access_token}`}}).then(res => {
+        axios.get("api/dashboard/analytics/internal", {baseURL:process.env.NEXT_PUBLIC_API_URL,headers:{Authorization:`Bearer ${auth?.access_token}`,}}).then(res => {
             setInternalAnalytics(res.data.internal_analytics);
         });
         // axiosClient("api/dashboard/blogs").then(res => {
