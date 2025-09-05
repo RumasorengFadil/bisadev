@@ -9,7 +9,6 @@ export const handleImageUpload = async (
   onProgress?: (event: { progress: number }) => void,
   abortSignal?: AbortSignal
 ): Promise<string> => {
-
   if (!file) {
     showToasts(["No file provided"], { type: "error" });
     throw new Error("No file provided");
@@ -38,6 +37,7 @@ export const handleImageUpload = async (
         );
         onProgress?.({ progress });
       },
+      headers: { "Content-Type": "multipart/form-data" },
     });
 
     return res.data.url;

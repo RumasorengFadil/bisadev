@@ -71,8 +71,7 @@ export default function PageClient({ }) {
                 <ActiveUsersByCountry data={gaStats?.countryActiveUsers} />
 
             </> : ""
-        };
-
+        }
     </>
 }
 
