@@ -9,6 +9,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: [
           "/dashboard/",
           "/blog/",
+          "/maintenance/",
           "/users/",
           "/settings/",
           "/account/",
