@@ -331,7 +331,6 @@ export function SimpleEditor({ blog, categories, apiEndpoint }: { blog?: Blog, c
     e.preventDefault();
     submit("post", apiEndpoint, {
       onSuccess: (res: AxiosResponse) => {
-        console.log(res);
         router.replace(`/blog/edit/${res.data.data.id}`);
       }
     }, { headers: { "Content-Type": "multipart/form-data" } });
