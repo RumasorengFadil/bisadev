@@ -1,0 +1,10 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://bbyts.com
+
+# Sitemaps
+Sitemap: https://bbyts.com/sitemap.xml
+Sitemap: https://api.bbyts.com/sitemap.xml
