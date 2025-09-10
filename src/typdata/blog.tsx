@@ -15,6 +15,7 @@ export interface Blog {
     excerpt: string,
     status: string,
     thumbnail: string,
+    image_url: string,
     category: Category,
     created_at:string,
     updated_at:string,

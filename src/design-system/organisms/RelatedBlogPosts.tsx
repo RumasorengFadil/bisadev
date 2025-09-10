@@ -11,10 +11,10 @@ export default function RelatedBlogPosts({ blogs }: { blogs: Blog[] }) {
             <div className="grid md:grid-cols-2 gap-4">
                 {blogs.map((blog: Blog) => (
                     <Card key={blog.id} className="flex overflow-hidden">
-                        {blog.thumbnail && (
+                        {blog.image_url && (
                             <div className="relative w-28 h-28 object-cover rounded-l-md">
                                 <Image
-                                    src={`${process.env.NEXT_PUBLIC_API_URL}${blog.thumbnail}`}
+                                    src={`${process.env.NEXT_PUBLIC_API_URL}${blog.image_url}`}
                                     alt={blog.title}
                                     className="object-cover rounded-l-md"
                                     priority

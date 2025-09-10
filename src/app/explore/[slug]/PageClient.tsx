@@ -14,7 +14,7 @@ import { FormEventHandler, useEffect, useState } from "react"
 import Image from "next/image"
 
 export default function PageClient({ blog, prevBlog, nextBlog, relatedBlogs }: { blog: Blog, prevBlog: Blog, nextBlog: Blog, relatedBlogs: Blog[] }) {
-
+    console.log(blog);
     const [blogData, setBlog] = useState<Blog>(blog);
 
     const { data, setData, loading, submit } = useForm<CommentBlogForm>({
@@ -56,10 +56,10 @@ export default function PageClient({ blog, prevBlog, nextBlog, relatedBlogs }: {
                 </span>
             </div>
 
-            {blogData.thumbnail && (
+            {blogData.image_url && (
                 <div className="relative w-full h-96 object-cover mb-6">
                     <Image
-                        src={`${process.env.NEXT_PUBLIC_API_URL}${blogData.thumbnail}`}
+                        src={`${process.env.NEXT_PUBLIC_API_URL}${blogData.image_url}`}
                         alt={blogData.title}
                         className="object-cover rounded-lg"
                         priority

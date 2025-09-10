@@ -258,7 +258,7 @@ export function SimpleEditor({ blog, categories, apiEndpoint }: { blog?: Blog, c
     status: blog?.status || "draft",
     content: blog?.content || "",
     thumbnail: "",
-    thumbnailUrl: blog?.thumbnail ? `${process.env.NEXT_PUBLIC_API_URL}${blog?.thumbnail}` : "",
+    thumbnailUrl: blog?.image_url ? `${process.env.NEXT_PUBLIC_API_URL}${blog?.image_url}` : "",
     categoryId: blog?.category_id || "",
   })
   const isMobile = useIsMobile()
