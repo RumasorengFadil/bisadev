@@ -15,7 +15,7 @@ export const metadata: Metadata = {
       url: "https://bbyts.com/images/hero-banner.jpg",
       width: 1200,
       height: 630,
-      alt: "Jasa Pembuatan Website & Solusi Digital - Bbyts"
+      alt: "Jasa Pembuatan Website & Solusi Digital-Bbyts"
     }],
   },
   twitter: {
