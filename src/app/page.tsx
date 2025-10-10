@@ -15,12 +15,12 @@ export const metadata: Metadata = {
       url: "https://bbyts.com/images/hero-banner.jpg",
       width: 1200,
       height: 630,
-      alt: "Jasa Pembuatan Website & Solusi Digital-Bbyts"
+      alt: "Jasa Pembuatan Website & Solusi Digital - Bbyts"
     }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Jasa Pembuatan Website & Solusi Digital Terbaik | Bbyts",
+    title: "Jasa Pembuatan Website & Solusi Digital Terbaik|Bbyts",
     description: "Dapatkan layanan pembuatan website profesional, desain UI/UX, dan solusi digital terbaik untuk bisnis Anda hanya di Bbyts!",
     images: "https://bbyts.com/images/hero-banner.jpg",
     site: "@bbyts",
