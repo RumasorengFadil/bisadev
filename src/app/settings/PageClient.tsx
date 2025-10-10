@@ -38,8 +38,6 @@ export default function PageClient({ }) {
                 logo: "",
                 ogImage: "", 
             });
-
-            console.log(res);
         });
     }, []);
 

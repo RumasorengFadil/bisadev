@@ -387,7 +387,7 @@ export function SimpleEditor({ blog, categories, apiEndpoint }: { blog?: Blog, c
         </Toolbar>
 
         <form className="content-wrapper py-20 grid gap-y-3 md:gap-y-6">
-          <div className="simple-editor-content ">
+          <div className="simple-editor-content">
             <CoverImageUpload
               initialValue={String(data.thumbnailUrl)}
               onChange={(file) => {

@@ -7,14 +7,14 @@ import { useEffect, useState } from "react"
 import { Category } from "@/typdata/category"
 import axiosClient from "@/utils/axiosClient"
 
-export default function PageClient({}) {
-    
+export default function PageClient({ }) {
+
     const [categories, setCategories] = useState<Category[]>();
 
     useEffect(() => {
         axiosClient.get("api/blog/create").then(res => setCategories(res.data.data));
-    }, [])
-    
+    }, []);
+
     return <>
         {/* Header */}
         <Head>Create Blog</Head>

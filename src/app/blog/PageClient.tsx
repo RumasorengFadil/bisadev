@@ -39,7 +39,6 @@ export default function PageClient({ }) {
             <BlogTableUI
                 onDelete={(res) => {
                     const axRes = res as AxiosResponse;
-                    console.log(res);
                     setPagination(axRes.data.pagination);
                 }}
                 pagination={pagination}
