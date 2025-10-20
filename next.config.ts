@@ -19,7 +19,6 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  typedRoutes: false,
   eslint: {
     ignoreDuringBuilds: false, // agar build tidak gagal hanya karena warning eslint
   },
