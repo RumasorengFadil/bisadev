@@ -15,7 +15,7 @@ export default function HeroSection() {
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: "url('/images/common/futuristic-tunnel-dark.png')",
+          backgroundImage: "url('/images/common/futuristic-tunnel-dark.webp')",
         }}
       />
 
