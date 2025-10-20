@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
-import '../styles/_variables.scss';
+// import '../styles/_variables.scss';
 import '../styles/_keyframe-animations.scss';
 import { Suspense } from "react";
 import NextTopLoader from 'nextjs-toploader';

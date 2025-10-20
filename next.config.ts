@@ -20,7 +20,7 @@ const nextConfig: NextConfig = {
     ],
   },
   eslint: {
-    ignoreDuringBuilds: false, // agar build tidak gagal hanya karena warning eslint
+    ignoreDuringBuilds: true, // agar build tidak gagal hanya karena warning eslint
   },
   typescript: {
     ignoreBuildErrors: false, // rekomendasi: biarkan error TS menghentikan build

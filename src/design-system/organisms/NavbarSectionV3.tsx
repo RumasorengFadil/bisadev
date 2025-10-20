@@ -8,18 +8,10 @@ import {
   NavigationMenuLink,
 } from "@/components/ui/navigation-menu";
 import { Menu, X } from "lucide-react";
-import ApplicationLogo from "../logo/ApplicationLogo";
-import ApplicationLogoBlack from "../logo/ApplicationLogoBlack";
 import ContactButton from "../molecules/ContactButtonV1";
 import { siteConfig } from "@/config/site";
-
-export const navItems = [
-  { label: "Home", href: "/" },
-  { label: "About Us", href: "#about" },
-  { label: "Our Services", href: "#services" },
-  { label: "Our Values", href: "#values" },
-  { label: "Speciality", href: "#speciality" },
-];
+import ApplicationLogoWithText from "@/components/ApplicationLogoWithText"
+import { navItems } from "@/data/navItems";
 
 interface NavbarSectionProps {
   autoHide?: boolean;
@@ -60,13 +52,13 @@ export default function NavbarSection({ autoHide = false }: NavbarSectionProps) 
 
   return (
     <header
-      className={`fixed top-0 left-0 z-50 w-full transition-all duration-500
+      className={`fixed top-0 left-0 z-50 w-full transition-[background-color,box-shadow] duration-500 ease-in-out
         ${isScroll ? "bg-white shadow-sm" : ""}`}
     >
       <div className={`mx-auto flex items-center justify-between transition-all duration-500  ${isScroll ? "px-6 py-4 md:px-16 md:py-4" : "px-6 py-6 md:px-16 md:py-6"}`}>
         {/* Logo */}
         <div className="flex items-center">
-          {isScroll ? <ApplicationLogoBlack /> : <ApplicationLogo />}
+          <ApplicationLogoWithText className="w-24" />
         </div>
 
         {/* Desktop Navigation */}
@@ -85,7 +77,7 @@ export default function NavbarSection({ autoHide = false }: NavbarSectionProps) 
                     <span
                       className={`relative transition-all duration-500 flex items-center gap-2 text-sm md:text-base tracking-wide
                         before:content-[''] before:inline-block before:w-2 before:h-2
-                        before:rounded-full before:bg-secondary before:transition-opacity
+                        before:rounded-full before:bg-primary before:transition-opacity
                         before:opacity-0 hover:before:opacity-100
                         ${isActive
                           ? `before:opacity-100 font-semibold ${isScroll ? "text-black" : "text-gray-100"
@@ -102,7 +94,7 @@ export default function NavbarSection({ autoHide = false }: NavbarSectionProps) 
             })}
 
             {/* Contact Us Button */}
-            <ContactButton email={siteConfig.email} isScroll={isScroll} />
+            <ContactButton whatsAppNumber={siteConfig.whatsapp} isScroll={isScroll} />
           
           </NavigationMenuList>
         </NavigationMenu>
@@ -135,7 +127,7 @@ export default function NavbarSection({ autoHide = false }: NavbarSectionProps) 
         <div className="absolute top-0 left-0 z-40 flex h-screen w-full flex-col bg-white shadow-md lg:hidden">
           {/* Header mobile */}
           <div className="flex items-center justify-between border-b py-6 mx-6 md:px-16 md:py-8">
-            <ApplicationLogoBlack />
+            <ApplicationLogoWithText className="w-24" />
             <button onClick={() => setIsOpen(false)} className="rounded-md p-2">
               <div className="p-3 bg-gray-200 cursor-pointer  rounded-md">
                 <X
@@ -162,7 +154,7 @@ export default function NavbarSection({ autoHide = false }: NavbarSectionProps) 
                     }`}
                 >
                   <span
-                    className={`flex items-center gap-2 before:content-[''] before:inline-block before:w-3 before:h-3 md:before:w-4 md:before:h-4 before:rounded-full before:bg-secondary before:transition-opacity ${isActive ? "before:opacity-100" : "before:opacity-0"
+                    className={`flex items-center gap-2 before:content-[''] before:inline-block before:w-3 before:h-3 md:before:w-4 md:before:h-4 before:rounded-full before:bg-primary before:transition-opacity ${isActive ? "before:opacity-100" : "before:opacity-0"
                       }`}
                   >
                     {item.label}
@@ -172,7 +164,7 @@ export default function NavbarSection({ autoHide = false }: NavbarSectionProps) 
             })}
 
             {/* Contact Us Button */}
-            <ContactButton email={siteConfig.email} isScroll={true} />
+            <ContactButton whatsAppNumber={siteConfig.whatsapp} isScroll={true} />
 
           </div>
 

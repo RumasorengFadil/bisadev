@@ -7,7 +7,8 @@ import { FeaturedProducts } from "@/design-system/organisms/FeaturedProducts"
 import { FooterFindUs } from "@/design-system/organisms/FooterFindUs"
 import { FooterProducts } from "@/design-system/organisms/FooterProducts"
 import { FooterService } from "@/design-system/organisms/FooterService"
-import HomeHeroSection from "@/design-system/organisms/HomeHeroSection"
+import HeroSection from "@/design-system/organisms/HeroSectionV2"
+import NavbarSection from "@/design-system/organisms/NavbarSectionV3"
 import { ServicesSection } from "@/design-system/organisms/ServicesSection"
 import { TestimonialsSection } from "@/design-system/organisms/TesmonialsSection"
 import PublicLayout from "@/Layouts/PublicLayout"
@@ -17,12 +18,16 @@ export default function PageClient({ }) {
 
     const header = (
         <>
-            <HomeHeroSection />
+            <NavbarSection />
+            <FadeIn>
+                <HeroSection />
+            </FadeIn>
         </>
     )
 
     const content = (
         <>
+
             <FadeIn>
                 <AboutUsSection />
             </FadeIn>

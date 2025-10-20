@@ -8,7 +8,7 @@ export default function BlogCard({ post }: { post: Blog }) {
   return (
     <Link
       href={`/explore/${post.slug}`}
-      className="group block rounded-xl border p-5 hover:shadow-md transition bg-white"
+      className="group block rounded-xl border p-5 hover:shadow-md transition-all transiti bg-white"
     >
       <div className="flex flex-col md:flex-row gap-5">
         {post.thumbnail && (
