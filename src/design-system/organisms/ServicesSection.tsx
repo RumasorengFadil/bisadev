@@ -81,7 +81,7 @@ const services = [
 ]
 export function ServicesSection() {
     return (
-        <section id="services" className="py-16 px-4 bg-primary-light">
+        <section id="services" className="py-16 min-h-screen px-4 bg-primary-light">
             <div className="max-w-6xl mx-auto space-y-10 text-center">
                 <h2 className="text-3xl font-bold text-gray-900">Paket Layanan Pengembangan Website</h2>
                 <p className="text-muted-foreground max-w-2xl mx-auto">

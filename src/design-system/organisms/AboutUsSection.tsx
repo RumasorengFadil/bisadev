@@ -4,23 +4,31 @@ import Image from "next/image";
 
 const AboutUsSection: React.FC = () => {
     return <>
-        <div id="about" className="py-16">
+        <div id="about" className="min-h-screen pt-32 pb-16 flex flex-col justify-center items-center">
             <SectionTitle className="mb-6" weight="bold" title="About Bbyts" />
-            <div className="flex justify-center flex-col px-10 space-x-10 text-justify sm:flex-row">
+            <div className="flex justify-center items-center flex-col px-10 space-x-10 text-justify sm:flex-row">
+                <div>
                 <Image
-                    width={200}
-                    height={200}
-                    className="w-full sm:max-w-80"
-                    src="/images/common/team-1.webp"
+                    width={100}
+                    height={100}
+                    className="sm:max-w-80"
+                    src="/images/app/og-image.png"
                     alt="Jasa pembuatan website murah"
                 />
+                </div>
                 <div className="space-y-6">
                     <p className="text-muted-foreground text-lg">
-                        Bbyts is a creative technology company offering professional services in website development, UI/UX design, portfolio-based websites, and point of sale (POS) systems. Our solutions are tailored to support and empower MSMEs in enhancing their digital presence and business operations. With a strong commitment to innovation and user-centric design, we help businesses grow through smart, scalable, and impactful digital products. At Bbyts, your success is our mission—powered by creativity, driven by technology.
+                        BBYTS adalah perusahaan teknologi kreatif yang berfokus pada layanan pembuatan website profesional dengan harga yang terjangkau dan hasil berkualitas tinggi. Kami membantu bisnis, UKM, hingga brand personal untuk memiliki website yang modern, cepat, aman, dan mudah ditemukan di Google.
                     </p>
                     <p className="text-muted-foreground text-lg">
-                        With a commitment to quality, speed, and convenience, bbyts is here as a trusted digital partner
-                        to realize your business transformation.
+                        Dengan pengalaman di bidang web development dan SEO (Search Engine Optimization), tim kami menghadirkan solusi digital yang scalable, user-friendly, dan berorientasi hasil. Kami percaya bahwa setiap bisnis berhak memiliki website yang bukan hanya tampil menarik, tetapi juga mampu mendatangkan traffic dan pelanggan baru.
+                    </p>
+                    <p className="text-muted-foreground text-lg">
+                        Di BBYTS, kami tidak hanya membangun website — kami membantu Anda membangun kehadiran digital yang kuat.
+                        Mulai dari strategi desain, pengembangan website, hingga optimasi SEO, setiap langkah kami dirancang untuk membantu bisnis Anda tumbuh secara berkelanjutan.
+                    </p>
+                    <p className="text-muted-foreground text-lg">
+                       Sebagai mitra digital yang dapat dipercaya, BBYTS siap membantu Anda mentransformasi bisnis secara online — menjadikannya lebih terlihat, lebih dipercaya, dan lebih menguntungkan.
                     </p>
                 </div>
             </div>

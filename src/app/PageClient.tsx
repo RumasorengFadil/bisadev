@@ -19,7 +19,7 @@ export default function PageClient({ }) {
     const header = (
         <>
             <NavbarSection />
-            <FadeIn>
+            <FadeIn direction="down">
                 <HeroSection />
             </FadeIn>
         </>

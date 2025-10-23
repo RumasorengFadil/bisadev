@@ -2,29 +2,33 @@ import { Metadata } from "next";
 import PageClient from "./PageClient";
 
 export const metadata: Metadata = {
-  title: "Jasa Pembuatan Website & Solusi Digital Terbaik | Bbyts",
-  description: "Bbyts adalah penyedia jasa pembuatan website profesional dan solusi digital untuk bisnis. Kami menawarkan layanan desain UI/UX, pengembangan website, serta portofolio online yang menarik dan fungsional. Kembangkan bisnis Anda dengan solusi digital terbaik dari Bbyts!",
+  title: "Jasa Pembuatan Website Murah, Profesional, dan SEO Friendly",
+  description: "Jasa pembuatan website murah, profesional, dan SEO friendly untuk bisnis Anda. Desain elegan, cepat, dan mudah ditemukan di Google. Dapatkah penawaran terbaik sekarang!",
   keywords: "jasa pembuatan website, jasa website profesional, jasa desain UI/UX, solusi digital bisnis, pengembangan website, portofolio online, website murah berkualitas, pembuatan website startup",
   robots: "index, follow",
   openGraph: {
-    title: "Jasa Pembuatan Website & Solusi Digital Terbaik | Bbyts",
-    description: "Bbyts adalah penyedia jasa pembuatan website profesional dan solusi digital untuk bisnis. Kami menawarkan layanan desain UI/UX, pengembangan website, serta portofolio online yang menarik dan fungsional. Kembangkan bisnis Anda dengan solusi digital terbaik dari Bbyts!",
-    url: "https://bbyts.com/",
+    title: "Jasa Pembuatan Website Murah, Profesional, dan SEO Friendly",
+    description: "Jasa pembuatan website murah, profesional, dan SEO friendly untuk bisnis Anda. Desain elegan, cepat, dan mudah ditemukan di Google. Dapatkah penawaran terbaik sekarang!",
+    url: "https://bbyts.com",
+    siteName: "Bbyts",
     type: "website",
     images: [{
       url: "https://bbyts.com/images/hero-banner.jpg",
       width: 1200,
       height: 630,
-      alt: "Jasa Pembuatan Website & Solusi Digital - Bbyts"
+      alt: "Jasa Pembuatan Website Murah, Profesional, dan SEO Friendly. Dapatkah penawaran terbaik sekarang!"
     }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Jasa Pembuatan Website & Solusi Digital Terbaik|Bbyts",
-    description: "Dapatkan layanan pembuatan website profesional, desain UI/UX, dan solusi digital terbaik untuk bisnis Anda hanya di Bbyts!",
+    title: "Jasa Pembuatan Website Murah, Profesional, dan SEO Friendly",
+    description: "Jasa pembuatan website murah, profesional, dan SEO friendly.",
     images: "https://bbyts.com/images/hero-banner.jpg",
     site: "@bbyts",
-  }
+  },
+  alternates: {
+    canonical: "https://bbyts.com",
+  },
 };
 
 export default async function Home() {

@@ -1,7 +1,7 @@
 export const navItems = [
-  { label: "Home", href: "/" },
-  { label: "Service", href: "#services" },
-  { label: "Our Products", href: "#products" },
-  { label: "About Us", href: "#about" },
-  { label: "Our Blog", href: "/explore" },
+  { label: "Beranda", href: "/" },
+  { label: "Layanan", href: "#services" },
+  { label: "Produk", href: "#products" },
+  { label: "Tentang Kami", href: "#about" },
+  { label: "Blog", href: "/explore" },
 ];

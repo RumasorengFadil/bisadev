@@ -24,7 +24,7 @@ const PublicLayout: React.FC<PublicLayoutProps> = memo(function PublicLayout({
 }) {
   return (
     <>
-      <div className="w-full max-h-screen font-inter space-y-16 bg-white flex flex-col">
+      <div className="w-full max-h-screen font-inter bg-white flex flex-col">
         {header && (
           <div className={`flex  flex-col ${headerClassName}`}>
             {header}

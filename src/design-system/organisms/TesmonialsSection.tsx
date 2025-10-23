@@ -30,7 +30,7 @@ export function TestimonialsSection() {
   }, [emblaApi])
 
   return (
-    <section className="py-32 px-4 bg-secondary-light">
+    <section className="py-32 px-4 min-h-screen bg-secondary-light">
       <div className="max-w-5xl mx-auto text-center space-y-8">
         <h2 className="text-3xl font-bold text-gray-900">What Our Clients Say</h2>
         <div className="overflow-hidden" ref={emblaRef}>

@@ -94,7 +94,7 @@ export default function NavbarSection({ autoHide = false }: NavbarSectionProps) 
             })}
 
             {/* Contact Us Button */}
-            <ContactButton whatsAppNumber={siteConfig.whatsapp} isScroll={isScroll} />
+            <ContactButton label="Konsultasi" whatsAppNumber={siteConfig.whatsapp} isScroll={isScroll} />
           
           </NavigationMenuList>
         </NavigationMenu>
@@ -164,7 +164,7 @@ export default function NavbarSection({ autoHide = false }: NavbarSectionProps) 
             })}
 
             {/* Contact Us Button */}
-            <ContactButton whatsAppNumber={siteConfig.whatsapp} isScroll={true} />
+            <ContactButton label="Konsultasi" whatsAppNumber={siteConfig.whatsapp} isScroll={true} />
 
           </div>
 
