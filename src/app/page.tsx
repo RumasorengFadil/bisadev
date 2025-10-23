@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     siteName: "Bbyts",
     type: "website",
     images: [{
-      url: "https://bbyts.com/images/hero-banner.jpg",
+      url: "https://bbyts.com/images/common/futuristic-tunnel-dark.webp",
       width: 1200,
       height: 630,
       alt: "Jasa Pembuatan Website Murah, Profesional, dan SEO Friendly. Dapatkah penawaran terbaik sekarang!"
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Jasa Pembuatan Website Murah, Profesional, dan SEO Friendly",
     description: "Jasa pembuatan website murah, profesional, dan SEO friendly.",
-    images: "https://bbyts.com/images/hero-banner.jpg",
+    images: "https://bbyts.com/images/common/futuristic-tunnel-dark.webp",
     site: "@bbyts",
   },
   alternates: {

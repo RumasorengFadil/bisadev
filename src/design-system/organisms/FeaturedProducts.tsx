@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 
 export function FeaturedProducts() {
     return (
-        <section id="products" className="py-32 min-h-screen px-4 bg-secondary-light">
+        <section id="products" className="py-32 min-h-screen px-6 md:px-16 bg-secondary-light">
             <div className="max-w-6xl mx-auto space-y-10">
                 <h1 className="text-3xl font-bold text-center text-gray-900">
                     Produk Unggulan Kami

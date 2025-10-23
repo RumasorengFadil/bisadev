@@ -4,17 +4,17 @@ import Image from "next/image";
 
 const AboutUsSection: React.FC = () => {
     return <>
-        <div id="about" className="min-h-screen pt-32 pb-16 flex flex-col justify-center items-center">
-            <SectionTitle className="mb-6" weight="bold" title="Tentang Bbyts" />
-            <div className="flex justify-center items-center flex-col px-10 space-x-10 text-justify sm:flex-row">
+        <div id="about" className="min-h-screen pt-32 pb-16 flex gap-8 flex-col px-6 md:px-16 justify-center items-center">
+            <SectionTitle weight="bold" title="Tentang Bbyts" />
+            <div className="flex gap-10 justify-center items-center flex-col text-justify sm:flex-row">
                 <div>
-                <Image
-                    width={150}
-                    height={150}
-                    className="sm:max-w-80"
-                    src="/images/app/og-image.png"
-                    alt="Jasa pembuatan website murah"
-                />
+                    <Image
+                        width={150}
+                        height={150}
+                        className="sm:max-w-80"
+                        src="/images/app/og-image.png"
+                        alt="Jasa pembuatan website murah"
+                    />
                 </div>
                 <div className="space-y-6">
                     <p className="text-muted-foreground text-lg">
@@ -28,7 +28,7 @@ const AboutUsSection: React.FC = () => {
                         Mulai dari strategi desain, pengembangan website, hingga optimasi SEO, setiap langkah kami dirancang untuk membantu bisnis Anda tumbuh secara berkelanjutan.
                     </p>
                     <p className="text-muted-foreground text-lg">
-                       Sebagai mitra digital yang dapat dipercaya, BBYTS siap membantu Anda mentransformasi bisnis secara online — menjadikannya lebih terlihat, lebih dipercaya, dan lebih menguntungkan.
+                        Sebagai mitra digital yang dapat dipercaya, BBYTS siap membantu Anda mentransformasi bisnis secara online — menjadikannya lebih terlihat, lebih dipercaya, dan lebih menguntungkan.
                     </p>
                 </div>
             </div>

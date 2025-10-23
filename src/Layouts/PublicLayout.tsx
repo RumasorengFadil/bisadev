@@ -38,7 +38,7 @@ const PublicLayout: React.FC<PublicLayoutProps> = memo(function PublicLayout({
         )}
 
         {footer && (
-          <div className={`flex flex-col space-y-8 py-10 bg-gray-900 text-gray-200 px-10 ${footerClassName}`}>
+          <div className={`flex flex-col space-y-8 py-10 bg-gray-900 text-gray-200 px-6 md:px-16 ${footerClassName}`}>
             {typeof footer === "object" && "content" in footer && "copyright" in footer ? (
               <>
                 <div className="flex flex-col overflow-hidden space-y-8 sm:space-x-4 sm:space-y-0 sm:flex-row">
