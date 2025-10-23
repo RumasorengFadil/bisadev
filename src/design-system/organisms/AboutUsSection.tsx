@@ -9,8 +9,8 @@ const AboutUsSection: React.FC = () => {
             <div className="flex justify-center items-center flex-col px-10 space-x-10 text-justify sm:flex-row">
                 <div>
                 <Image
-                    width={100}
-                    height={100}
+                    width={150}
+                    height={150}
                     className="sm:max-w-80"
                     src="/images/app/og-image.png"
                     alt="Jasa pembuatan website murah"
