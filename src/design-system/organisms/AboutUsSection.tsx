@@ -5,7 +5,7 @@ import Image from "next/image";
 const AboutUsSection: React.FC = () => {
     return <>
         <div id="about" className="min-h-screen pt-32 pb-16 flex flex-col justify-center items-center">
-            <SectionTitle className="mb-6" weight="bold" title="About Bbyts" />
+            <SectionTitle className="mb-6" weight="bold" title="Tentang Bbyts" />
             <div className="flex justify-center items-center flex-col px-10 space-x-10 text-justify sm:flex-row">
                 <div>
                 <Image

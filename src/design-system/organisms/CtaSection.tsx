@@ -5,7 +5,7 @@ import Link from "next/link"
 
 export function CtaSection() {
   return (
-    <section className="py-32 px-4 bg-blue-600 text-white">
+    <section className="py-32 min-h-screen px-4 bg-secondary/30 text-white">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
         {/* Ilustrasi */}
         <div className="relative w-full h-64 md:h-[300px]">
@@ -20,9 +20,9 @@ export function CtaSection() {
 
         {/* Konten */}
         <div className="text-center md:text-left space-y-6">
-          <h2 className="text-3xl font-bold">
+          <h1 className="text-3xl font-bold">
             Siap Bangun Website Profesional untuk Bisnis Anda?
-          </h2>
+          </h1>
           <p className="text-lg">
             Konsultasikan kebutuhan Anda dengan tim <strong>bbyts</strong>. Kami siap membantu membangun solusi digital yang cepat, aman, dan sesuai dengan tujuan bisnis Anda.
           </p>

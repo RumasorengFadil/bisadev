@@ -4,11 +4,11 @@ import { Button } from "@/components/ui/button"
 
 export function FeaturedProducts() {
     return (
-        <section id="products" className="py-32 px-4 bg-secondary-light">
+        <section id="products" className="py-32 min-h-screen px-4 bg-secondary-light">
             <div className="max-w-6xl mx-auto space-y-10">
-                <h2 className="text-3xl font-bold text-center text-gray-900">
-                    Our Featured Products
-                </h2>
+                <h1 className="text-3xl font-bold text-center text-gray-900">
+                    Produk Unggulan Kami
+                </h1>
 
                 <div className="grid md:grid-cols-2 gap-8">
                     {/* Blio */}

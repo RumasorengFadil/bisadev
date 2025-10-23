@@ -3,47 +3,9 @@ import { CheckCircle } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { ExternalLink } from "../components/ExternalLink"
 
-// const services = [
-//   {
-//     name: "Paket Basic",
-//     price: "Mulai dari Rp 1 Juta",
-//     highlight: "Cocok untuk UMKM & Personal Brand",
-//     features: [
-//       "Landing page profesional",
-//       "Responsive design (mobile friendly)",
-//       "Custom domain & email",
-//       "Form kontak & galeri",
-//       "SEO dasar",
-//     ],
-//   },
-//   {
-//     name: "Paket Profesional",
-//     price: "Mulai dari Rp 3 Juta",
-//     highlight: "Solusi untuk bisnis berkembang",
-//     features: [
-//       "Multi-page website",
-//       "Desain full custom",
-//       "Dashboard admin",
-//       "Integrasi API (payment, WA, dll)",
-//       "Optimasi performa & SEO",
-//     ],
-//   },
-//   {
-//     name: "Paket Custom",
-//     price: "Harga Sesuai Fitur",
-//     highlight: "Untuk perusahaan & kebutuhan khusus",
-//     features: [
-//       "Sistem berbasis role (admin, user, dll)",
-//       "Integrasi backend Laravel",
-//       "Manajemen data & autentikasi",
-//       "Skalabilitas tinggi",
-//       "Maintenance & support khusus",
-//     ],
-//   },
-// ]
 const services = [
     {
-        name: "Basic Package",
+        name: "Paket Dasar",
         price: "Mulai dari Rp 1 Juta",
         highlight: "Cocok untuk UMKM & Brand Pribadi",
         features: [
@@ -55,7 +17,7 @@ const services = [
         ],
     },
     {
-        name: "Professional Package",
+        name: "Paket Profesional",
         price: "Mulai dari Rp 3 Juta",
         highlight: "Solusi untuk bisnis yang sedang berkembang",
         features: [
@@ -67,7 +29,7 @@ const services = [
         ],
     },
     {
-        name: "Custom Package",
+        name: "Paket Custom",
         price: "Harga Berdasarkan Fitur",
         highlight: "Untuk perusahaan & Kebutuhan khusus",
         features: [
@@ -81,9 +43,9 @@ const services = [
 ]
 export function ServicesSection() {
     return (
-        <section id="services" className="py-16 min-h-screen px-4 bg-primary-light">
+        <section id="services" className="py-32 bg-secondary/30 scroll-m-20 min-h-screen px-4 bg-primary-light">
             <div className="max-w-6xl mx-auto space-y-10 text-center">
-                <h2 className="text-3xl font-bold text-gray-900">Paket Layanan Pengembangan Website</h2>
+                <h1 className="text-3xl font-bold text-gray-900">Paket Layanan Pembuatan Website</h1>
                 <p className="text-muted-foreground max-w-2xl mx-auto">
                     Kami menawarkan layanan pengembangan website berbasis yang disesuaikan dengan kebutuhan personal, bisnis, hingga korporasi.
                 </p>
