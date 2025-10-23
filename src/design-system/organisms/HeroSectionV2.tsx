@@ -48,7 +48,7 @@ export default function HeroSection() {
         <div className="flex mt-10 sm:mt-16 flex-wrap lg:flex-nowrap items-center gap-4 md:gap-8">
           {ctaItems.map((item, i) => (
             <Link key={i} href={item.href}>
-              <Button className="rounded-lg bg-secondary text-white p-0 px-8 py-1 hover:bg-secondary/90 cursor-pointer w-full md:text-base xl:text-xl sm:w-auto">
+              <Button className="rounded-md bg-secondary text-white p-0 px-8 py-1 hover:bg-secondary/90 cursor-pointer w-full md:text-base xl:text-xl sm:w-auto">
                 {item.icon && <item.icon  />}
                 
                 {item.label}
