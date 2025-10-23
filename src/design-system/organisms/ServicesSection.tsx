@@ -44,8 +44,8 @@ import { ExternalLink } from "../components/ExternalLink"
 const services = [
     {
         name: "Basic Package",
-        price: "Starting from Rp 1 Million",
-        highlight: "Suitable for MSME & Personal Brand",
+        price: "Mulai dari Rp 1 Juta",
+        highlight: "Cocok untuk UMKM & Brand Pribadi",
         features: [
             "Professional landing page",
             "Responsive design (mobile friendly)",
@@ -56,8 +56,8 @@ const services = [
     },
     {
         name: "Professional Package",
-        price: "Starting from Rp 3 Million",
-        highlight: "Solution for growing businesses",
+        price: "Mulai dari Rp 3 Juta",
+        highlight: "Solusi untuk bisnis yang sedang berkembang",
         features: [
             "Multi-page website",
             "Full custom design",
@@ -68,8 +68,8 @@ const services = [
     },
     {
         name: "Custom Package",
-        price: "Price Based on Features",
-        highlights: "For companies & special needs",
+        price: "Harga Berdasarkan Fitur",
+        highlight: "Untuk perusahaan & Kebutuhan khusus",
         features: [
             "Role-based system (admin, user, etc)",
             "Laravel backend integration",
@@ -85,7 +85,7 @@ export function ServicesSection() {
             <div className="max-w-6xl mx-auto space-y-10 text-center">
                 <h2 className="text-3xl font-bold text-gray-900">Paket Layanan Pengembangan Website</h2>
                 <p className="text-muted-foreground max-w-2xl mx-auto">
-                    Kami menawarkan layanan pengembangan website berbasis Laravel & React yang disesuaikan dengan kebutuhan personal, bisnis, hingga korporasi.
+                    Kami menawarkan layanan pengembangan website berbasis yang disesuaikan dengan kebutuhan personal, bisnis, hingga korporasi.
                 </p>
 
                 <div className="grid md:grid-cols-3 gap-6 items-stretch">
