@@ -14,7 +14,6 @@ import { FormEventHandler, useEffect, useState } from "react"
 import Image from "next/image"
 
 export default function PageClient({ blog, prevBlog, nextBlog, relatedBlogs }: { blog: Blog, prevBlog: Blog, nextBlog: Blog, relatedBlogs: Blog[] }) {
-    console.log(blog);
     const [blogData, setBlog] = useState<Blog>(blog);
 
     const { data, setData, loading, submit } = useForm<CommentBlogForm>({
