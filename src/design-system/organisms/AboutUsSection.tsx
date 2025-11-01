@@ -4,8 +4,8 @@ import Image from "next/image";
 
 const AboutUsSection: React.FC = () => {
     return <>
-        <div id="about" className="min-h-screen pt-32 border-b py-20 flex gap-8 flex-col px-6 md:px-16 justify-center items-center">
-            <SectionTitle weight="bold" title="Tentang Bbyts" />
+        <div id="about" className="min-h-screen pt-32 border-b py-20 flex gap-8 flex-col px-6 md:px-16 justify-center items-center scroll-m-20">
+            <h2 className="text-center font-bold leading-[120%] text-3xl sm:text-4xl lg:text-5xl">Tentang Bbyts</h2>
             <div className="flex gap-10 justify-center items-center flex-col text-justify sm:flex-row">
                 <div>
                     <Image

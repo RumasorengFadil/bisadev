@@ -1,13 +1,10 @@
 "use client"
 
-import { comproPricingPlans } from "@/data/comproPricingPlan"
-import { comproServiceSpecs } from "@/data/comproServiceSpecs"
-import { landpagePricingPlans } from "@/data/landpagePricingPlan"
-import { landpageServiceSpecs } from "@/data/landpageServiceSpecs"
+import { services } from "@/data/service"
 import AboutUsSection from "@/design-system/organisms/AboutUsSection"
 import { ChatPromptForm } from "@/design-system/organisms/ChatPromptForm"
 import { ContactUs } from "@/design-system/organisms/ContactUs"
-import { CtaSection } from "@/design-system/organisms/CtaSection"
+import { CustomServiceSection } from "@/design-system/organisms/CustomServiceSectionV1"
 import { FeaturedProducts } from "@/design-system/organisms/FeaturedProducts"
 import { FooterFindUs } from "@/design-system/organisms/FooterFindUs"
 import { FooterProducts } from "@/design-system/organisms/FooterProducts"
@@ -46,12 +43,10 @@ export default function PageClient({ }) {
                 <WebsiteServiceSection />
             </FadeIn>
 
-            <FadeIn>
-                <ServiceSection serviceSpecs={landpageServiceSpecs} pricingplans={landpagePricingPlans} />
-            </FadeIn>
+            <ServiceSection animation={FadeIn} services={services} />
 
             <FadeIn>
-                <ServiceSection serviceSpecs={comproServiceSpecs} pricingplans={comproPricingPlans} />
+                <CustomServiceSection />
             </FadeIn>
 
             <FadeIn>
@@ -59,13 +54,8 @@ export default function PageClient({ }) {
             </FadeIn>
 
             <FadeIn>
-                <CtaSection />
-            </FadeIn>
-
-            <FadeIn>
                 <FeaturedProducts />
             </FadeIn>
-
         </>
     )
 

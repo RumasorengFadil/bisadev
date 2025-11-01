@@ -5,7 +5,7 @@ export const WebsiteServiceSection = () => {
     return (
         <div className="flex flex-col justify-center min-h-screen py-20 space-y-16 border-b px-6 md:px-16">
             <div className="flex flex-col gap-4">
-                <h2 className="text-center font-bold leading-[120%] text-5xl">Jasa Pembuatan Website</h2>
+                <h2 className="text-center font-bold leading-[120%] text-3xl sm:text-4xl lg:text-5xl">Jasa Pembuatan Website</h2>
                 <p className="text-center max-w-[800px] leading-relaxed mx-auto">Transformasikan bisnis Anda dengan layanan pembuatan website profesional kami. Mulai dari halaman arahan yang menawan hingga profil perusahaan yang komprehensif, kami menciptakan pengalaman digital yang menghasilkan hasil.</p>
             </div>
 
@@ -22,7 +22,7 @@ export const WebsiteServiceSection = () => {
                         <p className="font-bold line-through">Rp 999.000</p>
                         <p className="text-3xl font-bold">Rp 590.000</p>
 
-                        <Link href="#services" className="w-full py-4 bg-primary text-center rounded-xl cursor-pointer transition-all hover:bg-primary-dark" >Selengkapnya</Link>
+                        <Link href="#landpageServices" className="w-full py-4 bg-primary text-center rounded-xl cursor-pointer transition-all hover:bg-primary-dark" >Selengkapnya</Link>
                     </div>
                     <div className="flex flex-col items-center shadow-lg px-8 py-10 gap-6 rounded-2xl justify-between">
                         <div className="flex justify-center items-center w-16 h-16 bg-gradient-to-tl rounded-2xl from-[#4FACFE] to-[#00F2FE]/40">
@@ -35,7 +35,7 @@ export const WebsiteServiceSection = () => {
                         <p className="font-bold line-through">Rp 1.999.000</p>
                         <p className="text-3xl font-bold">Rp 1.190.000</p>
 
-                        <Link href="#services" className="w-full py-4 bg-primary text-center rounded-xl cursor-pointer transition-all hover:bg-primary-dark" >Selengkapnya</Link>
+                        <Link href="#comproServices" className="w-full py-4 bg-primary text-center rounded-xl cursor-pointer transition-all hover:bg-primary-dark" >Selengkapnya</Link>
                     </div>
                     <div className="flex flex-col items-center shadow-lg px-8 py-10 gap-6 rounded-2xl justify-between">
                         <div className="flex justify-center items-center w-16 h-16 bg-gradient-to-tl rounded-2xl from-[#A8EDEA] to-[#FED6E3]/40">
@@ -48,7 +48,7 @@ export const WebsiteServiceSection = () => {
                         <p className="font-bold line-through">Rp 2.999.000</p>
                         <p className="text-3xl font-bold">Rp 2.090.000</p>
 
-                        <Link href="#services" className="w-full py-4 bg-primary text-center rounded-xl cursor-pointer transition-all hover:bg-primary-dark" >Selengkapnya</Link>
+                        <Link href="#customServices" className="w-full py-4 bg-primary text-center rounded-xl cursor-pointer transition-all hover:bg-primary-dark" >Selengkapnya</Link>
                     </div>
                 </div>
             </div>
