@@ -32,7 +32,7 @@ const PublicLayout: React.FC<PublicLayoutProps> = memo(function PublicLayout({
         )}
 
         {content && (
-          <div className={`flex flex-col flex-1 h-full bg-white space-y-16 ${contentClassName}`}>
+          <div className={`flex flex-col flex-1 h-full bg-white ${contentClassName}`}>
             {content}
           </div>
         )}

@@ -5,13 +5,13 @@ import {
   NavigationMenu,
   NavigationMenuItem,
   NavigationMenuList,
-  NavigationMenuLink,
 } from "@/components/ui/navigation-menu";
 import { Menu, X } from "lucide-react";
 import ContactButton from "../molecules/ContactButtonV1";
 import { siteConfig } from "@/config/site";
 import ApplicationLogoWithText from "@/components/ApplicationLogoWithText"
 import { navItems } from "@/data/navItems";
+import { useRouter } from "nextjs-toploader/app";
 
 interface NavbarSectionProps {
   autoHide?: boolean;
@@ -39,16 +39,16 @@ export default function NavbarSection({ autoHide = false }: NavbarSectionProps) 
     return () => window.removeEventListener("scroll", handleScroll);
   }, [autoHide]);
 
-  // Hash change
-  const updateHash = useCallback(() => {
-    setHash(window.location.hash);
-  }, []);
+  const router = useRouter();
+
+  const goTo = (href:string) => {
+    setHash(href);
+    router.push(href);
+  }
 
   useEffect(() => {
-    updateHash();
-    window.addEventListener("hashchange", updateHash);
-    return () => window.removeEventListener("hashchange", updateHash);
-  }, [updateHash]);
+    setHash(window.location.hash);
+  }, []);
 
   return (
     <header
@@ -70,9 +70,9 @@ export default function NavbarSection({ autoHide = false }: NavbarSectionProps) 
 
               return (
                 <NavigationMenuItem key={item.href}>
-                  <NavigationMenuLink
-                    href={item.href}
-                    className="hover:bg-transparent p-0 focus-visible:outline-none focus-visible:ring-0 focus:bg-transparent"
+                  <div
+                    className="hover:bg-transparent cursor-pointer p-0 focus-visible:outline-none focus-visible:ring-0 focus:bg-transparent"
+                    onClick={()=>goTo(item.href)}
                   >
                     <span
                       className={`relative transition-all duration-500 flex items-center gap-2 text-sm md:text-base tracking-wide
@@ -88,14 +88,14 @@ export default function NavbarSection({ autoHide = false }: NavbarSectionProps) 
                     >
                       {item.label}
                     </span>
-                  </NavigationMenuLink>
+                  </div>
                 </NavigationMenuItem>
               );
             })}
 
             {/* Contact Us Button */}
             <ContactButton label="Konsultasi" whatsAppNumber={siteConfig.whatsapp} isScroll={isScroll} />
-          
+
           </NavigationMenuList>
         </NavigationMenu>
 
@@ -144,11 +144,10 @@ export default function NavbarSection({ autoHide = false }: NavbarSectionProps) 
               const isActive =
                 item.href === hash || (item.href === "/" && !hash);
               return (
-                <a
+                <div
                   key={item.href}
-                  href={item.href}
-                  onClick={() => setIsOpen(false)}
-                  className={`relative text-2xl font-medium transition tracking-wide ${isActive
+                  onClick={()=> goTo(item.href)}
+                  className={`relative text-2xl font-medium cursor-pointer transition tracking-wide ${isActive
                     ? "text-black font-semibold"
                     : "text-gray-600 hover:text-black"
                     }`}
@@ -159,7 +158,7 @@ export default function NavbarSection({ autoHide = false }: NavbarSectionProps) 
                   >
                     {item.label}
                   </span>
-                </a>
+                </div>
               );
             })}
 

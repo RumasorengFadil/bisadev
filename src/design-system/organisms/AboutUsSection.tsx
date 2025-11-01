@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const AboutUsSection: React.FC = () => {
     return <>
-        <div id="about" className="min-h-screen pt-32 pb-16 flex gap-8 flex-col px-6 md:px-16 justify-center items-center">
+        <div id="about" className="min-h-screen pt-32 border-b py-20 flex gap-8 flex-col px-6 md:px-16 justify-center items-center">
             <SectionTitle weight="bold" title="Tentang Bbyts" />
             <div className="flex gap-10 justify-center items-center flex-col text-justify sm:flex-row">
                 <div>
