@@ -1,5 +1,5 @@
 import { PricingPlan } from "./pricingPlan";
-import { ServiceSpec } from "./ServiceSpec";
+import { ServiceSpec } from "@/typdata/serviceSpecNew";
 
 export interface Service {
     id:string,
