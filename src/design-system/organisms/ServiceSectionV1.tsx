@@ -1,6 +1,5 @@
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { siteConfig } from "@/config/site";
-import { PricingPlan } from "@/typdata/pricingPlan";
 import { Service } from "@/typdata/service";
 import { Check, X, HelpCircle } from "lucide-react";
 import Link from "next/link";
