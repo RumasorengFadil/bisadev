@@ -5,7 +5,7 @@ export const services: Service[] = [
     id:"landpageServices",
     heading: {
       title: "Jasa Pembuatan Website Landing Page",
-      desc: "Transformasikan bisnis Anda dengan layanan pembuatan website profesional kami. Mulai dari halaman arahan yang menawan hingga profil perusahaan yang komprehensif, kami menciptakan pengalaman digital yang menghasilkan hasil.",
+      desc: "Tingkatkan kepercayaan dan penjualan bisnis Anda dengan Landing Page yang murah, profesional, dan SEO friendly. Dirancang dengan tampilan modern, copywriting yang meyakinkan, serta struktur SEO yang kuat agar mudah ditemukan di Google dan mampu menghasilkan konversi lebih tinggi.",
     },
     serviceSpecs: [
       {
@@ -98,7 +98,7 @@ export const services: Service[] = [
     id:"comproServices",
     heading: {
       title: "Jasa Pembuatan Website Company Profile",
-      desc: "Transformasikan bisnis Anda dengan layanan pembuatan website profesional kami. Mulai dari halaman arahan yang menawan hingga profil perusahaan yang komprehensif, kami menciptakan pengalaman digital yang menghasilkan hasil.",
+      desc: "Bangun citra perusahaan yang lebih terpercaya dengan Website Company Profile yang murah, profesional, dan SEO friendly. Kami merancang tampilan yang modern, informatif, dan sesuai identitas brand, lengkap dengan struktur SEO agar perusahaan Anda lebih mudah ditemukan di Google. Cocok untuk meningkatkan kredibilitas, memperkuat branding, dan memperluas jangkauan bisnis Anda secara online.",
     },
     serviceSpecs: [
       {

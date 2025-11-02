@@ -6,7 +6,7 @@ export const WebsiteServiceSection = () => {
         <div className="flex flex-col justify-center min-h-screen py-20 space-y-16 border-b px-6 md:px-16">
             <div className="flex flex-col gap-4">
                 <h2 className="text-center font-bold leading-[120%] text-3xl sm:text-4xl lg:text-5xl">Jasa Pembuatan Website</h2>
-                <p className="text-center max-w-[800px] leading-relaxed mx-auto">Transformasikan bisnis Anda dengan layanan pembuatan website profesional kami. Mulai dari halaman arahan yang menawan hingga profil perusahaan yang komprehensif, kami menciptakan pengalaman digital yang menghasilkan hasil.</p>
+                <p className="text-center max-w-[800px] leading-relaxed mx-auto">Bangun kehadiran online bisnis Anda dengan website murah, profesional, dan SEO friendly. Kami menghadirkan solusi website yang cepat, menarik, dan dioptimalkan untuk Google — mulai dari landing page, company profile, hingga website custom lengkap yang sesuai dengan kebutuhan bisnis Anda — agar brand Anda terlihat terpercaya dan mampu menjangkau lebih banyak pelanggan.</p>
             </div>
 
             <div>

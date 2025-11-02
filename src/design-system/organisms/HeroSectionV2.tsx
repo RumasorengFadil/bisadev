@@ -26,7 +26,7 @@ export default function HeroSection() {
       <div className="relative z-10 text-left mx-auto px-6 py-6 w-full md:px-16 md:py-8">
         <h1
           className="
-      font-montserrat font-bold text-white leading-[120%]
+      font-montserrat font-bold text-white leading-[120%] lg:leading-[110%]
       text-5xl lg:text-6xl
     "
         >
@@ -38,6 +38,7 @@ export default function HeroSection() {
       mt-6 sm:mt-8 text-gray-300 font-medium
       text-lg lg:text-xl
       leading-[180%]
+      lg:leading-relaxed
       max-w-[720px]
     "
         >
