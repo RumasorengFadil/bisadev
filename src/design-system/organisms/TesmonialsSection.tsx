@@ -32,7 +32,7 @@ export function TestimonialsSection() {
   return (
     <section className="justify-center items-center py-20 px-4 sm:min-h-screen bg-secondary-light border-b sm:flex">
       <div className="max-w-5xl mx-auto text-center space-y-8">
-        <h1 className="text-3xl font-bold text-gray-900">Apa Yang Client Kami Katakan</h1>
+        <h2 className="text-3xl font-bold text-gray-900">Apa Yang Client Kami Katakan</h2>
         <div className="overflow-hidden" ref={emblaRef}>
           <div className="flex">
             {testimonials.map((item, index) => (

@@ -6,9 +6,9 @@ export function FeaturedProducts() {
     return (
         <section id="products" className="flex justify-center items-center py-20 scroll-m-20 min-h-screen px-6 md:px-16 bg-secondary-light">
             <div className="max-w-6xl mx-auto space-y-10">
-                <h1 className="text-3xl font-bold text-center text-gray-900">
+                <h2 className="text-3xl font-bold text-center text-gray-900">
                     Produk Unggulan Kami
-                </h1>
+                </h2>
 
                 <div className="grid md:grid-cols-2 gap-8">
                     {/* Blio */}
