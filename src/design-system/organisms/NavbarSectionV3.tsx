@@ -12,6 +12,7 @@ import { siteConfig } from "@/config/site";
 import ApplicationLogoWithText from "@/components/ApplicationLogoWithText"
 import { navItems } from "@/data/navItems";
 import { useRouter } from "nextjs-toploader/app";
+import Link from "next/link";
 
 interface NavbarSectionProps {
   autoHide?: boolean;
@@ -57,9 +58,9 @@ export default function NavbarSection({ autoHide = false }: NavbarSectionProps) 
     >
       <div className={`mx-auto flex items-center justify-between transition-all duration-500  ${isScroll ? "px-6 py-4 md:px-16 md:py-4" : "px-6 py-6 md:px-16 md:py-6"}`}>
         {/* Logo */}
-        <div className="flex items-center">
+        <Link href="/" className="flex items-center">
           <ApplicationLogoWithText className="w-24" />
-        </div>
+        </Link>
 
         {/* Desktop Navigation */}
         <NavigationMenu className="hidden lg:flex">
