@@ -1,7 +1,9 @@
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import { siteConfig } from "@/config/site";
 import { PricingPlan } from "@/typdata/pricingPlan";
 import { Service } from "@/typdata/service";
 import { Check, X, HelpCircle } from "lucide-react";
+import Link from "next/link";
 import React, { ReactNode } from "react";
 
 interface ServiceSpec {
@@ -62,15 +64,21 @@ export function ServiceSection({
                         {/* CTA Buttons */}
                         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 p-6 bg-gray-50 border-t border-gray-200">
                             <div className="hidden md:block"></div>
-                            <button className="px-6 py-3 border-2 border-gray-300 rounded-lg hover:border-primary hover:text-primary transition-all duration-200 hidden md:block">
-                                Pesan Sekarang
-                            </button>
-                            <button className="px-6 py-3 bg-primary rounded-lg hover:bg-primary-dark transition-all duration-200 shadow-md hover:shadow-lg">
-                                Pesan Sekarang
-                            </button>
-                            <button className="px-6 py-3 border-2 border-gray-300 rounded-lg hover:border-primary hover:text-primary transition-all duration-200 hidden md:block">
-                                Pesan Sekarang
-                            </button>
+                            <Link href={`https://wa.me/${siteConfig.whatsapp}`}>
+                                <button className="px-6 py-3 border-2 border-gray-300 rounded-lg hover:border-primary hover:text-primary transition-all duration-200 hidden md:block">
+                                    Pesan Sekarang
+                                </button>
+                            </Link>
+                            <Link href={`https://wa.me/${siteConfig.whatsapp}`}>
+                                <button className="px-6 py-3 bg-primary rounded-lg hover:bg-primary-dark transition-all duration-200 shadow-md hover:shadow-lg">
+                                    Pesan Sekarang
+                                </button>
+                            </Link>
+                            <Link href={`https://wa.me/${siteConfig.whatsapp}`}>
+                                <button className="px-6 py-3 border-2 border-gray-300 rounded-lg hover:border-primary hover:text-primary transition-all duration-200 hidden md:block">
+                                    Pesan Sekarang
+                                </button>
+                            </Link>
                         </div>
                     </div>
                 </section>
