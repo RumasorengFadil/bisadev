@@ -16,17 +16,17 @@ const AboutUsSection: React.FC = () => {
                     />
                 </div>
                 <div className="space-y-6">
-                    <p className="text-muted-foreground leading-relaxed text-lg">
+                    <p className="text-muted-foreground leading-relaxed">
                         BBYTS adalah perusahaan teknologi kreatif yang berfokus pada layanan pembuatan website profesional dengan harga yang terjangkau dan hasil berkualitas tinggi. Kami membantu bisnis, UKM, hingga brand personal untuk memiliki website yang modern, cepat, aman, dan mudah ditemukan di Google.
                     </p>
-                    <p className="text-muted-foreground leading-relaxed text-lg">
+                    <p className="text-muted-foreground leading-relaxed">
                         Dengan pengalaman di bidang web development dan SEO (Search Engine Optimization), tim kami menghadirkan solusi digital yang scalable, user-friendly, dan berorientasi hasil. Kami percaya bahwa setiap bisnis berhak memiliki website yang bukan hanya tampil menarik, tetapi juga mampu mendatangkan traffic dan pelanggan baru.
                     </p>
-                    <p className="text-muted-foreground leading-relaxed text-lg">
+                    <p className="text-muted-foreground leading-relaxed">
                         Di BBYTS, kami tidak hanya membangun website — kami membantu Anda membangun kehadiran digital yang kuat.
                         Mulai dari strategi desain, pengembangan website, hingga optimasi SEO, setiap langkah kami dirancang untuk membantu bisnis Anda tumbuh secara berkelanjutan.
                     </p>
-                    <p className="text-muted-foreground leading-relaxed text-lg">
+                    <p className="text-muted-foreground leading-relaxed">
                         Sebagai mitra digital yang dapat dipercaya, BBYTS siap membantu Anda mentransformasi bisnis secara online — menjadikannya lebih terlihat, lebih dipercaya, dan lebih menguntungkan.
                     </p>
                 </div>

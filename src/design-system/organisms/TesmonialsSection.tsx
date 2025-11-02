@@ -42,7 +42,7 @@ export function TestimonialsSection() {
               >
                 <Card className="shadow-md">
                   <CardContent className="p-6 space-y-4">
-                    <p className="text-muted-foreground italic text-lg">{item.quote}</p>
+                    <p className="text-muted-foreground italic">{item.quote}</p>
                     <p className="text-sm font-medium text-gray-900 text-right">— {item.name}</p>
                   </CardContent>
                 </Card>
