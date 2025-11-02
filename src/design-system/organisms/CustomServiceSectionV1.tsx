@@ -70,7 +70,7 @@ export function CustomServiceSection() {
                 </div>
 
                 {/* Description */}
-                <p className="text-center text-blue-100/90 max-w-3xl mx-auto mb-12 leading-relaxed">
+                <p className="text-center text-blue-100/90 max-w-3xl mx-auto mb-12 leading-relaxed text-lg">
                     Kami siap membangun website sesuai kebutuhan bisnis Anda dengan fitur-fitur khusus yang disesuaikan.
                     Tidak ada batasan kreativitas, diskusikan ide Anda dan kami wujudkan!
                 </p>

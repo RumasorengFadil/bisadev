@@ -30,7 +30,7 @@ export function ServiceSection({
                     {/* Title & Description*/}
                     <div className="flex flex-col gap-4">
                         <h2 className="text-center font-bold leading-[120%] text-3xl sm:text-4xl lg:text-5xl">{service.heading.title}</h2>
-                        <p className="text-center max-w-[800px] leading-relaxed mx-auto">{service.heading.desc}</p>
+                        <p className="text-center max-w-[800px] leading-relaxed mx-auto text-lg">{service.heading.desc}</p>
                     </div>
 
                     {/* Service Table */}
