@@ -11,6 +11,10 @@ const nextConfig: NextConfig = {
         hostname: "img.icons8.com",
       },
       {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+      },
+      {
         protocol: process.env.NEXT_PUBLIC_ENV === "local" ? "http" : "https",
         hostname:
           process.env.NEXT_PUBLIC_ENV === "local"

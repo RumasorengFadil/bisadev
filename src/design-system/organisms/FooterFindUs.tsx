@@ -2,9 +2,12 @@ import { MdOutlineEmail } from "react-icons/md"
 import { FiPhone } from "react-icons/fi"
 import { SectionTitle } from "../components/SectionTitle"
 import { IconLink } from "../components/IconLink"
+import { Instagram, Linkedin } from "lucide-react"
+import Link from "next/link"
+import { FaTiktok } from "react-icons/fa"
 
 
-export const FooterFindUs: React.FC = ({}) => {
+export const FooterFindUs: React.FC = ({ }) => {
     return (
         <section id="find-us" className="w-full space-y-4 text-white">
             <SectionTitle align="left" size="base" weight="semibold" className="text-base text-white" title="Hubungi Kami" />
@@ -32,10 +35,15 @@ export const FooterFindUs: React.FC = ({}) => {
             <div>
                 <SectionTitle align="left" size="base" weight="semibold" className="text-base text-white" title="Follow Us" />
                 <div className="flex space-x-4 py-2">
-                    <IconLink href="https://www.instagram.com/b.byts" src="/images/app/medsos/instagram.png"  alt="instagram" />
-                    <IconLink href="https://www.facebook.com/profile.php?id=61572221173111" src="/images/app/medsos/facebook.png" alt="facebook" />
-                    <IconLink href="" src="/images/app/medsos/x.png" alt="x" />
-                    <IconLink href="" src="/images/app/medsos/linkedin.png" alt="linkedin" />
+                    <Link href="https://www.instagram.com/b.bytsid/">
+                        <Instagram size={24} />
+                    </Link>
+                    <Link href="https://www.tiktok.com/@b.bytsid">
+                        <FaTiktok size={24} />
+                    </Link>
+                    <Link href="https://www.linkedin.com/company/abhiparaya-mahardika/posts/?feedView=all">
+                        <Linkedin size={24} />
+                    </Link>
                 </div>
             </div>
         </section>

@@ -11,6 +11,7 @@ import { FooterProducts } from "@/design-system/organisms/FooterProducts"
 import { FooterService } from "@/design-system/organisms/FooterService"
 import HeroSection from "@/design-system/organisms/HeroSectionV2"
 import NavbarSection from "@/design-system/organisms/NavbarSectionV3"
+import { PortofolioSection } from "@/design-system/organisms/PortofolioSection"
 import { ServiceSection } from "@/design-system/organisms/ServiceSectionV1"
 import { TestimonialsSection } from "@/design-system/organisms/TesmonialsSection"
 import { WebsiteServiceSection } from "@/design-system/organisms/WebsiteServiceSectionV1"
@@ -50,11 +51,7 @@ export default function PageClient({ }) {
             </FadeIn>
 
             <FadeIn>
-                <TestimonialsSection />
-            </FadeIn>
-
-            <FadeIn>
-                <FeaturedProducts />
+                <PortofolioSection />
             </FadeIn>
         </>
     )

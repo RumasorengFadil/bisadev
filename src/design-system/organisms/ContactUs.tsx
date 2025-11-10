@@ -9,7 +9,7 @@ export const ContactUs: React.FC = () => {
         <section className="flex flex-col w-full space-y-4 text-white">
             {/* <ApplicationLogo className="w-40 fill-current" /> */}
             <ApplicationLogoWithText className="w-24" />
-            <SectionTitle align="left" size="base" weight="semibold" className="text-base text-white" title="Do You Need Help ?" />
+            <SectionTitle align="left" size="base" weight="semibold" className="text-base text-white" title="Butuh bantuan ?" />
 
             <p>Aplikasi Kasir Online . Marketplace portofolio . Pembuatan Website . Desain UI/UX</p>
             <ExternalLink href="https://wa.me/6285178137881?text=">
