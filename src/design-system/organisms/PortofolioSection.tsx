@@ -169,7 +169,7 @@ export function PortofolioSection() {
                     </h2> */}
 
                     <p className="text-slate-600 text-center mx-auto text-lg max-w-3xl leading-relaxed">
-                        Sekumpulan situs web dan sistem yang telah kami kembangkan untuk membantu bisnis berkembang.
+                        Kumpulan situs web dan sistem yang kami bangun untuk mendukung transformasi digital bagi bisnis maupun personal secara profesional.
                     </p>
                 </div>
 
