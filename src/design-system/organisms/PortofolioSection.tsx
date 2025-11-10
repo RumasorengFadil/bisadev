@@ -21,7 +21,7 @@ const projects: Project[] = [
         thumbnail: "/images/portofolio/edusio-indonesia.webp",
         techStack: ["Next.js", "Tailwind CSS", "Framer Motion"],
         projectUrl: "https://www.edusio.id/",
-        description: "Modern and responsive company profile with smooth animations",
+        description: "Company profile modern, responsif, dan beranimasi halus.",
     },
     {
         id: "2",
@@ -30,7 +30,7 @@ const projects: Project[] = [
         thumbnail: "/images/portofolio/wadonfirly.webp",
         techStack: ["Laravel", "Vue.js", "MySQL"],
         projectUrl: "https://wadonfirly.my.id/",
-        description: "Full-featured online store with payment gateway integration",
+        description: "Sistem Point of Sale berbasis web yang dilengkapi fitur akuntansi untuk memudahkan pencatatan penjualan, stok, dan laporan keuangan.",
     },
     {
         id: "3",
@@ -39,7 +39,7 @@ const projects: Project[] = [
         thumbnail: "/images/portofolio/rotapro-technical.webp",
         techStack: ["React", "Node.js", "PostgreSQL"],
         projectUrl: "https://www.rotanademi.co.id/",
-        description: "Interactive LMS platform with video streaming and quiz system",
+        description: "Company profile profesional dan informatif.",
     },
     {
         id: "6",
@@ -48,7 +48,7 @@ const projects: Project[] = [
         thumbnail: "/images/portofolio/brajatama-logistics.webp",
         techStack: ["Vue.js", "Laravel", "Chart.js"],
         projectUrl: "https://brajatama.com/",
-        description: "Advanced financial reporting and analytics dashboard",
+        description: "Company profile dengan visualisasi data interaktif.",
     },
     {
         id: "4",
@@ -57,7 +57,7 @@ const projects: Project[] = [
         thumbnail: "/images/portofolio/taqqiah-portofolio.webp",
         techStack: ["Next.js", "TypeScript", "Supabase"],
         projectUrl: "https://www.taqiyyahalimahmunaf.my.id/",
-        description: "Comprehensive healthcare management system with real-time updates",
+        description: "Website portofolio personal yang profesional.",
     },
     {
         id: "5",
@@ -66,7 +66,7 @@ const projects: Project[] = [
         thumbnail: "/images/portofolio/fadil-rumasoreng.webp",
         techStack: ["React Native", "Firebase", "Redux"],
         projectUrl: "https://www.rumasoreng.com/",
-        description: "Cross-platform mobile app with real-time order tracking",
+        description: "Website portofolio personal modern dan interaktif.",
     },
 ];
 
