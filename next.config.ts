@@ -23,12 +23,12 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  eslint: {
-    ignoreDuringBuilds: true, // agar build tidak gagal hanya karena warning eslint
-  },
-  typescript: {
-    ignoreBuildErrors: false, // rekomendasi: biarkan error TS menghentikan build
-  },
+  // eslint: {
+  //   ignoreDuringBuilds: true, // agar build tidak gagal hanya karena warning eslint
+  // },
+  // typescript: {
+  //   ignoreBuildErrors: false, // rekomendasi: biarkan error TS menghentikan build
+  // },
 };
 
 export default nextConfig;
