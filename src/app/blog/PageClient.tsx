@@ -17,7 +17,7 @@ export default function PageClient({ }) {
     const params = useSearchParams();
 
     useEffect(() => {
-        axiosClient(`api/blog${params ? `?${params.toString()}` : ""}`).then(res => {
+        axiosClient(`api/blogs${params ? `?${params.toString()}` : ""}`).then(res => {
             setPagination(res.data.data);
         });
     }, [params]);
