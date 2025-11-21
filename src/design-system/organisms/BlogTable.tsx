@@ -45,7 +45,7 @@ export default function BlogTableUI({ pagination, onDelete = () => { }, searchDe
 
   // Select state
   const [selectedRows, setSelectedRows] = useState<string[]>([]);
-  const allSelected = selectedRows.length === blogs.length;
+  const allSelected = selectedRows?.length === blogs?.length;
 
   const router = useRouter();
   //Using usePage hooks
@@ -61,7 +61,7 @@ export default function BlogTableUI({ pagination, onDelete = () => { }, searchDe
     if (allSelected) {
       setSelectedRows([]);
     } else {
-      setSelectedRows(blogs.map((b) => b.id));
+      setSelectedRows(blogs?.map((b) => b.id));
     }
   };
 
@@ -156,7 +156,7 @@ export default function BlogTableUI({ pagination, onDelete = () => { }, searchDe
             </TableRow>
           </TableHeader>
           <TableBody>
-            {blogs.map((blog) => (
+            {blogs?.map((blog) => (
               <TableRow key={blog.id}>
                 <TableCell>
                   <Checkbox
@@ -189,7 +189,7 @@ export default function BlogTableUI({ pagination, onDelete = () => { }, searchDe
                   </TableCell>
                 )}
                 {visibleColumns.includes("comments") && (
-                  <TableCell>{blog.comments.length}</TableCell>
+                  <TableCell>{blog?.comments?.length}</TableCell>
                 )}
                 {visibleColumns.includes("views") && (
                   <TableCell>{blog.views}</TableCell>
