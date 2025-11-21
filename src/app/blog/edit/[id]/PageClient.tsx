@@ -57,7 +57,7 @@ export default function PageClient() {
         if (confirm("Are you sure you want to delete selected blogs?")) {
             submit("delete", `/api/blog/destroy/${id}`, {
                 onSuccess: () => {
-                    router.replace(`/admin/manage-blog`);
+                    router.replace(`/blog`);
                 }
             });
         }
