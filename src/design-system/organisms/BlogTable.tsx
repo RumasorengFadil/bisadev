@@ -37,7 +37,6 @@ export default function BlogTableUI({ pagination, onDelete = () => { }, searchDe
     next_page_url,
   } = pagination;
 
-  console.log(pagination);
   // Columns visibility state
   const [visibleColumns, setVisibleColumns] = useState<string[]>(ALL_COLUMNS);
 
