@@ -64,7 +64,7 @@ export default function PageClient() {
     const handlePreview = (id: string) => (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
 
-        router.push(`/admin/manage-blog/preview/${id}`);
+        router.push(`/blog/preview/${id}`);
     }
     useEffect(() => {
         axiosClient(`api/blog/edit/${id}`).then(res => {
@@ -86,7 +86,6 @@ export default function PageClient() {
     return <>
         {/* Header */}
         <Head>Edit Blog</Head>
-{console.log(data)}
 
         <SiteHeader title="Edit Blog" />
 
