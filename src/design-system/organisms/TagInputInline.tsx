@@ -41,7 +41,7 @@ export const TagInputInline: React.FC<TagInputInlineProps> = ({
                 {tags.map((tag, index) => (
                     <Badge
                         key={index}
-                        variant="secondary"
+                        variant="outline"
                         className="flex items-center gap-1 bg-tag-foreground"
                     >
                         {tag}
