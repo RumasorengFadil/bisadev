@@ -6,13 +6,14 @@ import { Blog } from "@/typdata/blog"
 import { Category } from "@/typdata/category"
 import { useEffect, useState } from "react"
 import axiosClient from "@/utils/axiosClient"
-import { useParams, useRouter } from "next/navigation"
 import TailwindAdvancedEditor from "@/components/tailwind/advanced-editor"
 import { AxiosResponse } from "axios"
 import { BlogForm } from "@/typdata/blogForm"
 import { BlogTag } from "@/typdata/blogTag"
 import { useUnsavedChanges } from "@/hooks/use-unsaved-changes"
 import { useForm } from "@/hooks/useForm"
+import { useRouter } from "nextjs-toploader/app"
+import { useParams } from "next/navigation"
 
 export default function PageClient() {
     const router = useRouter();
