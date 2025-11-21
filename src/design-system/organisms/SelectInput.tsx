@@ -10,10 +10,10 @@ import { Category } from "@/typdata/category"
 
 interface SelectInputProps {
     value: string
-    onChange: (value: string) => void
+    onChange: (key: string, value: string) => void
     options: Category[] | undefined
     placeholder?: string
-    className?:string
+    className?: string
 }
 
 export const SelectInput: React.FC<SelectInputProps> = ({
@@ -25,7 +25,9 @@ export const SelectInput: React.FC<SelectInputProps> = ({
 }) => {
     return (
         <div className={className}>
-            <Select value={value} onValueChange={onChange}>
+            <Select value={value} onValueChange={(value) => {
+                onChange("categoryId", value);
+            }}>
                 <SelectTrigger className="w-full">
                     <SelectValue placeholder={placeholder} />
                 </SelectTrigger>

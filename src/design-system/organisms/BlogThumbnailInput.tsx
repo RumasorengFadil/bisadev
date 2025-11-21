@@ -9,7 +9,7 @@ export function CoverImageUpload({
   initialValue,
   className
 }: {
-  onChange?: (file: File | null) => void
+  onChange?: (file: File | string) => void
   initialValue?: string,
   className?: string | undefined,
 }) {
@@ -26,7 +26,7 @@ export function CoverImageUpload({
     }
   }
   return (
-    <div className={"bg-muted border rounded-md h-96 flex flex-col items-center justify-center text-center space-y-4 " + className}>
+    <div className={"bg-muted border rounded-md h-[460px] flex flex-col items-center justify-center text-center space-y-4 " + className}>
       {preview !== null ? (
         <div className="relative h-full w-full">
           <div className="relative w-full h-full">
@@ -45,7 +45,7 @@ export function CoverImageUpload({
             onClick={() => {
               // setFile(null)
               setPreview(null)
-              onChange?.(null)
+              onChange?.("")
             }}
           >
             Remove

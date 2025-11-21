@@ -9,6 +9,7 @@ export interface Blog {
     title: string,
     user:User,
     tags: BlogTag[],
+    contentJSON: string,
     comments: Comment[],
     slug: string,
     content: string,

@@ -6,7 +6,7 @@ interface TagInputInlineProps {
     tags: string[]
     setTags: (tags: string[]) => void
     placeholder?: string,
-    className:string
+    className?:string
 }
 
 export const TagInputInline: React.FC<TagInputInlineProps> = ({
