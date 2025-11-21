@@ -33,7 +33,7 @@ export default function BlogCard({ post }: { post: Blog }) {
           {/* Meta info */}
           <div className="text-sm text-gray-500 flex items-center gap-2 flex-wrap mb-2">
             <span>{post.user?.name}</span>
-            <span>· {format(new Date(post.published_at), "dd MMM yyyy")}</span>
+            <span>· {format(new Date(post.created_at), "dd MMM yyyy")}</span>
             <span className="flex items-center gap-1">
               · <MessageCircle className="w-4 h-4" />
               {post.comments?.length ?? 0}

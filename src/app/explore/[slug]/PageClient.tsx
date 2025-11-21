@@ -48,7 +48,7 @@ export default function PageClient({ blog, prevBlog, nextBlog, relatedBlogs }: {
                     <AvatarFallback>CN</AvatarFallback>
                 </Avatar>
                 <span>{blogData.user?.name}</span>
-                <span>· {format(new Date(blogData.published_at), "dd MMM yyyy")}</span>
+                <span>· {format(new Date(blogData.created_at), "dd MMM yyyy")}</span>
                 <span className="flex items-center gap-1">
                     · <MessageCircle className="w-4 h-4" />
                     {blogData.comments?.length ?? 0}
