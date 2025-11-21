@@ -3,7 +3,6 @@
 import { SiteHeader } from "@/components/site-header"
 import Head from "next/head"
 import { Blog } from "@/typdata/blog"
-import { SimpleEditor } from "@/components/tiptap-templates/simple/simple-editor"
 import { Category } from "@/typdata/category"
 import { useEffect, useState } from "react"
 import axiosClient from "@/utils/axiosClient"
