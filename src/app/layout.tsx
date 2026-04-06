@@ -38,7 +38,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const auth: Auth = await getAuthFromSever();
+  // const auth: Auth = await getAuthFromSever();
 
   return (
     <html className="scroll-smooth" lang="en">
@@ -63,7 +63,7 @@ export default async function RootLayout({
         <Suspense fallback={null}>
           <NextTopLoader color="hsl(46, 100%, 51%)" height={2} />
         </Suspense>
-        <HydrateAuth auth={auth} />
+        {/* <HydrateAuth auth={auth} /> */}
 
         {children}
       </body>
