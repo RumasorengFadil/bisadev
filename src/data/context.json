@@ -1,22 +1,22 @@
 [
   {
     "topic": "about",
-    "content": "BBYTS adalah perusahaan teknologi kreatif yang berfokus pada layanan pembuatan website profesional dengan harga yang terjangkau dan hasil berkualitas tinggi. Kami membantu bisnis, UKM, hingga brand personal untuk memiliki website yang modern, cepat, aman, dan mudah ditemukan di Google.Dengan pengalaman di bidang web development dan SEO (Search Engine Optimization), tim kami menghadirkan solusi digital yang scalable, user-friendly, dan berorientasi hasil. Kami percaya bahwa setiap bisnis berhak memiliki website yang bukan hanya tampil menarik, tetapi juga mampu mendatangkan traffic dan pelanggan baru. Di BBYTS, kami tidak hanya membangun website — kami membantu Anda membangun kehadiran digital yang kuat. Mulai dari strategi desain, pengembangan website, hingga optimasi SEO, setiap langkah kami dirancang untuk membantu bisnis Anda tumbuh secara berkelanjutan. Sebagai mitra digital yang dapat dipercaya, BBYTS siap membantu Anda mentransformasi bisnis secara online — menjadikannya lebih terlihat, lebih dipercaya, dan lebih menguntungkan."
+    "content": "Bisadev adalah perusahaan teknologi yang menyediakan layanan pembuatan website profesional untuk bisnis, UMKM, dan personal brand. Bisadev berfokus pada pengembangan website yang modern, cepat, aman, dan SEO-friendly untuk membantu meningkatkan visibilitas dan pertumbuhan bisnis secara online."
   },
   {
-    "topic": "service",
-    "content": "BBYTS menyediakan tiga paket layanan pembuatan website yang dirancang untuk memenuhi kebutuhan berbagai jenis bisnis — mulai dari personal brand, UMKM, hingga perusahaan yang memerlukan solusi digital berskala besar. Setiap paket mengutamakan kualitas, kecepatan, dan SEO agar website Anda tampil profesional dan mudah ditemukan di Google.\n\n**Basic Package — Mulai dari Rp 1 Juta**\nCocok untuk UMKM dan personal brand yang ingin segera memiliki website profesional dengan biaya terjangkau.\n- Landing page profesional dan modern\n- Desain responsif (mobile friendly)\n- Custom domain & email bisnis\n- Form kontak dan galeri\n- Optimasi SEO dasar\n- Konsultasi gratis via WhatsApp → [Klik di sini](https://wa.me/6285178137881?text=Halo%20BBYTS!%20Saya%20ingin%20konsultasi%20tentang%20pembuatan%20website%20Basic%20Package)\n\n**Professional Package — Mulai dari Rp 3 Juta**\nSolusi ideal untuk bisnis yang sedang berkembang dan membutuhkan website lebih kompleks dengan performa tinggi.\n- Website multi-halaman (Company Profile, Blog, Produk, dsb)\n- Desain full custom dengan UX/UI modern\n- Dashboard admin untuk pengelolaan konten\n- Integrasi API (pembayaran, WhatsApp, dan lainnya)\n- Optimasi performa & SEO lanjutan\n- Konsultasi gratis via WhatsApp → [Klik di sini](https://wa.me/6285178137881?text=Halo%20BBYTS!%20Saya%20ingin%20konsultasi%20tentang%20pembuatan%20website%20Professional%20Package)\n\n**Custom Package — Harga Berdasarkan Fitur**\nPaket khusus untuk kebutuhan sistem berskala besar atau proyek dengan spesifikasi kompleks.\n- Sistem multi-role (admin, user, editor, dsb)\n- Integrasi backend Laravel\n- Manajemen data & autentikasi user\n- Skalabilitas tinggi untuk bisnis besar\n- Dukungan maintenance & support dedikasi\n- Konsultasi gratis via WhatsApp → [Klik di sini](https://wa.me/6285178137881?text=Halo%20BBYTS!%20Saya%20ingin%20konsultasi%20tentang%20Custom%20Package)."
+    "topic": "services",
+    "content": "Bisadev menyediakan 3 layanan utama:\n\n1. Basic Package (mulai Rp 1 juta): landing page, desain responsif, domain & email bisnis, SEO dasar.\n2. Professional Package (mulai Rp 3 juta): website multi-halaman, dashboard admin, integrasi API, SEO lanjutan.\n3. Custom Package: sistem kompleks, multi-role, backend Laravel, dan solusi scalable sesuai kebutuhan bisnis."
   },
   {
-    "topic": "vision",
-    "content": "Visi kami adalah menjadi perusahaan teknologi terdepan di Indonesia yang menyediakan solusi digital menyeluruh di berbagai bidang kehidupan dan membuka peluang bagi generasi masa depan."
+    "topic": "target_market",
+    "content": "Target Bisadev adalah UMKM, bisnis berkembang, dan perusahaan yang membutuhkan solusi digital profesional untuk meningkatkan branding, traffic, dan konversi."
   },
   {
-    "topic": "mission",
-    "content": "1. Mengutamakan Pengalaman dan Kepuasan Pengguna, 2.Empowering Local Digital Talent, 3. Mempromosikan inovasi dan kolaborasi berkelanjutan"
+    "topic": "value_proposition",
+    "content": "Bisadev membantu bisnis memiliki website yang tidak hanya menarik secara visual, tetapi juga optimal secara performa dan SEO, sehingga mampu mendatangkan pelanggan baru."
   },
   {
     "topic": "contact",
-    "content": "Instagram: https://www.instagram.com/b.byts/?hl=en | WhatsApp: 6285178137881 | Email: abhiparayamahardika@gmail.com"
+    "content": "WhatsApp: 6285178137881 | Email: abhiparayamahardika@gmail.com | Instagram: https://www.instagram.com/b.byts/"
   }
 ]

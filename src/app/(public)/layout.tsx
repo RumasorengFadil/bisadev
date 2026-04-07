@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import LayoutClient from "./layout.client";
+import { ReactNode } from "react";
 
 export const metadata: Metadata = {
     title: "Bbyts - Jasa Pembuatan Website Murah, Profesional, dan SEO Friendly | Bbyts",
@@ -32,8 +33,10 @@ export const metadata: Metadata = {
 };
 
 
-export default function Layout() {
+export default function Layout({ children }: { children: ReactNode }) {
     return (
-        <LayoutClient />
+        <LayoutClient>
+            {children}
+        </LayoutClient>
     )
 }

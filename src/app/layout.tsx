@@ -41,7 +41,7 @@ export default async function RootLayout({
   // const auth: Auth = await getAuthFromSever();
 
   return (
-    <html className="scroll-smooth" lang="en">
+    <html className="scroll-smooth dark" lang="en">
       <body
         className={`${inter.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
@@ -61,7 +61,7 @@ export default async function RootLayout({
         <Toaster />
 
         <Suspense fallback={null}>
-          <NextTopLoader color="hsl(46, 100%, 51%)" height={2} />
+          <NextTopLoader showSpinner={false}  color="hsl(46, 100%, 51%)" height={2} />
         </Suspense>
         {/* <HydrateAuth auth={auth} /> */}
 

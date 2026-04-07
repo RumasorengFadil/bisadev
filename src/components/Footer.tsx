@@ -1,0 +1,103 @@
+import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+
+export function Footer() {
+    return (
+        <footer className="bg-[#111827] border-t border-white/10">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    {/* Brand */}
+                    <div className="space-y-4">
+                        <div className="flex items-center space-x-2">
+                             <Link href="/" className="flex items-center space-x-2">
+                        <Image src="/images/app/bisadev.png" width={120} height={56} alt="bisadev-logo" />
+                    </Link>
+                        </div>
+                        <p className="text-gray-400 text-sm">
+                            Your trusted partner for custom IT solutions and digital innovation.
+                        </p>
+                    </div>
+
+                    {/* Quick Links */}
+                    <div>
+                        <h3 className="font-semibold mb-4">Quick Links</h3>
+                        <ul className="space-y-2">
+                            <li>
+                                <Link href="/" className="text-gray-400 hover:text-[#FFB700] transition-colors text-sm">
+                                    Home
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/about" className="text-gray-400 hover:text-[#FFB700] transition-colors text-sm">
+                                    About Us
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/services" className="text-gray-400 hover:text-[#FFB700] transition-colors text-sm">
+                                    Services
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/blog" className="text-gray-400 hover:text-[#FFB700] transition-colors text-sm">
+                                    Blog
+                                </Link>
+                            </li>
+                        </ul>
+                    </div>
+
+                    {/* Services */}
+                    <div>
+                        <h3 className="font-semibold mb-4">Services</h3>
+                        <ul className="space-y-2">
+                            <li className="text-gray-400 text-sm">Website Development</li>
+                            <li className="text-gray-400 text-sm">Digital Marketplace</li>
+                            <li className="text-gray-400 text-sm">POS System</li>
+                            <li className="text-gray-400 text-sm">IT Consulting</li>
+                        </ul>
+                    </div>
+
+                    {/* Contact */}
+                    <div>
+                        <h3 className="font-semibold mb-4">Contact Us</h3>
+                        <ul className="space-y-3">
+                            <li className="flex items-start space-x-2 text-gray-400 text-sm">
+                                <Mail size={16} className="mt-1 flex-shrink-0" />
+                                <span>contact@bisadev.com</span>
+                            </li>
+                            <li className="flex items-start space-x-2 text-gray-400 text-sm">
+                                <Phone size={16} className="mt-1 flex-shrink-0" />
+                                <span>+62 851 7813 7881</span>
+                            </li>
+                            <li className="flex items-start space-x-2 text-gray-400 text-sm">
+                                <MapPin size={16} className="mt-1 flex-shrink-0" />
+                                <span>Jakarta, Indonesia</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                {/* Social & Copyright */}
+                <div className="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                    <p className="text-gray-400 text-sm">
+                        © 2026 BISADEV. All rights reserved.
+                    </p>
+                    <div className="flex space-x-4">
+                        <a href="#" className="text-gray-400 hover:text-[#FFB700] transition-colors">
+                            <Facebook size={20} />
+                        </a>
+                        <a href="#" className="text-gray-400 hover:text-[#FFB700] transition-colors">
+                            <Twitter size={20} />
+                        </a>
+                        <a href="#" className="text-gray-400 hover:text-[#FFB700] transition-colors">
+                            <Linkedin size={20} />
+                        </a>
+                        <a href="#" className="text-gray-400 hover:text-[#FFB700] transition-colors">
+                            <Instagram size={20} />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    );
+}

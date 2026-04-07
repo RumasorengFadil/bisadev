@@ -9,7 +9,7 @@ const openai = new OpenAI({
 function findRelevantContext(question: string) {
   // Simple keyword search (bisa diganti fuzzy match pakai fuse.js)
   const matched = context.filter((item) =>
-    question.toLowerCase().includes(item.topic.toLowerCase())
+    question.toLowerCase().includes(item.topic.toLowerCase()),
   );
 
   // Jika tidak ketemu, fallback ke semua data
@@ -29,10 +29,17 @@ export async function POST(req: Request) {
         {
           role: "system",
           content: `
-            You are an AI assistant for Bbyts's website.
-            I have some knowledge that may be useful to you:
+          You are an AI assistant for Bisadev.
+           Rules:
+          - Always answer based on provided context
+          - If user asks about services → arahkan ke paket
+          - If user tertarik → arahkan ke WhatsApp
+          - Gunakan bahasa santai tapi profesional
+          - Fokus membantu user memahami layanan Bisadev
+          - Jangan jawab di luar konteks Bisadev
+          - Gunakan Bahasa Indonesia
+          Context:
             ${knowledgeBase}
-            Please pay attention to the context when answering. Answer only questions related to Bbyts. If someone greets you, just greet them back. It's okay. If someone ask someone non related with Bbyts, answering he that you just answer something related with Bbyts. 
           `,
         },
         { role: "user", content: question },
@@ -56,7 +63,7 @@ export async function POST(req: Request) {
     console.error(error);
     return NextResponse.json(
       { error: "Something went wrong" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

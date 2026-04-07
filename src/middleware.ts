@@ -17,9 +17,9 @@ export function middleware(request: NextRequest) {
   }
 
   // Jika user sudah login tapi belum verifikasi email
-  if ((isPrivate || isGuest) && refreshToken && !verifiedAt) {
-    return NextResponse.redirect(new URL(ROUTES.verifyEmail, request.url));
-  }
+  // if ((isPrivate || isGuest) && refreshToken && !verifiedAt) {
+  //   return NextResponse.redirect(new URL(ROUTES.verifyEmail, request.url));
+  // }
 
   // Jika mengakses private route tanpa login
   if (isPrivate && !refreshToken) {

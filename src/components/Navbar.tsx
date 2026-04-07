@@ -1,4 +1,5 @@
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -24,14 +25,11 @@ export function Navbar() {
     };
 
     return (
-        <nav className="sticky top-0 z-50 bg-[#0F172A]/95 backdrop-blur-sm border-b border-white/10">
+        <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-white/10">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-16">
                     <Link href="/" className="flex items-center space-x-2">
-                        <div className="w-10 h-10 bg-[#FFB700] rounded-lg flex items-center justify-center">
-                            <span className="font-bold text-[#0F172A]">B</span>
-                        </div>
-                        <span className="text-background text-xl font-bold">BISADEV</span>
+                        <Image src="/images/app/bisadev.png" width={120} height={56} alt="bisadev-logo" />
                     </Link>
 
                     {/* Desktop Navigation */}
@@ -41,8 +39,8 @@ export function Navbar() {
                                 key={link.path}
                                 href={link.path}
                                 className={`transition-colors ${isActive(link.path)
-                                        ? "text-[#FFB700] hover:text-white"
-                                        : "text-gray-300 hover:text-white"
+                                        ? "text-[#FFB700] hover:text-primary-foreground"
+                                        : "text-gray-300 hover:text-primary-foreground"
                                     }`}
                             >
                                 {link.label}
