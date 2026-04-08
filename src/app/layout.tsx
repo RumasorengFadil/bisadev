@@ -80,7 +80,7 @@ export default async function RootLayout({
         className={`${inter.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-YSMHC0TP8H"
+          src="https://www.googletagmanager.com/gtag/js?id=G-RZHELFL429"
           strategy="afterInteractive"
         />
         <Script id="google-analytics" strategy="afterInteractive">
@@ -88,7 +88,7 @@ export default async function RootLayout({
             `window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'G-YSMHC0TP8H');`
+              gtag('config', 'G-RZHELFL429');`
           }
         </Script>
 
