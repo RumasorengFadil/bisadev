@@ -12,9 +12,9 @@ export function middleware(request: NextRequest) {
   const isGuest = ROUTES.guest.some((route) => pathname.startsWith(route));
 
   // Jika user sudah login & verified → larang akses guest routes
-  if (isGuest && refreshToken && verifiedAt) {
-    return NextResponse.redirect(new URL(ROUTES.dashboard, request.url));
-  }
+  // if (isGuest && refreshToken && verifiedAt) {
+  //   return NextResponse.redirect(new URL(ROUTES.dashboard, request.url));
+  // }
 
   // Jika user sudah login tapi belum verifikasi email
   // if ((isPrivate || isGuest) && refreshToken && !verifiedAt) {
@@ -22,9 +22,9 @@ export function middleware(request: NextRequest) {
   // }
 
   // Jika mengakses private route tanpa login
-  if (isPrivate && !refreshToken) {
-    return NextResponse.redirect(new URL(ROUTES.login, request.url));
-  }
+  // if (isPrivate && !refreshToken) {
+  //   return NextResponse.redirect(new URL(ROUTES.login, request.url));
+  // }
 
   return NextResponse.next();
 }
