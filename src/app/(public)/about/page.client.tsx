@@ -14,10 +14,10 @@ export function PageClient() {
   ];
 
   const team = [
-    { name: "John Anderson", role: "CEO & Founder", image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400" },
-    { name: "Fadil Hijayat Rumasoreng", role: "CTO", image: "/public/images/teams/fadil-hijayat-rumasoreng.jpg" },
-    { name: "Michael Chen", role: "Lead Developer", image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400" },
-    { name: "Emily Roberts", role: "UX/UI Designer", image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400" },
+    { name: "Tolkhah Muzzaqqi Arrasyi", role: "Design Lead", image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400" },
+    { name: "Fadil Hijayat Rumasoreng", role: "Tech Lead", image: "/images/teams/fadil-hijayat-rumasoreng.jpg" },
+    { name: "Zarif Afzal Ramadhan", role: "Marketing Lead", image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400" },
+    { name: "Dhafa Khalish Munawar", role: "Bussiness Dev Lead", image: "/images/teams/dhafa-khalish-munawar.png" },
   ];
 
   const stats = [
