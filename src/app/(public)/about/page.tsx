@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://bisadev.id/images/common/og-image.webp",
+        url: "https://bisadev.id/images/app/og-image.png",
         width: 1200,
         height: 630,
         alt: "Tentang Bisa Dev - Jasa Pembuatan Website Profesional",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     title: "Tentang Bisa Dev",
     description:
       "Kenali lebih dekat Bisa Dev sebagai partner digital untuk bisnis Anda.",
-    images: "https://bisadev.id/images/common/og-image.webp",
+    images: "https://bisadev.id/images/app/og-image.png",
     site: "@bisadev",
   },
 

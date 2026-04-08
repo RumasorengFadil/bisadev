@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://bisadev.id/images/common/og-image.webp", // ganti jika ada
+        url: "https://bisadev.id/images/app/og-image.png", // ganti jika ada
         width: 1200,
         height: 630,
         alt: "Bisa Dev - Jasa Pembuatan Website Profesional dan SEO Friendly",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
       "Bisa Dev - Jasa Pembuatan Website Profesional & SEO Friendly",
     description:
       "Solusi website profesional untuk bisnis, startup, dan personal brand.",
-    images: "https://bisadev.id/images/common/og-image.webp",
+    images: "https://bisadev.id/images/app/og-image.png",
     site: "@bisadev", // ganti jika ada username Twitter
   },
 
@@ -46,9 +46,9 @@ export const metadata: Metadata = {
 
 
 export default function Layout({ children }: { children: ReactNode }) {
-    return (
-        <LayoutClient>
-            {children}
-        </LayoutClient>
-    )
+  return (
+    <LayoutClient>
+      {children}
+    </LayoutClient>
+  )
 }

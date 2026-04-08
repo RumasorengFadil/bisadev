@@ -30,9 +30,50 @@ export default async function RootLayout({
 }>) {
   // const auth: Auth = await getAuthFromSever();
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "BisaDev",
+    url: "https://bisadev.id",
+    logo: "https://bisadev.id/images/app/og-image.png",
+    sameAs: [
+      "https://www.linkedin.com/company/abhiparaya-mahardika/",
+      "https://www.instagram.com/bisadevid/",
+      "https://www.tiktok.com/@bisadev.id",
+    ],
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: "+6285178137881",
+      contactType: "customer service",
+    },
+  };
+
+  const localBusiness = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: "BisaDev",
+    image: "https://bisadev.id/images/app/og-image.png",
+    url: "https://bisadev.id",
+    telephone: "+6285178137881",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Bekasi",
+      addressCountry: "ID",
+    },
+    areaServed: "Indonesia",
+  };
+
   return (
     <html className="scroll-smooth dark" lang="en">
       <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusiness) }}
+        />
         <meta name="apple-mobile-web-app-title" content="Bisadev" />
       </head>
       <body

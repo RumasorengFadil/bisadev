@@ -3,8 +3,7 @@ import { MetadataRoute } from "next";
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = process.env.NEXT_PUBLIC_ENV === "local" ? "http://localhost:3000/" : "https://bisadev.id/";
 
-  
-  // 🔹 Static pages
+  // Static pages
   const staticRoutes = [
     "",
     "/about",
@@ -16,7 +15,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     lastModified: new Date(),
   }));
 
-  // 🔹 Dynamic blog posts (contoh)
+  // Dynamic blog posts (contoh)
 //   const blogPosts = await getBlogPosts(); // ambil dari API / DB
 
 //   const blogRoutes = blogPosts.map((post: any) => ({
