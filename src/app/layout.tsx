@@ -1,14 +1,9 @@
-import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
-// import '../styles/_variables.scss';
 import '../styles/_keyframe-animations.scss';
 import { Suspense } from "react";
 import NextTopLoader from 'nextjs-toploader';
-import { Auth } from "@/typdata/auth";
-import { getAuthFromSever } from "@/utils/getAuthFromServer";
-import HydrateAuth from "@/components/HydrateAuth";
 import { Toaster } from "sonner";
 
 const geistSans = Geist({
@@ -28,11 +23,6 @@ const inter = Inter({
   variable: '--font-inter',
 });
 
-export const metadata: Metadata = {
-  title: "Bbyts",
-  description: "Solusi digital untuk bisnis Anda",
-};
-
 export default async function RootLayout({
   children,
 }: Readonly<{
@@ -42,6 +32,9 @@ export default async function RootLayout({
 
   return (
     <html className="scroll-smooth dark" lang="en">
+      <head>
+        <meta name="apple-mobile-web-app-title" content="Bisadev" />
+      </head>
       <body
         className={`${inter.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
@@ -61,7 +54,7 @@ export default async function RootLayout({
         <Toaster />
 
         <Suspense fallback={null}>
-          <NextTopLoader showSpinner={false}  color="hsl(46, 100%, 51%)" height={2} />
+          <NextTopLoader showSpinner={false} color="hsl(46, 100%, 51%)" height={2} />
         </Suspense>
         {/* <HydrateAuth auth={auth} /> */}
 

@@ -1,5 +1,49 @@
 import { PageClient } from "./page.client";
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title:
+        "Blog Bisa Dev - Insight Website, Bisnis Digital & Teknologi",
+    description:
+        "Temukan insight terbaru tentang pembuatan website, bisnis digital, e-commerce, dan teknologi dari Bisa Dev. Tingkatkan pengetahuan dan strategi digital Anda.",
+    keywords:
+        "blog bisa dev, artikel website, tips website bisnis, web development indonesia, e commerce indonesia, teknologi digital, bisnis online, SEO website, pengembangan website",
+    robots: "index, follow",
+
+    openGraph: {
+        title:
+            "Blog Bisa Dev - Insight & Artikel Digital",
+        description:
+            "Pelajari strategi website, bisnis digital, dan teknologi untuk mengembangkan bisnis Anda.",
+        url: "https://bisadev.id/blog",
+        siteName: "Bisa Dev",
+        type: "website",
+        images: [
+            {
+                url: "https://bisadev.id/images/common/og-image.webp",
+                width: 1200,
+                height: 630,
+                alt: "Blog Bisa Dev - Insight Website & Teknologi",
+            },
+        ],
+    },
+
+    twitter: {
+        card: "summary_large_image",
+        title:
+            "Blog Bisa Dev - Insight Digital & Teknologi",
+        description:
+            "Artikel seputar website, bisnis digital, dan teknologi terbaru.",
+        images: "https://bisadev.id/images/common/og-image.webp",
+        site: "@bisadev",
+    },
+
+    alternates: {
+        canonical: "https://bisadev.id/blog",
+    },
+};
+
 export default function Page() {
     return (
         <PageClient />
