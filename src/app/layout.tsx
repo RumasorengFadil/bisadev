@@ -5,6 +5,11 @@ import '../styles/_keyframe-animations.scss';
 import { Suspense } from "react";
 import NextTopLoader from 'nextjs-toploader';
 import { Toaster } from "sonner";
+import { PreferencesStoreProvider } from "@/context/stores/preferences-provider";
+import { ReactQueryProvider } from "@/context/providers/react-query.provider";
+import { AuthBootstrap } from "@/context/providers/AuthBootstrap";
+import { ENV } from "@/features/auth/types/env.type";
+import Construction from "@/components/Construction";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,6 +34,8 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   // const auth: Auth = await getAuthFromSever();
+  const themeMode = "light";
+  const themePreset = "default";
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -64,7 +71,7 @@ export default async function RootLayout({
   };
 
   return (
-    <html className="scroll-smooth dark" lang="en">
+    <html className="scroll-smooth" lang="en">
       <head>
         <script
           type="application/ld+json"
@@ -92,14 +99,17 @@ export default async function RootLayout({
           }
         </Script>
 
+        <PreferencesStoreProvider themeMode={themeMode} themePreset={themePreset}>
+          <ReactQueryProvider>
+            <NextTopLoader showSpinner={false} color="var(--color-primary)" height={2} />
+            {process.env.NEXT_PUBLIC_ENV === ENV.CONSTRUCTION ? <Construction /> : <>
+              <AuthBootstrap />
+              {children}
+              <Toaster />
+            </>}
+          </ReactQueryProvider>
+        </PreferencesStoreProvider>
         <Toaster />
-
-        <Suspense fallback={null}>
-          <NextTopLoader showSpinner={false} color="hsl(46, 100%, 51%)" height={2} />
-        </Suspense>
-        {/* <HydrateAuth auth={auth} /> */}
-
-        {children}
       </body>
     </html>
   );

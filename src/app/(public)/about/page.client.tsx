@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Target, Eye, Heart, Users, Award, Zap, Shield, Globe } from "lucide-react";
+import { Eye, Globe, Heart, Shield, Target, Zap } from "lucide-react";
 import Link from "next/link";
 
 export function PageClient() {
@@ -14,7 +14,7 @@ export function PageClient() {
   ];
 
   const team = [
-    { name: "Tolkhah Muzzaqqi Arrasyi", role: "Design Lead", image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400" },
+    { name: "Tolkhah Muzzaqqi Arrasyi", role: "Design Lead", image: "/images/teams/tolkhah-mozaqqi-arrasyi.jpeg" },
     { name: "Fadil Hijayat Rumasoreng", role: "Tech Lead", image: "/images/teams/fadil-hijayat-rumasoreng.jpg" },
     { name: "Zarif Afzal Ramadhan", role: "Marketing Lead", image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400" },
     { name: "Dhafa Khalish Munawar", role: "Bussiness Dev Lead", image: "/images/teams/dhafa-khalish-munawar.png" },
@@ -44,7 +44,7 @@ export function PageClient() {
       </section>
 
       {/* Stats */}
-      <section className="py-12 bg-[#111827]">
+      <section className="py-12 bg-primary/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
@@ -89,7 +89,7 @@ export function PageClient() {
       </section>
 
       {/* Vision & Mission */}
-      <section className="py-20 bg-[#111827]">
+      <section className="py-20 bg-primary/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <Card className="bg-background p-8">
@@ -138,7 +138,7 @@ export function PageClient() {
       </section>
 
       {/* Team */}
-      <section className="py-20 bg-[#111827]">
+      <section className="py-20 bg-primary/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Meet Our Team</h2>

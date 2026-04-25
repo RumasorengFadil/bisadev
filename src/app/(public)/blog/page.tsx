@@ -1,6 +1,8 @@
-import { PageClient } from "./page.client";
 
+import { findBlogs } from "@/features/dashboard/blog/api.server";
+import { BlogSearchParams } from "@/types/blog-search-params";
 import { Metadata } from "next";
+import PageClient from "./page.client";
 
 export const metadata: Metadata = {
     title:
@@ -44,8 +46,13 @@ export const metadata: Metadata = {
     },
 };
 
-export default function Page() {
+export default async function Page({ searchParams }: { searchParams: Promise<BlogSearchParams> }) {
+
+    const { query, page, category } = await searchParams;
+    const { data, meta } = await findBlogs({ query, page, category });
+
     return (
-        <PageClient />
-    )
+        <div className="space-y-6">
+            <PageClient meta={meta} searchParams={{ query }} blogs={data} />
+        </div>)
 }

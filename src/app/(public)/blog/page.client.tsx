@@ -1,79 +1,42 @@
 "use client"
+import { Pagination } from "@/components/Pagination";
 import { Card } from "@/components/ui/card";
+import { BlogResponse } from "@/features/dashboard/blog/types/index.type";
+import { CategoryType } from "@/features/dashboard/categories/enums/category-type.enum";
+import { useFindCategories } from "@/features/dashboard/categories/hooks/use-find-categories.hook";
+import { useQueryParam } from "@/hooks/use-query-param";
+import { BlogSearchParams } from "@/types/blog-search-params";
+import { PaginationMeta } from "@/types/pagination-meta.type";
+import { formatDate } from "@/utils/format-date.util";
 import { Calendar, Search } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useDebounce } from "use-debounce";
 
-export function PageClient() {
-  const [searchQuery, setSearchQuery] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("All");
+export default function PageClient({ blogs, searchParams, meta }: { blogs: BlogResponse[], searchParams: BlogSearchParams, meta: PaginationMeta }) {
 
-  const categories = ["All", "Web Development", "E-commerce", "Technology", "Business"];
+  const { setParam, getParam } = useQueryParam();
+  const [query, setQuery] = useState(searchParams.query ?? "");
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const [page, setPage] = useState(searchParams.page ?? 1);
 
-  const blogPosts = [
-    {
-      id: "1",
-      title: "The Future of E-Commerce in 2026",
-      excerpt: "Discover the latest trends shaping online retail, from AI-powered personalization to social commerce integration.",
-      date: "March 28, 2026",
-      category: "E-commerce",
-      image: "https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?w=800",
-      author: "Sarah Martinez",
-    },
-    {
-      id: "2",
-      title: "Why Your Business Needs a Custom Website",
-      excerpt: "Learn how a tailored web presence can transform your brand identity and increase conversion rates significantly.",
-      date: "March 15, 2026",
-      category: "Web Development",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800",
-      author: "John Anderson",
-    },
-    {
-      id: "3",
-      title: "Modern POS Systems: A Complete Guide",
-      excerpt: "Everything you need to know about choosing and implementing the right Point of Sale system for your retail business.",
-      date: "March 8, 2026",
-      category: "Technology",
-      image: "https://images.unsplash.com/photo-1556740758-90de374c12ad?w=800",
-      author: "Michael Chen",
-    },
-    {
-      id: "4",
-      title: "10 Web Design Trends to Watch in 2026",
-      excerpt: "From immersive 3D experiences to minimalist interfaces, explore the design trends defining modern websites.",
-      date: "February 28, 2026",
-      category: "Web Development",
-      image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=800",
-      author: "Emily Roberts",
-    },
-    {
-      id: "5",
-      title: "How to Scale Your Online Marketplace",
-      excerpt: "Proven strategies for growing your multi-vendor platform and managing increasing traffic and transactions.",
-      date: "February 20, 2026",
-      category: "E-commerce",
-      image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800",
-      author: "Sarah Martinez",
-    },
-    {
-      id: "6",
-      title: "Digital Transformation for Small Businesses",
-      excerpt: "A step-by-step guide to modernizing your business operations with technology on any budget.",
-      date: "February 12, 2026",
-      category: "Business",
-      image: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800",
-      author: "John Anderson",
-    },
-  ];
+  const [debounceQuery] = useDebounce(query, 300);
+  const [debouncePage] = useDebounce(page, 300);
+  const [debounceSelectedCategory] = useDebounce(selectedCategory, 300);
 
-  const filteredPosts = blogPosts.filter((post) => {
-    const matchesSearch = post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                         post.excerpt.toLowerCase().includes(searchQuery.toLowerCase());
-    const matchesCategory = selectedCategory === "All" || post.category === selectedCategory;
-    return matchesSearch && matchesCategory;
-  });
+  const { data: categories } = useFindCategories({ type: CategoryType.BLOG, limit: 5 })
+  useEffect(() => {
+    setParam("query", debounceQuery)
+  }, [debounceQuery]);
+
+  useEffect(() => {
+    setParam("page", debouncePage.toString())
+  }, [debouncePage]);
+
+  useEffect(() => {
+    setParam("category", debounceSelectedCategory.toString())
+  }, [debounceSelectedCategory]);
 
   return (
     <div>
@@ -101,25 +64,24 @@ export function PageClient() {
               <input
                 type="text"
                 placeholder="Search articles..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full bg-[#111827] border border-white/10 rounded-2xl pl-12 pr-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-[#FFB700]/50"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                className="w-full bg-primary/5 border border-white/10 rounded-2xl pl-12 pr-4 py-3 placeholder-gray-400 focus:outline-none focus:border-[#FFB700]/50"
               />
             </div>
 
             {/* Categories */}
             <div className="flex flex-wrap gap-2">
-              {categories.map((category) => (
+              {categories?.data.map((category) => (
                 <button
-                  key={category}
-                  onClick={() => setSelectedCategory(category)}
-                  className={`px-4 py-2 rounded-full transition-colors ${
-                    selectedCategory === category
-                      ? "bg-[#FFB700] text-[#0F172A]"
-                      : "bg-white/10 text-gray-300 hover:bg-white/20"
-                  }`}
+                  key={category.id}
+                  onClick={() => setSelectedCategory(category.name)}
+                  className={`px-4 py-2 rounded-full transition-colors ${selectedCategory === category.name
+                    ? "bg-[#FFB700] text-[#0F172A]"
+                    : "bg-primary/40 hover:bg-primary"
+                    }`}
                 >
-                  {category}
+                  {category.name}
                 </button>
               ))}
             </div>
@@ -130,18 +92,18 @@ export function PageClient() {
       {/* Blog Grid */}
       <section className="pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {filteredPosts.length === 0 ? (
+          {blogs?.length === 0 ? (
             <div className="text-center py-20">
               <p className="text-gray-400 text-lg">No articles found matching your criteria.</p>
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filteredPosts.map((post) => (
-                <Link key={post.id} href={`/blog/${post.id}/detail`} className="group">
+              {blogs?.map((post) => (
+                <Link key={post.id} href={`/blog/${post.slug}/detail`} className="group">
                   <Card className="bg-background p-8">
                     <div className="aspect-video relative bg-gradient-to-br from-[#FFB700]/20 to-[#FFB700]/5 rounded-xl mb-4 overflow-hidden">
                       <Image
-                        src={post.image}
+                        src={post.thumbnail_url ?? "_"}
                         alt={post.title}
                         className="object-cover group-hover:scale-105 transition-transform duration-300"
                         fill
@@ -150,15 +112,15 @@ export function PageClient() {
                     <div className="flex items-center justify-between text-sm text-gray-400 mb-3">
                       <div className="flex items-center">
                         <Calendar size={14} className="mr-2" />
-                        {post.date}
+                        {formatDate({ value: post.created_at })}
                       </div>
-                      <span className="text-[#FFB700] text-xs">{post.category}</span>
+                      <span className="text-[#FFB700] text-xs">{post.category?.name}</span>
                     </div>
                     <h3 className="font-semibold mb-2 group-hover:text-[#FFB700] transition-colors">
                       {post.title}
                     </h3>
                     <p className="text-sm text-gray-400 mb-3">{post.excerpt}</p>
-                    <p className="text-xs text-gray-500">By {post.author}</p>
+                    <p className="text-xs text-gray-500">By {post.author?.name}</p>
                   </Card>
                 </Link>
               ))}
@@ -166,6 +128,9 @@ export function PageClient() {
           )}
         </div>
       </section>
+      {blogs &&
+        <Pagination<BlogResponse> data={blogs} meta={meta} handlePageChange={(page: number) => setPage(page)} />
+      }
     </div>
   );
 }

@@ -1,18 +1,20 @@
+import { APP_CONFIG } from "@/config/app-config";
 import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { FaTiktok } from "react-icons/fa";
 
 export function Footer() {
     return (
-        <footer className="bg-[#111827] border-t border-white/10">
+        <footer className=" border-t border-white/10">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                     {/* Brand */}
                     <div className="space-y-4">
                         <div className="flex items-center space-x-2">
-                             <Link href="/" className="flex items-center space-x-2">
-                        <Image src="/images/app/bisadev.png" width={120} height={56} alt="bisadev-logo" />
-                    </Link>
+                            <Link href="/" className="flex items-center space-x-2">
+                                <Image src="/images/app/bisadev-logo.png" width={120} height={56} alt="bisadev-logo" />
+                            </Link>
                         </div>
                         <p className="text-gray-400 text-sm">
                             Your trusted partner for custom IT solutions and digital innovation.
@@ -41,6 +43,11 @@ export function Footer() {
                             <li>
                                 <Link href="/blog" className="text-gray-400 hover:text-[#FFB700] transition-colors text-sm">
                                     Blog
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/login" className="text-gray-400 hover:text-[#FFB700] transition-colors text-sm">
+                                    Login
                                 </Link>
                             </li>
                         </ul>
@@ -80,19 +87,19 @@ export function Footer() {
                 {/* Social & Copyright */}
                 <div className="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
                     <p className="text-gray-400 text-sm">
-                        © 2026 BISADEV. All rights reserved.
+                        {APP_CONFIG.copyright}. All rights reserved.
                     </p>
                     <div className="flex space-x-4">
-                        <a href="#" className="text-gray-400 hover:text-[#FFB700] transition-colors">
-                            <Facebook size={20} />
+                        <a href="https://www.tiktok.com/@bisadev.id?is_from_webapp=1&sender_device=pc" className="text-gray-400 hover:text-[#FFB700] transition-colors">
+                            <FaTiktok size={20} />
                         </a>
                         <a href="#" className="text-gray-400 hover:text-[#FFB700] transition-colors">
                             <Twitter size={20} />
                         </a>
-                        <a href="#" className="text-gray-400 hover:text-[#FFB700] transition-colors">
+                        <a href="https://www.linkedin.com/company/abhiparaya-mahardika" className="text-gray-400 hover:text-[#FFB700] transition-colors">
                             <Linkedin size={20} />
                         </a>
-                        <a href="#" className="text-gray-400 hover:text-[#FFB700] transition-colors">
+                        <a href="https://www.instagram.com/bisadevid/" className="text-gray-400 hover:text-[#FFB700] transition-colors">
                             <Instagram size={20} />
                         </a>
                     </div>

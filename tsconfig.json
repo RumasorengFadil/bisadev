@@ -35,7 +35,7 @@
     ".next/types/**/*.ts",
     "src/utils/toastUtils.jsx",
     ".next/dev/types/**/*.ts"
-  ],
+, "next.config.ts"  ],
   "exclude": [
     "node_modules"
   ]
