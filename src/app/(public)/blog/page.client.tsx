@@ -2,6 +2,7 @@
 import { Pagination } from "@/components/Pagination";
 import { Card } from "@/components/ui/card";
 import { BlogResponse } from "@/features/dashboard/blog/types/index.type";
+import { CategoryResponse } from "@/features/dashboard/categories/components/types";
 import { CategoryType } from "@/features/dashboard/categories/enums/category-type.enum";
 import { useFindCategories } from "@/features/dashboard/categories/hooks/use-find-categories.hook";
 import { useQueryParam } from "@/hooks/use-query-param";
@@ -14,7 +15,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useDebounce } from "use-debounce";
 
-export default function PageClient({ blogs, searchParams, meta }: { blogs: BlogResponse[], searchParams: BlogSearchParams, meta: PaginationMeta }) {
+export default function PageClient({ blogs, searchParams, meta, categories }: { blogs: BlogResponse[], searchParams: BlogSearchParams, meta: PaginationMeta, categories:CategoryResponse[] }) {
 
   const { setParam, getParam } = useQueryParam();
   const [query, setQuery] = useState(searchParams.query ?? "");
@@ -25,7 +26,6 @@ export default function PageClient({ blogs, searchParams, meta }: { blogs: BlogR
   const [debouncePage] = useDebounce(page, 300);
   const [debounceSelectedCategory] = useDebounce(selectedCategory, 300);
 
-  const { data: categories } = useFindCategories({ type: CategoryType.BLOG, limit: 5 })
   useEffect(() => {
     setParam("query", debounceQuery)
   }, [debounceQuery]);
@@ -72,7 +72,7 @@ export default function PageClient({ blogs, searchParams, meta }: { blogs: BlogR
 
             {/* Categories */}
             <div className="flex flex-wrap gap-2">
-              {categories?.data.map((category) => (
+              {categories?.map((category) => (
                 <button
                   key={category.id}
                   onClick={() => setSelectedCategory(category.name)}
