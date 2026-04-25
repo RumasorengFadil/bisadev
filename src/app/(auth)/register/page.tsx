@@ -17,13 +17,6 @@ export default function RegisterV1() {
           </div>
           <div className="space-y-4">
             <RegisterForm />
-    
-            <p className="text-muted-foreground text-center text-xs">
-              Already have an account?{" "}
-              <Link prefetch={false} href="/login" className="text-primary">
-                Login
-              </Link>
-            </p>
           </div>
         </div>
       </div>

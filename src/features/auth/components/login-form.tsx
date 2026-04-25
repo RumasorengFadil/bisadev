@@ -1,16 +1,14 @@
 "use client";
 
-import { zodResolver } from "@hookform/resolvers/zod";
-import { FormSubmitHandler, useForm } from "react-hook-form";
-import { z } from "zod";
+import ButtonWithLoading from "@/components/ButtonWithLoadingV1";
+import CustomFormField from "@/components/CustomFormField";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import useLogin from "../hooks/use-login.hook";
-import ButtonWithLoading from "@/components/ButtonWithLoadingV1";
-import { useState } from "react";
-import Link from "next/link";
 import { useAuthStore } from "@/context/stores/use-auth.store";
-import CustomFormField from "@/components/CustomFormField";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import useLogin from "../hooks/use-login.hook";
 
 const FormSchema = z.object({
   email: z.string().email({ message: "Please enter a valid email address." }),
@@ -20,7 +18,6 @@ const FormSchema = z.object({
 type FormSchemaType = z.infer<typeof FormSchema>;
 
 export function LoginForm({ redirect }: { redirect?: string }) {
-  const [showReset, setShowReset] = useState(false);
   const { setUser } = useAuthStore();
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -32,10 +29,7 @@ export function LoginForm({ redirect }: { redirect?: string }) {
 
   const onSubmit = async (data: z.infer<typeof FormSchema>) => {
     mutate(data, {
-      onError: () => {
-        setShowReset(true);
-      },
-      onSuccess: (data:any) => {
+      onSuccess: (data: any) => {
         setUser(data)
       }
     });
@@ -74,15 +68,6 @@ export function LoginForm({ redirect }: { redirect?: string }) {
         >
           Login
         </ButtonWithLoading>
-
-        {showReset &&
-          <Link href="/forgot-password" >
-            <p className="text-muted-foreground text-center text-xs">
-              Forgot your password ? {" "}
-              <span className="text-blue-500">Click Here</span>
-            </p>
-          </Link>
-        }
       </form>
     </Form>
   );

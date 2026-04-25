@@ -59,12 +59,12 @@ export default function PageClient({ post, relatedPosts }: { post: BlogResponse,
       </section>
 
       {/* Related Posts */}
-      <section className="py-20 bg-[#111827]">
+      <section className="py-20 bg-primary/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold mb-8">Related Articles</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {relatedPosts.map((relatedPost) => (
-              <Link key={relatedPost.id} href={`/blog/${relatedPost.id}`} className="group">
+              <Link key={relatedPost.id} href={`/blog/${relatedPost.slug}/detail`} className="group">
                 <Card>
                   <div className="aspect-video bg-gradient-to-br from-[#FFB700]/20 to-[#FFB700]/5 rounded-xl mb-4 overflow-hidden">
                     <img

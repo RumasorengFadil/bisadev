@@ -1,9 +1,11 @@
 import { Button } from "@/components/tailwind/ui/button";
 import { Card } from "@/components/ui/card";
-import { ArrowRight, Code, ShoppingCart, Monitor, CheckCircle, TrendingUp, Users, Award, Calendar } from "lucide-react";
+import { BlogResponse } from "@/features/dashboard/blog/types/index.type";
+import { formatDate } from "@/utils/format-date.util";
+import { ArrowRight, Award, Calendar, CheckCircle, Code, Monitor, ShoppingCart, TrendingUp, Users } from "lucide-react";
 import Link from "next/link";
 
-export function PageClient() {
+export function PageClient({ latestBlogs }: { latestBlogs: BlogResponse[] }) {
     const services = [
         {
             icon: <Code className="w-8 h-8 text-[#FFB700]" />,
@@ -214,15 +216,15 @@ export function PageClient() {
                         </Button>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        {blogPosts.map((post) => (
-                            <Link key={post.id} href={`/blog/${post.id}/detail`} className="group">
+                        {latestBlogs.map((post) => (
+                            <Link key={post.id} href={`/blog/${post.slug}/detail`} className="group">
                                 <Card className="p-8 bg-background">
                                     <div className="aspect-video bg-gradient-to-br from-[#FFB700]/20 to-[#FFB700]/5 rounded-xl mb-4 overflow-hidden">
-                                        <img src={post.image} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                                        <img src={post.thumbnail_url ?? "_"} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                                     </div>
                                     <div className="flex items-center text-sm text-gray-400 mb-2">
                                         <Calendar size={14} className="mr-2" />
-                                        {post.date}
+                                        {formatDate({ value: post.created_at })}
                                     </div>
                                     <h3 className="font-semibold mb-2 group-hover:text-[#FFB700] transition-colors">{post.title}</h3>
                                     <p className="text-sm text-gray-400">{post.excerpt}</p>

@@ -30,13 +30,6 @@ export default function PageClient({ redirect }: { redirect?: string }) {
           </div>
           <div className="space-y-4">
             <LoginForm redirect={redirect} />
-
-            <p className="text-muted-foreground text-center text-xs">
-              Don&apos;t have an account?{" "}
-              <Link prefetch={false} href="/register" className="text-primary">
-                Register
-              </Link>
-            </p>
           </div>
         </div>
       </div>
