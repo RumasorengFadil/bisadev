@@ -7,7 +7,7 @@ export const UserFormSchema = z.object({
   email: z.string().email("Invalid email address"),
 
   role: z.nativeEnum(UserRole, {
-    errorMap: () => ({ message: "Invalid role value" }),
+    message: "Invalid role value",
   }),
 
   telp_num: z.string().max(20, "Phone number must not exceed 20 characters").optional(),

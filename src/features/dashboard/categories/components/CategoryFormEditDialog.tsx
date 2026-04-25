@@ -8,10 +8,10 @@ import { CategoryFormSchema, CategoryFormSchemaType } from "../schema/category.s
 import { useEffect, useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { CategoryResponse } from "../../courses/types";
 import { MutateOptions, QueryClient, UseMutateFunction } from "@tanstack/react-query";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { CategoryType } from "../enums/category-type.enum";
+import { CategoryResponse } from "./types";
 
 export function CategoryFormEditDialog({
     category,
@@ -27,7 +27,7 @@ export function CategoryFormEditDialog({
 }) {
     const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
 
-    const form = useForm<Partial<CategoryFormSchemaType>>({
+    const form = useForm<CategoryFormSchemaType>({
         resolver: zodResolver(CategoryFormSchema),
         defaultValues: {
             name: category.name,

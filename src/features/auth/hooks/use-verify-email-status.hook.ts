@@ -1,4 +1,3 @@
-import { useAuthStore } from "@/context/store/use-auth.store";
 import { VerificationStatus } from "../components/auth-verify-email";
 import { useVerifyEmail } from "./use-verify-email.hook";
 

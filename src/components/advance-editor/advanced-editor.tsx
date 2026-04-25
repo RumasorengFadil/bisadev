@@ -27,7 +27,6 @@ import GenerativeMenuSwitch from "./generative/generative-menu-switch";
 import { uploadFn } from "./image-upload";
 import { TextButtons } from "./selectors/text-buttons";
 import { slashCommand, suggestionItems } from "./slash-command";
-import { BlogForm, LessonResponse } from "../../../types";
 import { createPortal } from "react-dom";
 import { useFormContext } from "react-hook-form";
 

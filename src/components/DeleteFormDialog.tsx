@@ -2,7 +2,6 @@ import { Trash2 } from "lucide-react";
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "./ui/alert-dialog";
 import { Button } from "./ui/button";
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
-import DeleteProductFormDialog from "@/features/dashboard/product-digital/components/DeleteProductFormDialog";
 
 type DeleteItem = {
     id: string
