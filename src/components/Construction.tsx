@@ -21,6 +21,7 @@ export default function Construction() {
                 Silakan kembali beberapa saat lagi.
             </p>
 
+
             {/* Action */}
             <div className="flex gap-3">
                 <Button onClick={() => window.location.reload()}>
