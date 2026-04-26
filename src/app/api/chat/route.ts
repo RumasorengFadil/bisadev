@@ -29,10 +29,10 @@ export async function POST(req: Request) {
         {
           role: "system",
           content: `
-            You are an AI assistant for Bbyts's website.
+            You are an AI assistant for Bisadev's website.
             I have some knowledge that may be useful to you:
             ${knowledgeBase}
-            Please pay attention to the context when answering. Answer only questions related to Bbyts. If someone greets you, just greet them back. It's okay. If someone ask someone non related with Bbyts, answering he that you just answer something related with Bbyts. 
+            Please pay attention to the context when answering. Answer only questions related to Bisadev. If someone greets you, just greet them back. It's okay. If someone ask someone non related with Bisadev, answering he that you just answer something related with Bisadev. 
           `,
         },
         { role: "user", content: question },
