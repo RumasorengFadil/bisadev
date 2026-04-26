@@ -9,7 +9,7 @@ export async function findBlog(slug: string, revalidate?: number) {
     return data;
 }
 
-export async function findBlogs({ query, status = "published", limit = 1, page, sort, category }: BlogSearchParams) {
+export async function findBlogs({ query, status, limit, page, sort, category }: BlogSearchParams) {
     const searchParams = new URLSearchParams();
 
     if (query) {
@@ -38,7 +38,7 @@ export async function findBlogs({ query, status = "published", limit = 1, page, 
 
     const queryString = searchParams.toString();
 
-    const data = apiPublicFetch<{ data: BlogResponse[], meta: PaginationMeta }>(queryString ? `/blogs?${queryString}` : `/blogs?status=published`, { next: { revalidate: 43200 } });
+    const data = apiPublicFetch<{ data: BlogResponse[], meta: PaginationMeta }>(queryString ? `/blogs?status=published&${queryString}` : `/blogs?status=published`, { next: { revalidate: 43200 } });
 
     return data;
 }
