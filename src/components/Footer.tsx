@@ -70,7 +70,7 @@ export function Footer() {
                         <ul className="space-y-3">
                             <li className="flex items-start space-x-2 text-gray-400 text-sm">
                                 <Mail size={16} className="mt-1 flex-shrink-0" />
-                                <span>contact@bisadev.com</span>
+                                <span>{APP_CONFIG.email}</span>
                             </li>
                             <li className="flex items-start space-x-2 text-gray-400 text-sm">
                                 <Phone size={16} className="mt-1 flex-shrink-0" />
