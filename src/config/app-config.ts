@@ -11,7 +11,7 @@ export const APP_CONFIG = {
     description:
       "Bisadev adalah digital agency yang menyediakan layanan pengembangan website, aplikasi, dan solusi digital modern. Kami membantu bisnis berkembang melalui teknologi yang scalable, cepat, dan user-friendly.",
   },
-  wa_number: "6282112776685",
+  wa_number: "6285178137881",
   email: "bisadevindonesia@gmail.com",
   address: "Bekasi, Indonesia"
 };
