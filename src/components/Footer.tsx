@@ -74,11 +74,11 @@ export function Footer() {
                             </li>
                             <li className="flex items-start space-x-2 text-gray-400 text-sm">
                                 <Phone size={16} className="mt-1 flex-shrink-0" />
-                                <span>+62 851 7813 7881</span>
+                                <span>+{APP_CONFIG.wa_number}</span>
                             </li>
                             <li className="flex items-start space-x-2 text-gray-400 text-sm">
                                 <MapPin size={16} className="mt-1 flex-shrink-0" />
-                                <span>Jakarta, Indonesia</span>
+                                <span>{APP_CONFIG.address}</span>
                             </li>
                         </ul>
                     </div>

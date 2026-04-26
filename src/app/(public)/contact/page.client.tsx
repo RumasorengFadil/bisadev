@@ -106,7 +106,7 @@ export function PageClient() {
                   </div>
                   <div className="ml-4">
                     <h3 className="font-semibold text-gray-900 mb-1">Address</h3>
-                    <p className="text-gray-600">Jakarta, Indonesia</p>
+                    <p className="text-gray-600">{APP_CONFIG.address}</p>
                     <p className="text-sm text-gray-500">Visit our showroom</p>
                   </div>
                 </div>
