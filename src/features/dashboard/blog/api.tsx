@@ -1,11 +1,12 @@
 import { api } from "@/lib/api";
 import { SearchParams } from "@/types/search-params.type";
 import { BlogFormSchemaType } from "./schema/blog-form.schema";
+import { BlogSearchParams } from "@/types/blog-search-params";
 
 //
 // COURSES
 //
-export async function findBlogs({ page, limit, query, status }: SearchParams) {
+export async function findBlogs({ page, limit, query, status, category }: BlogSearchParams) {
     const searchParams = new URLSearchParams();
 
     if (page !== undefined) {
@@ -22,6 +23,9 @@ export async function findBlogs({ page, limit, query, status }: SearchParams) {
 
     if (status) {
         searchParams.set("status", status);
+    }
+    if (category) {
+        searchParams.set("category", category);
     }
 
     const queryString = searchParams.toString();

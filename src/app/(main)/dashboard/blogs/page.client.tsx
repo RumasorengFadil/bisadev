@@ -27,7 +27,7 @@ export default function PageClient({ searchParams }: { searchParams: SearchParam
     const [debounceStatus] = useDebounce(status, 300);
     const [debouncePage] = useDebounce(page, 300);
 
-    const { data: blogs, isLoading } = useFindBlogs({ query: debounceQuery, status: debounceStatus, page });
+    const { data: blogs, isLoading } = useFindBlogs({params:{ query: debounceQuery, status: debounceStatus, page }});
     const { data: stats } = useFindBlogStats();
     const { mutate: deleteBlog } = useDeleteBlog();
 

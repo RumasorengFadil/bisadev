@@ -1,4 +1,4 @@
-import { apiServerFetch } from "@/lib/api.server.fetch";
+import { apiPublicFetch } from "@/lib/api.public.fetch";
 import { CategorySearchParams } from "@/types/category-search-params.type";
 import { PaginationMeta } from "@/types/pagination-meta.type";
 import { CategoryResponse } from "./components/types";
@@ -26,7 +26,7 @@ export async function findCategories(catParams: CategorySearchParams) {
 
     const queryString = searchParams.toString();
 
-    const data = apiServerFetch<{ data: CategoryResponse[], meta: PaginationMeta }>(queryString ? `/categories?${queryString}` : `/categories`, { next: { revalidate: 43200 } });
+    const data = apiPublicFetch<{ data: CategoryResponse[], meta: PaginationMeta }>(queryString ? `/categories?${queryString}` : `/categories`, { next: { revalidate: 43200 } });
 
     return data;
 }

@@ -2,9 +2,9 @@
 import { findBlogs } from "@/features/dashboard/blog/api.server";
 import { findCategories } from "@/features/dashboard/categories/api.server";
 import { CategoryType } from "@/features/dashboard/categories/enums/category-type.enum";
-import { BlogSearchParams } from "@/types/blog-search-params";
 import { Metadata } from "next";
 import PageClient from "./page.client";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
     title:
@@ -48,15 +48,18 @@ export const metadata: Metadata = {
     },
 };
 
-export default async function Page({ searchParams }: { searchParams: Promise<BlogSearchParams> }) {
+export default async function Page() {
 
-    const { query, page, category } = await searchParams;
     const { data: categories } = await findCategories({ type: CategoryType.BLOG, limit: 5 })
 
-    const { data, meta } = await findBlogs({ query, page, category });
+    const { data, meta } = await findBlogs({});
 
     return (
         <div className="space-y-6">
-            <PageClient meta={meta} searchParams={{ query }} blogs={data} categories={categories} />
+            <Suspense>
+
+            <PageClient meta={meta} blogs={data} categories={categories} />
+
+            </Suspense>
         </div>)
 }

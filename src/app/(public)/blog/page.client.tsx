@@ -1,42 +1,38 @@
 "use client"
 import { Pagination } from "@/components/Pagination";
 import { Card } from "@/components/ui/card";
+import { useFindBlogs } from "@/features/dashboard/blog/hooks/use-find-blogs.hook";
 import { BlogResponse } from "@/features/dashboard/blog/types/index.type";
 import { CategoryResponse } from "@/features/dashboard/categories/components/types";
-import { CategoryType } from "@/features/dashboard/categories/enums/category-type.enum";
-import { useFindCategories } from "@/features/dashboard/categories/hooks/use-find-categories.hook";
 import { useQueryParam } from "@/hooks/use-query-param";
-import { BlogSearchParams } from "@/types/blog-search-params";
 import { PaginationMeta } from "@/types/pagination-meta.type";
 import { formatDate } from "@/utils/format-date.util";
 import { Calendar, Search } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import { useDebounce } from "use-debounce";
+import { useSearchParams } from "next/navigation";
+import { useState } from "react";
+import { useDebounce, useDebouncedCallback } from "use-debounce";
 
-export default function PageClient({ blogs, searchParams, meta, categories }: { blogs: BlogResponse[], searchParams: BlogSearchParams, meta: PaginationMeta, categories:CategoryResponse[] }) {
-
+export default function PageClient({ blogs, meta, categories }: { blogs: BlogResponse[], meta: PaginationMeta, categories: CategoryResponse[] }) {
   const { setParam, getParam } = useQueryParam();
-  const [query, setQuery] = useState(searchParams.query ?? "");
-  const [selectedCategory, setSelectedCategory] = useState("");
-  const [page, setPage] = useState(searchParams.page ?? 1);
+  const searchParams = useSearchParams();
+  const queryParam = searchParams.get("query") ?? "";
+  const categoryParam = searchParams.get("category") ?? ""
+  const pageParam = Number(searchParams.get("page")) ?? 1;
 
+  const [query, setQuery] = useState(queryParam ?? "");
   const [debounceQuery] = useDebounce(query, 300);
-  const [debouncePage] = useDebounce(page, 300);
-  const [debounceSelectedCategory] = useDebounce(selectedCategory, 300);
 
-  useEffect(() => {
-    setParam("query", debounceQuery)
-  }, [debounceQuery]);
+  const { data } = useFindBlogs({ initialData: { data: blogs, meta }, params: { query: debounceQuery, page: pageParam, category: categoryParam } })
 
-  useEffect(() => {
-    setParam("page", debouncePage.toString())
-  }, [debouncePage]);
+  const handleDebouncePage = useDebouncedCallback((value) => {
+    setParam("page", value.toString())
+  }, 300)
 
-  useEffect(() => {
-    setParam("category", debounceSelectedCategory.toString())
-  }, [debounceSelectedCategory]);
+  const handleDebounceCategory = useDebouncedCallback((value: string) => {
+    setParam("category", value)
+  }, 300)
 
   return (
     <div>
@@ -65,7 +61,10 @@ export default function PageClient({ blogs, searchParams, meta, categories }: { 
                 type="text"
                 placeholder="Search articles..."
                 value={query}
-                onChange={(e) => setQuery(e.target.value)}
+                onChange={(e) => {
+                  setQuery(e.target.value);
+                  setParam("query", e.target.value)
+                }}
                 className="w-full bg-primary/5 border border-white/10 rounded-2xl pl-12 pr-4 py-3 placeholder-gray-400 focus:outline-none focus:border-[#FFB700]/50"
               />
             </div>
@@ -75,8 +74,8 @@ export default function PageClient({ blogs, searchParams, meta, categories }: { 
               {categories?.map((category) => (
                 <button
                   key={category.id}
-                  onClick={() => setSelectedCategory(category.name)}
-                  className={`px-4 py-2 rounded-full transition-colors ${selectedCategory === category.name
+                  onClick={() => handleDebounceCategory(category.name)}
+                  className={`px-4 py-2 rounded-full transition-colors ${categoryParam === category.name
                     ? "bg-[#FFB700] text-[#0F172A]"
                     : "bg-primary/40 hover:bg-primary"
                     }`}
@@ -92,7 +91,7 @@ export default function PageClient({ blogs, searchParams, meta, categories }: { 
       {/* Blog Grid */}
       <section className="pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {blogs?.length === 0 ? (
+          {data?.data?.length === 0 ? (
             <div className="text-center py-20">
               <p className="text-gray-400 text-lg">No articles found matching your criteria.</p>
             </div>
@@ -129,7 +128,7 @@ export default function PageClient({ blogs, searchParams, meta, categories }: { 
         </div>
       </section>
       {blogs &&
-        <Pagination<BlogResponse> data={blogs} meta={meta} handlePageChange={(page: number) => setPage(page)} />
+        <Pagination<BlogResponse> data={blogs} meta={meta} handlePageChange={(page: number) => handleDebouncePage(page)} />
       }
     </div>
   );
