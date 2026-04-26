@@ -1,15 +1,13 @@
-import { Geist, Geist_Mono, Inter } from "next/font/google";
-import "./globals.css";
-import Script from "next/script";
-import '../styles/_keyframe-animations.scss';
-import { Suspense } from "react";
-import NextTopLoader from 'nextjs-toploader';
-import { Toaster } from "sonner";
-import { PreferencesStoreProvider } from "@/context/stores/preferences-provider";
-import { ReactQueryProvider } from "@/context/providers/react-query.provider";
-import { AuthBootstrap } from "@/context/providers/AuthBootstrap";
-import { ENV } from "@/features/auth/types/env.type";
 import Construction from "@/components/Construction";
+import { AuthBootstrap } from "@/context/providers/AuthBootstrap";
+import { ReactQueryProvider } from "@/context/providers/react-query.provider";
+import { PreferencesStoreProvider } from "@/context/stores/preferences-provider";
+import { ENV } from "@/features/auth/types/env.type";
+import { Geist, Geist_Mono, Inter } from "next/font/google";
+import Script from "next/script";
+import { Toaster } from "sonner";
+import '../styles/_keyframe-animations.scss';
+import "./globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -101,7 +99,6 @@ export default async function RootLayout({
 
         <PreferencesStoreProvider themeMode={themeMode} themePreset={themePreset}>
           <ReactQueryProvider>
-            <NextTopLoader showSpinner={false} color="var(--color-primary)" height={2} />
             {process.env.NEXT_PUBLIC_ENV === ENV.CONSTRUCTION ? <Construction /> : <>
               <AuthBootstrap />
               {children}

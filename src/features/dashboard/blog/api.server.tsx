@@ -3,8 +3,8 @@ import { BlogSearchParams } from "@/types/blog-search-params";
 import { PaginationMeta } from "@/types/pagination-meta.type";
 import { BlogResponse } from "./types/index.type";
 
-export async function findBlog(slug: string) {
-    const data = apiPublicFetch<BlogResponse>(`/blogs/${slug}`, { next: { revalidate: 43200 } });
+export async function findBlog(slug: string, revalidate?: number) {
+    const data = apiPublicFetch<BlogResponse>(`/blogs/${slug}`, { next: { revalidate: revalidate } });
 
     return data;
 }

@@ -4,7 +4,7 @@ import { PageClient } from "./page.client";
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
 
-    const data:any = await findBlog(slug);
+    const data: any = await findBlog(slug, 0);
 
     return (
         <div className="space-y-6">

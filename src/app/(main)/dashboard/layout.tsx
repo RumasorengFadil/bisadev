@@ -27,6 +27,7 @@ import { getUser } from "@/utils/get-user.util";
 import { UserResponse } from "@/types/user-response.type";
 import { UserRole } from "@/enums/user.role.enum";
 import { redirect } from "next/navigation";
+import NextTopLoader from "nextjs-toploader";
 
 export default async function Layout({ children }: Readonly<{ children: ReactNode }>) {
   const cookieStore = await cookies();
@@ -84,6 +85,7 @@ export default async function Layout({ children }: Readonly<{ children: ReactNod
             </div>
           </div>
         </header>
+         <NextTopLoader showSpinner={false} color="hsl(var(--primary))" height={2} />
         <div className="h-full p-4 md:p-6">{children}</div>
       </SidebarInset>
     </SidebarProvider>

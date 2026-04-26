@@ -46,13 +46,8 @@ export default function PageClient({ post, relatedPosts }: { post: BlogResponse,
       {/* Content */}
       <section className="pb-20">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <article
-            className="prose prose-invert prose-lg max-w-none
-              prose-headings:text-white prose-headings:font-bold
-              prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-4
-              prose-p:text-gray-400 prose-p:leading-relaxed prose-p:mb-6
-              prose-strong:text-white
-              prose-a:text-[#FFB700] prose-a:no-underline hover:prose-a:text-[#e6a500]"
+          <div
+            className="prose prose-lg max-w-none"
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
         </div>

@@ -1,7 +1,6 @@
 import { api } from "@/lib/api";
-import { SearchParams } from "@/types/search-params.type";
-import { BlogFormSchemaType } from "./schema/blog-form.schema";
 import { BlogSearchParams } from "@/types/blog-search-params";
+import { BlogFormSchemaType } from "./schema/blog-form.schema";
 
 //
 // COURSES
@@ -33,6 +32,11 @@ export async function findBlogs({ page, limit, query, status, category }: BlogSe
     const res = await api.get(
         queryString ? `/blogs?${queryString}` : `/blogs`
     );
+
+    return res.data;
+}
+export async function findBlog(slug: string) {
+    const res = await api.get(`/blogs/${slug}`);
 
     return res.data;
 }
