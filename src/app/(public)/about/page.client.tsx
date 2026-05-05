@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Eye, Globe, Heart, Shield, Target, Zap } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 export function PageClient() {
@@ -149,8 +150,8 @@ export function PageClient() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {team.map((member, index) => (
               <Card className="p-8 bg-background" key={index}>
-                <div className="aspect-square bg-gradient-to-br from-[#FFB700]/20 to-transparent rounded-xl mb-4 overflow-hidden">
-                  <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
+                <div className="relative aspect-square bg-gradient-to-br from-[#FFB700]/20 to-transparent rounded-xl mb-4 overflow-hidden">
+                  <Image src={member.image} alt={member.name} className="w-full h-full object-center" fill />
                 </div>
                 <h3 className="font-semibold mb-1">{member.name}</h3>
                 <p className="text-sm text-[#FFB700]">{member.role}</p>
