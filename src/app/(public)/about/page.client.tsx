@@ -16,7 +16,7 @@ export function PageClient() {
   const team = [
     { name: "Tolkhah Muzzaqqi Arrasyi", role: "Design Lead", image: "/images/teams/tolkhah-mozaqqi-arrasyi.jpeg" },
     { name: "Fadil Hijayat Rumasoreng", role: "Tech Lead", image: "/images/teams/fadil-hijayat-rumasoreng.jpg" },
-    { name: "Zarif Afzal Ramadhan", role: "Marketing Lead", image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400" },
+    { name: "Zarif Afzal Ramadhan", role: "Marketing Lead", image: "/images/teams/zarif-afzal-ramadhan.jpeg" },
     { name: "Dhafa Khalish Munawar", role: "Bussiness Dev Lead", image: "/images/teams/dhafa-khalish-munawar.png" },
   ];
 

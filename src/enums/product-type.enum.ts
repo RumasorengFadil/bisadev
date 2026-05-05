@@ -1,5 +1,5 @@
 export enum PurchasesType {
-  COURSE = 'COURSE',
-  FLAGSHIP = 'FLAGSHIP',
-  DIGITAL = 'DIGITAL',
+  COURSE = 'course',
+  FLAGSHIP = 'flagship',
+  DIGITAL = 'digital',
 }
