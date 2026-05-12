@@ -85,12 +85,9 @@ api.interceptors.response.use(
       isRefreshing = true;
 
       try {
-        const { data } = await api.post(
+        const { data } = await refreshClient.post(
           "/auth/refresh",
-          {},
-          {
-            skipAuthRefresh: true,
-          },
+          {}
         );
         const newToken = data.accessToken;
 
