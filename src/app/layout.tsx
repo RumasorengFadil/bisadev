@@ -8,6 +8,7 @@ import Script from "next/script";
 import { Toaster } from "sonner";
 import '../styles/_keyframe-animations.scss';
 import "./globals.css";
+import { GlobalTopLoader } from "@/components/GlobalTopLoader";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -101,12 +102,12 @@ export default async function RootLayout({
           <ReactQueryProvider>
             {process.env.NEXT_PUBLIC_ENV === ENV.CONSTRUCTION ? <Construction /> : <>
               <AuthBootstrap />
+              <GlobalTopLoader />
               {children}
               <Toaster />
             </>}
           </ReactQueryProvider>
         </PreferencesStoreProvider>
-        <Toaster />
       </body>
     </html>
   );

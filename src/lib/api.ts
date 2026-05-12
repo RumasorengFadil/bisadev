@@ -1,7 +1,7 @@
 // lib/api.ts
+import { useLoaderStore } from "@/context/stores/use-loader.store";
 import getCSRFToken from "@/utils/get-csrf-token.util";
 import axios from "axios";
-import { useTopLoader } from "nextjs-toploader";
 
 export const api = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL,
@@ -39,7 +39,7 @@ const processQueue = (error: any, token: string | null = null) => {
 };
 
 api.interceptors.request.use(async (config) => {
-  useTopLoader().start();
+  useLoaderStore.getState().start();
 
   const method = config.method?.toUpperCase();
 
@@ -58,11 +58,11 @@ api.interceptors.request.use(async (config) => {
 
 api.interceptors.response.use(
   (response) => {
-    useTopLoader().done();
+    useLoaderStore.getState().done();
     return response;
   },
   async (error) => {
-    useTopLoader().done();
+    useLoaderStore.getState().done();
     const originalRequest = error.config;
 
     if (originalRequest?.skipAuthRefresh) return Promise.reject(error);

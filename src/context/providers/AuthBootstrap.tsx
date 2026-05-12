@@ -1,13 +1,13 @@
 // src/app/AuthProvider.tsx
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
 import { me } from '@/features/auth/api';
-import { useEffect } from 'react';
+import { ErrorResponse } from '@/features/auth/types/error-response.type';
+import { useQuery } from '@tanstack/react-query';
 import { AxiosError } from 'axios';
 import { useRouter } from 'nextjs-toploader/app';
+import { useEffect } from 'react';
 import { useAuthStore } from '../stores/use-auth.store';
-import { ErrorResponse } from '@/features/auth/types/error-response.type';
 
 export function AuthBootstrap() {
   const setUser = useAuthStore((s) => s.setUser);
@@ -18,12 +18,10 @@ export function AuthBootstrap() {
     retry: false,
     refetchOnWindowFocus: false,
     staleTime: 1000 * 60 * 5,
-    // staleTime: Infinity
   });
 
   useEffect(() => {
     if (data) {
-      console.log(data)
       setUser(data);
     }
 
