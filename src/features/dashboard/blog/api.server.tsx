@@ -4,7 +4,7 @@ import { PaginationMeta } from "@/types/pagination-meta.type";
 import { BlogResponse } from "./types/index.type";
 
 export async function findBlog(slug: string, revalidate?: number) {
-    const data = apiPublicFetch<BlogResponse>(`/blogs/${slug}`, { next: { revalidate: revalidate } });
+    const data = apiPublicFetch<BlogResponse>(`/blogs/${slug}`, { next: { revalidate: 0 } });
 
     return data;
 }
@@ -38,13 +38,13 @@ export async function findBlogs({ query, status, limit, page, sort, category }: 
 
     const queryString = searchParams.toString();
 
-    const data = apiPublicFetch<{ data: BlogResponse[], meta: PaginationMeta }>(queryString ? `/blogs?status=published&${queryString}` : `/blogs?status=published`, { next: { revalidate: 43200 } });
+    const data = apiPublicFetch<{ data: BlogResponse[], meta: PaginationMeta }>(queryString ? `/blogs?status=published&${queryString}` : `/blogs?status=published`, { next: { revalidate: 0 } });
 
     return data;
 }
 
 export async function findRelatedBlogs(category: string) {
-    const data = apiPublicFetch<{ data: BlogResponse[], meta: PaginationMeta }>(`/blogs?status=published&limit=3&sort=created_at:desc&category=${category}`, { next: { revalidate: 43200 } });
+    const data = apiPublicFetch<{ data: BlogResponse[], meta: PaginationMeta }>(`/blogs?status=published&limit=3&sort=created_at:desc&category=${category}`, { next: { revalidate: 0 } });
 
     return (await data).data;
 }
