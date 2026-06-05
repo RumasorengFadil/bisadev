@@ -17,7 +17,7 @@ interface BlogCardProps {
 export default function BlogCard({ post }: {post:BlogResponse}) {
     return (
         <Link key={post.id} href={`/blog/${post.slug}/detail`} className="group">
-            <Card className="bg-background p-8">
+            <Card className="bg-background p-8 h-full">
                 <div className="aspect-video relative bg-gradient-to-br from-primary/20 to-primary/5 rounded-xl mb-4 overflow-hidden">
                     <Image
                         src={post.thumbnail_url ?? "_"}
