@@ -1,6 +1,5 @@
 "use client"
 import { Footer } from "@/components/Footer";
-import { Reveal } from "@/components/motion/Reveal";
 import { Navbar } from "@/components/Navbar";
 import WhatsappWidget from "@/components/WhatsappWidget";
 import { APP_CONFIG } from "@/config/app-config";
@@ -49,9 +48,7 @@ export default function LayoutClient({ children }: { children: ReactNode }) {
     return (
         <div>
             {/* Navbar */}
-            <Reveal direction="up">
-                <Navbar />
-            </Reveal>
+            <Navbar />
 
             {/* Content */}
             {children}

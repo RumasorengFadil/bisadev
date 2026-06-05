@@ -7,7 +7,7 @@ export async function apiPublicFetch<T>(
     {
       ...options,
       next: {
-        revalidate: 43200,
+        revalidate: 3600,
         ...options.next,
       },
     }
