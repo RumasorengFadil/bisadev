@@ -7,9 +7,10 @@ import { BlogResponse } from "@/features/dashboard/blog/types/index.type";
 import { CategoryResponse } from "@/features/dashboard/categories/components/types";
 import { useQueryFilters } from "@/hooks/use-query-filter.hook";
 import { BlogSearchParams } from "@/types/blog-search-params";
+import { PaginationMeta } from "@/types/pagination-meta.type";
 import { Search } from "lucide-react";
 
-export default function PageClient({ categories }: { categories: CategoryResponse[] }) {
+export default function PageClient({ categories, initialBlogData }: { categories: CategoryResponse[], initialBlogData: { data: BlogResponse[], meta: PaginationMeta } }) {
   const { updateFilter, updateSearch, debouncedParams, localState } = useQueryFilters<BlogSearchParams>({
     defaultValues: {
       query: "",
@@ -17,7 +18,7 @@ export default function PageClient({ categories }: { categories: CategoryRespons
       status: "published"
     }
   });
-  const { data: blogs } = useFindBlogs({ params: debouncedParams })
+  const { data: blogs } = useFindBlogs({ params: debouncedParams, initialData: initialBlogData })
 
   return (
     <div>

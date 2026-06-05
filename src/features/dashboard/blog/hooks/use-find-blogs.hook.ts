@@ -8,6 +8,7 @@ export function useFindBlogs({ params: { page, limit, query = "", status = "", c
   return useQuery<{ data: BlogResponse[]; meta: PaginationMeta }>({
     queryKey: ["blogs", page, limit, query, status, category],
     queryFn: () => findBlogs({ page, limit, query, status, category }),
-    staleTime: 0
+    staleTime: 5 * 60 * 1000,
+    initialData
   });
 }

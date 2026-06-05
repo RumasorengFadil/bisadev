@@ -3,8 +3,8 @@ import { BlogSearchParams } from "@/types/blog-search-params";
 import { PaginationMeta } from "@/types/pagination-meta.type";
 import { BlogResponse } from "./types/index.type";
 
-export async function findBlog(slug: string, revalidate?: number) {
-    const data = apiPublicFetch<BlogResponse>(`/blogs/${slug}`, { next: { revalidate: 0 } });
+export async function findBlog(slug: string, revalidate: number = 3600) {
+    const data = apiPublicFetch<BlogResponse>(`/blogs/${slug}`, { next: { revalidate: revalidate } });
 
     return data;
 }
@@ -44,7 +44,7 @@ export async function findBlogs({ query, status, limit, page, sort, category }: 
 }
 
 export async function findRelatedBlogs(category: string) {
-    const data = apiPublicFetch<{ data: BlogResponse[], meta: PaginationMeta }>(`/blogs?status=published&limit=3&sort=created_at:desc&category=${category}`, { next: { revalidate: 0 } });
+    const data = apiPublicFetch<{ data: BlogResponse[], meta: PaginationMeta }>(`/blogs?status=published&limit=3&sort=created_at:desc&category=${category}`, { next: { revalidate: 3600 } });
 
     return (await data).data;
 }

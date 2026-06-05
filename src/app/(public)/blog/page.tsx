@@ -1,4 +1,5 @@
 
+import { findBlogs } from "@/features/dashboard/blog/api.server";
 import { findCategories } from "@/features/dashboard/categories/api.server";
 import { CategoryType } from "@/features/dashboard/categories/enums/category-type.enum";
 import { Metadata } from "next";
@@ -51,12 +52,12 @@ export default async function Page() {
 
     const { data: categories } = await findCategories({ type: CategoryType.BLOG, limit: 5 })
 
-    // const { data, meta } = await findBlogs({});
+    const blogs = await findBlogs({});
 
     return (
         <div className="space-y-6">
             <Suspense>
-                <PageClient categories={categories} />
+                <PageClient initialBlogData={blogs} categories={categories} />
             </Suspense>
         </div>)
 }

@@ -91,11 +91,11 @@ api.interceptors.response.use(
         );
         const newToken = data.accessToken;
 
-        api.defaults.headers.Authorization = `Bearer ${newToken}`;
+        // api.defaults.headers.Authorization = `Bearer ${newToken}`;
 
         processQueue(null, newToken);
 
-        originalRequest.headers.Authorization = `Bearer ${newToken}`;
+        // originalRequest.headers.Authorization = `Bearer ${newToken}`;
 
         return api(originalRequest);
       } catch (err) {

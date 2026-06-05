@@ -29,7 +29,6 @@ export async function findBlogs({ page, limit, query, status, category }: BlogSe
 
     const queryString = searchParams.toString();
 
-    console.log(queryString)
     const res = await api.get(
         queryString ? `/blogs?${queryString}` : `/blogs`
     );

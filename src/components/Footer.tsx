@@ -1,8 +1,8 @@
 import { APP_CONFIG } from "@/config/app-config";
-import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
-import Image from "next/image";
+import { Instagram, Linkedin, Mail, MapPin, Phone, Twitter } from "lucide-react";
 import Link from "next/link";
 import { FaTiktok } from "react-icons/fa";
+import ApplicationLogo from "./ApplicationLogo";
 
 export function Footer() {
     return (
@@ -13,7 +13,7 @@ export function Footer() {
                     <div className="space-y-4">
                         <div className="flex items-center space-x-2">
                             <Link href="/" className="flex items-center space-x-2">
-                                <Image src="/images/app/bisadev-logo.png" width={120} height={56} alt="bisadev-logo" />
+                                <ApplicationLogo className="w-32 " />
                             </Link>
                         </div>
                         <p className="text-gray-400 text-sm">

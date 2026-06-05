@@ -8,10 +8,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
 
     const post = await findBlog(slug);
 
-
-    const relatedPosts = post.category?.name
-        ? await findRelatedBlogs(post.category.name)
-        : [];
+    const relatedPosts = await findRelatedBlogs(post.category.name)
 
     return (
         <PageClient relatedPosts={relatedPosts} post={post} />

@@ -1,6 +1,6 @@
 import { UserResponse } from "@/types/user-response.type";
-import { BlogStatus } from "../enums/blog-status.enum";
 import { CategoryResponse } from "../../categories/components/types";
+import { BlogStatus } from "../enums/blog-status.enum";
 
 export interface BlogResponse {
   id: string;
@@ -23,7 +23,7 @@ export interface BlogResponse {
 
   // relations (optional tergantung query)
   author?: UserResponse;
-  category?: CategoryResponse;
+  category: CategoryResponse;
 }
 export interface BlogStatsRes {
   publishedCount: number;
