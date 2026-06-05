@@ -89,7 +89,7 @@ jobs:
 
             export NODE_ENV=production
 
-            source /home/bisadevi/nodevenv/leveling.bisadev.id/22/bin/activate && cd /home/bisadevi/leveling.bisadev.id
+            source /home/bisadevi/nodevenv/public_html/app/22/bin/activate && cd /home/bisadevi/public_html/app
             
             touch tmp/restart.txt
 
