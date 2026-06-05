@@ -1,4 +1,3 @@
-import { Reveal } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ArrowRight, Code, Monitor, ShoppingCart } from "lucide-react";
@@ -28,30 +27,26 @@ export default function ServiceSection() {
     return (
         <section className="py-20 dark:bg-[#111827]">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <Reveal direction="up">
-                    <div className="text-center mb-12">
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Services</h2>
-                        <p className="text-gray-400 max-w-2xl font-medium mx-auto">
-                            Comprehensive IT solutions designed to meet your unique business requirements
-                        </p>
-                    </div>
-                </Reveal>
+                <div className="text-center mb-12">
+                    <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Services</h2>
+                    <p className="text-gray-400 max-w-2xl font-medium mx-auto">
+                        Comprehensive IT solutions designed to meet your unique business requirements
+                    </p>
+                </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {services.map((service, index) => (
-                        <Reveal key={index} direction="up" delay={index * 0.1}>
-                            <Card className="p-8 bg-background h-full">
-                                <div className="relative">
-                                    {service.badge && (
-                                        <span className="absolute top-0 right-0 text-xs bg-[#FFB700]/20 text-[#FFB700] px-3 py-1 rounded-full">
-                                            {service.badge}
-                                        </span>
-                                    )}
-                                    <div className="mb-4">{service.icon}</div>
-                                    <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
-                                    <p className="text-gray-400 font-medium">{service.description}</p>
-                                </div>
-                            </Card>
-                        </Reveal>
+                        <Card className="p-8 bg-background h-full" key={index}>
+                            <div className="relative">
+                                {service.badge && (
+                                    <span className="absolute top-0 right-0 text-xs bg-[#FFB700]/20 text-[#FFB700] px-3 py-1 rounded-full">
+                                        {service.badge}
+                                    </span>
+                                )}
+                                <div className="mb-4">{service.icon}</div>
+                                <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
+                                <p className="text-gray-400 font-medium">{service.description}</p>
+                            </div>
+                        </Card>
                     ))}
                 </div>
                 <div className="text-center mt-12">

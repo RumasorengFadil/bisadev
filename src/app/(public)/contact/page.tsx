@@ -4,19 +4,37 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title:
-    "Kontak Bisa Dev - Konsultasi Website Gratis & Penawaran Project",
+    "Portfolio Website Bisa Dev | Hasil Project & Website yang Telah Diselesaikan",
+
   description:
-    "Hubungi Bisa Dev untuk konsultasi pembuatan website profesional. Diskusikan kebutuhan bisnis Anda dan dapatkan solusi terbaik dengan cepat dan SEO friendly.",
-  keywords:
-    "kontak bisa dev, jasa website indonesia, konsultasi website gratis, web developer indonesia, jasa pembuatan website jakarta, hubungi developer website, jasa website profesional",
-  robots: "index, follow",
+    "Lihat portfolio website terbaik dari Bisa Dev. Temukan berbagai project website company profile, landing page, website bisnis, sistem web custom, dan solusi digital yang telah berhasil dikembangkan untuk klien di Indonesia.",
+
+  keywords: [
+    "portfolio website",
+    "portfolio web developer",
+    "hasil project website",
+    "contoh website company profile",
+    "website bisnis profesional",
+    "jasa pembuatan website",
+    "web developer indonesia",
+    "website custom",
+    "portfolio bisa dev",
+    "jasa website indonesia",
+    "pengembang website profesional",
+    "project website perusahaan",
+  ].join(", "),
+
+  robots: {
+    index: true,
+    follow: true,
+  },
 
   openGraph: {
     title:
-      "Kontak Bisa Dev - Konsultasi Website Gratis",
+      "Portfolio Website Bisa Dev | Project Website Profesional",
     description:
-      "Punya ide website? Hubungi Bisa Dev sekarang dan mulai project Anda bersama tim profesional.",
-    url: "https://bisadev.id/contact",
+      "Jelajahi berbagai website dan sistem digital yang telah dikembangkan oleh Bisa Dev untuk UMKM, startup, dan perusahaan di Indonesia.",
+    url: "https://bisadev.id/portfolio",
     siteName: "Bisa Dev",
     type: "website",
     images: [
@@ -24,7 +42,7 @@ export const metadata: Metadata = {
         url: "https://bisadev.id/images/app/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Kontak Bisa Dev - Jasa Pembuatan Website Profesional",
+        alt: "Portfolio Website Bisa Dev",
       },
     ],
   },
@@ -32,20 +50,20 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title:
-      "Kontak Bisa Dev - Konsultasi Website",
+      "Portfolio Website Bisa Dev | Hasil Project Terbaik",
     description:
-      "Diskusikan project website Anda bersama Bisa Dev sekarang.",
-    images: "https://bisadev.id/images/app/og-image.png",
+      "Lihat berbagai project website, company profile, landing page, dan sistem web custom yang telah berhasil dikerjakan oleh Bisa Dev.",
+    images: ["https://bisadev.id/images/app/og-image.png"],
     site: "@bisadev",
   },
 
   alternates: {
-    canonical: "https://bisadev.id/contact",
+    canonical: "https://bisadev.id/portfolio",
   },
 };
 
 export default function Page() {
-    return (
-        <PageClient />
-    )
+  return (
+    <PageClient />
+  )
 }

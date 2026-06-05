@@ -26,7 +26,7 @@ export function Reveal({
                 opacity: 0,
                 ...variants[direction],
             }}
-            animate={{
+            whileInView={{
                 opacity: 1,
                 x: 0,
                 y: 0,

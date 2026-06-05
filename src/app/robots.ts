@@ -1,3 +1,4 @@
+import { SITEMAP_CONFIG } from "@/config/sitemap.config";
 import { MetadataRoute } from "next";
 
 export default function robots(): MetadataRoute.Robots {
@@ -7,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/dashboard", "/admin"],
     },
-    sitemap: "https://bisadev.id/sitemap.xml",
+    sitemap: SITEMAP_CONFIG.sitemap,
   };
 }

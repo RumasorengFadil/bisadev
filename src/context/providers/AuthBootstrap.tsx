@@ -16,7 +16,7 @@ export function AuthBootstrap() {
     queryKey: ['me'],
     queryFn: me,
     retry: false,
-    refetchOnWindowFocus: false,
+    refetchOnWindowFocus: true,
     staleTime: 1000 * 60 * 5,
   });
 
