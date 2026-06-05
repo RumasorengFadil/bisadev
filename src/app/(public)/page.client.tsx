@@ -1,4 +1,5 @@
 "use client"
+import { Reveal } from "@/components/motion/Reveal";
 import Typewriter from "@/components/motion/TypeWriter";
 import { Button } from "@/components/ui/button";
 import { BlogResponse } from "@/features/dashboard/blog/types/index.type";
@@ -16,7 +17,7 @@ export function PageClient({ latestBlogs }: { latestBlogs: BlogResponse[] }) {
     return (
         <div>
             {/* Hero Section */}
-            <FadeIn>
+            <Reveal direction="up">
                 <section className="relative overflow-hidden py-20 md:py-32">
                     <div className="absolute inset-0 bg-gradient-to-br from-[#FFB700]/10 via-transparent to-transparent" />
                     <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -45,7 +46,7 @@ export function PageClient({ latestBlogs }: { latestBlogs: BlogResponse[] }) {
                         </div>
                     </div>
                 </section>
-            </FadeIn>
+            </Reveal>
 
             {/* Services Section */}
             <ServiceSection />
