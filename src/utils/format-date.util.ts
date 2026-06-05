@@ -1,5 +1,19 @@
-import { formatDate as formatDateFns } from "date-fns";
+import { format } from "date-fns-tz";
 
-export function formatDate({ value, includeTime = false }: { value: string; includeTime?: boolean }) {
-  return formatDateFns(value, `dd MMM yyyy ${includeTime ? "HH:mm" : ""}`);
+export function formatDate({
+  value,
+  includeTime = false,
+  timeZone
+}: {
+  value: string;
+  includeTime?: boolean;
+  timeZone?: string
+}) {
+  const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+  return format(
+    new Date(value),
+    `dd MMM yyyy ${includeTime ? "HH:mm" : ""}`,
+    { timeZone: timeZone ? timeZone : tz }
+  );
 }

@@ -12,6 +12,7 @@ export function Navbar() {
         { path: "/", label: "Home" },
         { path: "/about", label: "About" },
         { path: "/services", label: "Services" },
+        { path: "/portofolio", label: "Portofolio" },
         { path: "/blog", label: "Blog" },
         { path: "/contact", label: "Contact" },
     ];
@@ -38,9 +39,9 @@ export function Navbar() {
                             <Link
                                 key={link.path}
                                 href={link.path}
-                                className={`transition-colors ${isActive(link.path)
-                                        ? "text-[#FFB700] hover:text-primary-foreground"
-                                        : "text-gray-300 hover:text-primary-foreground"
+                                className={`transition-colors font-medium ${isActive(link.path)
+                                    ? "text-[#FFB700] hover:text-primary-foreground"
+                                    : "text-gray-300 hover:text-primary-foreground"
                                     }`}
                             >
                                 {link.label}
@@ -66,8 +67,8 @@ export function Navbar() {
                                 href={link.path}
                                 onClick={() => setIsOpen(false)}
                                 className={`block py-2 px-4 rounded-lg mb-1 transition-colors ${isActive(link.path)
-                                        ? "bg-[#FFB700]/10 text-[#FFB700]"
-                                        : "text-gray-300 hover:bg-white/5"
+                                    ? "bg-[#FFB700]/10 text-[#FFB700]"
+                                    : "text-gray-300 hover:bg-white/5"
                                     }`}
                             >
                                 {link.label}

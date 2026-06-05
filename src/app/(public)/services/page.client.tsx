@@ -1,6 +1,8 @@
+"use client"
+import { Reveal } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Code, ShoppingCart, Monitor, CheckCircle, ArrowRight, Palette, Database, Smartphone, Search, Lock, Gauge } from "lucide-react";
+import { ArrowRight, CheckCircle, Code, Database, Gauge, Lock, Monitor, Palette, Search, ShoppingCart, Smartphone } from "lucide-react";
 import Link from "next/link";
 
 export function PageClient() {
@@ -63,66 +65,78 @@ export function PageClient() {
     return (
         <div>
             {/* Hero */}
-            <section className="py-20 md:py-32">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="max-w-3xl mx-auto text-center">
-                        <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                            <span className="text-[#FFB700]">Solutions</span> That Drive Success
-                        </h1>
-                        <p className="text-xl text-gray-400">
-                            Comprehensive IT services designed to transform your business and accelerate growth
-                        </p>
+            <Reveal direction="up">
+                <section className="py-20 md:py-32">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div className="max-w-3xl mx-auto text-center">
+                            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+                                <span className="text-[#FFB700]">Solutions</span> That Drive Success
+                            </h1>
+                            <p className="text-xl text-gray-400 font-medium">
+                                Comprehensive IT services designed to transform your business and accelerate growth
+                            </p>
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
+            </Reveal>
 
             {/* Main Service: Website Development */}
             <section className="py-20 bg-primary/5">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
-                        <div>
-                            <div className="mb-6">{mainService.icon}</div>
-                            <h2 className="text-3xl md:text-4xl font-bold mb-4">{mainService.title}</h2>
-                            <p className="text-gray-400 text-lg mb-6">{mainService.description}</p>
-                            <Button asChild>
-                                <Link href="/contact">
-                                    Start Your Project <ArrowRight className="ml-2" size={20} />
-                                </Link>
-                            </Button>
-                        </div>
-                        <div className="aspect-video bg-gradient-to-br from-[#FFB700]/20 to-transparent rounded-2xl overflow-hidden">
-                            <img
-                                src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800"
-                                alt="Website Development"
-                                className="w-full h-full object-cover"
-                            />
-                        </div>
+                        <Reveal direction="left">
+                            <div>
+                                <div className="mb-6">{mainService.icon}</div>
+                                <h2 className="text-3xl md:text-4xl font-bold mb-4">{mainService.title}</h2>
+                                <p className="text-gray-400 text-lg mb-6 font-medium">{mainService.description}</p>
+                                <Button asChild>
+                                    <Link href="/contact">
+                                        Start Your Project <ArrowRight className="ml-2" size={20} />
+                                    </Link>
+                                </Button>
+                            </div>
+                        </Reveal>
+                        <Reveal direction="right">
+                            <div className="aspect-video bg-gradient-to-br from-[#FFB700]/20 to-transparent rounded-2xl overflow-hidden">
+                                <img
+                                    src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800"
+                                    alt="Website Development"
+                                    className="w-full h-full object-cover"
+                                />
+                            </div>
+                        </Reveal>
                     </div>
 
                     {/* Features Grid */}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
                         {mainService.features.map((feature, index) => (
-                            <Card className="p-8 bg-background" key={index}>
-                                <div className="w-12 h-12 bg-[#FFB700]/10 rounded-xl flex items-center justify-center mb-4 text-[#FFB700]">
-                                    {feature.icon}
-                                </div>
-                                <h3 className="font-semibold mb-2">{feature.title}</h3>
-                                <p className="text-sm text-gray-400">{feature.description}</p>
-                            </Card>
+                            <Reveal direction="up" delay={index * 0.1} key={index}>
+                                <Card className="p-8 bg-background">
+                                    <div className="w-12 h-12 bg-[#FFB700]/10 rounded-xl flex items-center justify-center mb-4 text-[#FFB700]">
+                                        {feature.icon}
+                                    </div>
+                                    <h3 className="font-semibold mb-2">{feature.title}</h3>
+                                    <p className="text-sm text-gray-400 font-medium">{feature.description}</p>
+                                </Card>
+                            </Reveal>
                         ))}
                     </div>
 
                     {/* Process */}
                     <div>
-                        <h3 className="text-2xl font-bold mb-8 text-center">Our Development Process</h3>
+                        <Reveal direction="up">
+                            <h3 className="text-2xl font-bold mb-8 text-center">Our Development Process</h3>
+                        </Reveal>
                         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
                             {mainService.process.map((step, index) => (
-                                <div key={index} className="text-center">
-                                    <div className="w-12 h-12 bg-[#FFB700] rounded-full flex items-center justify-center mx-auto mb-4 text-[#0F172A] font-bold">
-                                        {index + 1}
+                                <Reveal direction="up" delay={index * 0.1} key={index}>
+                                    <div className="text-center">
+                                        <div className="w-12 h-12 bg-[#FFB700] rounded-full flex items-center justify-center mx-auto mb-4 text-[#0F172A] font-bold">
+                                            {index + 1}
+                                        </div>
+                                        <p className="font-medium">{step}</p>
                                     </div>
-                                    <p className="font-medium">{step}</p>
-                                </div>
+                                </Reveal>
                             ))}
                         </div>
                     </div>
@@ -132,97 +146,109 @@ export function PageClient() {
             {/* Coming Soon Products */}
             <section className="py-20">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-12">
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                            Coming Soon
-                        </h2>
-                        <p className="text-gray-400 max-w-2xl mx-auto">
-                            Exciting new products in development to expand our service offerings
-                        </p>
-                    </div>
+                    <Reveal direction="up">
+                        <div className="text-center mb-12">
+                            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                                Coming Soon
+                            </h2>
+                            <p className="text-gray-400 max-w-2xl mx-auto font-medium">
+                                Exciting new products in development to expand our service offerings
+                            </p>
+                        </div>
+                    </Reveal>
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                         {comingSoon.map((product, index) => (
-                            <Card key={index} className="bg-gradient-to-br from-[#FFB700]/5 to-transparent p-8">
-                                <div className="flex items-start justify-between mb-4">
-                                    {product.icon}
-                                    <span className="text-xs bg-[#FFB700]/20 text-[#FFB700] px-3 py-1 rounded-full">
-                                        Coming Soon
-                                    </span>
-                                </div>
-                                <h3 className="text-2xl font-bold mb-4">{product.title}</h3>
-                                <p className="text-gray-400 mb-6">{product.description}</p>
-                                <div className="space-y-2">
-                                    {product.features.map((feature, featureIndex) => (
-                                        <div key={featureIndex} className="flex items-center text-sm text-gray-400">
-                                            <CheckCircle size={16} className="text-[#FFB700] mr-2 flex-shrink-0" />
-                                            {feature}
-                                        </div>
-                                    ))}
-                                </div>
-                            </Card>
+                            <Reveal direction="up" delay={index * 0.1} key={index}>
+                                <Card className="bg-gradient-to-br from-[#FFB700]/5 to-transparent p-8">
+                                    <div className="flex items-start justify-between mb-4">
+                                        {product.icon}
+                                        <span className="text-xs font-medium bg-[#FFB700]/20 text-[#FFB700] px-3 py-1 rounded-full">
+                                            Coming Soon
+                                        </span>
+                                    </div>
+                                    <h3 className="text-2xl font-bold mb-4">{product.title}</h3>
+                                    <p className="text-gray-400 mb-6 font-medium">{product.description}</p>
+                                    <div className="space-y-2">
+                                        {product.features.map((feature, featureIndex) => (
+                                            <div key={featureIndex} className="flex items-center text-sm text-gray-400 font-medium">
+                                                <CheckCircle size={16} className="text-[#FFB700] mr-2 flex-shrink-0" />
+                                                {feature}
+                                            </div>
+                                        ))}
+                                    </div>
+                                </Card>
+                            </Reveal>
                         ))}
                     </div>
-                    <div className="text-center mt-12">
-                        <p className="text-gray-400 mb-6">
-                            Interested in early access or want to learn more about these products?
-                        </p>
-                        <Button variant="outline" asChild>
-                            <Link href="/contact">
-                                Contact Us for Details
-                            </Link>
-                        </Button>
-                    </div>
+                    <Reveal direction="up">
+                        <div className="text-center mt-12">
+                            <p className="text-gray-400 mb-6 font-medium">
+                                Interested in early access or want to learn more about these products?
+                            </p>
+                            <Button variant="outline" asChild>
+                                <Link href="/contact">
+                                    Contact Us for Details
+                                </Link>
+                            </Button>
+                        </div>
+                    </Reveal>
                 </div>
             </section>
 
             {/* Benefits */}
             <section className="py-20 bg-primary/5">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-12">
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                            Why Work With Us?
-                        </h2>
-                        <p className="text-gray-400 max-w-2xl mx-auto">
-                            The BISADEV advantage
-                        </p>
-                    </div>
+                    <Reveal direction="up">
+                        <div className="text-center mb-12">
+                            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                                Why Work With Us?
+                            </h2>
+                            <p className="text-gray-400 max-w-2xl mx-auto font-medium">
+                                The BISADEV advantage
+                            </p>
+                        </div>
+                    </Reveal>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                         {benefits.map((benefit, index) => (
-                            <div key={index} className="text-center">
-                                <div className="w-12 h-12 bg-[#FFB700] rounded-xl flex items-center justify-center mx-auto mb-4 text-[#0F172A]">
-                                    <CheckCircle size={24} />
+                            <Reveal direction="up" delay={index * 0.1} key={index}>
+                                <div className="text-center">
+                                    <div className="w-12 h-12 bg-[#FFB700] rounded-xl flex items-center justify-center mx-auto mb-4 text-[#0F172A]">
+                                        <CheckCircle size={24} />
+                                    </div>
+                                    <h3 className="font-semibold mb-2">{benefit.title}</h3>
+                                    <p className="text-sm text-gray-400 font-medium">{benefit.description}</p>
                                 </div>
-                                <h3 className="font-semibold mb-2">{benefit.title}</h3>
-                                <p className="text-sm text-gray-400">{benefit.description}</p>
-                            </div>
+                            </Reveal>
                         ))}
                     </div>
                 </div>
             </section>
 
             {/* CTA */}
-            <section className="py-20">
-                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                        Ready to Get Started?
-                    </h2>
-                    <p className="text-xl text-gray-400 mb-8">
-                        Let's discuss your project and find the perfect solution for your needs
-                    </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Button asChild>
-                            <Link href="/contact">
-                                Request a Quote
-                            </Link>
-                        </Button>
-                        <Button variant="outline" asChild>
-                            <Link className="text-primary" href="/about">
-                                Learn More About Us
-                            </Link>
-                        </Button>
+            <Reveal direction="up">
+                <section className="py-20">
+                    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                        <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                            Ready to Get Started?
+                        </h2>
+                        <p className="text-xl text-gray-400 mb-8 font-medium">
+                            Let's discuss your project and find the perfect solution for your needs
+                        </p>
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                            <Button asChild>
+                                <Link href="/contact">
+                                    Request a Quote
+                                </Link>
+                            </Button>
+                            <Button variant="outline" asChild>
+                                <Link className="text-primary" href="/about">
+                                    Learn More About Us
+                                </Link>
+                            </Button>
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
+            </Reveal>
         </div>
     );
 }

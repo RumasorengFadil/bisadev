@@ -1,0 +1,100 @@
+name: Deploy NestJS API (dist only)
+
+on:
+  push:
+    branches:
+      - main
+      - staging
+      - dev
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout repository
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # Setup Node
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      # Install dependencies (for build)
+      - name: Install Dependencies
+        run: npm ci
+
+      # Build project
+      - name: Build Project
+        run: npm run build
+        env: 
+          NEXT_PUBLIC_ENV: ${{ secrets.NEXT_PUBLIC_ENV }}
+          NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
+          NEXT_PUBLIC_BASE_URL: ${{ secrets.NEXT_PUBLIC_BASE_URL }}
+          NEXT_PUBLIC_IMAGE_HOST: ${{ secrets.NEXT_PUBLIC_IMAGE_HOST }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+
+      # Prepare standalone build
+      - name: Prepare Standalone
+        run: |
+          mkdir -p .next/standalone/.next
+
+          # Copy static assets required by standalone server
+          cp -R .next/static .next/standalone/.next/
+
+          # Copy public directory
+          cp -R public .next/standalone/
+
+      # Setup SSH
+      - name: Setup SSH Agent
+        uses: webfactory/ssh-agent@v0.7.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      # Deploy dist only
+      - name: Deploy to Server
+        run: |
+          if [[ "${GITHUB_REF}" == "refs/heads/main" ]]; then
+            DEPLOY_PATH="${{ secrets.PROD_PATH }}"
+          elif [[ "${GITHUB_REF}" == "refs/heads/staging" ]]; then
+            DEPLOY_PATH="${{ secrets.STAGING_PATH }}"
+          else
+            DEPLOY_PATH="${{ secrets.DEV_PATH }}"
+          fi
+
+          echo "Deploying to $DEPLOY_PATH"
+
+          # Create folder if not exists
+          ssh -p 6510 -o StrictHostKeyChecking=no \
+          ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }} \
+          "mkdir -p $DEPLOY_PATH"
+
+          # Sync only build output + package files
+          rsync -avz --delete \
+            -e "ssh -p 6510 -o StrictHostKeyChecking=no" \
+            .next \
+            public \
+            package.json \
+            package-lock.json \
+            ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:$DEPLOY_PATH
+
+          # Restart app on server
+          ssh -p 6510 -o StrictHostKeyChecking=no \
+          ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }} << EOF
+
+            cd $DEPLOY_PATH
+
+            export NODE_ENV=production
+
+            source /home/bisadevi/nodevenv/leveling.bisadev.id/22/bin/activate && cd /home/bisadevi/leveling.bisadev.id
+            
+            touch tmp/restart.txt
+
+            # Install production dependencies only
+            npm ci --omit=dev
+          EOF
+
+#

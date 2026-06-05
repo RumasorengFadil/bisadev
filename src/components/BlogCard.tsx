@@ -1,7 +1,9 @@
-import { Calendar, ArrowRight } from 'lucide-react';
-import { Button } from './ui/button';
-import Link from 'next/link';
+import { Calendar } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { Card } from './ui/card';
+import { BlogResponse } from '@/features/dashboard/blog/types/index.type';
+import { formatDate } from '@/utils/format-date.util';
 
 interface BlogCardProps {
     title: string;
@@ -12,30 +14,31 @@ interface BlogCardProps {
     src: string
 }
 
-export default function BlogCard({ title, excerpt, date, category, href, src }: BlogCardProps) {
+export default function BlogCard({ post }: {post:BlogResponse}) {
     return (
-        <div className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-            <div className="aspect-video relative bg-gradient-to-br from-gray-100 to-gray-200">
-                <Image src={src} alt={title} fill />
-            </div>
-            <div className="p-6">
-                <div className="flex items-center gap-4 mb-3 text-sm text-gray-500">
-                    <span className="px-3 py-1 rounded-full bg-gray-100 font-medium" style={{ color: '#1a3e6b' }}>
-                        {category}
-                    </span>
-                    <div className="flex items-center gap-1">
-                        <Calendar className="w-4 h-4" />
-                        {date}
-                    </div>
+        <Link key={post.id} href={`/blog/${post.slug}/detail`} className="group">
+            <Card className="bg-background p-8">
+                <div className="aspect-video relative bg-gradient-to-br from-primary/20 to-primary/5 rounded-xl mb-4 overflow-hidden">
+                    <Image
+                        src={post.thumbnail_url ?? "_"}
+                        alt={post.title}
+                        className="object-cover group-hover:scale-105 transition-transform duration-300"
+                        fill
+                    />
                 </div>
-                <h3 className="text-xl font-bold mb-3" style={{ color: '#1a3e6b' }}>{title}</h3>
-                <p className="text-gray-600 mb-4">{excerpt}</p>
-                <Button variant={"link"} className="flex cursor-pointer items-center gap-2 font-medium hover:opacity-70 transition-opacity" style={{ color: '#1a3e6b' }} asChild>
-                    <Link href={href}>
-                        Read More <ArrowRight className="w-4 h-4" />
-                    </Link>
-                </Button>
-            </div>
-        </div>
+                <div className="flex items-center justify-between text-sm text-gray-400 mb-3">
+                    <div className="flex items-center font-medium">
+                        <Calendar size={14} className="mr-2" />
+                        {formatDate({ value: post.created_at })}
+                    </div>
+                    <span className="text-primary text-xs font-medium">{post.category?.name}</span>
+                </div>
+                <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">
+                    {post.title}
+                </h3>
+                <p className="text-sm text-gray-400 mb-3 font-medium">{post.excerpt}</p>
+                <p className="text-xs text-gray-500 font-medium">By {post.author?.name}</p>
+            </Card>
+        </Link>
     );
 }

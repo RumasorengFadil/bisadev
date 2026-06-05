@@ -84,11 +84,11 @@ export const ChatPromptForm = (
         }} className={`z-50 ${open ? "opacity-0 pointer-events-none" : "opacity-100"}`} onSubmit={(e) => handleChat(e, question)}>
             <div className={`fixed max-w-72 w-full bottom-0 left-1/2 animate-fade-in -translate-x-1/2 transition-all duration-500  hover:scale-105 focus-within:-translate-y-4 sm:focus-within:max-w-96 sm:focus-within:scale-105 ${hidden ? "translate-y-full" : "-translate-y-4"}`}>
                 <div className='bg-background dark:bg-background rounded-md'>
-                    <Input value={question} onChange={(e) => setQuestion(e.target.value)} className="py-5 pl-4 pr-12" type="text" placeholder="Ask a question..." />
+                    <Input value={question} onChange={(e) => setQuestion(e.target.value)} className="py-5 pl-4 pr-12 font-medium" type="text" placeholder="Ask AI assistant..." />
                 </div>
 
                 <div className={`absolute top-1/2 p-1 -translate-y-1/2 right-2 `}>
-                    <Button disabled={!question.trim()} className={`w-7 h-full cursor-pointer flex bg-foreground text-background rounded-full`}>
+                    <Button disabled={!question.trim()} className={`w-7 h-full bg-primary cursor-pointer flex text-background rounded-full`}>
                         <ArrowUp />
                     </Button>
                 </div>
@@ -179,11 +179,11 @@ export const ChatPromptForm = (
                 <form onSubmit={(e) => handleChat(e, question)}>
                     <div className={`absolute px-4 bottom-4 left-1/2 -translate-x-1/2 w-full transition-all duration-500 `}>
                         <div className='bg-background dark:bg-background'>
-                            <Input disabled={!streamDone} value={question} onChange={(e) => setQuestion(e.target.value)} className="py-5 pl-4 pr-12" type="text" placeholder="Ask a question..." />
+                            <Input disabled={!streamDone} value={question} onChange={(e) => setQuestion(e.target.value)} className="py-5 pl-4 pr-12" type="text" placeholder="Ask AI assistant..." />
                         </div>
 
                         <div className={`absolute top-1/2 p-1 -translate-y-1/2 right-6 `}>
-                            <Button disabled={!question.trim() || !streamDone} className={`w-7 h-7 cursor-pointer flex bg-foreground text-background rounded-full`}>
+                            <Button disabled={!question.trim() || !streamDone} className={`w-7 h-7 cursor-pointer bg-primary flex text-background rounded-full`}>
                                 <ArrowUp />
                             </Button>
                         </div>
