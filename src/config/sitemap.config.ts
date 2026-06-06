@@ -3,7 +3,7 @@ export const SITEMAP_CONFIG = {
   staticRoutes: [
     "/",
     "/about",
-    "/products",
+    "/services",
     "/blog",
     "/contact",
     "/login",
