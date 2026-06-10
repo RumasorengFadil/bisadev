@@ -1,5 +1,5 @@
 export const SITEMAP_CONFIG = {
-  sitemap: "https://edusio.id/sitemap.xml",
+  sitemap: "https://bisadev.id/sitemap.xml",
   staticRoutes: [
     "/",
     "/about",
