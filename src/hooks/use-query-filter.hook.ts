@@ -1,4 +1,3 @@
-import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { useDebounce, useDebouncedCallback } from "use-debounce";
 import { useQueryParam } from "./use-query-param";
@@ -13,13 +12,12 @@ export function useQueryFilters<T extends object>({
   debounceDelay = 300,
 }: UseQueryFiltersOptions<T>) {
   const { setParam, resetParams } = useQueryParam();
-  const searchParams = useSearchParams();
 
   // ambil semua param dari URL sesuai key defaultValues
   const params = {} as T;
 
   for (const key in defaultValues) {
-    const value = searchParams.get(key);
+    const value = null;
 
     if (value === null) {
       params[key] = defaultValues[key];

@@ -1,34 +1,34 @@
 
-import { findBlogs } from "@/features/dashboard/blog/api.server";
-import { findCategories } from "@/features/dashboard/categories/api.server";
-import { CategoryType } from "@/features/dashboard/categories/enums/category-type.enum";
+import { QueryFilterProvider } from "@/context/providers/query-filter-provider";
+import { BlogSearchParams } from "@/types/blog-search-params";
 import { Metadata } from "next";
-import { Suspense } from "react";
 import PageClient from "./page.client";
 
 export const metadata: Metadata = {
     title:
-        "Blog Bisa Dev - Insight Website, Bisnis Digital & Teknologi",
+        "Blog Edusio - Artikel Pelatihan, Webinar, Pengembangan Skill & Karier",
     description:
-        "Temukan insight terbaru tentang pembuatan website, bisnis digital, e-commerce, dan teknologi dari Bisa Dev. Tingkatkan pengetahuan dan strategi digital Anda.",
+        "Baca artikel terbaru seputar pelatihan online, webinar, sertifikasi, pengembangan skill, pendidikan digital, produktivitas, dan karier profesional bersama Edusio.",
+
     keywords:
-        "blog bisa dev, artikel website, tips website bisnis, web development indonesia, e commerce indonesia, teknologi digital, bisnis online, SEO website, pengembangan website",
+        "blog edusio, pelatihan online, webinar indonesia, kursus online, sertifikasi profesional, pengembangan skill, pendidikan digital, pembelajaran online, pengembangan karier, teknologi pendidikan, artikel edukasi, tips karier, soft skill, hard skill",
+
     robots: "index, follow",
 
     openGraph: {
         title:
-            "Blog Bisa Dev - Insight & Artikel Digital",
+            "Blog Edusio - Artikel Pelatihan, Webinar & Pengembangan Skill",
         description:
-            "Pelajari strategi website, bisnis digital, dan teknologi untuk mengembangkan bisnis Anda.",
-        url: "https://bisadev.id/blog",
-        siteName: "Bisa Dev",
+            "Temukan insight, tips, dan panduan seputar pelatihan, webinar, sertifikasi, pendidikan digital, serta pengembangan karier profesional.",
+        url: "https://edusio.id/blog",
+        siteName: "Edusio",
         type: "website",
         images: [
             {
-                url: "https://bisadev.id/images/app/og-image.png",
+                url: "https://edusio.id/images/app/og-image.png",
                 width: 1200,
                 height: 630,
-                alt: "Blog Bisa Dev - Insight Website & Teknologi",
+                alt: "Blog Edusio - Pelatihan, Webinar & Pengembangan Skill",
             },
         ],
     },
@@ -36,28 +36,33 @@ export const metadata: Metadata = {
     twitter: {
         card: "summary_large_image",
         title:
-            "Blog Bisa Dev - Insight Digital & Teknologi",
+            "Blog Edusio - Artikel Pelatihan, Webinar & Pengembangan Skill",
         description:
-            "Artikel seputar website, bisnis digital, dan teknologi terbaru.",
-        images: "https://bisadev.id/images/app/og-image.png",
-        site: "@bisadev",
+            "Insight terbaru tentang pelatihan, webinar, sertifikasi, pendidikan digital, dan pengembangan karier.",
+        images: "https://edusio.id/images/app/og-image.png",
+        site: "@edusio",
     },
 
     alternates: {
-        canonical: "https://bisadev.id/blog",
+        canonical: "https://edusio.id/blog",
     },
+
+    category: "education",
 };
 
-export default async function Page() {
-
-    const { data: categories } = await findCategories({ type: CategoryType.BLOG, limit: 5 })
-
-    const blogs = await findBlogs({});
+export default async function Page({ searchParams }: { searchParams: Promise<BlogSearchParams> }) {
+    const { category, query } = await searchParams;
 
     return (
-        <div className="space-y-6">
-            <Suspense>
-                <PageClient initialBlogData={blogs} categories={categories} />
-            </Suspense>
-        </div>)
+        <QueryFilterProvider<BlogSearchParams>
+            defaultValues={{
+                query: query ?? "",
+                category: category ?? "",
+            }}
+        >
+            <div className="space-y-6">
+                <PageClient />
+            </div>
+        </QueryFilterProvider>
+    )
 }

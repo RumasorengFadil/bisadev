@@ -1,8 +1,8 @@
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import ApplicationLogo from "./ApplicationLogo";
 
 export function Navbar() {
     const pathname = usePathname();
@@ -30,7 +30,14 @@ export function Navbar() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-16">
                     <Link href="/" className="space-x-2">
-                        <ApplicationLogo className="w-32 " />
+                        <div className="relative w-32 h-10">
+                            <Image
+                                src={"/images/app/bisadev-logo.png"}
+                                className=""
+                                alt="bisadev-logo"
+                                fill
+                            />
+                        </div>
                     </Link>
 
                     {/* Desktop Navigation */}
