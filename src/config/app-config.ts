@@ -1,7 +1,7 @@
 import packageJson from "../../package.json";
 
 const currentYear = new Date().getFullYear();
-
+const waNumber = "6285178137881";
 export const APP_CONFIG = {
   name: "Bisadev",
   version: packageJson.version,
@@ -11,7 +11,8 @@ export const APP_CONFIG = {
     description:
       "Bisadev adalah digital agency yang menyediakan layanan pengembangan website, aplikasi, dan solusi digital modern. Kami membantu bisnis berkembang melalui teknologi yang scalable, cepat, dan user-friendly.",
   },
-  wa_number: "6285178137881",
+  wa_number: waNumber,
+  wa_url: `https://wa.me/${waNumber}`,
   email: "bisadevindonesia@gmail.com",
   address: "Bekasi, Indonesia"
 };

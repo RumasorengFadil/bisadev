@@ -1,11 +1,32 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { BlogResponse } from "@/features/dashboard/blog/types/index.type";
+import { findBlogs } from "@/features/dashboard/blog/api.server";
 import { formatDate } from "@/utils/format-date.util";
 import { Calendar } from "lucide-react";
 import Link from "next/link";
+import { Suspense } from "react";
+import { BlogSkeletonCard } from "../blog/components/BlogSkeletonCard";
 
-export default function BlogPreviewSection({ latestBlogs }: { latestBlogs: BlogResponse[] }) {
+async function BlogList() {
+    const latestBlogs = await findBlogs({ limit: 3, sort: "created_at:desc" });
+
+    return latestBlogs.data.map((post, idx) => (
+        <Link href={`/blog/${post.slug}/detail`} className="group" key={idx}>
+            <Card className="p-8 bg-background">
+                <div className="aspect-video bg-gradient-to-br from-[#FFB700]/20 to-[#FFB700]/5 rounded-xl mb-4 overflow-hidden">
+                    <img src={post.thumbnail_url ?? "_"} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                </div>
+                <div className="flex items-center text-sm text-gray-400 mb-2">
+                    <Calendar size={14} className="mr-2" />
+                    {formatDate({ value: post.created_at })}
+                </div>
+                <h3 className="font-semibold mb-2 group-hover:text-[#FFB700] transition-colors">{post.title}</h3>
+                <p className="text-sm text-gray-400">{post.excerpt}</p>
+            </Card>
+        </Link>
+    ))
+}
+export default function BlogPreviewSection() {
     return (
         <section className="py-20">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -21,21 +42,9 @@ export default function BlogPreviewSection({ latestBlogs }: { latestBlogs: BlogR
                     </Button>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {latestBlogs.map((post, idx) => (
-                        <Link href={`/blog/${post.slug}/detail`} className="group" key={idx}>
-                            <Card className="p-8 bg-background">
-                                <div className="aspect-video bg-gradient-to-br from-[#FFB700]/20 to-[#FFB700]/5 rounded-xl mb-4 overflow-hidden">
-                                    <img src={post.thumbnail_url ?? "_"} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-                                </div>
-                                <div className="flex items-center text-sm text-gray-400 mb-2">
-                                    <Calendar size={14} className="mr-2" />
-                                    {formatDate({ value: post.created_at })}
-                                </div>
-                                <h3 className="font-semibold mb-2 group-hover:text-[#FFB700] transition-colors">{post.title}</h3>
-                                <p className="text-sm text-gray-400">{post.excerpt}</p>
-                            </Card>
-                        </Link>
-                    ))}
+                    <Suspense fallback={<BlogSkeletonCard size={3} />}>
+                        <BlogList />
+                    </Suspense>
                 </div>
             </div>
         </section>

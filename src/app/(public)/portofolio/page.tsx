@@ -33,12 +33,12 @@ export const metadata: Metadata = {
             "Portfolio Website Bisa Dev | Project Website Profesional",
         description:
             "Jelajahi berbagai website dan sistem digital yang telah dikembangkan oleh Bisa Dev untuk UMKM, startup, dan perusahaan di Indonesia.",
-        url: "https://bisadev.id/portfolio",
+        url: `${process.env.NEXT_PUBLIC_BASE_URL}/portofolio`,
         siteName: "Bisa Dev",
         type: "website",
         images: [
             {
-                url: "https://bisadev.id/images/app/og-image.png",
+                url: `${process.env.NEXT_PUBLIC_BASE_URL}/images/og/portofolio.png`,
                 width: 1200,
                 height: 630,
                 alt: "Portfolio Website Bisa Dev",
@@ -52,12 +52,12 @@ export const metadata: Metadata = {
             "Portfolio Website Bisa Dev | Hasil Project Terbaik",
         description:
             "Lihat berbagai project website, company profile, landing page, dan sistem web custom yang telah berhasil dikerjakan oleh Bisa Dev.",
-        images: ["https://bisadev.id/images/app/og-image.png"],
+        images: `${process.env.NEXT_PUBLIC_BASE_URL}/images/og/portofolio.png`,
         site: "@bisadev",
     },
 
     alternates: {
-        canonical: "https://bisadev.id/portfolio",
+        canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/portofolio`,
     },
 };
 

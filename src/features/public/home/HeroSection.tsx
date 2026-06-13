@@ -1,4 +1,3 @@
-import Typewriter from "@/components/motion/TypeWriter";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
@@ -12,7 +11,7 @@ export default function HeroSection() {
                     <h1 className="text-xl md:text-6xl font-bold mb-6 leading-tight">
                         Transform Your Business with {" "}
                         <span className="text-primary">
-                            <Typewriter text="Digital Innovation" />
+                            Digital Innovation
                         </span>
                     </h1>
                     <p className="text-xl font-medium text-gray-400 mb-8">

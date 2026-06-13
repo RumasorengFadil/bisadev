@@ -1,14 +1,15 @@
 import Construction from "@/components/Construction";
+import { GlobalTopLoader } from "@/components/GlobalTopLoader";
 import { AuthBootstrap } from "@/context/providers/AuthBootstrap";
 import { ReactQueryProvider } from "@/context/providers/react-query.provider";
 import { PreferencesStoreProvider } from "@/context/stores/preferences-provider";
 import { ENV } from "@/features/auth/types/env.type";
+import { Metadata } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import Script from "next/script";
 import { Toaster } from "sonner";
 import '../styles/_keyframe-animations.scss';
 import "./globals.css";
-import { GlobalTopLoader } from "@/components/GlobalTopLoader";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,6 +27,19 @@ const inter = Inter({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
   variable: '--font-inter',
 });
+
+export const metadata: Metadata = {
+  title: {
+    default: "Bisadev IT Services & Solutions",
+    template: "Bisadev IT Services & Solutions",
+  },
+
+  description:
+    "Bisa Dev menyediakan jasa pembuatan website profesional, cepat, dan SEO friendly untuk bisnis, startup, dan personal brand. Tingkatkan kehadiran digital Anda sekarang.",
+
+  applicationName: "Bisadev IT Services & Solutions",
+};
+
 
 export default async function RootLayout({
   children,

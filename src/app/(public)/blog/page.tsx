@@ -1,4 +1,3 @@
-
 import { QueryFilterProvider } from "@/context/providers/query-filter-provider";
 import { BlogSearchParams } from "@/types/blog-search-params";
 import { Metadata } from "next";
@@ -20,12 +19,12 @@ export const metadata: Metadata = {
             "Blog Edusio - Artikel Pelatihan, Webinar & Pengembangan Skill",
         description:
             "Temukan insight, tips, dan panduan seputar pelatihan, webinar, sertifikasi, pendidikan digital, serta pengembangan karier profesional.",
-        url: "https://edusio.id/blog",
+        url: `${process.env.NEXT_PUBLIC_BASE_URL}/blog`,
         siteName: "Edusio",
         type: "website",
         images: [
             {
-                url: "https://edusio.id/images/app/og-image.png",
+                url: `${process.env.NEXT_PUBLIC_BASE_URL}/images/og/blog.png`,
                 width: 1200,
                 height: 630,
                 alt: "Blog Edusio - Pelatihan, Webinar & Pengembangan Skill",
@@ -39,12 +38,12 @@ export const metadata: Metadata = {
             "Blog Edusio - Artikel Pelatihan, Webinar & Pengembangan Skill",
         description:
             "Insight terbaru tentang pelatihan, webinar, sertifikasi, pendidikan digital, dan pengembangan karier.",
-        images: "https://edusio.id/images/app/og-image.png",
+        images: `${process.env.NEXT_PUBLIC_BASE_URL}/images/og/blog.png`,
         site: "@edusio",
     },
 
     alternates: {
-        canonical: "https://edusio.id/blog",
+        canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/blog`,
     },
 
     category: "education",

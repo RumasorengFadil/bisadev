@@ -1,9 +1,9 @@
+import context from "@/data/context.json";
 import { NextResponse } from "next/server";
 import OpenAI from "openai";
-import context from "@/data/context.json";
 
 const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
+  apiKey: process.env.NEXT_OPENAI_API_KEY,
 });
 
 function findRelevantContext(question: string) {

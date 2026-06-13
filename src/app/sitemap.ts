@@ -10,13 +10,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     lastModified: new Date(),
   }));
 
-  // Dynamic blog posts (contoh)
-  //   const blogPosts = await getBlogPosts(); // ambil dari API / DB
-
-  //   const blogRoutes = blogPosts.map((post: any) => ({
-  //     url: `${baseUrl}/blog/${post.slug}`,
-  //     lastModified: new Date(post.updatedAt || post.createdAt),
-  //   }));
-
   return [...staticRoutes];
 }
+
+// Dynamic blog posts (contoh)
+//   const blogPosts = await getBlogPosts(); // ambil dari API / DB
+
+//   const blogRoutes = blogPosts.map((post: any) => ({
+//     url: `${baseUrl}/blog/${post.slug}`,
+//     lastModified: new Date(post.updatedAt || post.createdAt),
+//   }));

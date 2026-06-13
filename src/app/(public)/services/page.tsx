@@ -16,12 +16,12 @@ export const metadata: Metadata = {
       "Layanan Bisa Dev - Website Development & Solusi Digital",
     description:
       "Bangun website profesional dengan performa tinggi dan SEO optimal bersama Bisa Dev.",
-    url: "https://bisadev.id/services",
+    url: `${process.env.NEXT_PUBLIC_BASE_URL}/services`,
     siteName: "Bisa Dev",
     type: "website",
     images: [
       {
-        url: "https://bisadev.id/images/app/og-image.png",
+        url: `${process.env.NEXT_PUBLIC_BASE_URL}/images/og/services.png`,
         width: 1200,
         height: 630,
         alt: "Layanan Bisa Dev - Website Development & Solusi Digital",
@@ -35,17 +35,17 @@ export const metadata: Metadata = {
       "Layanan Bisa Dev - Website Development",
     description:
       "Solusi pembuatan website profesional untuk bisnis, startup, dan personal brand.",
-    images: "https://bisadev.id/images/common/og-image.webp",
+    images: `${process.env.NEXT_PUBLIC_BASE_URL}/images/og/services.png`,
     site: "@bisadev",
   },
 
   alternates: {
-    canonical: "https://bisadev.id/services",
+    canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/services`,
   },
 };
 
 export default function Page() {
-    return (
-        <PageClient />
-    )
+  return (
+    <PageClient />
+  )
 }

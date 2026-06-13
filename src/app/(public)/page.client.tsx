@@ -1,6 +1,4 @@
-"use client"
 import { Button } from "@/components/ui/button";
-import { BlogResponse } from "@/features/dashboard/blog/types/index.type";
 import BlogPreviewSection from "@/features/public/home/BlogPreviewSection";
 import CTASection from "@/features/public/home/CTASection";
 import PreviewPortofolioSection from "@/features/public/home/PreviewPortofolioSection";
@@ -10,7 +8,7 @@ import WhyChooseUsSection from "@/features/public/home/WhyChooseUsSection";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
-export function PageClient({ latestBlogs }: { latestBlogs: BlogResponse[] }) {
+export function PageClient() {
     return (
         <div>
             {/* Hero Section */}
@@ -56,7 +54,7 @@ export function PageClient({ latestBlogs }: { latestBlogs: BlogResponse[] }) {
             <PreviewPortofolioSection />
 
             {/* Blog Preview */}
-            <BlogPreviewSection latestBlogs={latestBlogs} />
+            <BlogPreviewSection />
 
             {/* CTA Section */}
             <CTASection />

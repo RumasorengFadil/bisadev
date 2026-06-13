@@ -38,7 +38,7 @@ export async function findBlogs({ query, status, limit, page, sort, category }: 
 
     const queryString = searchParams.toString();
 
-    const data = apiPublicFetch<{ data: BlogResponse[], meta: PaginationMeta }>(queryString ? `/blogs?status=published&${queryString}` : `/blogs?status=published`, { next: { revalidate: 3600 } });
+    const data = apiPublicFetch<{ data: BlogResponse[], meta: PaginationMeta }>(queryString ? `/blogs?status=published&${queryString}` : `/blogs?status=published`);
 
     return data;
 }

@@ -6,8 +6,6 @@ export const SITEMAP_CONFIG = {
     "/services",
     "/blog",
     "/contact",
-    "/login",
-    "/register",
     "/portofolio"
   ]
 };

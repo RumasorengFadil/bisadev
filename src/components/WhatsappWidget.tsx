@@ -1,5 +1,6 @@
 "use client";
 
+import { APP_CONFIG } from "@/config/app-config";
 import { CustomerService } from "@/types/customer-service.type";
 import { ChevronLeft, MessageCircle, SendHorizonal } from "lucide-react";
 import { useState } from "react";
@@ -11,9 +12,42 @@ interface WhatsappWidgetProps {
     agents: CustomerService[];
 }
 
-export default function WhatsappWidget({
-    agents,
-}: WhatsappWidgetProps) {
+export default function WhatsappWidget() {
+    const agents: CustomerService[] = [
+        {
+            id: "1",
+            name: "Bisadev",
+            role: "General Admin",
+            avatar: "/images/app/og-image.png",
+            phone: APP_CONFIG.wa_number,
+            online: true,
+        },
+        {
+            id: "2",
+            name: "Fadil",
+            role: "Technical",
+            avatar: "/images/teams/fadil-hijayat-rumasoreng.jpg",
+            phone: "6285244682780",
+            online: true,
+        },
+        {
+            id: "3",
+            name: "Zaki",
+            role: "Support 1",
+            avatar: "/images/teams/tolkhah-mozaqqi-arrasyi.jpeg",
+            phone: "6281316965887",
+            online: true,
+        },
+        {
+            id: "4",
+            name: "Zarif",
+            role: "Support 2",
+            avatar: "/images/teams/zarif-afzal-ramadhan.jpeg",
+            phone: "6287874385891",
+            online: true,
+        },
+    ];
+
     const [open, setOpen] = useState(false);
     const [selectedAgent, setSelectedAgent] = useState<CustomerService | null>(null);
     const [message, setMessage] = useState("");

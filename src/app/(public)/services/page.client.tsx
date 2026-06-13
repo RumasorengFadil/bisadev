@@ -1,4 +1,3 @@
-"use client"
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ArrowRight, CheckCircle, Code, Database, Gauge, Lock, Monitor, Palette, Search, ShoppingCart, Smartphone } from "lucide-react";
@@ -143,7 +142,7 @@ export function PageClient() {
                     </div>
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                         {comingSoon.map((product, index) => (
-                            <Card className="bg-gradient-to-br from-[#FFB700]/5 to-transparent p-8">
+                            <Card key={index} className="bg-gradient-to-br from-[#FFB700]/5 to-transparent p-8">
                                 <div className="flex items-start justify-between mb-4">
                                     {product.icon}
                                     <span className="text-xs font-medium bg-[#FFB700]/20 text-[#FFB700] px-3 py-1 rounded-full">

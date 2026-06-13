@@ -35,7 +35,7 @@ jobs:
           NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
           NEXT_PUBLIC_BASE_URL: ${{ secrets.NEXT_PUBLIC_BASE_URL }}
           NEXT_PUBLIC_IMAGE_HOST: ${{ secrets.NEXT_PUBLIC_IMAGE_HOST }}
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          NEXT_OPENAI_API_KEY: ${{ secrets.NEXT_OPENAI_API_KEY }}
 
       # Prepare standalone build
       - name: Prepare Standalone
@@ -84,16 +84,10 @@ jobs:
           # Restart app on server
           ssh -p 6510 -o StrictHostKeyChecking=no \
           ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }} << EOF
-
-            cd $DEPLOY_PATH
-
             export NODE_ENV=production
 
             source /home/bisadevi/nodevenv/public_html/app/22/bin/activate && cd /home/bisadevi/public_html/app
             
             touch tmp/restart.txt
-
-            # Install production dependencies only
-            npm ci --omit=dev
           EOF
 

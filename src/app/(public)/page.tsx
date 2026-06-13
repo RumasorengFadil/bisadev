@@ -1,4 +1,3 @@
-import { findBlogs } from "@/features/dashboard/blog/api.server";
 import { Metadata } from "next";
 import { PageClient } from "./page.client";
 
@@ -10,19 +9,23 @@ export const metadata: Metadata = {
         "bisa dev, jasa pembuatan website, jasa website profesional, jasa desain UI UX, pengembangan website, website bisnis, website startup, jasa website SEO, web developer indonesia",
     robots: "index, follow",
 
+    alternates: {
+        canonical: process.env.NEXT_PUBLIC_BASE_URL,
+    },
+
     openGraph: {
         title:
             "Bisa Dev - Jasa Pembuatan Website Profesional, Cepat & SEO Friendly",
         description:
             "Bisa Dev membantu bisnis Anda berkembang dengan website profesional, cepat, dan SEO friendly.",
-        url: "https://bisadev.id", // ganti sesuai domain baru
+        url: `${process.env.NEXT_PUBLIC_BASE_URL}`,
         siteName: "Bisa Dev",
         type: "website",
         images: [
             {
-                url: "https://bisadev.id/images/app/og-image.png", // ganti jika ada
+                url: `${process.env.NEXT_PUBLIC_BASE_URL}/images/og/home.png`,
                 width: 1200,
-                height: 630,
+                height: 675,
                 alt: "Bisa Dev - Jasa Pembuatan Website Profesional dan SEO Friendly",
             },
         ],
@@ -34,19 +37,15 @@ export const metadata: Metadata = {
             "Bisa Dev - Jasa Pembuatan Website Profesional & SEO Friendly",
         description:
             "Solusi website profesional untuk bisnis, startup, dan personal brand.",
-        images: "https://bisadev.id/images/app/og-image.png",
+        images: `${process.env.NEXT_PUBLIC_BASE_URL}/images/og/home.png`,
         site: "@bisadev", // ganti jika ada username Twitter
     },
 
-    alternates: {
-        canonical: "https://bisadev.id",
-    },
 };
 
 
 export default async function Page() {
-    const latestBlogs = await findBlogs({ limit: 3, sort: "created_at:desc" });
     return (
-        <PageClient latestBlogs={latestBlogs.data} />
+        <PageClient />
     )
 }
