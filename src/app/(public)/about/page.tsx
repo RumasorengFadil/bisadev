@@ -10,7 +10,7 @@ export default function Page() {
   return (
     <>
       {/* === About Schema === */}
-      <JsonLd data={seo.metadata} />
+      <JsonLd data={seo.schema} />
 
       {/* === About Page === */}
       <PageClient />

@@ -43,7 +43,7 @@ export const metadata: Metadata = {
 
 export const schema = {
     "@context": "https://schema.org",
-    "@type": "AboutPage",
+    "@type": "About",
 
     "@id": absoluteUrl("/about#about"),
 

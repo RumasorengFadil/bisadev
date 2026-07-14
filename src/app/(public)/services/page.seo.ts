@@ -56,7 +56,7 @@ const schema = {
 
     "url": absoluteUrl("/services"),
 
-    "about": {
+    "provider": {
         "@id": absoluteUrl("/#organization")
     }
 }
