@@ -46,15 +46,15 @@ const metadata: Metadata = {
 
 const schema = {
     "@context": "https://schema.org",
-    "@type": "ContactPage",
+    "@type": "Service",
 
-    "@id": absoluteUrl("/contact#contact"),
+    "@id": absoluteUrl("/services#services"),
 
     "name": metadata.title,
 
     "description": metadata.description,
 
-    "url": absoluteUrl("/contact"),
+    "url": absoluteUrl("/services"),
 
     "about": {
         "@id": absoluteUrl("/#organization")
