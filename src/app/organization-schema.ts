@@ -48,7 +48,7 @@ export const organizationSchema = {
         telephone: `+${APP_CONFIG.wa_number}`,
         contactType: "customer service",
         "availableLanguage": [
-            "Indonesian",
+            "English"
         ]
     },
 };
