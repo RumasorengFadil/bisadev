@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { PlusCircleIcon, MailIcon, ChevronRight } from "lucide-react";
+import { ChevronRight, MailIcon, PlusCircleIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
@@ -150,6 +150,7 @@ export function NavMain({ items, role }: NavMainProps) {
     if (subItems?.length) {
       return subItems.some((sub) => path.startsWith(sub.url));
     }
+   
     return path === url;
   };
 

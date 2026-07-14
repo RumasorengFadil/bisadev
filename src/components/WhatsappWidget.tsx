@@ -18,7 +18,7 @@ export default function WhatsappWidget() {
             id: "1",
             name: "Bisadev",
             role: "General Admin",
-            avatar: "/images/app/og-image.png",
+            avatar: "/logo.png",
             phone: APP_CONFIG.wa_number,
             online: true,
         },

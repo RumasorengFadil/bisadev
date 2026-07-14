@@ -1,5 +1,5 @@
-import React from "react";
 import Image from "next/image";
+import React from "react";
 
 const AboutUsSection: React.FC = () => {
     return <>
@@ -11,7 +11,7 @@ const AboutUsSection: React.FC = () => {
                         width={150}
                         height={150}
                         className="sm:max-w-80"
-                        src="/images/app/og-image.png"
+                        src="/logo.png"
                         alt="Jasa pembuatan website murah"
                     />
                 </div>

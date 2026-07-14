@@ -1,3 +1,4 @@
+import { APP_CONFIG } from "@/config/app-config";
 import { Metadata } from "next";
 import { PageClient } from "./page.client";
 
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
     robots: "index, follow",
 
     alternates: {
-        canonical: process.env.NEXT_PUBLIC_BASE_URL,
+        canonical: APP_CONFIG.url,
     },
 
     openGraph: {
@@ -18,12 +19,12 @@ export const metadata: Metadata = {
             "Bisa Dev - Jasa Pembuatan Website Profesional, Cepat & SEO Friendly",
         description:
             "Bisa Dev membantu bisnis Anda berkembang dengan website profesional, cepat, dan SEO friendly.",
-        url: `${process.env.NEXT_PUBLIC_BASE_URL}`,
+        url: `${APP_CONFIG.url}`,
         siteName: "Bisa Dev",
         type: "website",
         images: [
             {
-                url: `${process.env.NEXT_PUBLIC_BASE_URL}/images/og/home.png`,
+                url: `${APP_CONFIG.url}/images/og/home.png`,
                 width: 1200,
                 height: 675,
                 alt: "Bisa Dev - Jasa Pembuatan Website Profesional dan SEO Friendly",
@@ -37,7 +38,7 @@ export const metadata: Metadata = {
             "Bisa Dev - Jasa Pembuatan Website Profesional & SEO Friendly",
         description:
             "Solusi website profesional untuk bisnis, startup, dan personal brand.",
-        images: `${process.env.NEXT_PUBLIC_BASE_URL}/images/og/home.png`,
+        images: `${APP_CONFIG.url}/images/og/home.png`,
         site: "@bisadev", // ganti jika ada username Twitter
     },
 

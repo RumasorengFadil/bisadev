@@ -1,15 +1,16 @@
 import Construction from "@/components/Construction";
 import { GlobalTopLoader } from "@/components/GlobalTopLoader";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { AuthBootstrap } from "@/context/providers/AuthBootstrap";
 import { ReactQueryProvider } from "@/context/providers/react-query.provider";
 import { PreferencesStoreProvider } from "@/context/stores/preferences-provider";
 import { ENV } from "@/features/auth/types/env.type";
-import { Metadata } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import Script from "next/script";
 import { Toaster } from "sonner";
 import '../styles/_keyframe-animations.scss';
 import "./globals.css";
+import { organizationSchema } from "./organization-schema";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,19 +29,6 @@ const inter = Inter({
   variable: '--font-inter',
 });
 
-export const metadata: Metadata = {
-  title: {
-    default: "Bisadev IT Services & Solutions",
-    template: "Bisadev IT Services & Solutions",
-  },
-
-  description:
-    "Bisa Dev menyediakan jasa pembuatan website profesional, cepat, dan SEO friendly untuk bisnis, startup, dan personal brand. Tingkatkan kehadiran digital Anda sekarang.",
-
-  applicationName: "Bisadev IT Services & Solutions",
-};
-
-
 export default async function RootLayout({
   children,
 }: Readonly<{
@@ -50,59 +38,21 @@ export default async function RootLayout({
   const themeMode = "light";
   const themePreset = "default";
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "BisaDev",
-    url: "https://bisadev.id",
-    logo: "https://bisadev.id/images/app/og-image.png",
-    sameAs: [
-      "https://www.linkedin.com/company/abhiparaya-mahardika/",
-      "https://www.instagram.com/bisadevid/",
-      "https://www.tiktok.com/@bisadev.id",
-    ],
-    contactPoint: {
-      "@type": "ContactPoint",
-      telephone: "+6285178137881",
-      contactType: "customer service",
-    },
-  };
-
-  const localBusiness = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    name: "BisaDev",
-    image: "https://bisadev.id/images/app/og-image.png",
-    url: "https://bisadev.id",
-    telephone: "+6285178137881",
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Bekasi",
-      addressCountry: "ID",
-    },
-    areaServed: "Indonesia",
-  };
-
   return (
     <html className="scroll-smooth" lang="en">
       <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusiness) }}
-        />
         <meta name="apple-mobile-web-app-title" content="Bisadev" />
       </head>
       <body
         className={`${inter.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <JsonLd data={organizationSchema} />
+
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-RZHELFL429"
           strategy="afterInteractive"
         />
+
         <Script id="google-analytics" strategy="afterInteractive">
           {
             `window.dataLayer = window.dataLayer || [];
