@@ -49,7 +49,7 @@ export default async function RootLayout({
         <JsonLd data={organizationSchema} />
 
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-RZHELFL429"
+          src="https://www.googletagmanager.com/gtag/js?id=G-2SL8HEZB5W"
           strategy="afterInteractive"
         />
 
@@ -58,7 +58,7 @@ export default async function RootLayout({
             `window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'G-RZHELFL429');`
+              gtag('config', 'G-2SL8HEZB5W');`
           }
         </Script>
 
