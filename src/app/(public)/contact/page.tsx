@@ -1,6 +1,8 @@
+import { JsonLd } from "@/components/seo/JsonLd";
 import { PageClient } from "./page.client";
 
 import { Metadata } from "next";
+import { contactSchema } from "./page.schema";
 
 export const metadata: Metadata = {
   title:
@@ -46,6 +48,12 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <PageClient />
+    <>
+      {/* === Contact Schema === */}
+      <JsonLd data={contactSchema} />
+
+      {/* === Contact Page === */}
+      <PageClient />
+    </>
   )
 }

@@ -1,4 +1,5 @@
 import { absoluteUrl } from "@/utils/absolute-path.util";
+import { metadata } from "./page";
 
 export const serviceSchema = {
     "@context": "https://schema.org",
@@ -6,9 +7,9 @@ export const serviceSchema = {
 
     "@id": absoluteUrl("/service#services"),
 
-    "name": "Layanan Bisa Dev - Jasa Pembuatan Website Custom & Solusi Digital",
+    "name": metadata.title,
 
-    "description": "Layanan Bisa Dev mencakup pembuatan website custom yang profesional, cepat, dan SEO friendly. Kami juga mengembangkan solusi digital seperti marketplace produk digital dan sistem POS.",
+    "description": metadata.description,
 
     "url": absoluteUrl("/services"),
 

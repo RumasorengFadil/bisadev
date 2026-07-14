@@ -1,5 +1,7 @@
+import { JsonLd } from "@/components/seo/JsonLd";
 import { Metadata } from "next";
 import { PageClient } from "./page.client";
+import { portfolioSchema } from "./page.schema";
 
 export const metadata: Metadata = {
     title:
@@ -64,6 +66,12 @@ export const metadata: Metadata = {
 
 export default function Page() {
     return (
-        <PageClient />
+        <>
+            {/* Portofolio Schema */}
+            <JsonLd data={portfolioSchema} />
+
+            {/* Portofolio Pages */}
+            <PageClient />
+        </>
     )
 }

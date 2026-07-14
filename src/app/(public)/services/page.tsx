@@ -2,7 +2,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { PageClient } from "./page.client";
 
 import { Metadata } from "next";
-import { serviceSchema } from "./service.schema";
+import { serviceSchema } from "./page.schema";
 
 export const metadata: Metadata = {
   title:

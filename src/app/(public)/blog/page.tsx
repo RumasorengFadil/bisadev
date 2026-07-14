@@ -1,7 +1,9 @@
+import { JsonLd } from "@/components/seo/JsonLd";
 import { QueryFilterProvider } from "@/context/providers/query-filter-provider";
 import { BlogSearchParams } from "@/types/blog-search-params";
 import { Metadata } from "next";
 import PageClient from "./page.client";
+import { blogSchema } from "./page.schema";
 
 export const metadata: Metadata = {
     title:
@@ -60,7 +62,13 @@ export default async function Page({ searchParams }: { searchParams: Promise<Blo
             }}
         >
             <div className="space-y-6">
-                <PageClient />
+                <>
+                    {/* === Blog Schema === */}
+                    <JsonLd data={blogSchema} />
+
+                    {/* === Blog Page === */}
+                    <PageClient />
+                </>
             </div>
         </QueryFilterProvider>
     )

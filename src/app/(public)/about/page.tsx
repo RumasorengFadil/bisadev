@@ -1,6 +1,8 @@
 import { PageClient } from "./page.client";
 
+import { JsonLd } from "@/components/seo/JsonLd";
 import { Metadata } from "next";
+import { aboutSchema } from "./page.schema";
 
 export const metadata: Metadata = {
   title: "Tentang Bisa Dev - Partner Digital untuk Website Profesional",
@@ -43,6 +45,12 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <PageClient />
+    <>
+      {/* === About Schema === */}
+      <JsonLd data={aboutSchema} />
+
+      {/* === About Page === */}
+      <PageClient />
+    </>
   )
 }
