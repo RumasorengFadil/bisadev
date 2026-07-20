@@ -5,10 +5,16 @@ export const dynamic = "force-static";
 
 import { APP_CONFIG } from "@/config/app-config";
 import type { Metadata } from 'next';
+import { cache } from "react";
 
 type Props = {
     params: Promise<{ slug: string }>
 }
+
+
+export const findBlogCache = cache(async (slug: string) => {
+    return await findBlog(slug);
+});
 
 export async function generateMetadata(
     { params }: Props,
@@ -17,7 +23,7 @@ export async function generateMetadata(
     const { slug } = await params
 
     // fetch data
-    const post = await findBlog(slug);
+    const post = await findBlogCache(slug);
 
     return {
         title: post.title,
@@ -59,7 +65,7 @@ export async function generateMetadata(
 export default async function Page({ params }: Props) {
     const { slug } = await params;
 
-    const post = await findBlog(slug);
+    const post = await findBlogCache(slug);
 
     const relatedPosts = await findRelatedBlogs(post.category.name)
 

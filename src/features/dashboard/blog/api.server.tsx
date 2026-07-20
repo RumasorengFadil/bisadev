@@ -4,6 +4,7 @@ import { PaginationMeta } from "@/types/pagination-meta.type";
 import { BlogResponse } from "./types/index.type";
 
 export async function findBlog(slug: string, revalidate: number = 3600) {
+    console.log("ha;;l");
     const data = apiPublicFetch<BlogResponse>(`/blogs/${slug}`, { next: { revalidate: revalidate } });
 
     return data;

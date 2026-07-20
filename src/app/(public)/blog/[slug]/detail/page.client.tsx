@@ -34,7 +34,7 @@ export default function PageClient({ post, relatedPosts }: { post: BlogResponse,
             </div>
             <div className="flex items-center">
               <Calendar size={16} className="mr-2" />
-              {formatDate({ value: post.created_at })}
+              {formatDate({ value: post.created_at, includeTime:true })}
             </div>
           </div>
 

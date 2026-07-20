@@ -1,4 +1,5 @@
 import { SITEMAP_CONFIG } from "@/config/sitemap.config";
+import { findBlogs } from "@/features/dashboard/blog/api.server";
 import { MetadataRoute } from "next";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -6,11 +7,22 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // Static pages
   const staticRoutes = SITEMAP_CONFIG.staticRoutes.map((route) => ({
-    url: `${baseUrl}${route}`,
-    lastModified: new Date(),
+    url: `${baseUrl}${route.url}`,
+    lastModified: route.lastModified,
+    priority: route.priority,
   }));
 
-  return [...staticRoutes];
+  //Dynamic Blog Posts
+  const blogPosts = await findBlogs({ limit: 100 });
+
+  const blogRoutes = blogPosts.data.map(post => {
+    return {
+      url: `${baseUrl}/blog/${post.slug}/detail`,
+      lastModified: post.updated_at,
+      priority: SITEMAP_CONFIG.blogPostsPrior,
+    }
+  })
+  return [...staticRoutes, ...blogRoutes];
 }
 
 // Dynamic blog posts (contoh)
