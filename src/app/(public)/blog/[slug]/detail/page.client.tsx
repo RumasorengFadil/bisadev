@@ -1,6 +1,6 @@
 "use client"
+import BlogCard from "@/components/BlogCard";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
 import { BlogResponse } from "@/features/dashboard/blog/types/index.type";
 import { formatDate } from "@/utils/format-date.util";
 import { ArrowLeft, Calendar, Tag, User } from "lucide-react";
@@ -34,7 +34,7 @@ export default function PageClient({ post, relatedPosts }: { post: BlogResponse,
             </div>
             <div className="flex items-center">
               <Calendar size={16} className="mr-2" />
-              {formatDate({ value: post.created_at, includeTime:true })}
+              {formatDate({ value: post.created_at, includeTime: true })}
             </div>
           </div>
 
@@ -60,20 +60,7 @@ export default function PageClient({ post, relatedPosts }: { post: BlogResponse,
           <h2 className="text-3xl font-bold mb-8">Related Articles</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {relatedPosts.map((relatedPost) => (
-              <Link key={relatedPost.id} href={`/blog/${relatedPost.slug}/detail`} className="group">
-                <Card>
-                  <div className="aspect-video bg-gradient-to-br from-[#FFB700]/20 to-[#FFB700]/5 rounded-xl mb-4 overflow-hidden">
-                    <img
-                      src={relatedPost.thumbnail_url ?? "_"}
-                      alt={relatedPost.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-                  <h3 className="font-semibold group-hover:text-[#FFB700] transition-colors">
-                    {relatedPost.title}
-                  </h3>
-                </Card>
-              </Link>
+              <BlogCard post={relatedPost} />
             ))}
           </div>
         </div>
