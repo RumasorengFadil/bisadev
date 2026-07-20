@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import ShareDropdown from "./ShareDropdown";
 
 export function Navbar() {
     const pathname = usePathname();
@@ -57,13 +58,18 @@ export function Navbar() {
                         ))}
                     </div>
 
-                    {/* Mobile Menu Button */}
-                    <button
-                        onClick={() => setIsOpen(!isOpen)}
-                        className="md:hidden p-2 rounded-lg hover:bg-white/10"
-                    >
-                        {isOpen ? <X size={24} /> : <Menu size={24} />}
-                    </button>
+
+                    <div className="flex items-center" >
+                        {/* Mobile Menu Button */}
+                        <button
+                            onClick={() => setIsOpen(!isOpen)}
+                            className="md:hidden p-2 rounded-lg hover:bg-white/10"
+                        >
+                            {isOpen ? <X size={24} /> : <Menu size={24} />}
+                        </button>
+
+                        <ShareDropdown />
+                    </div>
                 </div>
 
                 {/* Mobile Navigation */}
@@ -82,6 +88,8 @@ export function Navbar() {
                                 {link.label}
                             </Link>
                         ))}
+
+                        <ShareDropdown />
                     </div>
                 )}
             </div>
