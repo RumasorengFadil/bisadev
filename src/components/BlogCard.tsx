@@ -1,9 +1,9 @@
+import { BlogResponse } from '@/features/dashboard/blog/types/index.type';
+import { formatDate } from '@/utils/format-date.util';
 import { Calendar } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Card } from './ui/card';
-import { BlogResponse } from '@/features/dashboard/blog/types/index.type';
-import { formatDate } from '@/utils/format-date.util';
 
 interface BlogCardProps {
     title: string;
@@ -14,7 +14,7 @@ interface BlogCardProps {
     src: string
 }
 
-export default function BlogCard({ post }: {post:BlogResponse}) {
+export default function BlogCard({ post }: { post: BlogResponse }) {
     return (
         <Link key={post.id} href={`/blog/${post.slug}/detail`} className="group">
             <Card className="bg-background p-8 h-full">
@@ -33,10 +33,10 @@ export default function BlogCard({ post }: {post:BlogResponse}) {
                     </div>
                     <span className="text-primary text-xs font-medium">{post.category?.name}</span>
                 </div>
-                <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">
+                <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors line-clamp-3">
                     {post.title}
                 </h3>
-                <p className="text-sm text-gray-400 mb-3 font-medium">{post.excerpt}</p>
+                <p className="text-sm text-gray-400 mb-3 font-medium line-clamp-3">{post.excerpt}</p>
                 <p className="text-xs text-gray-500 font-medium">By {post.author?.name}</p>
             </Card>
         </Link>
