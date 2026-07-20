@@ -38,6 +38,7 @@ export default function BlogCard({ post }: { post: BlogResponse }) {
                 </h3>
                 <p className="text-sm text-gray-400 mb-3 font-medium line-clamp-3">{post.excerpt}</p>
                 <p className="text-xs text-gray-500 font-medium">By {post.author?.name}</p>
+
             </Card>
         </Link>
     );
