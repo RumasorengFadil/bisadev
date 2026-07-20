@@ -38,7 +38,7 @@ export default function TestimonialsSection() {
                             <div className='flex gap-1'>
                                 {Array.from({ length: 5 }).map((_, index) => <Star stroke="#fde047" fill="#fde047" key={index} />)}
                             </div>
-                            <p className="font-medium text-foreground/75 leading-relaxed my-5">
+                            <p className="font-medium text-foreground/75 leading-relaxed my-5 text-gray-400">
                                 &ldquo;{t.quote}&rdquo;
                             </p>
                             <div className="flex items-center gap-3 pt-4 border-t border-border">
@@ -46,8 +46,8 @@ export default function TestimonialsSection() {
                                     {t.avatar}
                                 </div>
                                 <div>
-                                    <div className="text-lg font-semibold">{t.name}</div>
-                                    <div className="text-sm font-medium text-muted-foreground">{t.role}</div>
+                                    <div className="text-lg font-semibold text-gray-400">{t.name}</div>
+                                    <div className="text-sm font-semibold text-muted-foreground text-gray-400">{t.role}</div>
                                 </div>
                             </div>
                         </div>
