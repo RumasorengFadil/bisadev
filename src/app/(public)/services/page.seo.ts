@@ -61,4 +61,5 @@ const schema = {
     }
 }
 
+
 export const seo = { metadata, schema };

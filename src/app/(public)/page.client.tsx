@@ -4,6 +4,7 @@ import CTASection from "@/features/public/home/CTASection";
 import PreviewPortofolioSection from "@/features/public/home/PreviewPortofolioSection";
 import ProductPreviewSection from "@/features/public/home/ProductPreviewSection";
 import ServiceSection from "@/features/public/home/ServiceSection";
+import TestimonialsSection from "@/features/public/home/TestimonialsSection";
 import WhyChooseUsSection from "@/features/public/home/WhyChooseUsSection";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
@@ -52,6 +53,9 @@ export function PageClient() {
 
             {/* Portfolio Preview */}
             <PreviewPortofolioSection />
+
+            {/* Testimonial Section */}
+            <TestimonialsSection />
 
             {/* Blog Preview */}
             <BlogPreviewSection />

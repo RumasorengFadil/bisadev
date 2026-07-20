@@ -4,29 +4,6 @@ import ContactFormSection from "@/features/public/contanct/components/ContactFor
 import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 
 export function PageClient() {
-
-
-  const contactInfo = [
-    {
-      icon: <Mail className="w-6 h-6 text-[#FFB700]" />,
-      title: "Email",
-      content: "contact@bisadev.com",
-      link: "mailto:contact@bisadev.com",
-    },
-    {
-      icon: <Phone className="w-6 h-6 text-[#FFB700]" />,
-      title: "Phone",
-      content: "+62 851 7813 7881",
-      link: "https://wa.me/6285178137881",
-    },
-    {
-      icon: <MapPin className="w-6 h-6 text-[#FFB700]" />,
-      title: "Office",
-      content: "Jakarta, Indonesia",
-      link: null,
-    },
-  ];
-
   return (
     <div>
       {/* Hero */}
@@ -123,7 +100,7 @@ export function PageClient() {
 
           <div className="bg-gray-300 rounded-lg overflow-hidden shadow-lg h-96 flex items-center justify-center">
             <iframe
-              src="https://www.google.com/maps?q=Jakarta,+Indonesia&output=embed"
+              src={APP_CONFIG.map_location_link}
               className="w-full h-full"
               style={{ border: 0 }}
               loading="lazy"

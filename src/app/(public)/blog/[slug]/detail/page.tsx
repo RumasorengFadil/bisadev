@@ -3,7 +3,60 @@ import PageClient from "./page.client";
 
 export const dynamic = "force-static";
 
-export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
+import { APP_CONFIG } from "@/config/app-config";
+import type { Metadata } from 'next';
+
+type Props = {
+    params: Promise<{ slug: string }>
+}
+
+export async function generateMetadata(
+    { params }: Props,
+): Promise<Metadata> {
+    // read route params
+    const { slug } = await params
+
+    // fetch data
+    const post = await findBlog(slug);
+
+    return {
+        title: post.title,
+        description: post.excerpt,
+        robots: "index, follow",
+        openGraph: {
+            title: post.title,
+            description: post.excerpt,
+            type: 'article',
+            url: `${APP_CONFIG.url}/blog/${post.slug}/detail`,
+            images: post.thumbnail_url ?
+                [
+                    {
+                        url: post.thumbnail_url,
+                        width: 1200,
+                        height: 630,
+                        alt: post.title,
+                    }
+                ]
+                :
+                []
+            ,
+        },
+
+        twitter: {
+            card: "summary_large_image",
+            title: post.title,
+            description: post.excerpt,
+            images: post.thumbnail_url ? [post.thumbnail_url] : []
+        },
+
+        alternates: {
+            canonical: `${APP_CONFIG.url}/blog/${post.slug}/detail`,
+        }
+    }
+}
+
+
+export default async function Page({ params }: Props) {
     const { slug } = await params;
 
     const post = await findBlog(slug);
