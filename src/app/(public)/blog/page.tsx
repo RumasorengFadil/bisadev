@@ -1,5 +1,6 @@
 import { JsonLd } from "@/components/seo/JsonLd";
 import { QueryFilterProvider } from "@/context/providers/query-filter-provider";
+import { BlogStatus } from "@/features/dashboard/blog/enums/blog-status.enum";
 import { BlogSearchParams } from "@/types/blog-search-params";
 import { Metadata } from "next";
 import PageClient from "./page.client";
@@ -15,6 +16,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<Blo
             defaultValues={{
                 query: query ?? "",
                 category: category ?? "",
+                status: BlogStatus.PUBLISHED
             }}
         >
             <div className="space-y-6">

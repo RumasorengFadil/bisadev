@@ -7,7 +7,7 @@ import { isArrayEmpty } from "@/utils/isEmptyArray";
 import { BlogSkeletonCard } from "./BlogSkeletonCard";
 
 export default function BlogSection() {
-    const { debouncedParams } = useQueryFilterContext<BlogSearchParams>();
+    const { debouncedParams, } = useQueryFilterContext<BlogSearchParams>();
 
     const { data: blogs, isLoading } = useFindBlogs({ params: debouncedParams });
 
