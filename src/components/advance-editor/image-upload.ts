@@ -1,24 +1,25 @@
 
+import { api } from "@/lib/api";
 import { createImageUpload } from "novel";
 import { toast } from "sonner";
 
 const onUpload = (file: File) => {
   const formData = new FormData();
-
   formData.append("image", file);
 
-  const promise = fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/blog/upload-image`, {
-    method: "POST",
-    credentials: "include",
-    body: formData,
+  const promise = api.post(`${process.env.NEXT_PUBLIC_API_URL}/blogs/upload-image`, formData, {
+    headers: {
+      'Content-Type': 'multipart/form-data'
+    }
   });
 
   return new Promise((resolve, reject) => {
     toast.promise(
       promise.then(async (res) => {
         // Successfully uploaded image
-        if (res.status === 200) {
-          const { url } = (await res.json()) as { url: string };
+        if (res.status === 201) {
+          const { url } = res.data;
+
           // preload the image
           const image = new Image();
           image.src = url;

@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { findBlogs } from "@/features/dashboard/blog/api.server";
+import { findLatestBlogs } from "@/features/dashboard/blog/api.server";
 import { formatDate } from "@/utils/format-date.util";
 import { Calendar } from "lucide-react";
 import Link from "next/link";
@@ -8,7 +8,7 @@ import { Suspense } from "react";
 import { BlogSkeletonCard } from "../blog/components/BlogSkeletonCard";
 
 async function BlogList() {
-    const latestBlogs = await findBlogs({ limit: 3, sort: "created_at:desc" });
+    const latestBlogs = await findLatestBlogs();
 
     return latestBlogs.data.map((post, idx) => (
         <Link href={`/blog/${post.slug}/detail`} className="group" key={idx}>

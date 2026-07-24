@@ -88,8 +88,6 @@ export function Navbar() {
                                 {link.label}
                             </Link>
                         ))}
-
-                        <ShareDropdown />
                     </div>
                 )}
             </div>

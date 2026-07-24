@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 import { Popover, PopoverContent, PopoverTrigger } from "@radix-ui/react-popover";
 import { Check, Trash } from "lucide-react";
 import { useEditor } from "novel";
-import { useEffect, useRef } from "react";
+import { MouseEvent, useEffect, useRef, useState } from "react";
 import { Button } from "../ui/button";
 
 export function isValidUrl(url: string) {
@@ -31,12 +31,33 @@ interface LinkSelectorProps {
 export const LinkSelector = ({ open, onOpenChange }: LinkSelectorProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const { editor } = useEditor();
+  const [link, setLink] = useState("");
+
+  // Sinkronkan nilai link dari editor setiap kali popover dibuka atau editor berubah
+  useEffect(() => {
+    if (open && editor) {
+      const currentHref = editor.getAttributes("link").href || "";
+      console.log(currentHref);
+      setLink(currentHref);
+    }
+  }, [open, editor]);
 
   // Autofocus on input by default
   useEffect(() => {
-    inputRef.current?.focus();
-  });
+    if (open) {
+      inputRef.current?.focus();
+    }
+  }, [open]);
+
   if (!editor) return null;
+
+  const handleCLick = (e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>) => {
+    const url = getUrlFromString(link);
+    if (url) {
+      editor.chain().focus().setLink({ href: url }).run();
+      onOpenChange(false);
+    }
+  };
 
   return (
     <Popover modal={true} open={open} onOpenChange={onOpenChange}>
@@ -53,25 +74,14 @@ export const LinkSelector = ({ open, onOpenChange }: LinkSelectorProps) => {
         </Button>
       </PopoverTrigger>
       <PopoverContent align="start" className="w-60 p-0" sideOffset={10}>
-        <form
-          onSubmit={(e) => {
-            const target = e.currentTarget as HTMLFormElement;
-            e.preventDefault();
-            const input = target[0] as HTMLInputElement;
-            const url = getUrlFromString(input.value);
-            if (url) {
-              editor.chain().focus().setLink({ href: url }).run();
-              onOpenChange(false);
-            }
-          }}
-          className="flex  p-1 "
-        >
+        <div className="flex p-1">
           <input
             ref={inputRef}
+            value={link} // Menggunakan controlled value dari state
+            onChange={(e) => setLink(e.target.value)}
             type="text"
             placeholder="Paste a link"
             className="flex-1 bg-background p-1 text-sm outline-none"
-            defaultValue={editor.getAttributes("link").href || ""}
           />
           {editor.getAttributes("link").href ? (
             <Button
@@ -81,18 +91,18 @@ export const LinkSelector = ({ open, onOpenChange }: LinkSelectorProps) => {
               className="flex h-8 items-center rounded-sm p-1 text-red-600 transition-all hover:bg-red-100 dark:hover:bg-red-800"
               onClick={() => {
                 editor.chain().focus().unsetLink().run();
-                inputRef.current && (inputRef.current.value = "");
+                setLink("");
                 onOpenChange(false);
               }}
             >
               <Trash className="h-4 w-4" />
             </Button>
           ) : (
-            <Button size="icon" className="h-8">
+            <Button onClick={(e) => handleCLick(e)} size="icon" type="button" className="h-8">
               <Check className="h-4 w-4" />
             </Button>
           )}
-        </form>
+        </div>
       </PopoverContent>
     </Popover>
   );

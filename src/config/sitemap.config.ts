@@ -3,32 +3,32 @@ export const SITEMAP_CONFIG = {
   staticRoutes: [
     {
       url: "/",
-      lastModified: new Date(),
+      lastModified: new Date("2026-07-24"),
       priority: 1.0,
     },
     {
       url: "/services",
-      lastModified: new Date(),
+      lastModified: new Date("2026-07-21"),
       priority: 0.9,
     },
     {
       url: "/portofolio",
-      lastModified: new Date(),
+      lastModified: new Date("2026-07-21"),
       priority: 0.9,
     },
     {
       url: "/about",
-      lastModified: new Date(),
+      lastModified: new Date("2026-07-21"),
       priority: 0.8,
     },
     {
       url: "/contact",
-      lastModified: new Date(),
+      lastModified: new Date("2026-07-21"),
       priority: 0.8,
     },
     {
       url: "/blog",
-      lastModified: new Date(),
+      lastModified: new Date("2026-07-21"),
       priority: 0.7,
     },
   ],

@@ -3,13 +3,7 @@ export async function apiPublicFetch<T>(
   options: RequestInit = {}
 ): Promise<T> {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}${url}`,
-    {
-      ...options,
-      next: {
-        ...options.next,
-      },
-    }
+    `${process.env.NEXT_PUBLIC_API_URL}${url}`, options
   );
 
   if (!response.ok) {

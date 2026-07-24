@@ -2,6 +2,8 @@ import { SITEMAP_CONFIG } from "@/config/sitemap.config";
 import { findBlogs } from "@/features/dashboard/blog/api.server";
 import { MetadataRoute } from "next";
 
+export const revalidate = 3600;
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
@@ -13,7 +15,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }));
 
   //Dynamic Blog Posts
-  const blogPosts = await findBlogs({ limit: 100 });
+  const blogPosts = await findBlogs({ limit: 300 });
 
   const blogRoutes = blogPosts.data.map(post => {
     return {
@@ -24,11 +26,3 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   })
   return [...staticRoutes, ...blogRoutes];
 }
-
-// Dynamic blog posts (contoh)
-//   const blogPosts = await getBlogPosts(); // ambil dari API / DB
-
-//   const blogRoutes = blogPosts.map((post: any) => ({
-//     url: `${baseUrl}/blog/${post.slug}`,
-//     lastModified: new Date(post.updatedAt || post.createdAt),
-//   }));

@@ -1,8 +1,9 @@
-import { findBlog, findRelatedBlogs } from "@/features/dashboard/blog/api.server";
+import { findRelatedBlogs } from "@/features/dashboard/blog/api.server";
 import PageClient from "./page.client";
 
 export const dynamic = "force-static";
 
+import { findBlog } from "@/api/find-blog.api";
 import { APP_CONFIG } from "@/config/app-config";
 import type { Metadata } from 'next';
 import { cache } from "react";
@@ -10,7 +11,6 @@ import { cache } from "react";
 type Props = {
     params: Promise<{ slug: string }>
 }
-
 
 export const findBlogCache = cache(async (slug: string) => {
     return await findBlog(slug);
@@ -60,6 +60,7 @@ export async function generateMetadata(
         }
     }
 }
+export const revalidate = 3600;
 
 
 export default async function Page({ params }: Props) {
