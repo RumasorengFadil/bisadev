@@ -26,7 +26,7 @@ export async function findCategories(catParams: CategorySearchParams) {
 
     const queryString = searchParams.toString();
 
-    const data = apiPublicFetch<{ data: CategoryResponse[], meta: PaginationMeta }>(queryString ? `/categories?${queryString}` : `/categories`, { next: { revalidate: 3600 } });
+    const data = apiPublicFetch<{ data: CategoryResponse[], meta: PaginationMeta }>(queryString ? `/categories?${queryString}` : `/categories`);
 
     return data;
 }
