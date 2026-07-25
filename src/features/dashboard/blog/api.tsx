@@ -5,7 +5,7 @@ import { BlogFormSchemaType } from "./schema/blog-form.schema";
 //
 // COURSES
 //
-export async function findBlogs({ page, limit, query, status, category }: BlogSearchParams) {
+export async function findMyBlogs({ page, limit, query, status, category }: BlogSearchParams) {
     const searchParams = new URLSearchParams();
 
     if (page !== undefined) {
@@ -35,6 +35,38 @@ export async function findBlogs({ page, limit, query, status, category }: BlogSe
 
     return res.data;
 }
+
+export async function findBlogs({ page, limit, query, status, category }: BlogSearchParams) {
+    const searchParams = new URLSearchParams();
+
+    if (page !== undefined) {
+        searchParams.set("page", String(page));
+    }
+
+    if (limit !== undefined) {
+        searchParams.set("limit", String(limit));
+    }
+
+    if (query) {
+        searchParams.set("q", query);
+    }
+
+    if (status) {
+        searchParams.set("status", status);
+    }
+    if (category) {
+        searchParams.set("category", category);
+    }
+
+    const queryString = searchParams.toString();
+
+    const res = await api.get(
+        queryString ? `/blogs?${queryString}` : `/blogs`
+    );
+
+    return res.data;
+}
+
 export async function findBlog(slug: string) {
     const res = await api.get(`/blogs/${slug}`);
 

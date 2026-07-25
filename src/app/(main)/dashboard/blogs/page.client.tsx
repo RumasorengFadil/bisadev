@@ -7,7 +7,7 @@ import TooltipWrapper from "@/components/TooltipWarapper";
 import { BlogStatus } from "@/features/dashboard/blog/enums/blog-status.enum";
 import useDeleteBlog from "@/features/dashboard/blog/hooks/use-delete-blog.hook";
 import { useFindBlogStats } from "@/features/dashboard/blog/hooks/use-find-blog-stats.hook";
-import { useFindBlogs } from "@/features/dashboard/blog/hooks/use-find-blogs.hook";
+import { useFindMyBlogs } from "@/features/dashboard/blog/hooks/use-find-my-blogs.hook";
 import { BlogResponse } from "@/features/dashboard/blog/types/index.type";
 import { useQueryParam } from "@/hooks/use-query-param";
 import { SearchParams } from "@/types/search-params.type";
@@ -27,7 +27,7 @@ export default function PageClient({ searchParams }: { searchParams: SearchParam
     const [debounceStatus] = useDebounce(status, 300);
     const [debouncePage] = useDebounce(page, 300);
 
-    const { data: blogs, isLoading } = useFindBlogs({params:{ query: debounceQuery, status: debounceStatus, page }});
+    const { data: blogs, isLoading } = useFindMyBlogs({ params: { query: debounceQuery, status: debounceStatus, page } });
     const { data: stats } = useFindBlogStats();
     const { mutate: deleteBlog } = useDeleteBlog();
 
