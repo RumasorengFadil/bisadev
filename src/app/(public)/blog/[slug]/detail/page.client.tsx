@@ -1,4 +1,3 @@
-"use client"
 import BlogCard from "@/components/BlogCard";
 import { Button } from "@/components/ui/button";
 import { BlogResponse } from "@/features/dashboard/blog/types/index.type";
@@ -60,7 +59,7 @@ export default function PageClient({ post, relatedPosts }: { post: BlogResponse,
           <h2 className="text-3xl font-bold mb-8">Related Articles</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {relatedPosts.map((relatedPost) => (
-              <BlogCard post={relatedPost} />
+              <BlogCard key={relatedPost.id} post={relatedPost} />
             ))}
           </div>
         </div>

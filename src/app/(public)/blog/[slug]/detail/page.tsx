@@ -4,9 +4,13 @@ import PageClient from "./page.client";
 export const dynamic = "force-static";
 
 import { findBlog } from "@/api/find-blog.api";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { APP_CONFIG } from "@/config/app-config";
+import { BlogResponse } from "@/features/dashboard/blog/types/index.type";
+import { absoluteUrl } from "@/utils/absolute-path.util";
 import type { Metadata } from 'next';
 import { cache } from "react";
+import { metadata } from "../../page";
 
 type Props = {
     params: Promise<{ slug: string }>
@@ -60,6 +64,37 @@ export async function generateMetadata(
         }
     }
 }
+const generateSchema = async (post: BlogResponse) => {
+    return {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+
+        "@id": absoluteUrl(`/blog/${post.slug}/detail#article`),
+        "url": absoluteUrl(`/blog/${post.slug}/detail`),
+
+        "headline": post.title,
+        "description": metadata.description,
+
+        "image": post.thumbnail_url,
+
+        "datePublished": post.created_at,
+        "dateModified": post.updated_at,
+
+        "author": {
+            "@type": "Person",
+            "name": post.author?.name ?? "Admin"
+        },
+
+        "publisher": {
+            "@id": absoluteUrl("/#organization")
+        },
+
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": absoluteUrl(`/blog/${post.slug}/detail`)
+        }
+    };
+};
 export const revalidate = 3600;
 
 
@@ -67,10 +102,15 @@ export default async function Page({ params }: Props) {
     const { slug } = await params;
 
     const post = await findBlogCache(slug);
+    const schema = await generateSchema(post);
 
     const relatedPosts = await findRelatedBlogs(post.category.name)
 
     return (
-        <PageClient relatedPosts={relatedPosts} post={post} />
+        <>
+            <JsonLd data={schema} />
+            <PageClient relatedPosts={relatedPosts} post={post} />
+
+        </>
     )
 }
