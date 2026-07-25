@@ -3,6 +3,7 @@ import { PageClient } from "./page.client";
 
 import { Metadata } from "next";
 import { seo } from "./page.seo";
+export const dynamic = "force-static";
 
 export const metadata: Metadata = seo.metadata;
 export default function Page() {
