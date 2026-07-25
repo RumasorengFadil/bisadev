@@ -1,5 +1,5 @@
 import { UserRole } from "@/enums/user.role.enum";
-import { LayoutDashboard, type LucideIcon, Folder, Box, Newspaper } from "lucide-react";
+import { Folder, LayoutDashboard, Newspaper, type LucideIcon } from "lucide-react";
 
 export interface NavSubItem {
   title: string;
@@ -36,19 +36,19 @@ export const sidebarItems: NavGroup[] = [
         title: "Overview",
         url: "/dashboard/overview",
         icon: LayoutDashboard,
-        roles: [UserRole.ADMIN, UserRole.INSTRUCTOR],
+        roles: [UserRole.SUPER_ADMIN, UserRole.INSTRUCTOR],
       },
       {
         title: "Blogs",
         url: "/dashboard/blogs",
         icon: Newspaper,
-        roles: [UserRole.ADMIN, UserRole.INSTRUCTOR],
+        roles: [UserRole.SUPER_ADMIN, UserRole.INSTRUCTOR],
       },
       {
         title: "Categories",
         url: "/dashboard/categories",
         icon: Folder,
-        roles: [UserRole.ADMIN, UserRole.INSTRUCTOR],
+        roles: [UserRole.SUPER_ADMIN, UserRole.INSTRUCTOR],
       },
       // {
       //   title: "CRM",

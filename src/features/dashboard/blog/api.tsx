@@ -30,7 +30,7 @@ export async function findBlogs({ page, limit, query, status, category }: BlogSe
     const queryString = searchParams.toString();
 
     const res = await api.get(
-        queryString ? `/blogs?${queryString}` : `/blogs`
+        queryString ? `/blogs/my?${queryString}` : `/blogs/my`
     );
 
     return res.data;
@@ -52,7 +52,7 @@ export async function createBlog(data: BlogFormSchemaType) {
 }
 
 export async function findStats() {
-    const res = await api.get("/blogs/stats");
+    const res = await api.get("/blogs/stats/my");
 
     return res.data;
 }

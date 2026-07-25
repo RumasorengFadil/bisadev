@@ -8,7 +8,6 @@ export default function PageClient() {
       <Suspense fallback={null}>
         <BlogFilterProvider />
       </Suspense>
-
     </div>
 
   );
