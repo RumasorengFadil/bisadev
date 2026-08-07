@@ -6,7 +6,7 @@ export const organizationSchema = {
     "@id": `${absoluteUrl("/#organization")}`,
     "@type": "Organization",
 
-    name: "BisaDev",
+    name: "Bisadev Indonesia",
 
     url: APP_CONFIG.url,
 
@@ -26,6 +26,7 @@ export const organizationSchema = {
         "https://id.linkedin.com/company/bisadev-indonesia",
         "https://www.instagram.com/bisadev.id/",
         "https://www.tiktok.com/@bisadev.id",
+        "https://www.threads.com/@bisadev.id"
     ],
 
     knowsAbout: [

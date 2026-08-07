@@ -4,19 +4,19 @@ import { Metadata } from "next";
 
 const metadata: Metadata = {
     title:
-        "Blog BisaDev | Artikel Web Development, Software House, AI, SEO & Teknologi Indonesia",
+        "Bisadev | Artikel Web Development, Software House, AI, SEO & Teknologi Indonesia",
 
     description:
         "Baca artikel terbaru dari BisaDev seputar web development, software house, website bisnis, AI, SEO, React, Laravel, Next.js, digital transformation, serta tips teknologi untuk UMKM, startup, dan perusahaan.",
 
     keywords:
-        "Bisadev, BisaDev Indonesia, blog bisadev, software house indonesia, jasa pembuatan website, web development, website bisnis, aplikasi web, React.js, Next.js, Laravel, TypeScript, SEO website, AI, artificial intelligence, digital transformation, teknologi bisnis, software development, UMKM digital, startup indonesia",
+        "Bisadev, BisaDev Indonesia, Bisadev, software house indonesia, jasa pembuatan website, web development, website bisnis, aplikasi web, React.js, Next.js, Laravel, TypeScript, SEO website, AI, artificial intelligence, digital transformation, teknologi bisnis, software development, UMKM digital, startup indonesia",
 
     robots: "index, follow",
 
     openGraph: {
         title:
-            "Blog BisaDev | Insight Web Development, AI & Digital Transformation",
+            "Bisadev | Insight Web Development, AI & Digital Transformation",
 
         description:
             "Temukan insight, tutorial, dan artikel terbaru tentang web development, AI, SEO, digital transformation, React, Laravel, Next.js, serta teknologi untuk mengembangkan bisnis.",
@@ -30,7 +30,7 @@ const metadata: Metadata = {
                 url: `${process.env.NEXT_PUBLIC_BASE_URL}/images/og/blog.png`,
                 width: 1200,
                 height: 630,
-                alt: "Blog BisaDev - Web Development & Teknologi",
+                alt: "Bisadev - Web Development & Teknologi",
             },
         ],
     },
@@ -39,7 +39,7 @@ const metadata: Metadata = {
         card: "summary_large_image",
 
         title:
-            "Blog BisaDev | Web Development, AI, SEO & Teknologi",
+            "Bisadev | Web Development, AI, SEO & Teknologi",
 
         description:
             "Artikel terbaru tentang web development, AI, React, Laravel, Next.js, SEO, dan digital transformation dari BisaDev.",

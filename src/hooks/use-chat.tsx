@@ -15,6 +15,7 @@ export const useChat = () => {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ question })
         })
+        
         const reader = res.body?.getReader();
         const decoder = new TextDecoder();
 
