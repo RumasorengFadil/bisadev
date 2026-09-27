@@ -37,3 +37,15 @@ Bisadev adalah situs agensi digital untuk menampilkan layanan, produk, portofoli
 - Repository ini belum punya schema/migrasi database lokal. Jika kelak perubahan menyentuh database yang dikelola di repository, sertakan migrasi dan dokumentasikan tabel, kolom, index, constraint, serta langkah verifikasinya. Untuk API backend eksternal, dokumentasikan kontrak yang benar-benar digunakan frontend, bukan schema backend yang tidak tersedia.
 - Belum ada test runner, skrip `test`, atau berkas unit/integration test di repository. Jalankan `npx tsc --noEmit` untuk pemeriksaan tipe dan `npm run build` bila perubahan memengaruhi build; uji alur terkait secara manual. CI saat ini menjalankan `npm ci` dan `npm run build`.
 - Skrip `npm run lint` masih menjalankan `next lint` dan gagal pada versi Next.js terpasang; perbaiki skrip tersebut sebelum menggunakannya sebagai pemeriksaan wajib. Dalam report, beri status `PASS` hanya untuk pemeriksaan yang benar-benar dijalankan; isi kategori tanpa perubahan dengan `None`.
+
+## Konvensi UI dan kualitas
+
+- `docs/governance/DESIGN.md` mencatat tampilan dan komponen yang saat ini diterapkan. Gunakan sebagai acuan saat mengubah UI, lalu perbarui jika implementasinya berubah.
+- Untuk pekerjaan UI, aksesibilitas, layout responsif, copy, atau komentar kode, baca `antislop.md` dan panduan terkait di `skills/antislop-*/SKILL.md`. Terapkan panduan yang relevan dengan perubahan tanpa menganggap contoh di sana sebagai fitur yang sudah ada.
+- Ikuti bahasa, pola, dan praktik keamanan pada modul yang diubah. Hindari aturan bisnis hardcoded dan dependency baru yang tidak diperlukan.
+
+## Git dan commit
+
+- Tinjau diff dan jalankan verifikasi yang relevan sebelum commit. Jangan sertakan kredensial, berkas `.env`, keluaran build, atau perubahan yang tidak terkait.
+- Gunakan pesan Conventional Commits yang singkat dan spesifik, mengikuti gaya riwayat repository. Pertahankan identitas Git yang sudah dikonfigurasi; jangan menambah atribusi asisten.
+- Jangan amend, squash, force-push, atau menulis ulang riwayat tanpa instruksi pengguna.
