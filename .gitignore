@@ -17,6 +17,9 @@
 /.next/
 /out/
 
+# new local governance files (already tracked files remain tracked)
+/docs/governance/
+
 # production
 /build
 
