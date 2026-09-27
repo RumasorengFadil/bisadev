@@ -11,6 +11,7 @@ Jalankan `npm ci`, siapkan `.env.local`, lalu `npm run dev`. Detail variabel dan
 | Kategori | Isi |
 |---|---|
 | [Architecture](architecture/) | Struktur App Router, batas server/client, dan alur data. |
+| [Governance](governance/) | Acuan utama arsitektur dan desain UI Bisadev saat ini. |
 | [Security](security/) | Autentikasi, cookie, dan kontrol rute yang ada. |
 | [Deployment](deployment/) | Setup lokal, variabel lingkungan, build, dan CI/deploy. |
 | [Features](features/) | Perilaku fitur yang terimplementasi, satu folder per domain. |
@@ -24,6 +25,11 @@ Jalankan `npm ci`, siapkan `.env.local`, lalu `npm run dev`. Detail variabel dan
 | [categories](features/categories/README.md) | Kategori blog dashboard dan filter kategori. |
 | [chat](features/chat/README.md) | Chat streaming pada situs publik. |
 | [contact](features/contact/README.md) | Form kontak melalui WhatsApp. |
+
+## Acuan lintas fitur
+
+- [Architecture Blueprint](governance/ARCHITECTURE_BLUEPRINT.md): struktur, alur data, dependency, dan pola pengembangan aktif.
+- [DESIGN.md](governance/DESIGN.md): komponen, layout, token visual, dan perilaku responsif yang terlihat pada kode.
 
 ## Konvensi dokumentasi
 
